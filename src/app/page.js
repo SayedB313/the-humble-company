@@ -5,14 +5,75 @@ import { useState, useEffect } from 'react'
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import CalendlyWidget from '../components/CalendlyWidget'
 
 export default function EnhancedAgencyLandingPage() {
   const [currentInsight, setCurrentInsight] = useState(0)
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
+  const logos = [
+    'apollo', 'clay', 'emailguard', 'gmail', 'hubspot', 'hypertide', 
+    'instantly', 'million', 'outlook', 'premiuminboxes', 'smartlead'
+  ]
+
+  const [visibleLogos, setVisibleLogos] = useState(logos.slice(0, 6))
+  const [currentHeaderIndex, setCurrentHeaderIndex] = useState(0);
+  const headers = [
+    { main: "We Drive Pipeline", sub: "You Close Deals" },
+    { main: "We Generate Leads", sub: "You Boost Revenue" },
+    { main: "We Craft Messages", sub: "You Win Clients" },
+    { main: "We Do Outreach", sub: "You Focus on Growth" }, // New header variation
+  ];
+
+  const [selectedChallenge, setSelectedChallenge] = useState(null)
+
+  const challenges = [
+    {
+      icon: <UserX className="w-12 h-12 text-orange-500" />,
+      title: "Lead Generation",
+      description: "Struggling to find ideal prospects?",
+      details: "Finding high-quality leads is becoming increasingly difficult. Your team spends countless hours searching for the right contacts, often with limited success."
+    },
+    {
+      icon: <Mail className="w-12 h-12 text-orange-500" />,
+      title: "Email Deliverability",
+      description: "Emails not reaching inboxes?",
+      details: "Your carefully crafted emails are ending up in spam folders or getting blocked entirely, severely limiting the effectiveness of your outreach campaigns."
+    },
+    {
+      icon: <Users className="w-12 h-12 text-orange-500" />,
+      title: "Personalization at Scale",
+      description: "Generic outreach falling flat?",
+      details: "Mass emails are being ignored. You know personalization is key, but manually customizing each message for hundreds or thousands of prospects is simply not feasible."
+    },
+    {
+      icon: <PieChart className="w-12 h-12 text-orange-500" />,
+      title: "Weak Sales Pipeline",
+      description: "Not enough qualified leads?",
+      details: "Your sales team is struggling with a dry pipeline. The lack of consistent, quality leads is making it difficult to meet sales targets and grow your business."
+    },
+    {
+      icon: <Clock className="w-12 h-12 text-orange-500" />,
+      title: "Time Management",
+      description: "Drowning in follow-ups?",
+      details: "Managing responses, follow-ups, and appointment scheduling is eating up your day. This leaves little time for actually closing deals and growing your business."
+    },
+    {
+      icon: <TrendingUp className="w-12 h-12 text-orange-500" />,
+      title: "Scaling Outreach",
+      description: "Can't increase volume without losing quality?",
+      details: "As you try to scale your outreach efforts, you're finding it hard to maintain the quality and personalization that made your initial campaigns successful."
+    }
+  ]
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   useEffect(() => {
     // This will ensure Calendly is initialized after the component mounts
@@ -25,6 +86,22 @@ export default function EnhancedAgencyLandingPage() {
         branding: undefined
       });
     }
+
+    const interval = setInterval(() => {
+      setVisibleLogos(prevLogos => {
+        const nextIndex = (logos.indexOf(prevLogos[prevLogos.length - 1]) + 1) % logos.length
+        return [...prevLogos.slice(1), logos[nextIndex]]
+      })
+    }, 3000) // Change logo every 3 seconds
+
+    const headerInterval = setInterval(() => {
+      setCurrentHeaderIndex((prevIndex) => (prevIndex + 1) % headers.length);
+    }, 4000); // Change header every 4 seconds
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(headerInterval);
+    };
   }, []);
 
   const openCalendly = () => {
@@ -84,28 +161,46 @@ export default function EnhancedAgencyLandingPage() {
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <Mail className="w-8 h-8 text-blue-600" />
-            <span className="text-xl font-bold">ColdEmailPro</span>
+            <Mail className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
+            <span className="text-lg md:text-xl font-bold leading-tight">
+              Cold Email<br />Associates
+            </span>
           </Link>
           <nav className="hidden md:flex space-x-6">
-            <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors">Services</Link>
-            <Link href="#how-it-works" className="text-sm font-medium hover:text-blue-600 transition-colors">How it works</Link>
+            <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors">Challenges We Solve</Link>
+            <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors">Our Services</Link>
+            <Link href="#how-it-works" className="text-sm font-medium hover:text-blue-600 transition-colors">How It Works</Link>
             <Link href="#case-studies" className="text-sm font-medium hover:text-blue-600 transition-colors">Case Studies</Link>
             <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors">Testimonials</Link>
-            <Link href="#pricing" className="text-sm font-medium hover:text-blue-600 transition-colors">Pricing</Link>
-            <Link href="#faq" className="text-sm font-medium hover:text-blue-600 transition-colors">FAQ</Link>
+            {/* Removed Insights link */}
           </nav>
-          <motion.div
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-          >
+          <div className="md:hidden">
+            <Button variant="ghost" size="sm" onClick={toggleMobileMenu}>
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
+          <div className="hidden md:block">
             <Button onClick={openCalendly}>
               <Calendar className="mr-2 h-4 w-4" />
               Book a Consultation
             </Button>
-          </motion.div>
+          </div>
         </div>
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 py-2">
+            <nav className="flex flex-col space-y-2 px-4">
+              <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Challenges We Solve</Link>
+              <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Our Services</Link>
+              <Link href="#how-it-works" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>How It Works</Link>
+              <Link href="#case-studies" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Case Studies</Link>
+              <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Testimonials</Link>
+              <Button onClick={() => { openCalendly(); toggleMobileMenu(); }} className="mt-2">
+                <Calendar className="mr-2 h-4 w-4" />
+                Book a Consultation
+              </Button>
+            </nav>
+          </div>
+        )}
       </header>
 
       <main className="flex-grow">
@@ -120,49 +215,145 @@ export default function EnhancedAgencyLandingPage() {
         </motion.div>
 
         {/* Hero Section */}
-        <section className="bg-gray-50 py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-4xl font-bold mb-6"
-              >
-                Supercharge Your B2B Sales Pipeline with Expert Cold Email Outreach
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="text-xl text-gray-600 mb-8"
-              >
-                We help B2B companies generate high-quality leads and book more meetings through our proven cold email strategies and AI-powered automation.
-              </motion.p>
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <Button size="lg" onClick={openCalendly}>
-                  Book Your Free Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-8 flex items-center justify-center space-x-4"
-              >
-                <div className="flex -space-x-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Image key={i} src="/placeholder.svg" alt="Client logo" width={40} height={40} className="rounded-full border-2 border-white" />
-                  ))}
+        <section className="bg-white py-12 md:py-20 md:pb-10">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div>
+                <p className="text-blue-600 font-semibold mb-2 md:mb-4">ATTENTION B2B ORGANIZATIONS</p>
+                <div className="min-h-[120px] md:min-h-[160px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentHeaderIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                        {headers[currentHeaderIndex].main}
+                      </h1>
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl text-gray-600 mb-4">
+                        {headers[currentHeaderIndex].sub}
+                      </h2>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
-                <p className="text-sm text-gray-600">Trusted by 100+ B2B companies</p>
-              </motion.div>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8"
+                >
+                  Boosting B2B sales by connecting companies with their ideal customers through targeted GTM strategies.
+                </motion.p>
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="mb-6 md:mb-8"
+                >
+                  <Button size="lg" onClick={openCalendly} className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg w-full md:w-auto">
+                    Get My Free Outbound Audit
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="flex items-center mb-8"
+                >
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="text-yellow-400 w-5 h-5 mr-1" />
+                  ))}
+                  <p className="ml-2 text-sm text-gray-600">Trusted by 50+ active B2B organizations</p>
+                </motion.div>
+              </div>
+              <div className="hidden lg:block">
+                {/* Placeholder for potential image or additional content */}
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Logo Carousel */}
+        <section className="bg-white py-4 md:py-6 overflow-hidden">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <motion.div 
+              className="flex"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ 
+                x: { 
+                  repeat: Infinity, 
+                  repeatType: "loop", 
+                  duration: 3.5,
+                  ease: "linear"
+                },
+              }}
+              whileHover={{ animationPlayState: 'paused' }}
+            >
+              {[...logos, ...logos].map((logo, index) => (
+                <div key={index} className="flex-shrink-0 w-1/3 md:w-1/6 px-2 md:px-4 flex items-center justify-center h-12 md:h-16">
+                  <Image 
+                    src={`/partners/${logo}.png`} 
+                    alt={`${logo} logo`} 
+                    width={80} 
+                    height={32} 
+                    className="transition-all duration-300 hover:scale-110 object-contain max-h-full"
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Challenges Section */}
+        <section className="py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12">The Challenges You Face</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+              {[
+                {
+                  icon: <UserX className="w-12 h-12 text-red-500 mb-4" />,
+                  title: "Struggle to Book Quality Meetings",
+                  description: "Your outreach efforts aren't yielding the high-quality meetings you need with decision-makers who can actually move the needle for your business."
+                },
+                {
+                  icon: <PieChart className="w-12 h-12 text-red-500 mb-4" />,
+                  title: "Weak Sales Pipeline",
+                  description: "Your sales pipeline is running dry, leaving your team scrambling for leads and your revenue projections looking grim."
+                },
+                {
+                  icon: <DollarSign className="w-12 h-12 text-red-500 mb-4" />,
+                  title: "Stagnant Revenue Growth",
+                  description: "Despite your best efforts, your revenue isn't growing at the pace you need to meet your business goals and fuel expansion."
+                }
+              ].map((challenge, index) => (
+                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                  {challenge.icon}
+                  <h3 className="text-xl font-semibold mb-2">{challenge.title}</h3>
+                  <p className="text-gray-600">{challenge.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold mb-4">The Root of the Problem</h3>
+              <p className="text-xl text-gray-600 mb-6">
+                These challenges all stem from one critical issue: ineffective cold email outreach.
+              </p>
+            </div>
+            <div className="bg-red-100 border-l-4 border-red-500 p-6 rounded-lg mb-12">
+              <h4 className="text-xl font-semibold mb-4">Without a strategic, personalized approach to cold emailing:</h4>
+              <ul className="list-disc list-inside text-red-700 space-y-2">
+                <li>Your messages get lost in crowded inboxes</li>
+                <li>Decision-makers ignore your outreach</li>
+                <li>Your sales team wastes time on unqualified leads</li>
+                <li>Your growth potential remains untapped</li>
+              </ul>
+            </div>
+            <p className="text-xl text-center">
+              But it doesn't have to be this way. There's a solution that can transform your outreach efforts and supercharge your sales pipeline.
+            </p>
           </div>
         </section>
 
@@ -398,66 +589,54 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 bg-blue-600 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Skyrocket Your B2B Sales?</h2>
-            <p className="text-xl mb-8">Book a free consultation and learn how we can help you generate more leads and close more deals.</p>
-            <motion.div
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <Button size="lg" variant="secondary" onClick={openCalendly}>
-                Book Your Free Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section id="faq" className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible>
-                {[
-                  {
-                    question: "How do you ensure high email deliverability?",
-                    answer: "We use advanced email authentication protocols, maintain a clean sender reputation, and continuously monitor deliverability rates to ensure your emails reach the intended inboxes."
-                  },
-                  {
-                    question: "Can you integrate with our existing CRM?",
-                    answer: "Yes, we can integrate with most popular CRMs including Salesforce, HubSpot, and Pipedrive. We'll work with you to ensure smooth data flow between our systems."
-                  },
-                  {
-                    question: "How do you measure the success of campaigns?",
-                    answer: "We track key metrics such as open rates, reply rates, meeting booking rates, and ultimately, the ROI of our campaigns. We provide detailed reports and insights to help you understand the performance."
-                  },
-                  {
-                    question: "What makes your cold email approach different?",
-                    answer: "Our approach combines expert strategy, AI-powered personalization, and continuous optimization. We don't just send emails; we create conversations that lead to meaningful business relationships."
-                  }
-                ].map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+        {/* Common Challenges We Solve */}
+        <section id="challenges" className="py-12 md:py-20 bg-gray-50">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12">Common Challenges We Solve</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+              {challenges.map((challenge, index) => (
+                <div 
+                  key={index}
+                  className={`bg-white p-4 md:p-6 rounded-lg shadow-md cursor-pointer transition-all duration-300 ${selectedChallenge === index ? 'ring-2 ring-red-500' : 'hover:shadow-lg'}`}
+                  onClick={() => setSelectedChallenge(index)}
+                >
+                  <div className="flex flex-col items-center text-center">
+                    {React.cloneElement(challenge.icon, { className: "w-10 h-10 md:w-12 md:h-12 text-red-500 mb-3 md:mb-4" })}
+                    <h3 className="text-lg md:text-xl font-semibold mt-2 md:mt-4 mb-2">{challenge.title}</h3>
+                    <p className="text-sm md:text-base text-gray-600">{challenge.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+            {selectedChallenge !== null && (
+              <div className="flex justify-center">
+                <div className="bg-red-100 p-6 md:p-8 rounded-lg shadow-md border-l-4 border-red-500 w-full md:max-w-2xl">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-red-700">{challenges[selectedChallenge].title}</h3>
+                  <p className="text-base md:text-lg mb-4 md:mb-6 text-gray-700">{challenges[selectedChallenge].details}</p>
+                  <Button 
+                    size="lg"
+                    onClick={openCalendly}
+                    className="bg-red-500 hover:bg-red-600 text-white w-full"
+                  >
+                    Solve This Challenge
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <Mail className="w-8 h-8" />
-                <span className="text-xl font-bold">ColdEmailPro</span>
+                <span className="text-xl font-bold leading-tight">
+                  Cold Email<br />Associates
+                </span>
               </Link>
               <p className="text-sm text-gray-400">Revolutionizing B2B cold outreach with expert strategies and AI-powered automation.</p>
             </div>
@@ -487,7 +666,7 @@ export default function EnhancedAgencyLandingPage() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} ColdEmailPro. All rights reserved.
+            © {new Date().getFullYear()} Cold Email Associates. All rights reserved.
           </div>
         </div>
       </footer>

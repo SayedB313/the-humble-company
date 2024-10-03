@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'ColdEmailPro',
+  title: 'Cold Email Associates',
   description: 'Expert cold email services for B2B sales',
 }
 
