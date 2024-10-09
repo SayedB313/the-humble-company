@@ -54,3 +54,33 @@ code {
     transform: rotate(360deg);
   }
 }
+
+.bg-blue-gradient {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+}
+
+.text-blue-gradient {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.quiz-gradient {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.quiz-button {
+  @apply bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200;
+}
+
+.quiz-input {
+  @apply border-2 border-gray-200 focus:border-blue-500 rounded-lg py-2 px-4 w-full;
+}
+
+.quiz-option {
+  @apply w-full text-left justify-start bg-white hover:bg-blue-50 border-2 border-gray-200 text-gray-800 py-3 px-4 rounded-lg transition-all duration-200 flex items-center;
+}
+
+.quiz-option-selected {
+  @apply border-blue-500 bg-blue-50;
+}

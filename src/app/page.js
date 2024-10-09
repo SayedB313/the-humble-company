@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react';
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
@@ -10,6 +9,7 @@ import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import CalendlyWidget from '../components/CalendlyWidget'
+import Quiz from '../components/Quiz';
 
 export default function EnhancedAgencyLandingPage() {
   const [currentInsight, setCurrentInsight] = useState(0)
@@ -70,6 +70,7 @@ export default function EnhancedAgencyLandingPage() {
   ]
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -626,6 +627,20 @@ export default function EnhancedAgencyLandingPage() {
             )}
           </div>
         </section>
+
+        {/* Quiz Section */}
+        <section id="quiz" className="py-20 bg-gray-50">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-6">Get Your Free Outbound Strategy Audit</h2>
+            <p className="text-xl mb-8">Discover how to supercharge your cold email campaigns and boost your results</p>
+            <button 
+              onClick={() => setIsQuizOpen(true)}
+              className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Start Your Free Audit
+            </button>
+          </div>
+        </section>
       </main>
 
       <footer className="bg-gray-900 text-white py-8 md:py-12">
@@ -670,6 +685,8 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </div>
       </footer>
+
+      <Quiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
     </div>
   )
 }
