@@ -162,8 +162,8 @@ export default function EnhancedAgencyLandingPage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <Mail className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
-            <span className="text-lg md:text-xl font-bold leading-tight">
-              Cold Email<br />Associates
+            <span className="text-lg md:text-xl font-bold">
+              The Email Protocol
             </span>
           </Link>
           <nav className="hidden md:flex space-x-6">
@@ -635,7 +635,7 @@ export default function EnhancedAgencyLandingPage() {
               <Link href="/" className="flex items-center space-x-2 mb-4">
                 <Mail className="w-8 h-8" />
                 <span className="text-xl font-bold leading-tight">
-                  Cold Email<br />Associates
+                  The Email Protocol
                 </span>
               </Link>
               <p className="text-sm text-gray-400">Revolutionizing B2B cold outreach with expert strategies and AI-powered automation.</p>
@@ -666,7 +666,7 @@ export default function EnhancedAgencyLandingPage() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Cold Email Associates. All rights reserved.
+            © {new Date().getFullYear()} The Email Protocol. All rights reserved.
           </div>
         </div>
       </footer>
