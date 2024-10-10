@@ -635,9 +635,9 @@ export default function EnhancedAgencyLandingPage() {
         <section id="process" className="py-12 sm:py-20 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-black">Our B2B Cold Email Journey</h2>
-            <div className="relative mb-12 sm:mb-20">
-              <div className="absolute top-1/2 left-0 right-0 h-2 bg-blue-200 transform -translate-y-1/2 rounded-full hidden sm:block"></div>
-              <div className="relative z-10 flex flex-col sm:flex-row justify-between items-center space-y-8 sm:space-y-0">
+            <div className="relative mb-12 sm:mb-20 overflow-x-auto">
+              <div className="absolute top-1/2 left-0 right-0 h-2 bg-blue-200 transform -translate-y-1/2 rounded-full"></div>
+              <div className="relative z-10 flex justify-between items-center space-x-4 sm:space-x-0 min-w-max px-4 sm:px-0">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={index}
@@ -646,7 +646,7 @@ export default function EnhancedAgencyLandingPage() {
                     animate={controls}
                     whileHover={{ scale: 1.1 }}
                     onHoverStart={() => handleStepHover(index)}
-                    className={`flex flex-col items-center ${index === activeStep ? 'scale-110' : ''}`}
+                    className={`flex flex-col items-center w-32 sm:w-auto ${index === activeStep ? 'scale-110' : ''}`}
                   >
                     <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center ${index === activeStep ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'} shadow-lg transition-all duration-300`}>
                       {step.icon}
