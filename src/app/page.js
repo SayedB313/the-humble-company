@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2 } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -32,37 +32,37 @@ export default function EnhancedAgencyLandingPage() {
 
   const challenges = [
     {
-      icon: <UserX className="w-12 h-12 text-orange-500" />,
+      icon: <UserX className="w-12 h-12 text-red-500" />,
       title: "Lead Generation",
       description: "Struggling to find ideal prospects?",
       details: "Finding high-quality leads is becoming increasingly difficult. Your team spends countless hours searching for the right contacts, often with limited success."
     },
     {
-      icon: <Mail className="w-12 h-12 text-orange-500" />,
+      icon: <Mail className="w-12 h-12 text-blue-500" />,
       title: "Email Deliverability",
       description: "Emails not reaching inboxes?",
       details: "Your carefully crafted emails are ending up in spam folders or getting blocked entirely, severely limiting the effectiveness of your outreach campaigns."
     },
     {
-      icon: <Users className="w-12 h-12 text-orange-500" />,
+      icon: <Users className="w-12 h-12 text-green-500" />,
       title: "Personalization at Scale",
       description: "Generic outreach falling flat?",
       details: "Mass emails are being ignored. You know personalization is key, but manually customizing each message for hundreds or thousands of prospects is simply not feasible."
     },
     {
-      icon: <PieChart className="w-12 h-12 text-orange-500" />,
-      title: "Weak Sales Pipeline",
-      description: "Not enough qualified leads?",
-      details: "Your sales team is struggling with a dry pipeline. The lack of consistent, quality leads is making it difficult to meet sales targets and grow your business."
+      icon: <Target className="w-12 h-12 text-purple-500" />,
+      title: "Go To Market Strategy",
+      description: "Struggling to launch new products or enter new markets?",
+      details: "Your team lacks a clear, effective strategy for introducing new offerings or expanding into untapped markets. This results in missed opportunities and slower growth."
     },
     {
-      icon: <Clock className="w-12 h-12 text-orange-500" />,
+      icon: <Clock className="w-12 h-12 text-yellow-500" />,
       title: "Time Management",
       description: "Drowning in follow-ups?",
       details: "Managing responses, follow-ups, and appointment scheduling is eating up your day. This leaves little time for actually closing deals and growing your business."
     },
     {
-      icon: <TrendingUp className="w-12 h-12 text-orange-500" />,
+      icon: <TrendingUp className="w-12 h-12 text-indigo-500" />,
       title: "Scaling Outreach",
       description: "Can't increase volume without losing quality?",
       details: "As you try to scale your outreach efforts, you're finding it hard to maintain the quality and personalization that made your initial campaigns successful."
@@ -216,11 +216,11 @@ export default function EnhancedAgencyLandingPage() {
             </span>
           </Link>
           <nav className="hidden md:flex space-x-6">
-            <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors">Challenges We Solve</Link>
-            <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors">Our Services</Link>
-            <Link href="#case-studies" className="text-sm font-medium hover:text-blue-600 transition-colors">Success Stories</Link>
+            <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors">Challenges</Link>
+            <Link href="#email-resonance-engine" className="text-sm font-medium hover:text-blue-600 transition-colors">Our Engine</Link>
+            <Link href="#success-stories" className="text-sm font-medium hover:text-blue-600 transition-colors">Success Stories</Link>
             <Link href="#process" className="text-sm font-medium hover:text-blue-600 transition-colors">Our Process</Link>
-            <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors">Testimonials</Link>
+            <Link href="#why-us" className="text-sm font-medium hover:text-blue-600 transition-colors">Why Us</Link>
           </nav>
           <div className="md:hidden">
             <Button variant="ghost" size="sm" onClick={toggleMobileMenu}>
@@ -228,23 +228,23 @@ export default function EnhancedAgencyLandingPage() {
             </Button>
           </div>
           <div className="hidden md:block">
-            <Button onClick={() => setIsQuizOpen(true)} className={ctaButtonClass}>
-              <Zap className="mr-2 h-5 w-5" />
-              Analyze Email Resonance
+            <Button onClick={() => setIsQuizOpen(true)} className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors flex items-center justify-center">
+              <Wand2 className="mr-2 h-4 w-4" />
+              Free Resonance Analysis
             </Button>
           </div>
         </div>
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 py-2">
-            <nav className="flex flex-col space-y-2 px-4">
-              <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Challenges We Solve</Link>
-              <Link href="#services" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Our Services</Link>
-              <Link href="#case-studies" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Success Stories</Link>
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 py-4 px-4 shadow-lg">
+            <nav className="flex flex-col space-y-4">
+              <Link href="#challenges" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Challenges</Link>
+              <Link href="#email-resonance-engine" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Our Engine</Link>
+              <Link href="#success-stories" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Success Stories</Link>
               <Link href="#process" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Our Process</Link>
-              <Link href="#testimonials" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Testimonials</Link>
-              <Button onClick={() => { setIsQuizOpen(true); toggleMobileMenu(); }} className="mt-2">
-                <Calendar className="mr-2 h-4 w-4" />
-                Take Quiz
+              <Link href="#why-us" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Why Us</Link>
+              <Button onClick={() => { setIsQuizOpen(true); toggleMobileMenu(); }} className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors flex items-center justify-center w-full">
+                <Wand2 className="mr-2 h-4 w-4" />
+                Free Resonance Analysis
               </Button>
             </nav>
           </div>
@@ -405,72 +405,22 @@ export default function EnhancedAgencyLandingPage() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-black">B2B Outreach Challenges We Solve</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: <UserX className="w-12 h-12 text-red-500" />,
-                  title: "Struggle to Book Quality Meetings",
-                  description: "Your outreach efforts aren't yielding high-quality meetings with decision-makers.",
-                  problem: "Your team spends countless hours searching for the right contacts, often with limited success. This results in meetings that don't move the needle for your business.",
-                  solution: "Our AI-powered lead generation and qualification tools identify the best prospects and decision-makers for your business, ensuring your meetings are always high-value.",
-                },
-                {
-                  icon: <Mail className="w-12 h-12 text-orange-500" />,
-                  title: "Poor Email Deliverability",
-                  description: "Your carefully crafted emails are ending up in spam folders or getting blocked.",
-                  problem: "Low inbox placement rates severely limit the effectiveness of your outreach campaigns, wasting your team's efforts and reducing your potential impact.",
-                  solution: "We implement advanced email authentication, warming techniques, and best practices to significantly boost your deliverability and ensure your messages reach their intended recipients.",
-                },
-                {
-                  icon: <Users className="w-12 h-12 text-yellow-500" />,
-                  title: "Lack of Personalization at Scale",
-                  description: "Generic, mass emails are being ignored by your prospects.",
-                  problem: "You know personalization is key, but manually customizing each message for hundreds or thousands of prospects is simply not feasible, leading to poor engagement rates.",
-                  solution: "Our AI-driven personalization engine creates highly tailored messages at scale, ensuring each prospect receives a relevant and engaging email without overwhelming your team.",
-                },
-                {
-                  icon: <PieChart className="w-12 h-12 text-green-500" />,
-                  title: "Weak Sales Pipeline",
-                  description: "Your sales team is struggling with a dry pipeline and inconsistent lead flow.",
-                  problem: "The lack of consistent, quality leads is making it difficult to meet sales targets and grow your business. Your team is constantly scrambling to find new opportunities.",
-                  solution: "We build a consistent, high-quality lead generation process that keeps your pipeline full and provides a steady stream of qualified prospects to your sales team.",
-                },
-                {
-                  icon: <Clock className="w-12 h-12 text-blue-500" />,
-                  title: "Time Management Issues",
-                  description: "Managing responses, follow-ups, and scheduling is consuming your team's time.",
-                  problem: "Your sales team has little time for actually closing deals and growing the business because they're drowning in follow-ups and administrative tasks.",
-                  solution: "Our automated follow-up and scheduling systems free up your team to focus on high-value activities like closing deals and building relationships.",
-                },
-                {
-                  icon: <TrendingUp className="w-12 h-12 text-purple-500" />,
-                  title: "Stagnant Revenue Growth",
-                  description: "Despite your best efforts, your revenue isn't growing at the pace you need.",
-                  problem: "Your current outreach strategies aren't delivering the results you need to meet your business goals and fuel expansion. You're struggling to scale effectively.",
-                  solution: "Our comprehensive approach combines targeted outreach, personalization, and continuous optimization to drive consistent revenue growth and help you achieve your business objectives.",
-                },
-              ].map((challenge, index) => (
+              {challenges.map((challenge, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-white rounded-lg shadow-lg p-6 cursor-pointer transition-all duration-300 ${
+                  className={`bg-white rounded-2xl shadow-lg p-5 cursor-pointer transition-all duration-300 ${
                     selectedChallenge === index ? 'ring-4 ring-blue-400' : 'hover:shadow-xl'
                   }`}
                   onClick={() => setSelectedChallenge(index === selectedChallenge ? null : index)}
                 >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="mr-4">{challenge.icon}</div>
-                      <h3 className="text-xl font-semibold">{challenge.title}</h3>
-                    </div>
-                    <ChevronDown 
-                      className={`w-6 h-6 text-blue-500 transition-transform duration-300 ${
-                        selectedChallenge === index ? 'transform rotate-180' : ''
-                      }`}
-                    />
+                  <div className="flex items-center mb-3">
+                    <div className="mr-3">{challenge.icon}</div>
+                    <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4">{challenge.description}</p>
+                  <p className="text-gray-600 text-sm mb-2">{challenge.description}</p>
                   <AnimatePresence>
                     {selectedChallenge === index && (
                       <motion.div
@@ -479,31 +429,19 @@ export default function EnhancedAgencyLandingPage() {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="mt-4 pt-4 border-t border-gray-200">
-                          <p className="text-red-600 font-semibold mb-2">The Problem:</p>
-                          <p className="text-gray-700 mb-4">{challenge.problem}</p>
-                          <p className="text-green-600 font-semibold mb-2">Our Solution:</p>
-                          <p className="text-gray-700 mb-4">{challenge.solution}</p>
-                          <Button className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white">
-                            Learn How We Solve This
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
+                        <div className="mt-3 pt-3 border-t border-gray-200">
+                          <p className="text-gray-700 text-sm">{challenge.details}</p>
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-blue-500 transition-transform duration-300 mt-2 ${
+                      selectedChallenge === index ? 'transform rotate-180' : ''
+                    }`}
+                  />
                 </motion.div>
               ))}
-            </div>
-            <div className="mt-16 text-center">
-              <h3 className="text-2xl font-bold mb-6 text-blue-800">Ready to Boost Your Email Resonance?</h3>
-              <Button
-                onClick={() => setIsQuizOpen(true)}
-                className={`${ctaButtonClass} transform hover:scale-105`}
-              >
-                Start Your Free Resonance Analysis
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
             </div>
           </div>
         </section>
@@ -565,7 +503,7 @@ export default function EnhancedAgencyLandingPage() {
                 <div className="mt-6 text-center">
                   <Button
                     onClick={() => setIsQuizOpen(true)}
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-md"
+                    className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-md"
                   >
                     Get Your Free Resonance Analysis
                     <ArrowRight className="ml-2 h-4 w-4 inline" />
@@ -831,7 +769,7 @@ export default function EnhancedAgencyLandingPage() {
         </section>
 
         {/* Redesigned Cold Email Mastery Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50">
+        <section id="why-us" className="py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-black">Believe in Cold Email Again</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -992,6 +930,19 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         )}
       </main>
+
+      {/* Add the floating "Book a Consultation" button */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <motion.button
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full text-base font-semibold transition-colors flex items-center justify-center shadow-lg"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.Calendly && window.Calendly.initPopupWidget({url: 'https://calendly.com/sayed_vectorasylum/45min'})}
+        >
+          <PhoneCall className="mr-2 h-5 w-5" />
+          Book a Consultation
+        </motion.button>
+      </div>
     </div>
   )
 }
