@@ -399,9 +399,9 @@ export default function EnhancedAgencyLandingPage() {
                       <motion.div
                         variants={spinIconVariants}
                         animate="animate"
-                        className="mr-2"
+                        className="mr-3" // Increased right margin for better spacing
                       >
-                        <Play className="h-5 w-5" />
+                        <Play className="h-6 w-6 text-blue-600" /> {/* Increased size from h-5 w-5 to h-6 w-6 */}
                       </motion.div>
                       Play Video
                     </motion.button>
