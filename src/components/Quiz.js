@@ -185,7 +185,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
       >
         <div className="flex items-center space-x-4 mb-4">
           {question.icon}
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800">{question.text}</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black">{question.text}</h3>
         </div>
         <div className="grid grid-cols-1 gap-3">
           {question.options.map((option, index) => (
@@ -194,26 +194,26 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleAnswer(question.id, option)}
-              className={`p-3 md:p-4 rounded-lg transition-all duration-200 ${
+              className={`p-3 sm:p-4 rounded-lg transition-all duration-200 ${
                 question.multiple
                   ? answers[question.id]?.includes(option)
-                    ? 'bg-yellow-100 border-yellow-500 text-yellow-700'
-                    : 'bg-white border-gray-200 text-gray-700 hover:bg-yellow-50'
+                    ? 'bg-blue-100 border-blue-500 text-blue-700'
+                    : 'bg-white border-gray-200 text-gray-700 hover:bg-blue-50'
                   : answers[question.id]?.[0] === option
-                  ? 'bg-yellow-100 border-yellow-500 text-yellow-700'
-                  : 'bg-white border-gray-200 text-gray-700 hover:bg-yellow-50'
-              } border-2 flex items-center justify-between text-sm md:text-base`}
+                  ? 'bg-blue-100 border-blue-500 text-blue-700'
+                  : 'bg-white border-gray-200 text-gray-700 hover:bg-blue-50'
+              } border-2 flex items-center justify-between text-sm sm:text-base`}
             >
               <span>{option}</span>
               {(question.multiple ? answers[question.id]?.includes(option) : answers[question.id]?.[0] === option) && 
-                <Check className="w-5 h-5 text-yellow-500 flex-shrink-0 ml-2" />
+                <Check className="w-5 h-5 text-blue-500 flex-shrink-0 ml-2" />
               }
             </motion.button>
           ))}
         </div>
-        <div className="mt-4 p-3 md:p-4 bg-yellow-50 rounded-lg flex items-start">
-          <Lightbulb className="w-5 h-5 md:w-6 md:h-6 text-yellow-500 mr-2 md:mr-3 flex-shrink-0 mt-1" />
-          <p className="text-xs md:text-sm text-yellow-800">{question.tip}</p>
+        <div className="mt-4 p-3 sm:p-4 bg-blue-50 rounded-lg flex items-start">
+          <Lightbulb className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 mr-2 sm:mr-3 flex-shrink-0 mt-1" />
+          <p className="text-xs sm:text-sm text-blue-800">{question.tip}</p>
         </div>
       </motion.div>
     );
@@ -227,15 +227,15 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
       className="text-center"
     >
       <Rocket className="w-16 h-16 md:w-20 md:h-20 text-blue-500 mx-auto mb-4 md:mb-6" />
-      <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-800">Your Outbound Audit is Ready!</h2>
-      <p className="mb-6 md:mb-8 text-gray-600 text-sm md:text-base">Enter your details to receive your personalized outbound strategy report.</p>
+      <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-blue-800">Your Email Resonance Report is Ready!</h2>
+      <p className="mb-6 md:mb-8 text-blue-600 text-sm md:text-base">Enter your details to receive your personalized Email Resonance strategy report.</p>
       <div className="space-y-3 md:space-y-4">
         <input
           type="text"
           placeholder="Your full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full p-2 md:p-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base"
+          className="w-full p-2 md:p-3 border-2 border-blue-200 rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base"
         />
         <div>
           <input
@@ -246,7 +246,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
               setEmail(e.target.value);
               if (emailError) setEmailError('');
             }}
-            className={`w-full p-2 md:p-3 border-2 ${emailError ? 'border-red-500' : 'border-gray-200'} rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base`}
+            className={`w-full p-2 md:p-3 border-2 ${emailError ? 'border-red-500' : 'border-blue-200'} rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base`}
           />
           {emailError && <p className="text-red-500 text-xs md:text-sm mt-1">{emailError}</p>}
         </div>
@@ -259,7 +259,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
               setCompany(e.target.value);
               if (websiteError) setWebsiteError('');
             }}
-            className={`w-full p-2 md:p-3 border-2 ${websiteError ? 'border-red-500' : 'border-gray-200'} rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base`}
+            className={`w-full p-2 md:p-3 border-2 ${websiteError ? 'border-red-500' : 'border-blue-200'} rounded-lg focus:border-blue-500 transition-colors text-sm md:text-base`}
           />
           {websiteError && <p className="text-red-500 text-xs md:text-sm mt-1">{websiteError}</p>}
         </div>
@@ -267,7 +267,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleSubmit}
-          className="w-full bg-yellow-400 hover:bg-yellow-500 text-black py-3 rounded-md transition-colors text-lg font-semibold flex items-center justify-center"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition-colors text-lg font-semibold flex items-center justify-center"
         >
           Get My Free Outbound Audit
           <ArrowRight className="ml-2 h-5 w-5" />
@@ -289,31 +289,31 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-white rounded-xl shadow-2xl w-full max-w-md md:max-w-2xl overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-sm sm:max-w-md md:max-w-lg overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 p-4 md:p-6 text-black flex justify-between items-center">
-              <h2 className="text-xl md:text-2xl font-bold">Outbound Strategy Audit</h2>
+            <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-4 md:p-6 text-white flex justify-between items-center">
+              <h2 className="text-xl md:text-2xl font-bold">Email Resonance Analyzer™</h2>
               <motion.button
                 whileHover={{ rotate: 90 }}
                 onClick={onClose}
-                className="text-black hover:text-gray-800 transition-colors"
+                className="text-white hover:text-blue-200 transition-colors"
               >
                 <X className="w-5 h-5 md:w-6 md:h-6" />
               </motion.button>
             </div>
-            <div className="p-4 md:p-6 max-h-[80vh] overflow-y-auto">
+            <div className="p-4 sm:p-6 max-h-[80vh] overflow-y-auto bg-gradient-to-b from-blue-50 to-white">
               {step < questions.length ? (
                 <>
                   <div className="mb-6">
-                    <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${((step + 1) / questions.length) * 100}%` }}
                         transition={{ duration: 0.3 }}
-                        className="h-full bg-yellow-400"
+                        className="h-full bg-blue-600"
                       />
                     </div>
-                    <p className="text-xs md:text-sm text-gray-600 mt-2">Question {step + 1} of {questions.length}</p>
+                    <p className="text-xs md:text-sm text-blue-600 mt-2">Resonance Check {step + 1} of {questions.length}</p>
                   </div>
                   {renderQuestion()}
                   <div className="flex justify-between mt-6">
@@ -322,7 +322,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
                       whileTap={{ scale: 0.95 }}
                       onClick={handleBack}
                       disabled={step === 0}
-                      className="px-3 md:px-4 py-2 bg-gray-200 text-gray-800 rounded-lg disabled:opacity-50 text-sm md:text-base"
+                      className="px-3 md:px-4 py-2 bg-blue-100 text-blue-800 rounded-lg disabled:opacity-50 text-sm md:text-base"
                     >
                       Back
                     </motion.button>
@@ -331,7 +331,7 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
                       whileTap={{ scale: 0.95 }}
                       onClick={handleNext}
                       disabled={!answers[questions[step].id]}
-                      className="px-3 md:px-4 py-2 bg-yellow-400 text-black rounded-lg disabled:opacity-50 text-sm md:text-base"
+                      className="px-3 md:px-4 py-2 bg-blue-600 text-white rounded-lg disabled:opacity-50 text-sm md:text-base"
                     >
                       {step === questions.length - 1 ? 'Finish' : 'Next'}
                     </motion.button>
