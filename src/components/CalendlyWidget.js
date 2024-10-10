@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
 import Script from 'next/script';
+import { PhoneCall } from 'lucide-react';
 
 const CalendlyWidget = () => {
   useEffect(() => {
     if (window.Calendly) {
-      window.Calendly.initBadgeWidget({
-        url: 'https://calendly.com/emailprotocol/30min',
-        text: 'Book a Consultation',
-        color: '#0069ff',
-        textColor: '#ffffff',
-        branding: undefined
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/emailprotocol/30min'
       });
     }
   }, []);
@@ -23,16 +20,14 @@ const CalendlyWidget = () => {
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
-        onLoad={() => {
-          window.Calendly.initBadgeWidget({
-            url: 'https://calendly.com/emailprotocol/30min',
-            text: 'Book a Consultation',
-            color: '#0069ff',
-            textColor: '#ffffff',
-            branding: undefined
-          });
-        }}
       />
+      <button
+        onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/emailprotocol/30min'})}
+        className="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        aria-label="Book a Consultation"
+      >
+        <PhoneCall size={24} />
+      </button>
     </>
   );
 };
