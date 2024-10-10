@@ -6,6 +6,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
+  // Add this line:
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;

@@ -5,7 +5,7 @@ const CalendlyWidget = () => {
   useEffect(() => {
     if (window.Calendly) {
       window.Calendly.initBadgeWidget({
-        url: 'https://calendly.com/sayed_vectorasylum/45min',
+        url: 'https://calendly.com/emailprotocol/30min?hide_gdpr_banner=1',
         text: 'Book a Consultation',
         color: '#0069ff',
         textColor: '#ffffff',

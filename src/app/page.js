@@ -71,6 +71,8 @@ export default function EnhancedAgencyLandingPage() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [quizCompleted, setQuizCompleted] = useState(false);
+  const [quizData, setQuizData] = useState(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -105,11 +107,31 @@ export default function EnhancedAgencyLandingPage() {
     };
   }, []);
 
+  const handleQuizComplete = (data) => {
+    setQuizData(data);
+    setQuizCompleted(true);
+    setIsQuizOpen(false);
+    // You can send the quiz data to your backend here
+  };
+
   const openCalendly = () => {
     if (window.Calendly) {
-      window.Calendly.initPopupWidget({url: 'https://calendly.com/sayed_vectorasylum/45min'});
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/emailprotocol/30min?hide_gdpr_banner=1',
+        prefill: {
+          name: quizData?.name,
+          email: quizData?.email,
+          customAnswers: {
+            a1: 'Quiz Completed'
+          }
+        }
+      });
       return false;
     }
+  };
+
+  const closeCompletionScreen = () => {
+    setQuizCompleted(false);
   };
 
   const testimonials = [
@@ -156,6 +178,9 @@ export default function EnhancedAgencyLandingPage() {
     tap: { scale: 0.95, transition: { duration: 0.2 } }
   }
 
+  const quizButtonClass = "bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-3 rounded-md text-lg font-semibold transition-colors flex items-center justify-center";
+  const consultationButtonClass = "bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors";
+
   return (
     <div className="flex flex-col min-h-screen">
       <CalendlyWidget />
@@ -181,7 +206,7 @@ export default function EnhancedAgencyLandingPage() {
             </Button>
           </div>
           <div className="hidden md:block">
-            <Button onClick={openCalendly}>
+            <Button onClick={openCalendly} className={consultationButtonClass}>
               <Calendar className="mr-2 h-4 w-4" />
               Book a Consultation
             </Button>
@@ -247,17 +272,16 @@ export default function EnhancedAgencyLandingPage() {
                 >
                   Boosting B2B sales by connecting companies with their ideal customers through targeted GTM strategies.
                 </motion.p>
-                <motion.div
+                <motion.button 
                   variants={buttonVariants}
                   whileHover="hover"
                   whileTap="tap"
-                  className="mb-6 md:mb-8"
+                  onClick={() => setIsQuizOpen(true)}
+                  className={`mb-6 md:mb-8 ${quizButtonClass}`}
                 >
-                  <Button size="lg" onClick={openCalendly} className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 md:px-8 py-3 md:py-4 text-base md:text-lg w-full md:w-auto">
-                    Get My Free Outbound Audit
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </motion.div>
+                  Get My Free Outbound Audit
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </motion.button>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -617,7 +641,7 @@ export default function EnhancedAgencyLandingPage() {
                   <Button 
                     size="lg"
                     onClick={openCalendly}
-                    className="bg-red-500 hover:bg-red-600 text-white w-full"
+                    className={consultationButtonClass}
                   >
                     Solve This Challenge
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -629,16 +653,30 @@ export default function EnhancedAgencyLandingPage() {
         </section>
 
         {/* Quiz Section */}
-        <section id="quiz" className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">Get Your Free Outbound Strategy Audit</h2>
-            <p className="text-xl mb-8">Discover how to supercharge your cold email campaigns and boost your results</p>
-            <button 
-              onClick={() => setIsQuizOpen(true)}
-              className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Start Your Free Audit
-            </button>
+        <section id="quiz" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4 text-gray-800">Get Your Free Outbound Strategy Audit</h2>
+              <p className="text-xl text-gray-600 mb-8">Discover how to supercharge your cold email campaigns and boost your results</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
+              <div className="flex flex-col items-center">
+                <div className="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                  <Mail className="w-12 h-12 text-yellow-500" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 text-center">Unlock Your Outbound Potential</h3>
+                <p className="text-gray-600 mb-8 text-center max-w-2xl">
+                  Answer a few quick questions about your current outbound strategy, and we'll provide you with a personalized audit report to skyrocket your results.
+                </p>
+                <button 
+                  onClick={() => setIsQuizOpen(true)}
+                  className={`${quizButtonClass} px-12 py-4 text-xl shadow-lg transform transition-transform duration-200 hover:scale-105`}
+                >
+                  Start Your Free Audit
+                  <ArrowRight className="ml-2 h-6 w-6" />
+                </button>
+              </div>
+            </div>
           </div>
         </section>
       </main>
@@ -686,7 +724,34 @@ export default function EnhancedAgencyLandingPage() {
         </div>
       </footer>
 
-      <Quiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
+      <Quiz 
+        isOpen={isQuizOpen} 
+        onClose={() => setIsQuizOpen(false)}
+        onComplete={handleQuizComplete}
+      />
+
+      {quizCompleted && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-xl text-center max-w-md w-full mx-4">
+            <h3 className="text-2xl font-bold mb-4">Thank You for Completing the Quiz!</h3>
+            <p className="mb-4">Your personalized AI report will be sent to your email within the next 10 minutes.</p>
+            <p className="mb-6">Take the next step to supercharge your outbound strategy:</p>
+            <button
+              onClick={openCalendly}
+              className={`${consultationButtonClass} w-full mb-4`}
+            >
+              Schedule Your Free Consultation
+            </button>
+            <p className="text-sm text-gray-600 mb-6">Discuss your results with our experts and get personalized insights.</p>
+            <button
+              onClick={closeCompletionScreen}
+              className="text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              Close and return to site
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
