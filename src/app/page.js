@@ -645,8 +645,11 @@ export default function EnhancedAgencyLandingPage() {
                     initial={{ opacity: 0, y: 50 }}
                     animate={controls}
                     whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     onHoverStart={() => handleStepHover(index)}
-                    className={`flex flex-col items-center w-32 sm:w-auto ${index === activeStep ? 'scale-110' : ''}`}
+                    onTap={() => handleStepHover(index)}
+                    onClick={() => handleStepHover(index)}
+                    className={`flex flex-col items-center w-32 sm:w-auto ${index === activeStep ? 'scale-110' : ''} cursor-pointer`}
                   >
                     <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center ${index === activeStep ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'} shadow-lg transition-all duration-300`}>
                       {step.icon}
