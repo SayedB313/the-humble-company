@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowRight, Check, Rocket, Mail, Target, BarChart, Users, Settings, Building, PieChart, DollarSign, Clock, Zap, Shield, Globe, Lightbulb } from "lucide-react";
+import { X, ArrowRight, Check, Rocket, Mail, Target, BarChart, Users, Settings, Building, PieChart, DollarSign, Clock, Zap, Shield, Globe, Lightbulb, FileText } from "lucide-react";
 
 const questions = [
   {
@@ -88,6 +88,20 @@ const questions = [
     text: "What industry is your company in?",
     options: ["SaaS/Technology", "E-commerce", "Professional Services", "Finance/Insurance", "Healthcare", "Other"],
     tip: "Your industry context is crucial for tailoring our advice. We'll provide industry-specific strategies and best practices to help you stand out in your market."
+  },
+  {
+    id: 13,
+    icon: <DollarSign className="w-8 h-8 text-blue-500" />,
+    text: "What's your company's approximate Annual Recurring Revenue (ARR)?",
+    options: ["$100K - $500K", "$500K - $1M", "$1M - $2M", "$2M - $5M", "$5M+", "Prefer not to say"],
+    tip: "Understanding your revenue helps us tailor our strategies to your company's scale and growth stage."
+  },
+  {
+    id: 14,
+    icon: <FileText className="w-8 h-8 text-blue-500" />,
+    text: "Do you have case studies or success stories from your current clients?",
+    options: ["Yes", "No"],
+    tip: "Case studies are powerful tools for building credibility. If you have them, we can help you leverage them in your outreach."
   },
 ];
 

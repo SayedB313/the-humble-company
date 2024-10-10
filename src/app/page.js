@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -204,6 +204,43 @@ export default function EnhancedAgencyLandingPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  const [showVideo, setShowVideo] = useState(false);
+
+  const playVideoButtonVariants = {
+    idle: { scale: 1 },
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+    tap: { scale: 0.95, transition: { duration: 0.3 } },
+  };
+
+  const pulsateVariants = {
+    idle: { scale: 1, opacity: 0.5 },
+    animate: { 
+      scale: [1, 1.05, 1],
+      opacity: [0.5, 0.8, 0.5],
+      transition: { 
+        repeat: Infinity, 
+        duration: 2,
+        ease: "easeInOut"
+      } 
+    },
+  };
+
+  const shimmerVariants = {
+    idle: { backgroundPosition: "200% 0" },
+    hover: { backgroundPosition: "0 0", transition: { duration: 1, ease: "linear", repeat: Infinity } },
+  };
+
+  const spinIconVariants = {
+    animate: {
+      rotate: 360,
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "linear"
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <CalendlyWidget />
@@ -334,17 +371,43 @@ export default function EnhancedAgencyLandingPage() {
                 <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8">
                   Supercharge your B2B outreach with our AI-powered Email Resonance Engine™
                 </p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setIsQuizOpen(true)}
-                  className={ctaButtonClass}
-                >
-                  <Wand2 className="mr-2 h-5 w-5" />
-                  Analyze Your Email Resonance
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.button>
-                <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4 text-blue-200 mt-4 sm:mt-0">
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 max-w-2xl mx-auto">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsQuizOpen(true)}
+                    className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 py-3 rounded-full text-lg font-semibold flex items-center justify-center shadow-lg w-full sm:w-auto transition-colors"
+                  >
+                    <Wand2 className="mr-2 h-5 w-5" />
+                    Analyze Your Email Resonance
+                  </motion.button>
+                  <motion.div
+                    className="relative"
+                    initial="idle"
+                    animate="animate"
+                    whileHover="hover"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-white rounded-full"
+                      variants={pulsateVariants}
+                    ></motion.div>
+                    <motion.button
+                      variants={playVideoButtonVariants}
+                      onClick={() => setShowVideo(true)}
+                      className="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-semibold flex items-center justify-center shadow-lg hover:bg-blue-50 transition-colors w-full sm:w-auto relative z-10"
+                    >
+                      <motion.div
+                        variants={spinIconVariants}
+                        animate="animate"
+                        className="mr-2"
+                      >
+                        <Play className="h-5 w-5" />
+                      </motion.div>
+                      Play Video
+                    </motion.button>
+                  </motion.div>
+                </div>
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 text-blue-200">
                   <div className="flex items-center">
                     <Zap className="w-5 h-5 mr-2" />
                     <span>AI-Powered</span>
@@ -926,6 +989,28 @@ export default function EnhancedAgencyLandingPage() {
                   Close and Return to Site
                 </button>
               </div>
+            </div>
+          </div>
+        )}
+
+        {showVideo && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+            <div className="bg-white p-4 rounded-lg max-w-3xl w-full">
+              <div className="aspect-w-16 aspect-h-9">
+                <iframe
+                  src="https://www.youtube.com/embed/your-video-id"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <button
+                onClick={() => setShowVideo(false)}
+                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+              >
+                Close Video
+              </button>
             </div>
           </div>
         )}
