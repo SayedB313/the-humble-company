@@ -930,19 +930,6 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         )}
       </main>
-
-      {/* Add the floating "Book a Consultation" button */}
-      <div className="fixed bottom-4 right-4 z-50">
-        <motion.button
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full text-base font-semibold transition-colors flex items-center justify-center shadow-lg"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => window.Calendly && window.Calendly.initPopupWidget({url: 'https://calendly.com/sayed_vectorasylum/45min'})}
-        >
-          <PhoneCall className="mr-2 h-5 w-5" />
-          Book a Consultation
-        </motion.button>
-      </div>
     </div>
   )
 }

@@ -5,7 +5,7 @@ const CalendlyWidget = () => {
   useEffect(() => {
     if (window.Calendly) {
       window.Calendly.initBadgeWidget({
-        url: 'https://calendly.com/emailprotocol/30min?hide_gdpr_banner=1',
+        url: 'https://calendly.com/emailprotocol/30min',
         text: 'Book a Consultation',
         color: '#0069ff',
         textColor: '#ffffff',
@@ -23,6 +23,15 @@ const CalendlyWidget = () => {
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
+        onLoad={() => {
+          window.Calendly.initBadgeWidget({
+            url: 'https://calendly.com/emailprotocol/30min',
+            text: 'Book a Consultation',
+            color: '#0069ff',
+            textColor: '#ffffff',
+            branding: undefined
+          });
+        }}
       />
     </>
   );
