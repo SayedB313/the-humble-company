@@ -6,7 +6,7 @@ const CalendlyWidget = () => {
   useEffect(() => {
     if (window.Calendly) {
       window.Calendly.initPopupWidget({
-        url: 'https://calendly.com/emailprotocol/30min'
+        url: 'https://calendly.com/sayedbw/30min?hide_gdpr_banner=1'
       });
     }
   }, []);
@@ -22,11 +22,11 @@ const CalendlyWidget = () => {
         strategy="lazyOnload"
       />
       <button
-        onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/emailprotocol/30min'})}
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+        onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/sayedbw/30min?hide_gdpr_banner=1'})}
+        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
         aria-label="Book a Consultation"
       >
-        <PhoneCall size={24} />
+        <PhoneCall size={28} />
       </button>
     </>
   );

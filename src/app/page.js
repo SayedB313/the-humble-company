@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -35,37 +35,61 @@ export default function EnhancedAgencyLandingPage() {
       icon: <UserX className="w-12 h-12 text-red-500" />,
       title: "Lead Generation",
       description: "Struggling to find ideal prospects?",
-      details: "Finding high-quality leads is becoming increasingly difficult. Your team spends countless hours searching for the right contacts, often with limited success."
+      details: [
+        "Difficulty identifying high-quality leads",
+        "Wasted time on unqualified prospects",
+        "Low conversion rates from lead to opportunity"
+      ]
     },
     {
       icon: <Mail className="w-12 h-12 text-blue-500" />,
       title: "Email Deliverability",
       description: "Emails not reaching inboxes?",
-      details: "Your carefully crafted emails are ending up in spam folders or getting blocked entirely, severely limiting the effectiveness of your outreach campaigns."
+      details: [
+        "High bounce rates and spam folder placement",
+        "Poor sender reputation affecting deliverability",
+        "Inconsistent email performance across campaigns"
+      ]
     },
     {
       icon: <Users className="w-12 h-12 text-green-500" />,
       title: "Personalization at Scale",
       description: "Generic outreach falling flat?",
-      details: "Mass emails are being ignored. You know personalization is key, but manually customizing each message for hundreds or thousands of prospects is simply not feasible."
+      details: [
+        "Low engagement rates due to generic content",
+        "Inability to personalize for large audiences",
+        "Lack of relevant, tailored messaging"
+      ]
     },
     {
       icon: <Target className="w-12 h-12 text-purple-500" />,
       title: "Go To Market Strategy",
       description: "Struggling to launch new products or enter new markets?",
-      details: "Your team lacks a clear, effective strategy for introducing new offerings or expanding into untapped markets. This results in missed opportunities and slower growth."
+      details: [
+        "Unclear positioning in competitive landscapes",
+        "Difficulty identifying ideal customer profiles",
+        "Ineffective messaging for new market segments"
+      ]
     },
     {
       icon: <Clock className="w-12 h-12 text-yellow-500" />,
       title: "Time Management",
       description: "Drowning in follow-ups?",
-      details: "Managing responses, follow-ups, and appointment scheduling is eating up your day. This leaves little time for actually closing deals and growing your business."
+      details: [
+        "Overwhelming manual follow-up processes",
+        "Inefficient scheduling and response management",
+        "Time-consuming task switching between tools"
+      ]
     },
     {
       icon: <TrendingUp className="w-12 h-12 text-indigo-500" />,
       title: "Scaling Outreach",
       description: "Can't increase volume without losing quality?",
-      details: "As you try to scale your outreach efforts, you're finding it hard to maintain the quality and personalization that made your initial campaigns successful."
+      details: [
+        "Difficulty maintaining personalization at scale",
+        "Inconsistent messaging across larger campaigns",
+        "Resource constraints limiting growth potential"
+      ]
     }
   ]
 
@@ -90,6 +114,18 @@ export default function EnhancedAgencyLandingPage() {
   ];
 
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+
+  const getChallengeColor = (index) => {
+    const colors = [
+      'bg-blue-500',
+      'bg-green-500',
+      'bg-purple-500',
+      'bg-red-500',
+      'bg-yellow-500',
+      'bg-indigo-500'
+    ];
+    return colors[index % colors.length];
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -463,27 +499,46 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </section>
 
-        {/* Combined Challenges Section */}
-        <section id="challenges" className="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-blue-100">
+        {/* Critical Business Challenges Section */}
+        <section id="challenges" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-black">B2B Outreach Challenges We Solve</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              Critical Business Challenges
+            </h2>
+            <p className="text-xl text-center mb-12 text-blue-200">
+              <span className="font-bold text-2xl text-red-400">WARNING:</span> These cold email pitfalls are 
+              <span className="font-bold"> silently killing your revenue growth</span>. 
+              Tackle them head-on to <span className="text-green-400 font-bold">unlock your true profit potential</span>.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {challenges.map((challenge, index) => (
-                <motion.div
+                <motion.div 
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-white rounded-2xl shadow-lg p-5 cursor-pointer transition-all duration-300 ${
-                    selectedChallenge === index ? 'ring-4 ring-blue-400' : 'hover:shadow-xl'
-                  }`}
-                  onClick={() => setSelectedChallenge(index === selectedChallenge ? null : index)}
+                  className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl border-l-4 border-blue-500 group"
                 >
-                  <div className="flex items-center mb-3">
-                    <div className="mr-3">{challenge.icon}</div>
-                    <h3 className="text-lg font-semibold">{challenge.title}</h3>
+                  <div 
+                    className="p-6 cursor-pointer"
+                    onClick={() => setSelectedChallenge(selectedChallenge === index ? null : index)}
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center">
+                        <div className={`mr-4 p-3 rounded-full ${getChallengeColor(index)} group-hover:scale-110 transition-transform duration-300`}>
+                          {React.cloneElement(challenge.icon, { className: "w-8 h-8 text-white" })}
+                        </div>
+                        <h3 className="text-xl font-semibold text-blue-300 group-hover:text-blue-200 transition-colors duration-300">{challenge.title}</h3>
+                      </div>
+                      <ChevronDown 
+                        className={`w-5 h-5 text-blue-400 transition-transform duration-300 ${
+                          selectedChallenge === index ? 'transform rotate-180' : ''
+                        }`}
+                      />
+                    </div>
+                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{challenge.description}</p>
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{challenge.description}</p>
                   <AnimatePresence>
                     {selectedChallenge === index && (
                       <motion.div
@@ -491,18 +546,25 @@ export default function EnhancedAgencyLandingPage() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
+                        className="px-6 pb-6 bg-blue-900 bg-opacity-20"
                       >
-                        <div className="mt-3 pt-3 border-t border-gray-200">
-                          <p className="text-gray-700 text-sm">{challenge.details}</p>
-                        </div>
+                        <ul className="space-y-3">
+                          {challenge.details.map((point, i) => (
+                            <motion.li 
+                              key={i} 
+                              className="flex items-start"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: i * 0.1 }}
+                            >
+                              <ArrowRight className="w-5 h-5 text-blue-400 mr-2 flex-shrink-0 mt-1" />
+                              <span className="text-gray-300">{point}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-blue-500 transition-transform duration-300 mt-2 ${
-                      selectedChallenge === index ? 'transform rotate-180' : ''
-                    }`}
-                  />
                 </motion.div>
               ))}
             </div>
