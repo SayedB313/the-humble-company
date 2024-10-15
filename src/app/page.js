@@ -645,38 +645,47 @@ export default function EnhancedAgencyLandingPage() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-blue-300">Success Stories</h2>
             <p className="text-xl text-center mb-12 text-gray-300">See how our cold email strategies transform B2B outreach across industries</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  company: "TechSales Inc.",
-                  result: "150% Increase in Qualified Leads",
-                  description: "Our AI-powered cold email campaigns helped TechSales Inc. automate their outreach, resulting in a significant boost in qualified leads and sales efficiency.",
-                },
-                {
-                  company: "CustomerFirst Solutions",
-                  result: "40% Higher Response Rate",
-                  description: "Our personalized email sequences provided targeted outreach for CustomerFirst Solutions, dramatically improving response rates and engagement.",
-                },
-                {
-                  company: "DataDriven Corp",
-                  result: "200% ROI within 6 Months",
-                  description: "Implementing our strategic cold email approach helped DataDriven Corp uncover hidden opportunities, leading to decisions that doubled their ROI.",
-                },
-              ].map((story, index) => (
-                <div key={index} className="bg-white bg-opacity-10 rounded-2xl p-8 flex flex-col justify-between backdrop-filter backdrop-blur-lg border border-blue-200 border-opacity-20 transition-all duration-300 hover:shadow-xl hover:scale-105">
-                  <div>
-                    <h3 className="text-2xl font-semibold mb-2 text-blue-300">{story.company}</h3>
-                    <p className="text-3xl font-bold mb-4 text-yellow-400">{story.result}</p>
-                    <p className="text-gray-300 mb-6">{story.description}</p>
-                  </div>
-                  <Button 
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105"
-                    onClick={() => {/* Handle case study request */}}
-                  >
-                    Read Full Case Study
-                  </Button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white bg-opacity-10 rounded-2xl p-8 flex flex-col justify-between backdrop-filter backdrop-blur-lg border border-blue-200 border-opacity-20 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-2 text-blue-300">Michael Rose & Associates</h3>
+                  <p className="text-3xl font-bold mb-4 text-yellow-400">400% Increase in Email Volume</p>
+                  <ul className="text-gray-300 mb-6 space-y-2">
+                    <li>• Monthly email send volume increased from 6,000 to 30,000</li>
+                    <li>• Email bounce rate decreased from 20% to less than 2%</li>
+                    <li>• Monthly booked meetings increased from 5-10 to 25-30</li>
+                    <li>• Monthly closed deals increased from 1-2 to 6-8</li>
+                  </ul>
                 </div>
-              ))}
+                <a 
+                  href="https://email-protocol-case-stud-j8veye9.gamma.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+                >
+                  Read Full Case Study
+                </a>
+              </div>
+              <div className="bg-white bg-opacity-10 rounded-2xl p-8 flex flex-col justify-between backdrop-filter backdrop-blur-lg border border-blue-200 border-opacity-20 transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-2 text-blue-300">Sunray Energy Solutions</h3>
+                  <p className="text-3xl font-bold mb-4 text-yellow-400">273% Increase in Lead Generation</p>
+                  <ul className="text-gray-300 mb-6 space-y-2">
+                    <li>• 273% increase in lead generation</li>
+                    <li>• 85% increase in sales qualified leads</li>
+                    <li>• $2M annual revenue achieved</li>
+                    <li>• 92% customer satisfaction rate</li>
+                  </ul>
+                </div>
+                <a 
+                  href="https://solarbright-case-study-ycpvlhl.gamma.site/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 text-center"
+                >
+                  Read Full Case Study
+                </a>
+              </div>
             </div>
             <div className="mt-16 text-center">
               <Button
@@ -687,8 +696,8 @@ export default function EnhancedAgencyLandingPage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <p className="mt-6 text-gray-300 max-w-2xl mx-auto">
-                Join industry leaders in revolutionizing their B2B outreach. 
-                Our Email Resonance Analyzer™ has helped companies just like yours achieve remarkable results. 
+                Join industry leaders like Michael Rose & Associates and Sunray Energy Solutions in revolutionizing their B2B outreach. 
+                Our Email Resonance Analyzer™ has helped companies across various sectors achieve remarkable results. 
                 Start your journey to improved engagement and higher conversions today.
               </p>
             </div>
