@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -294,6 +294,7 @@ export default function EnhancedAgencyLandingPage() {
             <Link href="#success-stories" className="text-sm font-medium hover:text-blue-600 transition-colors">Success Stories</Link>
             <Link href="#process" className="text-sm font-medium hover:text-blue-600 transition-colors">Our Process</Link>
             <Link href="#why-us" className="text-sm font-medium hover:text-blue-600 transition-colors">Why Us</Link>
+            <Link href="#resources" className="text-sm font-medium hover:text-blue-600 transition-colors">Resources</Link>
           </nav>
           <div className="md:hidden">
             <Button variant="ghost" size="sm" onClick={toggleMobileMenu}>
@@ -315,6 +316,7 @@ export default function EnhancedAgencyLandingPage() {
               <Link href="#success-stories" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Success Stories</Link>
               <Link href="#process" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Our Process</Link>
               <Link href="#why-us" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Why Us</Link>
+              <Link href="#resources" className="text-sm font-medium hover:text-blue-600 transition-colors" onClick={toggleMobileMenu}>Resources</Link>
               <Button onClick={() => { setIsQuizOpen(true); toggleMobileMenu(); }} className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-4 py-2 rounded-full text-sm font-semibold transition-colors flex items-center justify-center w-full">
                 <Wand2 className="mr-2 h-4 w-4" />
                 Free Resonance Analysis
@@ -950,9 +952,9 @@ export default function EnhancedAgencyLandingPage() {
                 <div className="text-center">
                   <Button
                     onClick={() => setIsQuizOpen(true)}
-                    className={`${ctaButtonClass} transform hover:scale-105 w-full md:w-auto`}
+                    className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
-                    Discover Your Cold Email Potential
+                    Analyze Your Email Resonance
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
@@ -961,45 +963,154 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </section>
 
+        {/* Redesigned Resources Section */}
+        <section id="resources" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white overflow-hidden relative">
+          <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:40px_40px]"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                B2B Email Resources Hub
+              </h2>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-2xl mb-12">
+              <p className="text-lg text-blue-100">
+                Whether you're a startup founder, a marketing professional, or a sales team leader,
+                our resources are designed to help you master the art of B2B email communication.
+                From cold outreach to nurturing campaigns, we've got you covered with actionable
+                strategies and cutting-edge tools to boost your email performance.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <motion.div 
+                className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex items-center mb-6">
+                  <Book className="w-12 h-12 text-yellow-400 mr-4" />
+                  <h3 className="text-2xl font-semibold text-white">Comprehensive Guides</h3>
+                </div>
+                <p className="text-blue-100 mb-8">
+                  In-depth articles and tutorials on B2B email strategies to elevate your outreach game.
+                </p>
+                <a 
+                  href="https://b2bguide.web.app/guides"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 py-3 rounded-full text-lg font-semibold transition-colors shadow-md"
+                >
+                  Explore Guides
+                  <ArrowRight className="inline-block ml-2 h-5 w-5" />
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex items-center mb-6">
+                  <Cog className="w-12 h-12 text-yellow-400 mr-4" />
+                  <h3 className="text-2xl font-semibold text-white">Powerful Tools</h3>
+                </div>
+                <p className="text-purple-100 mb-8">
+                  Discover top-rated tools and software for cold email outreach, with detailed
+                  information to enhance your B2B email campaigns.
+                </p>
+                <a 
+                  href="https://b2bguide.web.app/tools"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 py-3 rounded-full text-lg font-semibold transition-colors shadow-md"
+                >
+                  Explore Tools
+                  <ArrowRight className="inline-block ml-2 h-5 w-5" />
+                </a>
+              </motion.div>
+              
+              <motion.div 
+                className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-xl p-8 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="flex items-center mb-6">
+                  <Lightbulb className="w-12 h-12 text-yellow-400 mr-4" />
+                  <h3 className="text-2xl font-semibold text-white">Resources</h3>
+                </div>
+                <p className="text-indigo-100 mb-8">
+                  Access our internal tools, downloadable templates, and other valuable assets to
+                  supercharge your email marketing efforts.
+                </p>
+                <a 
+                  href="https://b2bguide.web.app/resources"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-6 py-3 rounded-full text-lg font-semibold transition-colors shadow-md"
+                >
+                  Access Resources
+                  <ArrowRight className="inline-block ml-2 h-5 w-5" />
+                </a>
+              </motion.div>
+            </div>
+            
+            <div className="mt-16 text-center">
+              <p className="text-2xl text-blue-200 mb-8">
+                Ready to revolutionize your B2B email strategy?
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <Button
+                  onClick={() => setIsQuizOpen(true)}
+                  className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 px-8 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                >
+                  Analyze Your Email Resonance
+                  <ArrowRight className="ml-2 h-6 w-6 inline" />
+                </Button>
+                <Button
+                  onClick={() => window.Calendly.initPopupWidget({url: 'https://calendly.com/sayedbw/30min?hide_gdpr_banner=1'})}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                >
+                  Book a Consultation
+                  <Calendar className="ml-2 h-6 w-6 inline" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-8 md:py-12">
+        <footer className="bg-gray-900 text-white py-6">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-3 gap-4 mb-4">
               <div>
-                <Link href="/" className="flex items-center space-x-2 mb-4">
-                  <Mail className="w-8 h-8" />
-                  <span className="text-xl font-bold leading-tight">
+                <Link href="/" className="flex items-center space-x-2 mb-2">
+                  <Mail className="w-6 h-6" />
+                  <span className="text-lg font-bold leading-tight">
                     The Email Protocol
                   </span>
                 </Link>
-                <p className="text-sm text-gray-400">Revolutionizing B2B cold outreach with expert strategies and AI-powered automation.</p>
+                <p className="text-xs text-gray-400">Revolutionizing B2B cold outreach with expert strategies and AI-powered automation.</p>
               </div>
               <div>
-                <h3 className="font-semibold mb-4">Quick Links</h3>
-                <ul className="space-y-2">
-                  <li><Link href="#services" className="text-sm text-gray-400 hover:text-white transition-colors">Services</Link></li>
-                  <li><Link href="#case-studies" className="text-sm text-gray-400 hover:text-white transition-colors">Success Stories</Link></li>
-                  <li><Link href="#process" className="text-sm text-gray-400 hover:text-white transition-colors">Our Process</Link></li>
-                  <li><Link href="#testimonials" className="text-sm text-gray-400 hover:text-white transition-colors">Testimonials</Link></li>
+                <h3 className="font-semibold mb-2 text-sm">Quick Links</h3>
+                <ul className="space-y-1 text-xs">
+                  <li><Link href="#email-resonance-engine" className="text-gray-400 hover:text-white transition-colors">Our Engine</Link></li>
+                  <li><Link href="#success-stories" className="text-gray-400 hover:text-white transition-colors">Success Stories</Link></li>
+                  <li><Link href="#process" className="text-gray-400 hover:text-white transition-colors">Our Process</Link></li>
+                  <li><Link href="#why-us" className="text-gray-400 hover:text-white transition-colors">Why Us</Link></li>
+                  <li><Link href="#resources" className="text-gray-400 hover:text-white transition-colors">Resources</Link></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold mb-4">Legal</h3>
-                <ul className="space-y-2">
-                  <li><Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                  <li><Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
+                <h3 className="font-semibold mb-2 text-sm">Legal</h3>
+                <ul className="space-y-1 text-xs">
+                  <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+                  <li><Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
                 </ul>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-4">Stay Updated</h3>
-                <p className="text-sm text-gray-400 mb-4">Subscribe to our newsletter for the latest email resonance tips and trends.</p>
-                <form className="flex">
-                  <Input type="email" placeholder="Enter your email" className="rounded-l-full" />
-                  <Button type="submit" className="rounded-r-full bg-yellow-400 hover:bg-yellow-500 text-blue-900">Subscribe</Button>
-                </form>
               </div>
             </div>
-            <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+            <div className="pt-4 border-t border-gray-800 text-center text-xs text-gray-400">
               © {new Date().getFullYear()} The Email Protocol. All rights reserved.
             </div>
           </div>
