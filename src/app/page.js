@@ -1179,20 +1179,20 @@ export default function EnhancedAgencyLandingPage() {
         )}
 
         {showVideo && (
-          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-4 rounded-lg max-w-3xl w-full">
-              <div className="aspect-w-16 aspect-h-9">
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div className="bg-white p-4 rounded-lg w-full max-w-4xl">
+              <div className="relative" style={{ paddingBottom: '75%' }}> {/* Changed from 16:9 to 4:3 ratio */}
                 <iframe
-                  src="https://www.youtube.com/embed/your-video-id"
+                  src="https://www.loom.com/embed/70adfb2aae414173a2d1e3fece1e8a9b?sid=a51bf21b-d963-47f2-86c3-69af48c87430"
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
                   allowFullScreen
-                  className="w-full h-full"
+                  className="absolute inset-0 w-full h-full"
                 ></iframe>
               </div>
               <button
                 onClick={() => setShowVideo(false)}
-                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                className="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto"
               >
                 Close Video
               </button>
