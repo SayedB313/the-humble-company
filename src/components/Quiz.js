@@ -161,28 +161,84 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
     return re.test(String(website).toLowerCase());
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    console.log('Current values:', { name, email, company, answers });
+    
     let isValid = true;
     
-    if (!validateEmail(email)) {
+    // Basic validation
+    if (!name || name.trim() === '') {
+      isValid = false;
+      console.log('Name is missing');
+    }
+
+    if (!email || email.trim() === '') {
+      setEmailError('Email is required');
+      isValid = false;
+    } else if (!validateEmail(email)) {
       setEmailError('Please enter a valid email address');
       isValid = false;
     } else {
       setEmailError('');
     }
 
-    if (!validateWebsite(company)) {
+    if (!company || company.trim() === '') {
+      setWebsiteError('Company website is required');
+      isValid = false;
+    } else if (!validateWebsite(company)) {
       setWebsiteError('Please enter a valid website URL');
       isValid = false;
     } else {
       setWebsiteError('');
     }
 
-    if (isValid && name && email && company) {
-      const quizData = { answers, email, name, company };
-      console.log(quizData);
-      // Here you would typically send this data to your backend or analytics service
-      onComplete(quizData);
+    if (isValid) {
+      try {
+        // Create a more structured data format
+        const formattedAnswers = {};
+        Object.entries(answers).forEach(([questionId, answerArray]) => {
+          // Convert array to string and remove the array structure
+          formattedAnswers[questionId] = answerArray[0]; // Take first answer for single-choice questions
+        });
+
+        // Structure the data as a single bundle
+        const quizData = {
+          Bundle: {  // Make.com often looks for a top-level object
+            userInfo: {
+              name: name.trim(),
+              email: email.trim(),
+              website: company.trim(),
+            },
+            answers: formattedAnswers,
+            metadata: {
+              timestamp: new Date().toISOString(),
+              source: window.location.href
+            }
+          }
+        };
+        
+        console.log('Sending data:', quizData);
+        
+        const response = await fetch('https://hook.us1.make.com/7xk5cq347g8rcb1skzg9bhuzext3w1f4', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(quizData),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        console.log('Quiz submitted successfully');
+        onComplete(quizData);
+        onClose();
+
+      } catch (error) {
+        console.error('Error submitting quiz:', error);
+        alert('There was an error submitting your quiz. Please try again.');
+      }
     }
   };
 
@@ -280,7 +336,10 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={handleSubmit}
+          onClick={() => {
+            console.log('Submit button clicked');
+            handleSubmit();
+          }}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition-colors text-lg font-semibold flex items-center justify-center"
         >
           Get My Free Outbound Audit
@@ -305,15 +364,9 @@ const Quiz = ({ isOpen, onClose, onComplete }) => {
             exit={{ scale: 0.9, opacity: 0 }}
             className="bg-white rounded-xl shadow-2xl w-full max-w-sm sm:max-w-md md:max-w-lg overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-4 md:p-6 text-white flex justify-between items-center">
-              <h2 className="text-xl md:text-2xl font-bold">Email Resonance Analyzer™</h2>
-              <motion.button
-                whileHover={{ rotate: 90 }}
-                onClick={onClose}
-                className="text-white hover:text-blue-200 transition-colors"
-              >
-                <X className="w-5 h-5 md:w-6 md:h-6" />
-              </motion.button>
+            <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+              <h2 className="text-2xl font-bold">DealFlow Protocol Assessment</h2>
+              <p className="text-sm mt-2">Analyze your current deal flow strategy</p>
             </div>
             <div className="p-4 sm:p-6 max-h-[80vh] overflow-y-auto bg-gradient-to-b from-blue-50 to-white">
               {step < questions.length ? (

@@ -10,11 +10,12 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.3.0",
     "@radix-ui/react-accordion": "^1.0.0",
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
+    "clsx": "^2.1.1",
     "firebase": "^10.14.0",
-    "framer-motion": "^10.0.0",
+    "framer-motion": "^10.18.0",
     "lucide-react": "^0.263.1",
     "next": "^14.2.15",
     "react": "^18.3.1",

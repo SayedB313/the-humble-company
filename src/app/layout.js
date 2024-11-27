@@ -1,8 +1,9 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Email Protocol - B2B Cold Email Marketing Agency',
-  description: 'Boost your B2B revenue with expert cold email strategies and services from Email Protocol.',
+  title: 'Vector Asylum | AI-Powered Deal Sourcing Platform',
+  description: 'Enterprise-grade deal sourcing platform powered by AI and data intelligence. Transform your investment firm\'s deal flow with our advanced technology.',
+  keywords: 'deal flow, investment opportunities, AI deal sourcing, institutional investors, deal pipeline',
 }
 
 export default function RootLayout({ children }) {
