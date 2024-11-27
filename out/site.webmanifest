@@ -1,6 +1,7 @@
 {
-  "name": "Vector Asylum",
-  "short_name": "Vector Asylum",
+  "name": "Vector Summit",
+  "short_name": "Vector Summit",
+  "description": "AI-Powered Business Intelligence & Strategy",
   "icons": [
     {
       "src": "/favicon-16x16.png",

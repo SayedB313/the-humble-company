@@ -1,9 +1,9 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Vector Asylum | AI-Powered Deal Sourcing Platform',
-  description: 'Enterprise-grade deal sourcing platform powered by AI and data intelligence. Transform your investment firm\'s deal flow with our advanced technology.',
-  keywords: 'deal flow, investment opportunities, AI deal sourcing, institutional investors, deal pipeline',
+  title: 'Vector Summit | AI-Powered Business Intelligence Platform',
+  description: 'Enterprise-grade business intelligence platform powered by AI and data intelligence. Transform your business strategy with our advanced technology.',
+  keywords: 'business intelligence, AI strategy, data intelligence, enterprise solutions, business transformation',
 }
 
 export default function RootLayout({ children }) {

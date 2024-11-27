@@ -8,22 +8,20 @@ export const generateReport = (answers, name, company) => {
 
   // Analyze answers and generate recommendations
   if (answers[3] && answers[3][0].startsWith('<')) {
-    report.recommendations.push("Your open rates are below average. Consider improving your subject lines and sender reputation.");
+    report.recommendations.push("Your market penetration is below average. Consider improving your strategic approach and market positioning.");
   }
 
   if (answers[4] && answers[4][0].startsWith('<')) {
-    report.recommendations.push("Your response rates are low. Focus on improving your email copy and call-to-action.");
+    report.recommendations.push("Your engagement rates are low. Focus on improving your value proposition and client communication strategy.");
   }
 
-  if (!answers[6] || !answers[6].includes('DMARC')) {
-    report.recommendations.push("Implement DMARC authentication to improve email deliverability and protect your domain from spoofing.");
+  if (!answers[6] || !answers[6].includes('Strategy')) {
+    report.recommendations.push("Consider implementing a comprehensive business strategy to improve overall market performance and competitive positioning.");
   }
 
-  if (answers[9] && answers[9][0] === "Low Deliverability") {
-    report.recommendations.push("Prioritize improving your email deliverability. This may involve cleaning your email list, warming up your domain, and improving your email content.");
+  if (answers[9] && answers[9][0] === "Low Performance") {
+    report.recommendations.push("Prioritize improving your business metrics. This may involve optimizing operations, enhancing customer experience, and refining your market approach.");
   }
-
-  // Add more analysis and recommendations based on the answers
 
   return report;
 };
