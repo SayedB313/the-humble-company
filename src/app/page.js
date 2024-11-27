@@ -286,10 +286,10 @@ export default function EnhancedAgencyLandingPage() {
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <Target className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
-            <span className="text-lg md:text-xl font-bold">
-              Vector Asylum
+          <Link href="/" className="flex items-center space-x-2 mb-2">
+            <Target className="w-6 h-6" />
+            <span className="text-lg font-bold leading-tight">
+              Vector Summit
             </span>
           </Link>
           <nav className="hidden md:flex space-x-6">
@@ -399,10 +399,10 @@ export default function EnhancedAgencyLandingPage() {
                 animate="visible"
                 variants={heroVariants}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
+                <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
                   {headers[currentHeaderIndex].main}
                   <br />
-                  <span className="text-yellow-400 h-[1.5em] block">
+                  <span className="text-yellow-400 h-[1.5em] block text-3xl sm:text-4xl md:text-6xl">
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={currentHeaderIndex}
@@ -417,7 +417,7 @@ export default function EnhancedAgencyLandingPage() {
                     </AnimatePresence>
                   </span>
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8">
+                <p className="text-xl sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8">
                   AI-Powered Deal Flow Engine™ for Investment Firms
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 max-w-2xl mx-auto">
@@ -1002,12 +1002,12 @@ export default function EnhancedAgencyLandingPage() {
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-6">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-4 mb-4">
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div>
                 <Link href="/" className="flex items-center space-x-2 mb-2">
                   <Target className="w-6 h-6" />
                   <span className="text-lg font-bold leading-tight">
-                    Vector Asylum
+                    Vector Summit
                   </span>
                 </Link>
                 <p className="text-xs text-gray-400">
@@ -1023,16 +1023,9 @@ export default function EnhancedAgencyLandingPage() {
                   <li><Link href="#why-us" className="text-gray-400 hover:text-white transition-colors">Why Us</Link></li>
                 </ul>
               </div>
-              <div>
-                <h3 className="font-semibold mb-2 text-sm">Legal</h3>
-                <ul className="space-y-1 text-xs">
-                  <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                  <li><Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
-                </ul>
-              </div>
             </div>
             <div className="pt-4 border-t border-gray-800 text-center text-xs text-gray-400">
-              © {new Date().getFullYear()} Vector Asylum. All rights reserved.
+              © {new Date().getFullYear()} Vector Summit. All rights reserved.
             </div>
           </div>
         </footer>
