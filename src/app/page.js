@@ -50,8 +50,8 @@ export default function EnhancedAgencyLandingPage() {
       title: "Portfolio Growth",
       description: "Need to scale efficiently?",
       details: [
-        "Resource-intensive screening process",
-        "Difficulty maintaining deal quality at scale",
+        "Complex screening process",
+        "Quality control at scale",
         "Limited bandwidth for outreach"
       ]
     }
@@ -247,21 +247,21 @@ export default function EnhancedAgencyLandingPage() {
   const standardCTA = "bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors";
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 md:py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span className="text-lg md:text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
+            <span className="text-2xl md:text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
           
-          {/* Mobile menu button */}
+          {/* Mobile menu button - made larger and more prominent */}
           <button 
             onClick={toggleMobileMenu}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-3 hover:bg-gray-800 rounded-lg transition-colors"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-8 h-8" />
           </button>
 
           {/* Desktop navigation */}
@@ -319,7 +319,7 @@ export default function EnhancedAgencyLandingPage() {
           </nav>
         </div>
 
-        {/* Mobile menu overlay */}
+        {/* Mobile menu overlay - improved text size and spacing */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -328,71 +328,73 @@ export default function EnhancedAgencyLandingPage() {
               exit={{ opacity: 0, y: -20 }}
               className="absolute top-full left-0 right-0 bg-gray-900 border-b border-gray-800 md:hidden"
             >
-              <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a 
-                  href="#challenges"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('challenges');
-                    toggleMobileMenu();
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors py-2"
-                >
-                  Challenges
-                </a>
-                <a 
-                  href="#email-resonance-engine"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('email-resonance-engine');
-                    toggleMobileMenu();
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors py-2"
-                >
-                  Our Engine
-                </a>
-                <a 
-                  href="#success-stories"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('success-stories');
-                    toggleMobileMenu();
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors py-2"
-                >
-                  Success Stories
-                </a>
-                <a 
-                  href="#process"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('process');
-                    toggleMobileMenu();
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors py-2"
-                >
-                  Our Process
-                </a>
-                <a 
-                  href="#why-us"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection('why-us');
-                    toggleMobileMenu();
-                  }}
-                  className="text-gray-300 hover:text-white transition-colors py-2"
-                >
-                  Why Us
-                </a>
-                <button 
-                  onClick={() => {
-                    setIsCalOpen(true);
-                    toggleMobileMenu();
-                  }}
-                  className={`${standardCTA} w-full text-center`}
-                >
-                  Scale Deal Flow
-                </button>
+              <div className="container mx-auto px-4 py-6">
+                <nav className="flex flex-col space-y-4">
+                  <a 
+                    href="#challenges"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('challenges');
+                      toggleMobileMenu();
+                    }}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Challenges
+                  </a>
+                  <a 
+                    href="#email-resonance-engine"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('email-resonance-engine');
+                      toggleMobileMenu();
+                    }}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Our Engine
+                  </a>
+                  <a 
+                    href="#success-stories"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('success-stories');
+                      toggleMobileMenu();
+                    }}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Success Stories
+                  </a>
+                  <a 
+                    href="#process"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('process');
+                      toggleMobileMenu();
+                    }}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Our Process
+                  </a>
+                  <a 
+                    href="#why-us"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection('why-us');
+                      toggleMobileMenu();
+                    }}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Why Us
+                  </a>
+                  <button 
+                    onClick={() => {
+                      setIsCalOpen(true);
+                      toggleMobileMenu();
+                    }}
+                    className={`${standardCTA} w-full text-center mt-4 text-lg py-4`}
+                  >
+                    Scale Deal Flow
+                  </button>
+                </nav>
               </div>
             </motion.div>
           )}
@@ -468,7 +470,7 @@ export default function EnhancedAgencyLandingPage() {
         <section id="challenges" className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-4">
-              Investment Firm Challenges
+              Investment Challenges
             </h2>
             <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
               Common bottlenecks preventing firms from maximizing their investment potential
@@ -518,71 +520,116 @@ export default function EnhancedAgencyLandingPage() {
         {/* The Deal Flow Engine Section */}
         <section id="email-resonance-engine" className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12"
+            >
               The Deal Flow Engine™
-            </h2>
+            </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
               {/* Left Column - Core Features */}
               <div className="space-y-8">
-                <div className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                >
                   <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
                     Find
                   </h3>
                   <p className="text-lg text-gray-700">
                     Identify high-potential investment opportunities
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                >
                   <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
                     Filter
                   </h3>
                   <p className="text-lg text-gray-700">
                     Screen deals based on your criteria
                   </p>
-                </div>
+                </motion.div>
 
-                <div className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                >
                   <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
                     Scale
                   </h3>
                   <p className="text-lg text-gray-700">
                     Maintain quality while expanding pipeline
                   </p>
-                </div>
+                </motion.div>
               </div>
 
               {/* Right Column - Results */}
-              <div className="bg-gray-900 p-8 md:p-12 rounded-2xl text-white">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-gray-800 p-8 md:p-12 rounded-2xl text-white"
+              >
                 <h3 className="text-2xl font-montserrat mb-8">
                   Results
                 </h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                    className="flex items-center gap-4"
+                  >
                     <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
                     <span className="text-xl">85% faster deal sourcing</span>
-                  </div>
+                  </motion.div>
                   
-                  <div className="flex items-center gap-4">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.6 }}
+                    className="flex items-center gap-4"
+                  >
                     <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
                     <span className="text-xl">3x larger qualified pipeline</span>
-                  </div>
+                  </motion.div>
                   
-                  <div className="flex items-center gap-4">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.7 }}
+                    className="flex items-center gap-4"
+                  >
                     <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
                     <span className="text-xl">60% better qualification</span>
-                  </div>
+                  </motion.div>
 
-                  <button 
+                  <motion.button 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.3, delay: 0.8 }}
                     onClick={() => setIsCalOpen(true)}
                     className={standardCTA}
                   >
                     Scale Deal Flow
-                  </button>
+                  </motion.button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -623,29 +670,32 @@ export default function EnhancedAgencyLandingPage() {
         {/* Process Section */}
         <section id="process" className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12"
+            >
               Our Process
-            </h2>
+            </motion.h2>
             
-            <div className="relative mb-12 sm:mb-20">
-              <div className="absolute top-1/2 left-0 right-0 h-2 bg-blue-200 transform -translate-y-1/2 rounded-full"></div>
+            {/* Process Steps Timeline - Removed vertical bar */}
+            <div className="relative mb-12">
               <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto px-4">
                 {processSteps.map((step, index) => (
                   <motion.div
                     key={index}
                     custom={index}
                     initial={{ opacity: 0, y: 50 }}
-                    animate={controls}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onHoverStart={() => handleStepHover(index)}
-                    onTap={() => handleStepHover(index)}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
                     onClick={() => handleStepHover(index)}
-                    className={`flex flex-col items-center ${index === activeStep ? 'scale-110' : ''} cursor-pointer`}
+                    className="flex flex-col items-center cursor-pointer"
                   >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
-                      index === activeStep ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'
-                    } shadow-lg transition-all duration-300`}>
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-white shadow-lg transition-all duration-300 ${
+                      index === activeStep ? 'ring-4 ring-blue-400' : ''
+                    }`}>
                       {step.icon}
                     </div>
                     <div className="mt-4 text-center">
@@ -657,127 +707,118 @@ export default function EnhancedAgencyLandingPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <div className="bg-blue-900 bg-opacity-20 p-8 rounded-2xl">
-                <h4 className="text-2xl font-semibold text-white mb-4">{processSteps[activeStep].title}</h4>
-                <p className="text-blue-200 mb-6">
-                  {activeStep === 0 && "Our comprehensive analysis evaluates your current deal sourcing strategy, identifying gaps and opportunities for systematic improvement."}
-                  {activeStep === 1 && "We develop a precise mapping of your ideal investment opportunities, creating detailed targeting criteria and market segments."}
-                  {activeStep === 2 && "Implementation of customized outreach systems and workflows designed specifically for investment opportunity generation."}
-                  {activeStep === 3 && "Strategic deployment of targeted campaigns to connect with pre-qualified investment opportunities matching your criteria."}
-                  {activeStep === 4 && "Continuous refinement of targeting and messaging based on real-time performance data and market response."}
-                  {activeStep === 5 && "Scale successful approaches while maintaining quality, expanding your investment opportunity pipeline systematically."}
-                </p>
-                <button 
-                  onClick={() => setIsCalOpen(true)}
-                  className={standardCTA}
-                >
-                  Scale Deal Flow
-                </button>
-              </div>
+            {/* Combined Details Box */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-gray-800 rounded-2xl p-8 max-w-6xl mx-auto"
+            >
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Left Side - Description */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-montserrat text-white mb-4">
+                    {processSteps[activeStep].title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {activeStep === 0 && "Our comprehensive analysis evaluates your current deal sourcing strategy, identifying gaps and opportunities for systematic improvement."}
+                    {activeStep === 1 && "We develop a precise mapping of your ideal investment opportunities, creating detailed targeting criteria and market segments."}
+                    {activeStep === 2 && "Implementation of customized outreach systems and workflows designed specifically for investment opportunity generation."}
+                    {activeStep === 3 && "Strategic deployment of targeted campaigns to connect with pre-qualified investment opportunities matching your criteria."}
+                    {activeStep === 4 && "Continuous refinement of targeting and messaging based on real-time performance data and market response."}
+                  </p>
+                </div>
 
-              <div className="bg-blue-900 bg-opacity-20 p-8 rounded-2xl">
-                <h4 className="text-2xl font-semibold text-white mb-4">Key Outcomes</h4>
-                <ul className="space-y-4 text-blue-200">
-                  {activeStep === 0 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Comprehensive deal flow assessment</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Clear opportunity gaps identified</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Strategic roadmap developed</span>
-                      </li>
-                    </>
-                  )}
-                  {activeStep === 1 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Defined ideal investment criteria</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Target market segments mapped</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Opportunity scoring framework</span>
-                      </li>
-                    </>
-                  )}
-                  {activeStep === 2 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Automated deal flow system</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Streamlined qualification process</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Team fully trained on system</span>
-                      </li>
-                    </>
-                  )}
-                  {activeStep === 3 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Active outreach campaigns</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Consistent deal flow pipeline</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Efficient response management</span>
-                      </li>
-                    </>
-                  )}
-                  {activeStep === 4 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Optimized conversion rates</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Data-driven improvements</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Enhanced targeting accuracy</span>
-                      </li>
-                    </>
-                  )}
-                  {activeStep === 5 && (
-                    <>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Scaled deal flow operations</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Maintained quality standards</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>Predictable opportunity flow</span>
-                      </li>
-                    </>
-                  )}
-                </ul>
+                {/* Right Side - Outcomes */}
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-montserrat text-white mb-4">
+                    Key Outcomes
+                  </h3>
+                  <ul className="space-y-3">
+                    {activeStep === 0 && (
+                      <>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Comprehensive deal flow assessment</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Clear opportunity gaps identified</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Strategic roadmap developed</span>
+                        </li>
+                      </>
+                    )}
+                    {activeStep === 1 && (
+                      <>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Defined ideal investment criteria</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Target market segments mapped</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Opportunity scoring framework</span>
+                        </li>
+                      </>
+                    )}
+                    {activeStep === 2 && (
+                      <>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Automated deal flow system</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Streamlined qualification process</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Team fully trained on system</span>
+                        </li>
+                      </>
+                    )}
+                    {activeStep === 3 && (
+                      <>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Active outreach campaigns</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Consistent deal flow pipeline</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Efficient response management</span>
+                        </li>
+                      </>
+                    )}
+                    {activeStep === 4 && (
+                      <>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Optimized conversion rates</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Data-driven improvements</span>
+                        </li>
+                        <li className="flex items-center gap-3 text-gray-300">
+                          <Check className="w-5 h-5 text-green-400" />
+                          <span>Enhanced targeting accuracy</span>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
