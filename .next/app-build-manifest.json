@@ -1,27 +1,50 @@
 {
   "pages": {
-    "/_not-found/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/app/_not-found/page-40c80ecbd1b6af59.js"
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/css/a7a0c3f3275ccc91.css",
-      "static/chunks/app/layout-0debf19eb664db26.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
-    "/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/949-18c5ac98c408b9c8.js",
-      "static/chunks/app/page-db721ed19f53f9a0.js"
+    "/services/capital-formation/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/capital-formation/page.js"
+    ],
+    "/services/growth-advisory/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/growth-advisory/page.js"
+    ],
+    "/services/mergers-acquisitions/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/mergers-acquisitions/page.js"
+    ],
+    "/services/equity-investment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/equity-investment/page.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
+    ],
+    "/track-record/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/track-record/page.js"
     ]
   }
 }

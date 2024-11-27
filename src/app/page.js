@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
 import CalEmbed from '../components/CalEmbed'
+import ServicesDropdown from '../components/ui/ServicesDropdown';
 
 export default function EnhancedAgencyLandingPage() {
   const [currentInsight, setCurrentInsight] = useState(0)
@@ -266,56 +267,19 @@ export default function EnhancedAgencyLandingPage() {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a 
-              href="#challenges" 
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('challenges');
-              }}
+            <ServicesDropdown />
+            <Link 
+              href="/about" 
               className="text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
             >
-              Challenges
-            </a>
-            <a 
-              href="#email-resonance-engine"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('email-resonance-engine');
-              }}
+              About Us
+            </Link>
+            <Link 
+              href="/contact"
               className="text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
             >
-              Our Engine
-            </a>
-            <a 
-              href="#track-record"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('track-record');
-              }}
-              className="text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
-            >
-              Track Record
-            </a>
-            <a 
-              href="#process"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('process');
-              }}
-              className="text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
-            >
-              Our Process
-            </a>
-            <a 
-              href="#why-us"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection('why-us');
-              }}
-              className="text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
-            >
-              Why Us
-            </a>
+              Contact
+            </Link>
           </nav>
         </div>
 
@@ -330,61 +294,48 @@ export default function EnhancedAgencyLandingPage() {
             >
               <div className="container mx-auto px-4 py-6">
                 <nav className="flex flex-col space-y-4">
-                  <a 
-                    href="#challenges"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('challenges');
-                      toggleMobileMenu();
-                    }}
+                  <Link 
+                    href="/services/capital-formation"
+                    onClick={() => toggleMobileMenu()}
                     className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
                   >
-                    Challenges
-                  </a>
-                  <a 
-                    href="#email-resonance-engine"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('email-resonance-engine');
-                      toggleMobileMenu();
-                    }}
+                    Capital Formation
+                  </Link>
+                  <Link 
+                    href="/services/growth-advisory"
+                    onClick={() => toggleMobileMenu()}
                     className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
                   >
-                    Our Engine
-                  </a>
-                  <a 
-                    href="#success-stories"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('success-stories');
-                      toggleMobileMenu();
-                    }}
+                    Growth Advisory & Equity
+                  </Link>
+                  <Link 
+                    href="/services/mergers-acquisitions"
+                    onClick={() => toggleMobileMenu()}
                     className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
                   >
-                    Success Stories
-                  </a>
-                  <a 
-                    href="#process"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('process');
-                      toggleMobileMenu();
-                    }}
+                    Mergers & Acquisitions
+                  </Link>
+                  <Link 
+                    href="/services/equity-investment"
+                    onClick={() => toggleMobileMenu()}
                     className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
                   >
-                    Our Process
-                  </a>
-                  <a 
-                    href="#why-us"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('why-us');
-                      toggleMobileMenu();
-                    }}
+                    Equity Investment
+                  </Link>
+                  <Link 
+                    href="/about"
+                    onClick={() => toggleMobileMenu()}
                     className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
                   >
-                    Why Us
-                  </a>
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/contact"
+                    onClick={() => toggleMobileMenu()}
+                    className="text-lg font-montserrat text-gray-300 hover:text-white transition-colors py-3"
+                  >
+                    Contact
+                  </Link>
                   <button 
                     onClick={() => {
                       setIsCalOpen(true);
