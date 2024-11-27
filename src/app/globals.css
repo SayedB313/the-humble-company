@@ -105,3 +105,9 @@ code {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Chrome, Safari and Opera */
 }
+
+@layer base {
+  html {
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+}

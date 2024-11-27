@@ -1,4 +1,11 @@
 import './globals.css'
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-montserrat'
+});
 
 export const metadata = {
   title: 'Vector Summit | AI-Powered Business Intelligence & Strategy',
@@ -19,7 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${montserrat.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
