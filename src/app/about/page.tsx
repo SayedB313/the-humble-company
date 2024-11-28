@@ -142,13 +142,15 @@ export default function AboutUs() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
           <div className="absolute inset-0">
-            <Image
-              src="/River Near Mountains.jpg"
-              alt="About Vector Summit"
-              fill
-              className="object-cover"
-              priority
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="object-cover w-full h-full"
+            >
+              <source src="/mountain4k.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
           </div>
           
