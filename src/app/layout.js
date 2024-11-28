@@ -8,9 +8,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: 'Vector Summit | AI-Powered Business Intelligence & Strategy',
-  description: 'Enterprise-grade business intelligence platform powered by AI and data intelligence. Transform your business strategy with our advanced technology.',
-  keywords: 'business intelligence, AI strategy, data intelligence, enterprise solutions, business transformation',
+  title: 'Vector Summit | Strategic Growth & Investment Advisory',
+  description: 'Elite strategic advisory firm specializing in growth capital, strategic partnerships, and value creation. Enabling businesses to scale through tailored financial solutions and strategic guidance.',
+  keywords: 'strategic advisory, growth capital, equity raising, strategic partnerships, joint ventures, minority recapitalization, market expansion, business transformation, investment advisory',
   manifest: '/manifest.json',
   icons: {
     icon: [
