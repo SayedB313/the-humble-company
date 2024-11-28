@@ -2,395 +2,425 @@
 
 import React from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import { motion } from "framer-motion";
-import { Building, Users, Globe, Award, DollarSign, TrendingUp, Check, BarChart2, Network, BarChart } from "lucide-react";
+import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, Globe, Shield, Rocket, Award } from "lucide-react";
 import Navigation from '../../components/ui/Navigation';
-import CalEmbed from '../../components/CalEmbed';
 
 export default function AboutUs() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const [isCalOpen, setIsCalOpen] = React.useState(false);
+  const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
 
-  const teamValues = [
+  const roles = [
     {
-      icon: <Building className="w-12 h-12 text-blue-400" />,
-      title: "Excellence",
-      description: "Committed to delivering exceptional results and maintaining the highest standards in financial advisory."
+      icon: <Rocket className="w-10 h-10 text-white" />,
+      title: "Growth Enabler",
+      description: "Unlocking opportunities through expertly crafted capital strategies",
+      benefits: [
+        "Operational expansion",
+        "R&D advancement",
+        "Strategic funding"
+      ]
     },
     {
-      icon: <Users className="w-12 h-12 text-green-400" />,
-      title: "Partnership",
-      description: "Building long-term relationships based on trust, transparency, and mutual success."
+      icon: <Network className="w-10 h-10 text-white" />,
+      title: "Strategic Partner",
+      description: "Building enduring partnerships to drive value creation",
+      benefits: [
+        "Joint ventures",
+        "Market access",
+        "Industry expertise"
+      ]
     },
     {
-      icon: <Globe className="w-12 h-12 text-purple-400" />,
-      title: "Innovation",
-      description: "Leveraging cutting-edge technology and creative solutions to drive superior outcomes."
-    },
-    {
-      icon: <Award className="w-12 h-12 text-yellow-400" />,
-      title: "Integrity",
-      description: "Maintaining the highest ethical standards and professional conduct in all our dealings."
+      icon: <Globe className="w-10 h-10 text-white" />,
+      title: "Global Intermediary",
+      description: "Connecting businesses with institutional and private investors",
+      benefits: [
+        "Capital markets access",
+        "Investment opportunities",
+        "Deal structuring"
+      ]
     }
   ];
 
-  const metrics = [
+  const values = [
     {
-      icon: <DollarSign className="w-12 h-12 text-blue-400" />,
-      title: "$500M+",
-      description: "Total Transaction Value"
+      icon: <Target className="w-8 h-8 text-[#14213D]" />,
+      title: "Holistic Growth",
+      description: "Integrating financial, operational, and market considerations"
     },
     {
-      icon: <Building className="w-12 h-12 text-green-400" />,
-      title: "50+",
-      description: "Successful Deals"
+      icon: <Shield className="w-8 h-8 text-[#14213D]" />,
+      title: "Custom Strategies",
+      description: "Tailored solutions for unique business needs"
     },
     {
-      icon: <Users className="w-12 h-12 text-purple-400" />,
-      title: "100+",
-      description: "Client Relationships"
+      icon: <Users className="w-8 h-8 text-[#14213D]" />,
+      title: "Collaborative Execution",
+      description: "Active partnership in implementing initiatives"
     },
     {
-      icon: <TrendingUp className="w-12 h-12 text-yellow-400" />,
-      title: "85%",
-      description: "Success Rate"
+      icon: <Building className="w-8 h-8 text-[#14213D]" />,
+      title: "Global Reach",
+      description: "Extensive networks worldwide for funding and partnerships"
+    },
+    {
+      icon: <Award className="w-8 h-8 text-[#14213D]" />,
+      title: "Proven Expertise",
+      description: "Combining legacy experience with modern insights"
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8 text-[#14213D]" />,
+      title: "Risk Mitigation",
+      description: "Carefully structured partnerships and transactions"
     }
   ];
 
-  const caseStudies = [
+  const trackRecord = [
     {
-      title: "Strategic Acquisition",
-      industry: "Technology",
-      description: "Facilitated a $100M acquisition for a leading software company, resulting in 40% market share increase.",
-      outcomes: [
-        "40% market share growth",
-        "Successful integration",
-        "Revenue synergies achieved",
-        "Enhanced product portfolio"
-      ]
+      icon: <DollarSign className="w-10 h-10 text-white" />,
+      metric: "$500M+",
+      title: "Transaction Value",
+      description: "Total value of completed deals across all services"
     },
     {
-      title: "Growth Capital Raise",
-      industry: "Healthcare",
-      description: "Secured $50M growth capital for healthcare technology platform, enabling expansion into new markets.",
-      outcomes: [
-        "Successful capital raise",
-        "Market expansion",
-        "3x revenue growth",
-        "Strategic partnerships formed"
-      ]
+      icon: <Building className="w-10 h-10 text-white" />,
+      metric: "50+",
+      title: "Strategic Partnerships",
+      description: "Successful partnerships and deals facilitated"
     },
     {
-      title: "Private Equity Investment",
-      industry: "Manufacturing",
-      description: "Led $75M private equity investment in manufacturing firm, driving operational improvements.",
-      outcomes: [
-        "Operational efficiency gains",
-        "Market consolidation",
-        "Supply chain optimization",
-        "Improved EBITDA margins"
-      ]
+      icon: <Users className="w-10 h-10 text-white" />,
+      metric: "100+",
+      title: "Client Relationships",
+      description: "Long-term client partnerships built on trust"
+    },
+    {
+      icon: <TrendingUp className="w-10 h-10 text-white" />,
+      metric: "85%",
+      title: "Success Rate",
+      description: "Consistent track record of successful outcomes"
+    }
+  ];
+
+  const teamMembers = [
+    {
+      image: "/placeholder-profile.jpg",
+      name: "John Smith",
+      title: "Managing Director",
+      description: "20+ years of investment banking and private equity experience"
+    },
+    {
+      image: "/placeholder-profile.jpg",
+      name: "Sarah Johnson",
+      title: "Head of M&A",
+      description: "Former Goldman Sachs executive with extensive deal experience"
+    },
+    {
+      image: "/placeholder-profile.jpg",
+      name: "Michael Chen",
+      title: "Director of Strategy",
+      description: "Strategic advisor with deep technology sector expertise"
     }
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scroll">
+        <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
+            <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
           <Navigation currentPath="/about" />
         </div>
-      </header>
+      </nav>
 
-      <main className="flex-grow pt-[72px]">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-montserrat text-white mb-6"
-            >
-              About Vector Summit
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
-            >
-              A premier financial advisory firm dedicated to driving exceptional outcomes for our clients
-            </motion.p>
+        <section className="relative min-h-screen flex items-center">
+          <div className="absolute inset-0">
+            <Image
+              src="/River Near Mountains.jpg"
+              alt="About Vector Summit"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
           </div>
-        </section>
-
-        {/* Mission Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-8">
-              Our Mission
-            </h2>
-            <p className="text-xl text-gray-300 text-center mb-12">
-              To empower businesses and investors with strategic insights, innovative solutions, and 
-              unparalleled expertise to achieve their financial and strategic objectives.
-            </p>
-          </div>
-        </section>
-
-        {/* Track Record Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Track Record
-            </h2>
-            
-            <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-8">
-                <h3 className="text-2xl font-normal font-montserrat tracking-wider text-gray-900 mb-4">
-                  Michael Rose & Associates
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Investment Banking Advisory Firm
+          
+          <div className="container mx-auto px-8 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
+                  ABOUT
+                  <span className="block mt-2">
+                    VECTOR SUMMIT
+                  </span>
+                </h1>
+                
+                <div className="h-2 w-24 bg-[#14213D]"></div>
+                
+                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
+                  A dynamic merchant banking entity merging advisory expertise with 
+                  investment capabilities to drive business transformation
                 </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="flex-1">
-                      <p className="text-gray-800">
-                        "Vector Summit's approach transformed our deal sourcing process. Their AI-driven strategy 
-                        helped us identify and connect with qualified prospects we wouldn't have found otherwise."
-                      </p>
-                      <p className="mt-4 text-gray-600">
-                        - Michael Rose, Managing Director
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </motion.div>
             </div>
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+            onClick={() => {
+              const rolesSection = document.querySelector('#roles');
+              rolesSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <motion.div
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              <ChevronDown className="w-12 h-12" />
+            </motion.div>
+          </motion.div>
         </section>
 
-        {/* Metrics Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Our Track Record
-            </h2>
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {metrics.map((metric, index) => (
-                <motion.div
-                  key={metric.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    {metric.icon}
-                    <h3 className="text-3xl font-montserrat text-white mt-4 mb-2">
-                      {metric.title}
+        {/* Roles Section */}
+        <section id="roles" className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Our Role
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-12">
+                {roles.map((role, index) => (
+                  <motion.div
+                    key={role.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="group bg-white rounded-2xl p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                      {role.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      {role.title}
                     </h3>
-                    <p className="text-gray-300">
-                      {metric.description}
+                    <div className="h-[2px] w-12 bg-[#14213D] mb-6 group-hover:w-24 transition-all duration-500"></div>
+                    <p className="text-gray-600 mb-8 text-lg">
+                      {role.description}
                     </p>
-                  </div>
-                </motion.div>
-              ))}
+                    <ul className="space-y-4">
+                      {role.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-center gap-3 text-gray-600">
+                          <ArrowRight className="w-5 h-5 text-[#14213D] flex-shrink-0" />
+                          <span className="text-lg">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Values Section */}
-        <section className="py-16 px-4 bg-gray-800">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Our Values
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {teamValues.map((value, index) => (
-                <motion.div
-                  key={value.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-gray-900 rounded-xl p-8 border border-gray-700"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    {value.icon}
-                    <h3 className="text-xl font-montserrat text-white">
-                      {value.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300">
-                    {value.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section className="py-32 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Our Values
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
 
-        {/* Add Case Studies Section from track record */}
-        <section className="py-16 px-4 bg-gray-800">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Case Studies
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <motion.div
-                  key={study.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-gray-900 rounded-xl p-8 border border-gray-700"
-                >
-                  <div className="mb-4">
-                    <h3 className="text-xl font-montserrat text-white mb-2">
-                      {study.title}
-                    </h3>
-                    <div className="text-blue-400 mb-4">
-                      {study.industry}
+              <div className="grid md:grid-cols-3 gap-8">
+                {values.map((value, index) => (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="group-hover:scale-110 transition-transform duration-500">
+                        {value.icon}
+                      </div>
+                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {value.description}
+                      </p>
                     </div>
-                    <p className="text-gray-300 mb-6">
-                      {study.description}
-                    </p>
-                  </div>
-                  <ul className="space-y-3">
-                    {study.outcomes.map((outcome, i) => (
-                      <li key={i} className="flex items-center gap-3 text-gray-300">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>{outcome}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Why Us Section */}
-        <section className="py-16 px-4 bg-gray-900">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Why Us
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 md:mb-16">
-              {/* Strategic Approach Card */}
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <Users className="w-12 h-12 text-blue-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Strategic Approach
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Data-driven insights combined with industry expertise to maximize your investment success.
-                  </p>
-                </div>
+        {/* Track Record Section */}
+        <section className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Track Record
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Proven Results Card */}
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <BarChart className="w-12 h-12 text-green-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Proven Results
+              <div className="grid md:grid-cols-4 gap-12">
+                {trackRecord.map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="group bg-white rounded-2xl p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                      {item.icon}
+                    </div>
+                    <h3 className="text-4xl font-bold font-montserrat text-[#1A1A1A] mb-2">
+                      {item.metric}
                     </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Track record of connecting premier firms with qualified, high-value opportunities.
-                  </p>
-                </div>
+                    <div className="h-[2px] w-12 bg-[#14213D] mb-4 group-hover:w-24 transition-all duration-500"></div>
+                    <h4 className="text-xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-600 text-lg">
+                      {item.description}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
-
-              {/* Elite Network Card */}
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <Network className="w-12 h-12 text-purple-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Elite Network
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Access to 100+ institutional investors and strategic deal flow partners.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Section */}
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl font-montserrat text-white mb-6">
-                Ready to Transform Your Deal Flow?
-              </h3>
-              <p className="text-gray-300 mb-8 text-lg">
-                Schedule a consultation to discover how our AI-powered platform can accelerate your investment opportunities.
-              </p>
-              <button 
-                onClick={() => setIsCalOpen(true)}
-                className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
-              >
-                Schedule a Meeting
-              </button>
             </div>
           </div>
         </section>
 
         {/* Team Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Leadership Team
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Add team member components here */}
+        <section className="py-32 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Leadership Team
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-12">
+                {teamMembers.map((member, index) => (
+                  <motion.div
+                    key={member.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="relative w-full aspect-square mb-6 rounded-xl overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-2">
+                      {member.name}
+                    </h3>
+                    <div className="h-[2px] w-12 bg-[#14213D] mb-4 group-hover:w-24 transition-all duration-500"></div>
+                    <h4 className="text-lg font-bold text-[#14213D] mb-4">
+                      {member.title}
+                    </h4>
+                    <p className="text-gray-600">
+                      {member.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Add CTA Section before footer */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white mb-6">
-              Ready to Learn More?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Schedule a consultation to discuss how we can help achieve your objectives.
-            </p>
-            <button
-              onClick={() => setIsCalOpen(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
-            >
-              Schedule a Call
-            </button>
+        {/* CTA Section */}
+        <section className="relative py-32">
+          <div className="absolute inset-0">
+            <Image
+              src="/1Snow-Covered Mountain Photo.jpg"
+              alt="Mountains"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
+                  Partner With Us
+                </h2>
+                <p className="text-xl text-gray-300">
+                  Join us in creating transformative growth opportunities and 
+                  achieving sustained success in competitive markets.
+                </p>
+                <button className={`${standardCTA} mx-auto`}>
+                  Schedule a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <div className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Vector Summit. All rights reserved.
+      {/* Footer */}
+      <footer className="bg-white text-[#1A1A1A] py-12 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center space-y-4">
+            <Link href="/" className="text-2xl font-light font-montserrat tracking-wider">
+              Vector Summit
+            </Link>
+            <div className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Vector Summit. All rights reserved.
+            </div>
           </div>
         </div>
       </footer>
-
-      {/* Add Calendar Modal */}
-      <CalEmbed 
-        isOpen={isCalOpen}
-        onClose={() => setIsCalOpen(false)}
-      />
     </div>
   );
 } 

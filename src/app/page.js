@@ -348,7 +348,7 @@ export default function EnhancedAgencyLandingPage() {
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
+            <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
@@ -563,102 +563,7 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </section>
 
-        {/* Core Capabilities Section */}
-        <section className="bg-white py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              {/* Section Header */}
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Core Capabilities
-                </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
-
-              {/* Digital Intelligence - Center Piece */}
-              <div className="relative mb-24">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-3xl mx-auto text-center"
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="bg-[#14213D] w-20 h-20 rounded-full flex items-center justify-center">
-                      <Cpu className="w-10 h-10 text-white" />
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <h3 className="text-3xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                      Digital Intelligence
-                    </h3>
-                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
-                    <p className="text-gray-600 text-xl mb-8 leading-relaxed">
-                      Leveraging cutting-edge AI and data analytics to drive precision in deal sourcing and execution.
-                    </p>
-                    <div className="grid grid-cols-3 gap-6">
-                      {["AI-powered deal sourcing", "Predictive market analytics", "Automated outreach systems"].map((point, i) => (
-                        <div key={i} className="text-gray-600">
-                          <div className="bg-gray-50 rounded-lg p-4">
-                            {point}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Traditional Capabilities - Three Cards Below */}
-              <div className="grid md:grid-cols-3 gap-8">
-                {capabilities.slice(0, 3).map((capability, index) => (
-                  <motion.div
-                    key={capability.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
-                  >
-                    <div className="flex flex-col h-full">
-                      <div className="mb-6">
-                        <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                          {capability.icon}
-                        </div>
-                        <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                          {capability.title}
-                        </h3>
-                        <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                      </div>
-                      <p className="text-gray-600 mb-6 leading-relaxed">
-                        {capability.description}
-                      </p>
-                      <ul className="space-y-3 mt-auto">
-                        {capability.points.map((point, i) => (
-                          <li key={i} className="flex items-center gap-3 text-gray-600">
-                            <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Optional CTA */}
-              <div className="mt-16 text-center">
-                <button
-                  onClick={() => setIsCalOpen(true)}
-                  className="inline-flex items-center px-8 py-4 bg-[#14213D] text-white rounded-lg hover:bg-[#1C2E56] transition-colors font-montserrat"
-                >
-                  Schedule a Meeting
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
+        {/* Strategic Solutions Section */}
         <section className="bg-gray-50 py-24">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
@@ -763,6 +668,101 @@ export default function EnhancedAgencyLandingPage() {
                   </Link>
                 </div>
               </div>
+
+              {/* Add CTA */}
+              <div className="mt-16 text-center">
+                <button
+                  onClick={() => setIsCalOpen(true)}
+                  className="inline-flex items-center px-8 py-4 bg-[#14213D] text-white rounded-lg hover:bg-[#1C2E56] transition-colors font-montserrat"
+                >
+                  Schedule a Meeting
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Capabilities Section */}
+        <section className="bg-white py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Core Capabilities
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              {/* Traditional Capabilities - Three Cards Above */}
+              <div className="grid md:grid-cols-3 gap-8 mb-24">
+                {capabilities.slice(0, 3).map((capability, index) => (
+                  <motion.div
+                    key={capability.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                  >
+                    <div className="flex flex-col h-full">
+                      <div className="mb-6">
+                        <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                          {capability.icon}
+                        </div>
+                        <h3 className="text-2xl sm:text-2xl md:text-2xl font-bold font-montserrat text-[#1A1A1A] mb-3 md:mb-4">
+                          {capability.title}
+                        </h3>
+                        <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                      </div>
+                      <p className="text-lg md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
+                        {capability.description}
+                      </p>
+                      <ul className="space-y-3 mt-auto">
+                        {capability.points.map((point, i) => (
+                          <li key={i} className="flex items-center gap-3 text-gray-600">
+                            <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Digital Intelligence - Bottom Piece */}
+              <div className="relative">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-3xl mx-auto text-center"
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full flex items-center justify-center">
+                      <Cpu className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="mt-8">
+                    <h3 className="text-3xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      Digital Intelligence
+                    </h3>
+                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
+                    <p className="text-gray-600 text-xl mb-8 leading-relaxed">
+                      Leveraging cutting-edge AI and data analytics to drive precision in deal sourcing and execution.
+                    </p>
+                    <div className="grid grid-cols-3 gap-6">
+                      {["AI-powered deal sourcing", "Predictive market analytics", "Automated outreach systems"].map((point, i) => (
+                        <div key={i} className="text-gray-600">
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            {point}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -816,11 +816,13 @@ export default function EnhancedAgencyLandingPage() {
             {/* Right Image Side */}
             <div className="w-full md:w-1/2 relative min-h-[600px]">
               <Image
-                src="/snow.jpg"
-                alt="Snow covered landscape"
+                src="/1Snow-Covered Mountain Photo.jpg"
+                alt="Snow covered mountain landscape"
                 fill
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
+                className="object-cover"
+                quality={100}
               />
               <div className="absolute inset-0 bg-black opacity-30"></div>
             </div>

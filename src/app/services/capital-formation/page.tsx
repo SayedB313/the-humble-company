@@ -2,234 +2,240 @@
 
 import React from 'react';
 import Link from "next/link";
+import Image from 'next/image';
 import { motion } from "framer-motion";
-import { Check, Menu, Building, Target, BarChart2, Users, DollarSign, PieChart, Network, TrendingUp, ArrowUpRight } from "lucide-react";
+import { Check, Menu, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 
 export default function CapitalFormation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const standardCTA = "bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors";
+  const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
 
   const services = [
     {
-      icon: <Building className="w-12 h-12 text-blue-400" />,
-      title: "Fund Formation",
-      description: "Comprehensive support for launching and structuring investment funds.",
+      icon: <Building className="w-10 h-10 text-white" />,
+      title: "Fund Manager Services",
+      description: "Comprehensive support for PE, VC, Credit, and Hedge Funds",
       benefits: [
-        "Fund strategy development",
-        "Structure optimization",
-        "Regulatory compliance",
-        "Investor documentation"
+        "AUM growth acceleration",
+        "LP base diversification",
+        "Risk-adjusted returns"
       ]
     },
     {
-      icon: <DollarSign className="w-12 h-12 text-green-400" />,
-      title: "Capital Raising",
-      description: "Strategic fundraising support for investment vehicles.",
+      icon: <Users className="w-10 h-10 text-white" />,
+      title: "Capital Introductions",
+      description: "Access to diverse institutional LP network",
       benefits: [
-        "Investor targeting",
-        "Marketing strategy",
-        "Due diligence support",
-        "Roadshow coordination"
+        "Family offices & UHNW",
+        "Sovereign wealth funds",
+        "Pension funds"
       ]
     },
     {
-      icon: <PieChart className="w-12 h-12 text-purple-400" />,
-      title: "Fund Operations",
-      description: "Ongoing operational support for fund management.",
+      icon: <Network className="w-10 h-10 text-white" />,
+      title: "Investor Relations",
+      description: "Strategic stakeholder management and capital strategy",
       benefits: [
-        "Portfolio monitoring",
-        "Investor reporting",
-        "Compliance management",
-        "Performance analytics"
+        "Stakeholder coordination",
+        "Interest alignment",
+        "Growth optimization"
       ]
     }
   ];
 
-  const process = [
+  const investorTypes = [
     {
-      title: "Strategy Development",
-      description: "Define fund strategy, structure, and target market"
+      title: "High-Net-Worth",
+      icon: <DollarSign className="w-8 h-8 text-[#14213D]" />,
+      description: "Ultra-high-net-worth individuals and private investors"
     },
     {
-      title: "Documentation",
-      description: "Prepare comprehensive fund documentation and materials"
+      title: "Family Offices",
+      icon: <Building className="w-8 h-8 text-[#14213D]" />,
+      description: "Single and multi-family investment offices"
     },
     {
-      title: "Investor Outreach",
-      description: "Strategic marketing and investor targeting"
+      title: "Endowments",
+      icon: <Target className="w-8 h-8 text-[#14213D]" />,
+      description: "University and institutional endowment funds"
     },
     {
-      title: "Due Diligence",
-      description: "Support investor due diligence process"
+      title: "Sovereign Wealth",
+      icon: <Network className="w-8 h-8 text-[#14213D]" />,
+      description: "Government-owned investment funds"
     },
     {
-      title: "Closing",
-      description: "Coordinate fund closing and investor onboarding"
-    }
-  ];
-
-  const highLevelProcess = [
-    {
-      title: "Strategic Analysis",
-      description: "Comprehensive evaluation of opportunities and market positioning",
-      icon: <Target className="w-8 h-8 text-blue-400" />
-    },
-    {
-      title: "Capital Optimization",
-      description: "Structuring the right mix of equity, debt, and hybrid solutions",
-      icon: <BarChart2 className="w-8 h-8 text-purple-400" />
-    },
-    {
-      title: "Growth Execution",
-      description: "Implementing strategic initiatives and monitoring progress",
-      icon: <TrendingUp className="w-8 h-8 text-green-400" />
-    },
-    {
-      title: "Value Creation",
-      description: "Driving operational excellence and market expansion",
-      icon: <ArrowUpRight className="w-8 h-8 text-yellow-400" />
+      title: "Pension Funds",
+      icon: <Users className="w-8 h-8 text-[#14213D]" />,
+      description: "Public and private pension investment funds"
     }
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scroll">
+        <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
+            <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
           <Navigation currentPath="/services/capital-formation" />
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-900 border-b border-gray-800">
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link 
-                  href="/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="relative min-h-screen flex items-center">
+          <div className="absolute inset-0">
+            <Image
+              src="/River Near Mountains.jpg"
+              alt="Capital Formation"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+          </div>
+          
+          <div className="container mx-auto px-8 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
+                  CAPITAL
+                  <span className="block mt-2">
+                    FORMATION
+                  </span>
+                </h1>
+                
+                <div className="h-2 w-24 bg-[#14213D]"></div>
+                
+                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
+                  Connecting Private Equity, Venture Capital, and Alternative Investments 
+                  with institutional Limited Partners
+                </p>
+
+                <motion.button 
+                  className={standardCTA}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
                 >
-                  Home
-                </Link>
-                <Link 
-                  href="/services/capital-formation" 
-                  className="text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Capital Formation
-                </Link>
-              </nav>
+                  Schedule a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </motion.div>
             </div>
           </div>
-        )}
-      </header>
 
-      <main className="flex-grow pt-[72px]">
-        {/* Hero Section */}
-        <section className="py-20 px-4">
-          <div className="container mx-auto text-center">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-montserrat text-white mb-6"
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+            onClick={() => {
+              const servicesSection = document.querySelector('#services');
+              servicesSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <motion.div
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="text-white/80 hover:text-white transition-colors"
             >
-              Capital Formation
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
-            >
-              Expert guidance for fund formation and capital raising
-            </motion.p>
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className={standardCTA}
-            >
-              Schedule a Call
-            </motion.button>
-          </div>
+              <ChevronDown className="w-12 h-12" />
+            </motion.div>
+          </motion.div>
         </section>
 
         {/* Services Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Our Services
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {services.map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
-                >
-                  <div className="mb-6">
-                    {service.icon}
-                    <h3 className="text-xl font-montserrat text-white mt-4">
-                      {service.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-center gap-3 text-gray-300">
-                        <Check className="w-5 h-5 text-green-400" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Our Approach Section */}
-        <section className="py-16 bg-gray-900">
+        <section id="services" className="py-32 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              {/* Section Header */}
               <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white mb-6">
-                  Our Approach
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Our Services
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Process Steps */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {highLevelProcess.map((step, index) => (
+              <div className="grid md:grid-cols-3 gap-12">
+                {services.map((service, index) => (
                   <motion.div
-                    key={step.title}
+                    key={service.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2 }}
-                    className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                    className="group bg-white rounded-2xl p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
                   >
-                    <div className="flex flex-col items-center text-center">
-                      <div className="bg-gray-900 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                        {step.icon}
+                    <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      {service.title}
+                    </h3>
+                    <div className="h-[2px] w-12 bg-[#14213D] mb-6 group-hover:w-24 transition-all duration-500"></div>
+                    <p className="text-gray-600 mb-8 text-lg">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-4">
+                      {service.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-center gap-3 text-gray-600">
+                          <ArrowRight className="w-5 h-5 text-[#14213D] flex-shrink-0" />
+                          <span className="text-lg">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Investor Network Section */}
+        <section className="py-32 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Investor Network
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                {investorTypes.map((type, index) => (
+                  <motion.div
+                    key={type.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="group-hover:scale-110 transition-transform duration-500">
+                        {type.icon}
                       </div>
-                      <h3 className="text-2xl font-montserrat text-white mb-4">
-                        {step.title}
+                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
+                        {type.title}
                       </h3>
-                      <p className="text-gray-300">
-                        {step.description}
+                      <p className="text-sm text-gray-600 mt-2">
+                        {type.description}
                       </p>
                     </div>
                   </motion.div>
@@ -239,59 +245,49 @@ export default function CapitalFormation() {
           </div>
         </section>
 
-        {/* Process Section */}
-        <section className="py-16 px-4 bg-gray-800">
-          <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
-              Our Process
-            </h2>
-            <div className="max-w-4xl mx-auto">
-              {process.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="flex items-start gap-4 mb-8"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center">
-                    <span className="text-white font-bold">{index + 1}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-montserrat text-white mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-300">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
-        <section className="py-16 px-4">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-montserrat text-white mb-6">
-              Ready to Launch Your Fund?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Schedule a consultation to discuss your fund formation and capital raising objectives.
-            </p>
-            <button className={standardCTA}>
-              Schedule a Call
-            </button>
+        <section className="relative py-32">
+          <div className="absolute inset-0">
+            <Image
+              src="/1Snow-Covered Mountain Photo.jpg"
+              alt="Mountains"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
+                  Ready to Accelerate Your Growth?
+                </h2>
+                <button className={`${standardCTA} mx-auto`}>
+                  Schedule a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <div className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Vector Summit. All rights reserved.
+      <footer className="bg-white text-[#1A1A1A] py-12 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center space-y-4">
+            <Link href="/" className="text-2xl font-light font-montserrat tracking-wider">
+              Vector Summit
+            </Link>
+            <div className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Vector Summit. All rights reserved.
+            </div>
           </div>
         </div>
       </footer>

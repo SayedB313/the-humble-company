@@ -8,11 +8,10 @@ import ServicesDropdown from './ServicesDropdown';
 import CalEmbed from '../CalEmbed';
 
 interface NavigationProps {
-  isHomePage?: boolean;
-  currentPath?: string;
+  currentPath: string;
 }
 
-export default function Navigation({ currentPath }: { currentPath: string }) {
+export default function Navigation({ currentPath }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isCalOpen, setIsCalOpen] = React.useState(false);
   const pathname = usePathname();

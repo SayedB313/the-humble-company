@@ -7,73 +7,78 @@ import { X } from "lucide-react";
 
 export default function CalEmbed({ isOpen, onClose }) {
   useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({"namespace":"30minconsult"});
-      cal("ui", {
-        "theme": "light",
-        "styles": {
-          "branding": {
-            "brandColor": "#2e3abc"
-          }
-        },
-        "hideEventTypeDetails": false,
-        "layout": "month_view"
-      });
-    })();
-
-    // Prevent body scrolling when modal is open
     if (isOpen) {
+      (async function () {
+        const cal = await getCalApi({ "namespace": "30min-meeting" });
+        cal("ui", {
+          theme: "light",
+          styles: {
+            branding: {
+              brandColor: "#002147"
+            }
+          },
+          hideEventTypeDetails: false,
+          layout: "column_view"
+        });
+      })();
+
       document.body.style.overflow = 'hidden';
     }
 
-    // Cleanup function
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 z-[100] overflow-y-auto"
+    <div 
+      className="fixed inset-0 bg-black bg-opacity-50 z-[9999]"
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        paddingTop: '5vh',
+        paddingBottom: '5vh'
+      }}
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl mx-4"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-50 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
         >
-          <div className="min-h-screen px-4 py-6 flex items-center justify-center">
-            <motion.div
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              className="bg-white rounded-xl shadow-2xl w-full max-w-4xl relative"
-            >
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-700"
-              >
-                <X className="w-6 h-6" />
-              </button>
-              <div className="w-full h-[85vh] md:h-[600px]">
-                <Cal 
-                  namespace="30minconsult"
-                  calLink="sayedb/30minconsult"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    overflow: "auto",
-                    "-webkit-overflow-scrolling": "touch"
-                  }}
-                  config={{
-                    layout: "month_view",
-                    theme: "light"
-                  }}
-                />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          <X className="w-6 h-6 text-gray-600" />
+        </button>
+        
+        <div className="w-full h-[80vh] max-h-[700px] min-h-[500px]">
+          <Cal 
+            namespace="30min-meeting"
+            calLink="sayedb/30min-meeting"
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "scroll",
+              borderRadius: "0.75rem"
+            }}
+            config={{
+              layout: "month_view",
+              theme: "light"
+            }}
+          />
+        </div>
+      </motion.div>
+    </div>
   );
 } 
