@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, Globe, Shield, Rocket, Award } from "lucide-react";
 import Navigation from '../../components/ui/Navigation';
+import { CldVideoPlayer } from 'next-cloudinary';
 
 export default function AboutUs() {
   const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
@@ -149,7 +150,10 @@ export default function AboutUs() {
               playsInline
               className="object-cover w-full h-full"
             >
-              <source src="/mountain4k.mp4" type="video/mp4" />
+              <source 
+                src={`https://res.cloudinary.com/dluf6sg5d/video/upload/v1/ClippedMountain_q3feug`} 
+                type="video/mp4" 
+              />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
           </div>

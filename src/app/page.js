@@ -279,8 +279,8 @@ export default function EnhancedAgencyLandingPage() {
       icon: <TrendingUp className="w-12 h-12 text-white" />,
       points: [
         "Expand operations & R&D",
-        "Achieve liquidity while retaining control",
-        "Scale sustainably with aligned structures"
+        "Strategic liquidity solutions",
+        "Aligned growth structures"
       ]
     },
     {
@@ -429,11 +429,11 @@ export default function EnhancedAgencyLandingPage() {
                   </span>
                 </h1>
                 
-                <div className="h-2 w-24 bg-[#14213D] mb-12"></div>
+                <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-16 max-w-4xl">
-                  <span className="block mb-2">Strategic Capital & Investment Partners</span>
-                  <span className="block text-base sm:text-lg md:text-xl opacity-80">
+                  <span className="block mb-2 font-semibold">Strategic Capital & Growth Partners</span>
+                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold">
                     Architecting Bespoke Solutions for Exceptional Growth
                   </span>
                 </p>
@@ -484,7 +484,7 @@ export default function EnhancedAgencyLandingPage() {
           <div className="container mx-auto max-w-7xl px-4">
             {/* Keep the same heading style */}
             <div className="mb-20 max-w-3xl">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
                 Fresh Perspective
                 <span className="block mt-2">Digital-First Approach</span>
               </h2>
@@ -555,9 +555,7 @@ export default function EnhancedAgencyLandingPage() {
             {/* Add a subtitle context */}
             <div className="mt-20 max-w-2xl mx-auto text-center">
               <p className="text-gray-600 text-lg font-light leading-relaxed">
-                Born in the digital age, we bring a unique blend of tech-savvy strategy 
-                and innovative growth partnerships to traditional markets. Our approach 
-                combines emerging technologies with proven business principles.
+                Bridging traditional markets with digital innovation. We blend tech-driven strategy with proven principles to forge powerful partnerships. Our approach redefines growth in the modern age.
               </p>
             </div>
           </div>
@@ -569,7 +567,7 @@ export default function EnhancedAgencyLandingPage() {
             <div className="max-w-7xl mx-auto">
               {/* Section Header */}
               <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
                   Strategic Solutions
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
@@ -689,7 +687,7 @@ export default function EnhancedAgencyLandingPage() {
             <div className="max-w-7xl mx-auto">
               {/* Section Header */}
               <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
                   Core Capabilities
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
@@ -749,10 +747,14 @@ export default function EnhancedAgencyLandingPage() {
                     </h3>
                     <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
                     <p className="text-gray-600 text-xl mb-8 leading-relaxed">
-                      Leveraging cutting-edge AI and data analytics to drive precision in deal sourcing and execution.
+                      Elevating traditional advisory through sophisticated digital capabilities. Our proprietary technology infrastructure enables deeper insights, precise execution, and transformative outcomes beyond conventional approaches.
                     </p>
                     <div className="grid grid-cols-3 gap-6">
-                      {["AI-powered deal sourcing", "Predictive market analytics", "Automated outreach systems"].map((point, i) => (
+                      {[
+                        "Advanced analytics platform",
+                        "Intelligent market mapping",
+                        "Strategic automation suite"
+                      ].map((point, i) => (
                         <div key={i} className="text-gray-600">
                           <div className="bg-gray-50 rounded-lg p-4">
                             {point}
@@ -773,7 +775,7 @@ export default function EnhancedAgencyLandingPage() {
             {/* Left Content Side */}
             <div className="w-full md:w-1/2 bg-white py-24 px-8 md:px-16">
               <div className="max-w-xl ml-auto">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
                   About Vector Summit
                 </h2>
                 
