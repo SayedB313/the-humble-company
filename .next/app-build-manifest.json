@@ -1,82 +1,30 @@
 {
   "pages": {
-    "/about/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/app/about/page-30b6995b80258273.js"
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/css/f124209fca3169c2.css",
-      "static/chunks/app/layout-0debf19eb664db26.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
     ],
     "/not-found": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/app/not-found-1e089bfd9e519065.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ],
-    "/services/equity-investment/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/app/services/equity-investment/page-85a03e9613d68f65.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/548-7b02a2a246fcede2.js",
-      "static/chunks/app/page-e8b25a2841031353.js"
-    ],
-    "/services/mergers-acquisitions/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/app/services/mergers-acquisitions/page-1adfa4883c2e3e70.js"
-    ],
-    "/services/growth-advisory/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/app/services/growth-advisory/page-ecf896f303b7044e.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/app/_not-found/page-c1bbe1b4bc8170a6.js"
+    "/about/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about/page.js"
     ],
     "/services/capital-formation/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-796f5f0836d7e441.js",
-      "static/chunks/117-96b7597918ddb17d.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/589-ad3e3b72780156f3.js",
-      "static/chunks/637-1e75e6068224252c.js",
-      "static/chunks/app/services/capital-formation/page-66baedfd932381a2.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/capital-formation/page.js"
     ]
   }
 }
