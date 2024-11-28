@@ -111,3 +111,20 @@ code {
     font-family: var(--font-montserrat), system-ui, sans-serif;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-montserrat), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: Add this if you want the navigation to fade in when scrolling */
+.nav-scroll {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease-in-out;
+}

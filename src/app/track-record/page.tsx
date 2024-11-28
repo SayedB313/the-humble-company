@@ -3,8 +3,8 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, Menu, BarChart2, TrendingUp, Building, Users, DollarSign } from "lucide-react";
-import ServicesDropdown from '../../components/ui/ServicesDropdown';
+import { Check, BarChart2, TrendingUp, Building, Users, DollarSign } from "lucide-react";
+import Navigation from '../../components/ui/Navigation';
 
 export default function TrackRecord() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -71,68 +71,18 @@ export default function TrackRecord() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
-          
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-3 hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            <Menu className="w-8 h-8" />
-          </button>
-
-          <nav className="hidden md:flex space-x-8">
-            <ServicesDropdown />
-            <Link href="/track-record" className="text-white transition-colors">
-              Track Record
-            </Link>
-            <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
-              About Us
-            </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
-              Contact
-            </Link>
-          </nav>
+          <Navigation currentPath="/track-record" />
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-900 border-b border-gray-800">
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link 
-                  href="/track-record" 
-                  className="text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Track Record
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </nav>
-            </div>
-          </div>
-        )}
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow pt-[72px]">
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
@@ -234,7 +184,7 @@ export default function TrackRecord() {
               onClick={() => window.location.href = 'mailto:contact@vectorsummit.com'}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
             >
-              Contact Us
+              Schedule a Call
             </button>
           </div>
         </section>

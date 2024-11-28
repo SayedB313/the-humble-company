@@ -21,30 +21,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/services/growth-advisory/page.js"
     ],
-    "/services/mergers-acquisitions/page": [
+    "/track-record/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/mergers-acquisitions/page.js"
-    ],
-    "/services/equity-investment/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/services/equity-investment/page.js"
+      "static/chunks/app/track-record/page.js"
     ],
     "/about/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/about/page.js"
     ],
-    "/contact/page": [
+    "/services/mergers-acquisitions/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
-    ],
-    "/track-record/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/track-record/page.js"
+      "static/chunks/app/services/mergers-acquisitions/page.js"
     ]
   }
 }

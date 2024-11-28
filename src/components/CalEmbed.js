@@ -20,7 +20,17 @@ export default function CalEmbed({ isOpen, onClose }) {
         "layout": "month_view"
       });
     })();
-  }, []);
+
+    // Prevent body scrolling when modal is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -29,32 +39,39 @@ export default function CalEmbed({ isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black bg-opacity-50 z-[100] overflow-y-auto"
         >
-          <motion.div
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.95 }}
-            className="bg-white rounded-xl shadow-2xl w-full max-w-4xl h-[80vh] relative"
-          >
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-700"
+          <div className="min-h-screen px-4 py-6 flex items-center justify-center">
+            <motion.div
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="bg-white rounded-xl shadow-2xl w-full max-w-4xl relative"
             >
-              <X className="w-6 h-6" />
-            </button>
-            <div className="w-full h-full overflow-hidden rounded-xl">
-              <Cal 
-                namespace="30minconsult"
-                calLink="sayedb/30minconsult"
-                style={{width:"100%", height:"100%", overflow:"scroll"}}
-                config={{
-                  layout: "month_view",
-                  theme: "light"
-                }}
-              />
-            </div>
-          </motion.div>
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-700"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="w-full h-[85vh] md:h-[600px]">
+                <Cal 
+                  namespace="30minconsult"
+                  calLink="sayedb/30minconsult"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    overflow: "auto",
+                    "-webkit-overflow-scrolling": "touch"
+                  }}
+                  config={{
+                    layout: "month_view",
+                    theme: "light"
+                  }}
+                />
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

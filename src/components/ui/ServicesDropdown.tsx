@@ -34,10 +34,19 @@ const services: ServiceLink[] = [
   }
 ];
 
-export default function ServicesDropdown() {
+interface ServicesDropdownProps {
+  currentPath?: string;
+}
+
+export default function ServicesDropdown({ currentPath }: ServicesDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   let timeoutId: NodeJS.Timeout;
+
+  const isActive = (path: string) => currentPath === path;
+  const buttonStyle = `flex items-center gap-1 text-base font-normal leading-tight font-montserrat tracking-wider ${
+    currentPath?.includes('/services/') ? 'text-white' : 'text-gray-300 hover:text-white'
+  } transition-colors cursor-pointer`;
 
   const handleMouseEnter = () => {
     if (timeoutId) clearTimeout(timeoutId);
@@ -63,9 +72,7 @@ export default function ServicesDropdown() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button
-        className="flex items-center gap-1 text-base font-normal leading-tight font-montserrat tracking-wider text-gray-300 hover:text-white transition-colors cursor-pointer"
-      >
+      <button className={buttonStyle}>
         Services
         <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -83,9 +90,13 @@ export default function ServicesDropdown() {
               <Link
                 key={service.href}
                 href={service.href}
-                className="block px-4 py-3 hover:bg-gray-700 transition-colors"
+                className={`block px-4 py-3 hover:bg-gray-700 transition-colors ${
+                  isActive(service.href) ? 'bg-gray-700' : ''
+                }`}
               >
-                <div className="text-white font-montserrat">{service.title}</div>
+                <div className={`font-montserrat ${isActive(service.href) ? 'text-white' : 'text-gray-300'}`}>
+                  {service.title}
+                </div>
                 <div className="text-sm text-gray-400 mt-1">{service.description}</div>
               </Link>
             ))}

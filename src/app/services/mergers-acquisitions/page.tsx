@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, Menu, ArrowRight, Building, Briefcase, Target, BarChart2, Users, Network } from "lucide-react";
 import ServicesDropdown from '../../../components/ui/ServicesDropdown';
+import Navigation from '../../../components/ui/Navigation';
 
 export default function MergersAcquisitions() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -73,76 +74,18 @@ export default function MergersAcquisitions() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
-          
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-3 hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            <Menu className="w-8 h-8" />
-          </button>
-
-          <nav className="hidden md:flex space-x-8">
-            <ServicesDropdown />
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-              Home
-            </Link>
-          </nav>
+          <Navigation currentPath="/services/mergers-acquisitions" />
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-900 border-b border-gray-800">
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link 
-                  href="/services/capital-formation" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Capital Formation
-                </Link>
-                <Link 
-                  href="/services/growth-advisory" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Growth Advisory & Equity
-                </Link>
-                <Link 
-                  href="/services/mergers-acquisitions" 
-                  className="text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Mergers & Acquisitions
-                </Link>
-                <Link 
-                  href="/services/equity-investment" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Equity Investment
-                </Link>
-                <Link 
-                  href="/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Home
-                </Link>
-              </nav>
-            </div>
-          </div>
-        )}
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow pt-[72px]">
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
@@ -168,7 +111,7 @@ export default function MergersAcquisitions() {
               onClick={() => window.location.href = 'mailto:contact@vectorsummit.com'}
               className={standardCTA}
             >
-              Contact Us
+              Schedule a Call
             </motion.button>
           </div>
         </section>
@@ -256,7 +199,7 @@ export default function MergersAcquisitions() {
               onClick={() => window.location.href = 'mailto:contact@vectorsummit.com'}
               className={standardCTA}
             >
-              Contact Us
+              Schedule a Call
             </button>
           </div>
         </section>

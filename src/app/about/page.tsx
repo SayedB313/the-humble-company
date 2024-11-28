@@ -3,11 +3,13 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Building, Users, Globe, Award, Menu } from "lucide-react";
-import ServicesDropdown from '../../components/ui/ServicesDropdown';
+import { Building, Users, Globe, Award } from "lucide-react";
+import Navigation from '../../components/ui/Navigation';
+import CalEmbed from '../../components/CalEmbed';
 
 export default function AboutUs() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isCalOpen, setIsCalOpen] = React.useState(false);
 
   const teamValues = [
     {
@@ -35,68 +37,18 @@ export default function AboutUs() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-900">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-800">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-normal leading-tight font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
-          
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-3 hover:bg-gray-800 rounded-lg transition-colors"
-          >
-            <Menu className="w-8 h-8" />
-          </button>
-
-          <nav className="hidden md:flex space-x-8">
-            <ServicesDropdown />
-            <Link href="/track-record" className="text-gray-300 hover:text-white transition-colors">
-              Track Record
-            </Link>
-            <Link href="/about" className="text-white transition-colors">
-              About Us
-            </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
-              Contact
-            </Link>
-          </nav>
+          <Navigation currentPath="/about" />
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-900 border-b border-gray-800">
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
-                <Link 
-                  href="/track-record" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Track Record
-                </Link>
-                <Link 
-                  href="/about" 
-                  className="text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  About Us
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-              </nav>
-            </div>
-          </div>
-        )}
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow pt-[72px]">
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
@@ -172,9 +124,26 @@ export default function AboutUs() {
             </div>
           </div>
         </section>
+
+        {/* Add CTA Section before footer */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white mb-6">
+              Ready to Learn More?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Schedule a consultation to discuss how we can help achieve your objectives.
+            </p>
+            <button
+              onClick={() => setIsCalOpen(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
+            >
+              Schedule a Call
+            </button>
+          </div>
+        </section>
       </main>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <div className="text-sm text-gray-400">
@@ -182,6 +151,12 @@ export default function AboutUs() {
           </div>
         </div>
       </footer>
+
+      {/* Add Calendar Modal */}
+      <CalEmbed 
+        isOpen={isCalOpen}
+        onClose={() => setIsCalOpen(false)}
+      />
     </div>
   );
 } 
