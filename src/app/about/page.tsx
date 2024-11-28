@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Building, Users, Globe, Award } from "lucide-react";
+import { Building, Users, Globe, Award, DollarSign, TrendingUp, Check, BarChart2, Network, BarChart } from "lucide-react";
 import Navigation from '../../components/ui/Navigation';
 import CalEmbed from '../../components/CalEmbed';
 
@@ -31,6 +31,65 @@ export default function AboutUs() {
       icon: <Award className="w-12 h-12 text-yellow-400" />,
       title: "Integrity",
       description: "Maintaining the highest ethical standards and professional conduct in all our dealings."
+    }
+  ];
+
+  const metrics = [
+    {
+      icon: <DollarSign className="w-12 h-12 text-blue-400" />,
+      title: "$500M+",
+      description: "Total Transaction Value"
+    },
+    {
+      icon: <Building className="w-12 h-12 text-green-400" />,
+      title: "50+",
+      description: "Successful Deals"
+    },
+    {
+      icon: <Users className="w-12 h-12 text-purple-400" />,
+      title: "100+",
+      description: "Client Relationships"
+    },
+    {
+      icon: <TrendingUp className="w-12 h-12 text-yellow-400" />,
+      title: "85%",
+      description: "Success Rate"
+    }
+  ];
+
+  const caseStudies = [
+    {
+      title: "Strategic Acquisition",
+      industry: "Technology",
+      description: "Facilitated a $100M acquisition for a leading software company, resulting in 40% market share increase.",
+      outcomes: [
+        "40% market share growth",
+        "Successful integration",
+        "Revenue synergies achieved",
+        "Enhanced product portfolio"
+      ]
+    },
+    {
+      title: "Growth Capital Raise",
+      industry: "Healthcare",
+      description: "Secured $50M growth capital for healthcare technology platform, enabling expansion into new markets.",
+      outcomes: [
+        "Successful capital raise",
+        "Market expansion",
+        "3x revenue growth",
+        "Strategic partnerships formed"
+      ]
+    },
+    {
+      title: "Private Equity Investment",
+      industry: "Manufacturing",
+      description: "Led $75M private equity investment in manufacturing firm, driving operational improvements.",
+      outcomes: [
+        "Operational efficiency gains",
+        "Market consolidation",
+        "Supply chain optimization",
+        "Improved EBITDA margins"
+      ]
     }
   ];
 
@@ -83,6 +142,69 @@ export default function AboutUs() {
           </div>
         </section>
 
+        {/* Track Record Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
+              Track Record
+            </h2>
+            
+            <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="p-8">
+                <h3 className="text-2xl font-normal font-montserrat tracking-wider text-gray-900 mb-4">
+                  Michael Rose & Associates
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Investment Banking Advisory Firm
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="flex-1">
+                      <p className="text-gray-800">
+                        "Vector Summit's approach transformed our deal sourcing process. Their AI-driven strategy 
+                        helped us identify and connect with qualified prospects we wouldn't have found otherwise."
+                      </p>
+                      <p className="mt-4 text-gray-600">
+                        - Michael Rose, Managing Director
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
+              Our Track Record
+            </h2>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {metrics.map((metric, index) => (
+                <motion.div
+                  key={metric.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    {metric.icon}
+                    <h3 className="text-3xl font-montserrat text-white mt-4 mb-2">
+                      {metric.title}
+                    </h3>
+                    <p className="text-gray-300">
+                      {metric.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Values Section */}
         <section className="py-16 px-4 bg-gray-800">
           <div className="container mx-auto">
@@ -109,6 +231,118 @@ export default function AboutUs() {
                   </p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Add Case Studies Section from track record */}
+        <section className="py-16 px-4 bg-gray-800">
+          <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
+              Case Studies
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {caseStudies.map((study, index) => (
+                <motion.div
+                  key={study.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  className="bg-gray-900 rounded-xl p-8 border border-gray-700"
+                >
+                  <div className="mb-4">
+                    <h3 className="text-xl font-montserrat text-white mb-2">
+                      {study.title}
+                    </h3>
+                    <div className="text-blue-400 mb-4">
+                      {study.industry}
+                    </div>
+                    <p className="text-gray-300 mb-6">
+                      {study.description}
+                    </p>
+                  </div>
+                  <ul className="space-y-3">
+                    {study.outcomes.map((outcome, i) => (
+                      <li key={i} className="flex items-center gap-3 text-gray-300">
+                        <Check className="w-5 h-5 text-green-400" />
+                        <span>{outcome}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Us Section */}
+        <section className="py-16 px-4 bg-gray-900">
+          <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12">
+              Why Us
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 md:mb-16">
+              {/* Strategic Approach Card */}
+              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                <div className="flex flex-col h-full">
+                  <div className="mb-6">
+                    <Users className="w-12 h-12 text-blue-400 mb-4" />
+                    <h3 className="text-2xl font-montserrat text-white mb-3">
+                      Strategic Approach
+                    </h3>
+                  </div>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Data-driven insights combined with industry expertise to maximize your investment success.
+                  </p>
+                </div>
+              </div>
+
+              {/* Proven Results Card */}
+              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                <div className="flex flex-col h-full">
+                  <div className="mb-6">
+                    <BarChart className="w-12 h-12 text-green-400 mb-4" />
+                    <h3 className="text-2xl font-montserrat text-white mb-3">
+                      Proven Results
+                    </h3>
+                  </div>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Track record of connecting premier firms with qualified, high-value opportunities.
+                  </p>
+                </div>
+              </div>
+
+              {/* Elite Network Card */}
+              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                <div className="flex flex-col h-full">
+                  <div className="mb-6">
+                    <Network className="w-12 h-12 text-purple-400 mb-4" />
+                    <h3 className="text-2xl font-montserrat text-white mb-3">
+                      Elite Network
+                    </h3>
+                  </div>
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Access to 100+ institutional investors and strategic deal flow partners.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className="text-2xl md:text-3xl font-montserrat text-white mb-6">
+                Ready to Transform Your Deal Flow?
+              </h3>
+              <p className="text-gray-300 mb-8 text-lg">
+                Schedule a consultation to discover how our AI-powered platform can accelerate your investment opportunities.
+              </p>
+              <button 
+                onClick={() => setIsCalOpen(true)}
+                className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
+              >
+                Schedule a Meeting
+              </button>
             </div>
           </div>
         </section>

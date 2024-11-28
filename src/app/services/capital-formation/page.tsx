@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, Menu, Building, Target, BarChart2, Users, DollarSign, PieChart, Network } from "lucide-react";
+import { Check, Menu, Building, Target, BarChart2, Users, DollarSign, PieChart, Network, TrendingUp, ArrowUpRight } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 
 export default function CapitalFormation() {
@@ -67,6 +67,29 @@ export default function CapitalFormation() {
     {
       title: "Closing",
       description: "Coordinate fund closing and investor onboarding"
+    }
+  ];
+
+  const highLevelProcess = [
+    {
+      title: "Strategic Analysis",
+      description: "Comprehensive evaluation of opportunities and market positioning",
+      icon: <Target className="w-8 h-8 text-blue-400" />
+    },
+    {
+      title: "Capital Optimization",
+      description: "Structuring the right mix of equity, debt, and hybrid solutions",
+      icon: <BarChart2 className="w-8 h-8 text-purple-400" />
+    },
+    {
+      title: "Growth Execution",
+      description: "Implementing strategic initiatives and monitoring progress",
+      icon: <TrendingUp className="w-8 h-8 text-green-400" />
+    },
+    {
+      title: "Value Creation",
+      description: "Driving operational excellence and market expansion",
+      icon: <ArrowUpRight className="w-8 h-8 text-yellow-400" />
     }
   ];
 
@@ -172,6 +195,46 @@ export default function CapitalFormation() {
                   </ul>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Approach Section */}
+        <section className="py-16 bg-gray-900">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white mb-6">
+                  Our Approach
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              {/* Process Steps */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {highLevelProcess.map((step, index) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                  >
+                    <div className="flex flex-col items-center text-center">
+                      <div className="bg-gray-900 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        {step.icon}
+                      </div>
+                      <h3 className="text-2xl font-montserrat text-white mb-4">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-300">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

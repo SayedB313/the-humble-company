@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Check, Menu, ArrowRight, Building, Briefcase, Target, BarChart2, Users, Network } from "lucide-react";
+import { Check, Menu, ArrowRight, Building, Briefcase, Target, BarChart2, Users, Network, TrendingUp } from "lucide-react";
 import ServicesDropdown from '../../../components/ui/ServicesDropdown';
 import Navigation from '../../../components/ui/Navigation';
 
@@ -68,6 +68,39 @@ export default function MergersAcquisitions() {
     {
       title: "Deal Execution",
       description: "Expert negotiation and transaction management"
+    }
+  ];
+
+  const challenges = [
+    {
+      icon: <Target className="w-12 h-12 text-blue-500" />,
+      title: "Deal Sourcing",
+      description: "Finding the right opportunities?",
+      details: [
+        "Limited access to quality deal flow",
+        "High cost per qualified lead",
+        "Inconsistent pipeline volume"
+      ]
+    },
+    {
+      icon: <Users className="w-12 h-12 text-purple-500" />,
+      title: "Market Coverage",
+      description: "Missing potential investments?",
+      details: [
+        "Gaps in market coverage",
+        "Manual sourcing bottlenecks",
+        "Overlooked investment opportunities"
+      ]
+    },
+    {
+      icon: <TrendingUp className="w-12 h-12 text-green-500" />,
+      title: "Portfolio Growth",
+      description: "Need to scale efficiently?",
+      details: [
+        "Complex screening process",
+        "Quality control at scale",
+        "Limited bandwidth for outreach"
+      ]
     }
   ];
 
@@ -150,6 +183,165 @@ export default function MergersAcquisitions() {
                   </ul>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Investment Challenges Section */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat text-white text-center mb-4">
+              Investment Challenges
+            </h2>
+            <p className="text-gray-300 text-center mb-12 max-w-3xl mx-auto">
+              Common bottlenecks preventing firms from maximizing their investment potential
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {challenges.map((challenge, index) => (
+                <motion.div
+                  key={challenge.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    {challenge.icon}
+                    <h3 className="text-xl font-montserrat text-white">
+                      {challenge.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-400 mb-6">
+                    {challenge.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {challenge.details.map((detail, i) => (
+                      <li key={i} className="flex items-center gap-3 text-gray-300">
+                        <ArrowRight className="w-4 h-4 text-blue-400" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Deal Flow Engine Section */}
+        <section className="py-16 px-4 bg-gray-800">
+          <div className="container mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-montserrat text-white text-center mb-12"
+            >
+              The Deal Flow Engine
+            </motion.h2>
+
+            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              {/* Left Column - Core Features */}
+              <div className="space-y-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="bg-gray-900 p-8 rounded-2xl"
+                >
+                  <h3 className="text-3xl font-montserrat text-white mb-3">
+                    Find
+                  </h3>
+                  <p className="text-xl text-gray-300">
+                    Identify high-potential investment opportunities
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="bg-gray-900 p-8 rounded-2xl"
+                >
+                  <h3 className="text-3xl font-montserrat text-white mb-3">
+                    Filter
+                  </h3>
+                  <p className="text-xl text-gray-300">
+                    Screen deals based on your criteria
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="bg-gray-900 p-8 rounded-2xl"
+                >
+                  <h3 className="text-3xl font-montserrat text-white mb-3">
+                    Scale
+                  </h3>
+                  <p className="text-xl text-gray-300">
+                    Maintain quality while expanding pipeline
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Right Column - Results */}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-gray-900 p-8 md:p-12 rounded-2xl"
+              >
+                <h3 className="text-3xl font-montserrat text-white mb-8">
+                  Results
+                </h3>
+                
+                <div className="space-y-6">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 }}
+                    className="flex items-center gap-4"
+                  >
+                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <span className="text-xl text-gray-300">85% faster deal sourcing</span>
+                  </motion.div>
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.6 }}
+                    className="flex items-center gap-4"
+                  >
+                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <span className="text-xl text-gray-300">3x larger qualified pipeline</span>
+                  </motion.div>
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.7 }}
+                    className="flex items-center gap-4"
+                  >
+                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <span className="text-xl text-gray-300">60% better qualification</span>
+                  </motion.div>
+
+                  <motion.button 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.3, delay: 0.8 }}
+                    onClick={() => window.location.href = 'mailto:contact@vectorsummit.com'}
+                    className={standardCTA}
+                  >
+                    Schedule a Meeting
+                  </motion.button>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>

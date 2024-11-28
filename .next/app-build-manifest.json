@@ -12,7 +12,7 @@
       "static/chunks/fd9d1056-182ecd18cdd342a6.js",
       "static/chunks/117-fd884902bed43f92.js",
       "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/css/7f386c9cb7ddc8fe.css",
+      "static/css/6af5ba646b1af8cb.css",
       "static/chunks/app/layout-0debf19eb664db26.js"
     ],
     "/page": [
@@ -20,57 +20,49 @@
       "static/chunks/fd9d1056-182ecd18cdd342a6.js",
       "static/chunks/117-fd884902bed43f92.js",
       "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/504-d92fe4c80517ce90.js",
-      "static/chunks/app/page-876966ad49a673cf.js"
-    ],
-    "/services/equity-investment/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/services/equity-investment/page-738349bd6430f283.js"
-    ],
-    "/services/mergers-acquisitions/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/services/mergers-acquisitions/page-8fa468654bc97bb1.js"
-    ],
-    "/services/capital-formation/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/services/capital-formation/page-cc4f56923d336e10.js"
-    ],
-    "/services/growth-advisory/page": [
-      "static/chunks/webpack-efdfa240c3b9016c.js",
-      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
-      "static/chunks/117-fd884902bed43f92.js",
-      "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/services/growth-advisory/page-352f5168e6cbc6fb.js"
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/873-f644118210da117f.js",
+      "static/chunks/app/page-5751d97d4b001483.js"
     ],
     "/about/page": [
       "static/chunks/webpack-efdfa240c3b9016c.js",
       "static/chunks/fd9d1056-182ecd18cdd342a6.js",
       "static/chunks/117-fd884902bed43f92.js",
       "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/about/page-96ce2ece7ac81ff7.js"
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/app/about/page-d09ccb0ab292b321.js"
     ],
-    "/track-record/page": [
+    "/services/capital-formation/page": [
       "static/chunks/webpack-efdfa240c3b9016c.js",
       "static/chunks/fd9d1056-182ecd18cdd342a6.js",
       "static/chunks/117-fd884902bed43f92.js",
       "static/chunks/main-app-1c8a57f3210e872f.js",
-      "static/chunks/420-34ca034268e033eb.js",
-      "static/chunks/app/track-record/page-39fa4b93c8b67308.js"
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/app/services/capital-formation/page-30a6bae9f79d8814.js"
+    ],
+    "/services/equity-investment/page": [
+      "static/chunks/webpack-efdfa240c3b9016c.js",
+      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
+      "static/chunks/117-fd884902bed43f92.js",
+      "static/chunks/main-app-1c8a57f3210e872f.js",
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/app/services/equity-investment/page-b2c74684bf6c9dad.js"
+    ],
+    "/services/growth-advisory/page": [
+      "static/chunks/webpack-efdfa240c3b9016c.js",
+      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
+      "static/chunks/117-fd884902bed43f92.js",
+      "static/chunks/main-app-1c8a57f3210e872f.js",
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/app/services/growth-advisory/page-59e0f781ac9a1b0e.js"
+    ],
+    "/services/mergers-acquisitions/page": [
+      "static/chunks/webpack-efdfa240c3b9016c.js",
+      "static/chunks/fd9d1056-182ecd18cdd342a6.js",
+      "static/chunks/117-fd884902bed43f92.js",
+      "static/chunks/main-app-1c8a57f3210e872f.js",
+      "static/chunks/463-34f57684406e6382.js",
+      "static/chunks/app/services/mergers-acquisitions/page-40ca75f8f750aeba.js"
     ]
   }
 }

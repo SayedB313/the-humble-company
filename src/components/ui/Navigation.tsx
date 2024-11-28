@@ -12,7 +12,7 @@ interface NavigationProps {
   currentPath?: string;
 }
 
-export default function Navigation({ isHomePage = false, currentPath }: NavigationProps) {
+export default function Navigation({ currentPath }: { currentPath: string }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isCalOpen, setIsCalOpen] = React.useState(false);
   const pathname = usePathname();
@@ -35,17 +35,14 @@ export default function Navigation({ isHomePage = false, currentPath }: Navigati
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center space-x-8">
         <ServicesDropdown currentPath={currentPath} />
-        <Link href="/track-record" className={linkStyle('/track-record')}>
-          Track Record
-        </Link>
         <Link href="/about" className={linkStyle('/about')}>
-          About Us
+          Our Profile
         </Link>
         <button
           onClick={() => setIsCalOpen(true)}
           className="text-gray-300 hover:text-white text-base font-normal leading-tight font-montserrat tracking-wider transition-colors"
         >
-          Contact
+          Schedule Meeting
         </button>
       </nav>
 
@@ -55,18 +52,11 @@ export default function Navigation({ isHomePage = false, currentPath }: Navigati
           <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <ServicesDropdown currentPath={currentPath} />
             <Link 
-              href="/track-record" 
-              className={linkStyle('/track-record')}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Track Record
-            </Link>
-            <Link 
               href="/about" 
               className={linkStyle('/about')}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              About Us
+              Our Profile
             </Link>
             <button
               onClick={() => {
@@ -75,7 +65,7 @@ export default function Navigation({ isHomePage = false, currentPath }: Navigati
               }}
               className="text-gray-300 hover:text-white text-base font-normal leading-tight font-montserrat tracking-wider transition-colors text-left"
             >
-              Contact
+              Schedule Meeting
             </button>
           </nav>
         </div>

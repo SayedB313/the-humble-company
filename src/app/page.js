@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -33,37 +33,8 @@ export default function EnhancedAgencyLandingPage() {
   const [selectedChallenge, setSelectedChallenge] = useState(null)
 
   const challenges = [
-    {
-      icon: <Target className="w-12 h-12 text-blue-500" />,
-      title: "Deal Sourcing",
-      description: "Finding the right opportunities?",
-      details: [
-        "Limited access to quality deal flow",
-        "High cost per qualified lead",
-        "Inconsistent pipeline volume"
-      ]
-    },
-    {
-      icon: <Users className="w-12 h-12 text-purple-500" />,
-      title: "Market Coverage",
-      description: "Missing potential investments?",
-      details: [
-        "Gaps in market coverage",
-        "Manual sourcing bottlenecks",
-        "Overlooked investment opportunities"
-      ]
-    },
-    {
-      icon: <TrendingUp className="w-12 h-12 text-green-500" />,
-      title: "Portfolio Growth",
-      description: "Need to scale efficiently?",
-      details: [
-        "Complex screening process",
-        "Quality control at scale",
-        "Limited bandwidth for outreach"
-      ]
-    }
-  ]
+    // ... remove this entire array
+  ];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -300,6 +271,74 @@ export default function EnhancedAgencyLandingPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Add this constant at the top with other constants
+  const capabilities = [
+    {
+      title: "Growth Enabler",
+      description: "Unlock opportunities through expertly crafted capital strategies and targeted funding solutions.",
+      icon: <TrendingUp className="w-12 h-12 text-white" />,
+      points: [
+        "Expand operations & R&D",
+        "Achieve liquidity while retaining control",
+        "Scale sustainably with aligned structures"
+      ]
+    },
+    {
+      title: "Strategic Partner",
+      description: "Build enduring partnerships and navigate complex decisions to drive value creation.",
+      icon: <Users className="w-12 h-12 text-white" />,
+      points: [
+        "Develop joint ventures & alliances",
+        "Access untapped markets",
+        "Navigate industry challenges"
+      ]
+    },
+    {
+      title: "Global Relationships",
+      description: "Connect with our extensive network of institutional and private investors worldwide.",
+      icon: <Globe className="w-12 h-12 text-white" />,
+      points: [
+        "Access global capital markets",
+        "Connect with qualified investors",
+        "Structure balanced deals"
+      ]
+    },
+    {
+      title: "Digital Intelligence",
+      description: "Leverage cutting-edge AI and data analytics to drive precision in deal sourcing and execution.",
+      icon: <Cpu className="w-12 h-12 text-white" />,
+      points: [
+        "AI-powered deal sourcing",
+        "Predictive market analytics",
+        "Automated outreach systems"
+      ]
+    }
+  ];
+
+  // Add this constant at the top with other constants
+  const highLevelProcess = [
+    {
+      title: "Strategic Analysis",
+      description: "Comprehensive evaluation of opportunities and market positioning",
+      icon: <Target className="w-8 h-8 text-blue-400" />
+    },
+    {
+      title: "Capital Optimization",
+      description: "Structuring the right mix of equity, debt, and hybrid solutions",
+      icon: <BarChart className="w-8 h-8 text-purple-400" />
+    },
+    {
+      title: "Growth Execution",
+      description: "Implementing strategic initiatives and monitoring progress",
+      icon: <TrendingUp className="w-8 h-8 text-green-400" />
+    },
+    {
+      title: "Value Creation",
+      description: "Driving operational excellence and market expansion",
+      icon: <ArrowUpRight className="w-8 h-8 text-yellow-400" />
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       {/* Top Navigation Bar */}
@@ -309,7 +348,7 @@ export default function EnhancedAgencyLandingPage() {
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl md:text-2xl font-light font-montserrat tracking-wider text-white">
+            <span className="text-2xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
               Vector Summit
             </span>
           </Link>
@@ -317,9 +356,6 @@ export default function EnhancedAgencyLandingPage() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <ServicesDropdown />
-            <Link href="/track-record" className="text-white hover:text-gray-300 transition-colors font-light">
-              Track Record
-            </Link>
             <Link href="/about" className="text-white hover:text-gray-300 transition-colors font-light">
               Our Profile
             </Link>
@@ -327,7 +363,7 @@ export default function EnhancedAgencyLandingPage() {
               onClick={() => setIsCalOpen(true)}
               className="text-white hover:text-gray-300 transition-colors font-light"
             >
-              Contact
+              Schedule Meeting
             </button>
           </div>
 
@@ -355,13 +391,6 @@ export default function EnhancedAgencyLandingPage() {
               <div className="flex flex-col space-y-4">
                 <ServicesDropdown />
                 <Link 
-                  href="/track-record" 
-                  className="text-white hover:text-gray-300 transition-colors font-light py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Track Record
-                </Link>
-                <Link 
                   href="/about" 
                   className="text-white hover:text-gray-300 transition-colors font-light py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -375,7 +404,7 @@ export default function EnhancedAgencyLandingPage() {
                   }}
                   className="text-white hover:text-gray-300 transition-colors font-light text-left py-2"
                 >
-                  Contact
+                  Schedule Meeting
                 </button>
               </div>
             </div>
@@ -402,9 +431,11 @@ export default function EnhancedAgencyLandingPage() {
                 
                 <div className="h-2 w-24 bg-[#14213D] mb-12"></div>
                 
-                <p className="text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-16 max-w-4xl">
-                  Strategic Capital & Investment Partners<br />
-                  Architecting Bespoke Solutions for Exceptional Growth
+                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-16 max-w-4xl">
+                  <span className="block mb-2">Strategic Capital & Investment Partners</span>
+                  <span className="block text-base sm:text-lg md:text-xl opacity-80">
+                    Architecting Bespoke Solutions for Exceptional Growth
+                  </span>
                 </p>
               </motion.div>
             </div>
@@ -449,650 +480,433 @@ export default function EnhancedAgencyLandingPage() {
         </section>
 
         {/* Expertise Section */}
-        <section id="expertise" className="bg-white py-24 px-4">
-          <div className="container mx-auto max-w-7xl">
-            {/* Left-aligned heading */}
+        <section id="expertise" className="bg-white py-24">
+          <div className="container mx-auto max-w-7xl px-4">
+            {/* Keep the same heading style */}
             <div className="mb-20 max-w-3xl">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                Proven Expertise and
-                <span className="block mt-2">Exceptional Outcomes</span>
+                Fresh Perspective
+                <span className="block mt-2">Digital-First Approach</span>
               </h2>
               <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-16 px-4">
-              {/* Transaction Volume */}
-              <div className="flex flex-col items-center">
-                <div className="bg-[#14213D] rounded-full w-20 h-20 flex items-center justify-center mb-8">
-                  <DollarSign className="w-10 h-10 text-white" />
+            {/* Updated stats layout with new content */}
+            <div className="flex flex-col items-center justify-center">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-16 max-w-7xl">
+                {/* Digital Transformation */}
+                <div className="relative">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full mb-10 flex items-center justify-center">
+                      <Network className="w-10 h-10 text-white" />
+                    </div>
+                    <span className="text-6xl lg:text-7xl font-light text-[#14213D] mb-4">50+</span>
+                    <div className="h-[2px] w-16 bg-[#14213D] mb-6"></div>
+                    <p className="text-gray-600 text-lg font-light max-w-[200px]">
+                      Digital-First<br />Growth Partners
+                    </p>
+                  </div>
                 </div>
-                <p className="text-6xl font-light font-montserrat text-[#1A1A1A] mb-4">$13B+</p>
-                <p className="text-lg text-gray-600 text-center font-light tracking-wide">
-                  In Aggregate<br />Transaction Volume
-                </p>
+
+                {/* Tech Background */}
+                <div className="relative">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full mb-10 flex items-center justify-center">
+                      <BarChart2 className="w-10 h-10 text-white" />
+                    </div>
+                    <span className="text-6xl lg:text-7xl font-light text-[#14213D] mb-4">15+</span>
+                    <div className="h-[2px] w-16 bg-[#14213D] mb-6"></div>
+                    <p className="text-gray-600 text-lg font-light max-w-[200px]">
+                      Tech Ventures<br />Accelerated
+                    </p>
+                  </div>
+                </div>
+
+                {/* Strategic Partnerships */}
+                <div className="relative">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full mb-10 flex items-center justify-center">
+                      <ArrowLeftRight className="w-10 h-10 text-white" />
+                    </div>
+                    <span className="text-6xl lg:text-7xl font-light text-[#14213D] mb-4">25+</span>
+                    <div className="h-[2px] w-16 bg-[#14213D] mb-6"></div>
+                    <p className="text-gray-600 text-lg font-light max-w-[200px]">
+                      Strategic<br />Partnerships
+                    </p>
+                  </div>
+                </div>
+
+                {/* Growth Metrics */}
+                <div className="relative">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full mb-10 flex items-center justify-center">
+                      <TrendingUp className="w-10 h-10 text-white" />
+                    </div>
+                    <span className="text-6xl lg:text-7xl font-light text-[#14213D] mb-4">300%</span>
+                    <div className="h-[2px] w-16 bg-[#14213D] mb-6"></div>
+                    <p className="text-gray-600 text-lg font-light max-w-[200px]">
+                      Average Partner<br />Growth Rate
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Add a subtitle context */}
+            <div className="mt-20 max-w-2xl mx-auto text-center">
+              <p className="text-gray-600 text-lg font-light leading-relaxed">
+                Born in the digital age, we bring a unique blend of tech-savvy strategy 
+                and innovative growth partnerships to traditional markets. Our approach 
+                combines emerging technologies with proven business principles.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Capabilities Section */}
+        <section className="bg-white py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Core Capabilities
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Years Experience */}
-              <div className="flex flex-col items-center">
-                <div className="bg-[#14213D] rounded-full w-20 h-20 flex items-center justify-center mb-8">
-                  <BarChart2 className="w-10 h-10 text-white" />
-                </div>
-                <p className="text-6xl font-light font-montserrat text-[#1A1A1A] mb-4">40+</p>
-                <p className="text-lg text-gray-600 text-center font-light tracking-wide">
-                  Years Capital<br />Markets Experience
-                </p>
+              {/* Digital Intelligence - Center Piece */}
+              <div className="relative mb-24">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-3xl mx-auto text-center"
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full flex items-center justify-center">
+                      <Cpu className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="mt-8">
+                    <h3 className="text-3xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      Digital Intelligence
+                    </h3>
+                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
+                    <p className="text-gray-600 text-xl mb-8 leading-relaxed">
+                      Leveraging cutting-edge AI and data analytics to drive precision in deal sourcing and execution.
+                    </p>
+                    <div className="grid grid-cols-3 gap-6">
+                      {["AI-powered deal sourcing", "Predictive market analytics", "Automated outreach systems"].map((point, i) => (
+                        <div key={i} className="text-gray-600">
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            {point}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
               </div>
 
-              {/* Transactions */}
-              <div className="flex flex-col items-center">
-                <div className="bg-[#14213D] rounded-full w-20 h-20 flex items-center justify-center mb-8">
-                  <ArrowLeftRight className="w-10 h-10 text-white" />
-                </div>
-                <p className="text-6xl font-light font-montserrat text-[#1A1A1A] mb-4">100+</p>
-                <p className="text-lg text-gray-600 text-center font-light tracking-wide">
-                  Transactions
-                </p>
+              {/* Traditional Capabilities - Three Cards Below */}
+              <div className="grid md:grid-cols-3 gap-8">
+                {capabilities.slice(0, 3).map((capability, index) => (
+                  <motion.div
+                    key={capability.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                  >
+                    <div className="flex flex-col h-full">
+                      <div className="mb-6">
+                        <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                          {capability.icon}
+                        </div>
+                        <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                          {capability.title}
+                        </h3>
+                        <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                      </div>
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {capability.description}
+                      </p>
+                      <ul className="space-y-3 mt-auto">
+                        {capability.points.map((point, i) => (
+                          <li key={i} className="flex items-center gap-3 text-gray-600">
+                            <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Investor Relationships */}
-              <div className="flex flex-col items-center">
-                <div className="bg-[#14213D] rounded-full w-20 h-20 flex items-center justify-center mb-8">
-                  <Users className="w-10 h-10 text-white" />
-                </div>
-                <p className="text-6xl font-light font-montserrat text-[#1A1A1A] mb-4">3000+</p>
-                <p className="text-lg text-gray-600 text-center font-light tracking-wide">
-                  Investor<br />Relationships
-                </p>
+              {/* Optional CTA */}
+              <div className="mt-16 text-center">
+                <button
+                  onClick={() => setIsCalOpen(true)}
+                  className="inline-flex items-center px-8 py-4 bg-[#14213D] text-white rounded-lg hover:bg-[#1C2E56] transition-colors font-montserrat"
+                >
+                  Schedule a Meeting
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
               </div>
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="bg-white py-16 md:py-24 px-4">
-          <div className="container mx-auto">
+        <section className="bg-gray-50 py-24">
+          <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              {/* Header with thin font and underline - matched with Proven Expertise section */}
+              {/* Section Header */}
               <div className="mb-20 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Strategic Capabilities
+                  Strategic Solutions
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Service Cards Carousel */}
-              <div className="relative">
-                <div className="overflow-hidden">
-                  <div 
-                    className="flex transition-transform duration-300 ease-in-out" 
-                    style={{ transform: `translateX(-${currentCard * (isMobile ? 100 : 33.333)}%)` }}
-                  >
-                    {[
-                      {
-                        title: "Capital Formation",
-                        icon: <DollarSign className="w-8 h-8 text-white" />,
-                        description: "Empowering businesses through strategic capital allocation and expert banking services. We invest in your company's future, providing not just funds but also comprehensive financial management, enabling growth and long-term success."
-                      },
-                      {
-                        title: "Equity Investment",
-                        icon: <BarChart2 className="w-8 h-8 text-white" />,
-                        description: "Direct investment and strategic partnerships focused on value creation. We provide growth capital and operational expertise to drive exceptional outcomes for portfolio companies."
-                      },
-                      {
-                        title: "Growth Advisory & Equity",
-                        icon: <TrendingUp className="w-8 h-8 text-white" />,
-                        description: "Our applied expertise helps leadership teams execute optimal growth strategies via capital raising, M&A, joint ventures, strategic partnerships, and add-on transactions."
-                      },
-                      {
-                        title: "Mergers & Acquisitions",
-                        icon: <Network className="w-8 h-8 text-white" />,
-                        description: "Strategic M&A advisory services leveraging extensive industry relationships to guide clients through both buy-side and sell-side transactions."
-                      }
-                    ].map((service, index) => (
-                      <div 
-                        key={index} 
-                        className={`${
-                          isMobile ? 'w-full' : 'w-1/3'
-                        } flex-shrink-0 px-4`}
-                      >
-                        <div className="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-gray-100 h-full flex flex-col">
-                          <div className="bg-[#14213D] rounded-full p-3 md:p-4 w-12 md:w-16 h-12 md:h-16 flex items-center justify-center mb-6 md:mb-8">
-                            {service.icon}
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-bold font-montserrat text-[#1A1A1A] mb-2 md:mb-3">
-                            {service.title}
-                          </h3>
-                          <div className="h-[2px] w-12 bg-[#14213D] mb-4 md:mb-6"></div>
-                          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 flex-grow">
-                            {service.description}
-                          </p>
-                          <Link 
-                            href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                            className="inline-block bg-[#14213D] text-white px-6 md:px-8 py-2 md:py-3 rounded-md font-montserrat text-sm md:text-base hover:bg-[#1C2E56] transition-colors w-[140px] md:w-[160px] text-center"
-                          >
-                            Learn More
-                          </Link>
-                        </div>
-                      </div>
-                    ))}
+              {/* Services Grid - Now with all 4 cards */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {/* Capital Formation */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <DollarSign className="w-7 h-7 text-white" />
                   </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Capital Formation
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Empowering businesses through strategic capital allocation and expert banking services. 
+                    We invest in your company's future, providing not just funds but also comprehensive 
+                    financial management, enabling growth and long-term success.
+                  </p>
+                  <Link 
+                    href="/services/capital-formation"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
                 </div>
 
-                {/* Navigation Arrows */}
-                <div className="flex justify-center mt-8 md:mt-12 space-x-4">
-                  <button 
-                    onClick={prevCard}
-                    className="p-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#14213D] hover:text-[#14213D] transition-colors"
+                {/* Equity Investment */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <BarChart2 className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Equity Investment
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Direct investment and strategic partnerships focused on value creation. 
+                    We provide growth capital and operational expertise to drive exceptional 
+                    outcomes for portfolio companies.
+                  </p>
+                  <Link 
+                    href="/services/equity-investment"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
                   >
-                    <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-                  </button>
-                  <button 
-                    onClick={nextCard}
-                    className="p-2 rounded-full border border-gray-300 text-gray-600 hover:border-[#14213D] hover:text-[#14213D] transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-                  </button>
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
                 </div>
 
-                {/* Mobile Dots Navigation */}
-                {isMobile && (
-                  <div className="flex justify-center mt-4 space-x-2">
-                    {[0, 1, 2, 3].map((index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentCard(index)}
-                        className={`w-2 h-2 rounded-full transition-colors ${
-                          currentCard === index ? 'bg-[#14213D]' : 'bg-gray-300'
-                        }`}
-                      />
-                    ))}
+                {/* Growth Advisory */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <TrendingUp className="w-7 h-7 text-white" />
                   </div>
-                )}
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Growth Advisory & Equity
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Our applied expertise helps leadership teams execute optimal growth strategies 
+                    via capital raising, M&A, joint ventures, strategic partnerships, and add-on 
+                    transactions.
+                  </p>
+                  <Link 
+                    href="/services/growth-advisory"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+
+                {/* Mergers & Acquisitions */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <Network className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Mergers & Acquisitions
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Strategic M&A advisory services leveraging extensive industry relationships 
+                    to guide clients through both buy-side and sell-side transactions.
+                  </p>
+                  <Link 
+                    href="/services/mergers-acquisitions"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Critical Business Challenges Section */}
-        <section id="challenges" className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-4">
-              Investment Challenges
-            </h2>
-            <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-              Common bottlenecks preventing firms from maximizing their investment potential
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {challenges.map((challenge, index) => (
-                <motion.div
-                  key={challenge.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-4 mb-6">
-                    {challenge.icon}
-                    <h3 className="text-xl font-montserrat text-white">
-                      {challenge.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-400 mb-6">
-                    {challenge.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {challenge.details.map((detail, i) => (
-                      <li key={i} className="flex items-center gap-3 text-gray-300">
-                        <ArrowRight className="w-4 h-4 text-blue-400" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <button
-                onClick={() => setIsCalOpen(true)}
-                className={standardCTA}
-              >
-                Schedule a Call
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* The Deal Flow Engine Section */}
-        <section id="email-resonance-engine" className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12"
-            >
-              The Deal Flow Engine��
-            </motion.h2>
-
-            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              {/* Left Column - Core Features */}
-              <div className="space-y-8">
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
-                    Find
-                  </h3>
-                  <p className="text-lg text-gray-700">
-                    Identify high-potential investment opportunities
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
-                    Filter
-                  </h3>
-                  <p className="text-lg text-gray-700">
-                    Screen deals based on your criteria
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="bg-blue-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <h3 className="text-2xl font-montserrat text-gray-900 mb-2">
-                    Scale
-                  </h3>
-                  <p className="text-lg text-gray-700">
-                    Maintain quality while expanding pipeline
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* Right Column - Results */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="bg-gray-800 p-8 md:p-12 rounded-2xl text-white"
-              >
-                <h3 className="text-2xl font-montserrat mb-8">
-                  Results
-                </h3>
+        {/* About Vector Summit Section */}
+        <section className="relative">
+          <div className="flex flex-col md:flex-row">
+            {/* Left Content Side */}
+            <div className="w-full md:w-1/2 bg-white py-24 px-8 md:px-16">
+              <div className="max-w-xl ml-auto">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  About Vector Summit
+                </h2>
                 
-                <div className="space-y-6">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.5 }}
-                    className="flex items-center gap-4"
-                  >
-                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-xl">85% faster deal sourcing</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.6 }}
-                    className="flex items-center gap-4"
-                  >
-                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-xl">3x larger qualified pipeline</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.7 }}
-                    className="flex items-center gap-4"
-                  >
-                    <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                    <span className="text-xl">60% better qualification</span>
-                  </motion.div>
-
-                  <motion.button 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3, delay: 0.8 }}
-                    onClick={() => setIsCalOpen(true)}
-                    className={standardCTA}
-                  >
-                    Schedule a Call
-                  </motion.button>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-        {/* Success Stories Section */}
-        <section id="track-record" className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12">
-              Track Record
-            </h2>
-            
-            {/* Case Study Content */}
-            <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-8">
-                <h3 className="text-2xl font-normal font-montserrat tracking-wider text-gray-900 mb-4">
-                  Michael Rose & Associates
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Investment Banking Advisory Firm
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+                
+                <p className="text-xl text-black mb-8 leading-relaxed mt-12">
+                  Born in the digital age, Vector Summit brings a unique blend of tech-savvy strategy and innovative growth partnerships to traditional markets. Our digital-first approach combines emerging technologies with proven business principles to drive exceptional outcomes.
                 </p>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="flex-1">
-                      <p className="text-gray-800">
-                        "Vector Summit's approach transformed our deal sourcing process. Their AI-driven strategy 
-                        helped us identify and connect with qualified prospects we wouldn't have found otherwise."
-                      </p>
-                      <p className="mt-4 text-gray-600">
-                        - Michael Rose, Managing Director
-                      </p>
-                    </div>
+                
+                <p className="text-xl text-black mb-12 leading-relaxed">
+                  With a focus on strategic capital and investment partnerships, we leverage cutting-edge technology and data-driven insights to identify opportunities and accelerate growth for our partners. Our approach reimagines traditional investment banking for the modern era.
+                </p>
+
+                <div className="space-y-8 mb-12">
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Strategic Approach</h3>
+                    <p className="text-black">Data-driven insights combined with industry expertise to maximize your investment success.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Proven Results</h3>
+                    <p className="text-black">Track record of connecting premier firms with qualified, high-value opportunities.</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Elite Network</h3>
+                    <p className="text-black">Access to 100+ institutional investors and strategic deal flow partners.</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Process Section */}
-        <section id="process" className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12"
-            >
-              Our Process
-            </motion.h2>
-            
-            {/* Process Steps Timeline - Removed vertical bar */}
-            <div className="relative mb-12">
-              <div className="relative z-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto px-4">
-                {processSteps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                    onClick={() => handleStepHover(index)}
-                    className="flex flex-col items-center cursor-pointer"
-                  >
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-white shadow-lg transition-all duration-300 ${
-                      index === activeStep ? 'ring-4 ring-blue-400' : ''
-                    }`}>
-                      {step.icon}
-                    </div>
-                    <div className="mt-4 text-center">
-                      <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                      <p className="text-sm text-blue-200 mt-1">{step.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                <button
+                  onClick={() => setIsCalOpen(true)}
+                  className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
+                >
+                  Schedule a Meeting
+                </button>
               </div>
             </div>
 
-            {/* Combined Details Box */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gray-800 rounded-2xl p-8 max-w-6xl mx-auto"
-            >
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Left Side - Description */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-montserrat text-white mb-4">
-                    {processSteps[activeStep].title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {activeStep === 0 && "Our comprehensive analysis evaluates your current deal sourcing strategy, identifying gaps and opportunities for systematic improvement."}
-                    {activeStep === 1 && "We develop a precise mapping of your ideal investment opportunities, creating detailed targeting criteria and market segments."}
-                    {activeStep === 2 && "Implementation of customized outreach systems and workflows designed specifically for investment opportunity generation."}
-                    {activeStep === 3 && "Strategic deployment of targeted campaigns to connect with pre-qualified investment opportunities matching your criteria."}
-                    {activeStep === 4 && "Continuous refinement of targeting and messaging based on real-time performance data and market response."}
-                  </p>
-                </div>
-
-                {/* Right Side - Outcomes */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-montserrat text-white mb-4">
-                    Key Outcomes
-                  </h3>
-                  <ul className="space-y-3">
-                    {activeStep === 0 && (
-                      <>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Comprehensive deal flow assessment</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Clear opportunity gaps identified</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Strategic roadmap developed</span>
-                        </li>
-                      </>
-                    )}
-                    {activeStep === 1 && (
-                      <>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Defined ideal investment criteria</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Target market segments mapped</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Opportunity scoring framework</span>
-                        </li>
-                      </>
-                    )}
-                    {activeStep === 2 && (
-                      <>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Automated deal flow system</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Streamlined qualification process</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Team fully trained on system</span>
-                        </li>
-                      </>
-                    )}
-                    {activeStep === 3 && (
-                      <>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Active outreach campaigns</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Consistent deal flow pipeline</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Efficient response management</span>
-                        </li>
-                      </>
-                    )}
-                    {activeStep === 4 && (
-                      <>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Optimized conversion rates</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Data-driven improvements</span>
-                        </li>
-                        <li className="flex items-center gap-3 text-gray-300">
-                          <Check className="w-5 h-5 text-green-400" />
-                          <span>Enhanced targeting accuracy</span>
-                        </li>
-                      </>
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Data-Driven Deal Sourcing Section */}
-        <section id="why-us" className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-normal leading-tight font-montserrat tracking-wider text-white text-center mb-12">
-              Why Us
-            </h2>
-            
-            {/* Why Us Content */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-12 md:mb-16 px-4">
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <Users className="w-12 h-12 text-blue-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Strategic Approach
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Data-driven insights combined with industry expertise to maximize your investment success.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <BarChart className="w-12 h-12 text-green-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Proven Results
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Track record of connecting premier firms with qualified, high-value opportunities.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div className="flex flex-col h-full">
-                  <div className="mb-6">
-                    <Network className="w-12 h-12 text-purple-400 mb-4" />
-                    <h3 className="text-2xl font-montserrat text-white mb-3">
-                      Elite Network
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-lg leading-relaxed">
-                    Access to 100+ institutional investors and strategic deal flow partners.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* New CTA Section */}
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl font-normal font-montserrat tracking-wider text-white mb-6">
-                Ready to Transform Your Deal Flow?
-              </h3>
-              <p className="text-gray-300 mb-8 text-lg">
-                Schedule a consultation to discover how our AI-powered platform can accelerate your investment opportunities.
-              </p>
-              <button 
-                onClick={() => setIsCalOpen(true)}
-                className={standardCTA}
-              >
-                Schedule a Call
-              </button>
+            {/* Right Image Side */}
+            <div className="w-full md:w-1/2 relative min-h-[600px]">
+              <Image
+                src="/snow.jpg"
+                alt="Snow covered landscape"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black opacity-30"></div>
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-8 md:py-12">
+        <footer className="bg-white text-[#1A1A1A] py-16 border-t border-gray-100">
           <div className="container mx-auto px-4">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="mb-6 md:mb-8">
-                <h3 className="text-lg md:text-xl font-semibold mb-4">Quick Links</h3>
-                <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                  <a 
-                    href="#email-resonance-engine" 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('email-resonance-engine');
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Our Engine
-                  </a>
-                  <a 
-                    href="#track-record"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('track-record');
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Track Record
-                  </a>
-                  <a 
-                    href="#process"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('process');
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Our Process
-                  </a>
-                  <a 
-                    href="#why-us"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection('why-us');
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    Why Us
-                  </a>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+              {/* Column 1 - Brand */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Strategic capital and investment partners architecting bespoke solutions for exceptional growth.
+                </p>
               </div>
-              
-              <div className="text-xs md:text-sm text-gray-400">
-                © {new Date().getFullYear()} Vector Summit. All rights reserved.
+
+              {/* Column 2 - Services */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold font-montserrat">Services</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Mergers & Acquisitions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/capital-formation" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Capital Formation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/growth-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Growth Advisory
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/equity-investment" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Equity Investment
+                    </Link>
+                  </li>
+                </ul>
               </div>
+
+              {/* Column 3 - Quick Links */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Our Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <button 
+                      onClick={() => scrollToSection('process')}
+                      className="text-gray-600 hover:text-[#14213D] transition-colors"
+                    >
+                      Our Process
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 4 - Contact */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
+                <Link 
+                  href="https://www.linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
+                >
+                  Connect on LinkedIn
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Copyright and Bottom Bar */}
+            <div className="mt-16">
+              <div className="text-sm text-gray-500 text-center mb-8">
+                © 2024 Vector Summit. All rights reserved.
+              </div>
+              <div className="border-t border-gray-100"></div>
             </div>
           </div>
         </footer>
