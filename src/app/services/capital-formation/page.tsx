@@ -6,10 +6,13 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { Check, Menu, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, ArrowRight, ChevronDown, Shield, Briefcase, User, Rocket, ArrowDown, Link2 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
+import Footer from '../../../components/ui/Footer';
+import CalEmbed from '../../../components/CalEmbed';
 
 export default function CapitalFormation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isCalOpen, setIsCalOpen] = React.useState(false);
 
   const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
 
@@ -95,11 +98,11 @@ export default function CapitalFormation() {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_osldpl" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w" 
                 type="video/mp4" 
               />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
           </div>
           
           <div className="container mx-auto px-8 relative z-10">
@@ -119,7 +122,7 @@ export default function CapitalFormation() {
                   
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
                     Capital
-                    <span className="block mt-2 text-yellow-400">Formation</span>
+                    <span className="block mt-2 text-amber-300">Formation</span>
                   </h1>
                 </div>
                 
@@ -133,8 +136,9 @@ export default function CapitalFormation() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
+                    onClick={() => setIsCalOpen(true)}
                   >
-                    <span>Start Discussion</span>
+                    <span>Schedule a Meeting</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                   
@@ -142,7 +146,7 @@ export default function CapitalFormation() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-white transition-colors cursor-pointer"
+                    className="flex items-center space-x-4 text-white hover:text-amber-300 transition-colors cursor-pointer"
                     onClick={() => {
                       const networkSection = document.querySelector('#investor-network');
                       networkSection?.scrollIntoView({ behavior: 'smooth' });
@@ -307,10 +311,11 @@ export default function CapitalFormation() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
               {/* Section Header */}
-              <div className="max-w-3xl mb-20">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="h-[2px] w-12 bg-[#14213D]"></div>
-                  <span className="text-[#14213D]/80 uppercase tracking-wider text-sm">Our Process</span>
+              <div className="max-w-3xl mx-auto text-center mb-20">
+                <div className="inline-flex items-center justify-center space-x-3 mb-6">
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                  <span className="text-[#14213D]/80 uppercase tracking-widest text-sm">Our Process</span>
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
                 </div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D] mb-8">
                   Capital
@@ -408,9 +413,10 @@ export default function CapitalFormation() {
 
         {/* CTA Section */}
         <section className="relative py-32">
+          {/* Background Image */}
           <div className="absolute inset-0">
             <Image
-              src="/1Snow-Covered Mountain Photo.jpg"
+              src="/River Near Mountains.jpg"
               alt="Mountains"
               fill
               className="object-cover"
@@ -419,39 +425,41 @@ export default function CapitalFormation() {
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8"
+                className="space-y-12"
               >
-                <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Ready to Accelerate Your Growth?
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wide text-white">
+                  Ready to Scale
+                  <br />
+                  <span className="text-[#14213D]">Your Fund?</span>
                 </h2>
-                <button className={`${standardCTA} mx-auto`}>
-                  Schedule a Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </button>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                  Connect with our team to explore how we can help accelerate your capital formation journey.
+                </p>
+                <div>
+                  <button 
+                    onClick={() => setIsCalOpen(true)}
+                    className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
+                  >
+                    <span>Schedule a Meeting</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </motion.div>
             </div>
           </div>
+
+          <CalEmbed 
+            isOpen={isCalOpen}
+            onClose={() => setIsCalOpen(false)}
+          />
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-white text-[#1A1A1A] py-12 border-t border-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-4">
-            <Link href="/" className="text-2xl font-light font-montserrat tracking-wider">
-              Vector Summit
-            </Link>
-            <div className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Vector Summit. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 } 

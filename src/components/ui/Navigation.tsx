@@ -3,9 +3,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import ServicesDropdown from './ServicesDropdown';
 import CalEmbed from '../CalEmbed';
+import { motion } from 'framer-motion';
 
 interface NavigationProps {
   currentPath: string;
@@ -26,9 +27,9 @@ export default function Navigation({ currentPath }: NavigationProps) {
     <>
       <button 
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="md:hidden text-white p-3 hover:bg-gray-800 rounded-lg transition-colors"
+        className="md:hidden text-white p-2"
       >
-        <Menu className="w-8 h-8" />
+        <Menu className="w-6 h-6" />
       </button>
 
       {/* Desktop Navigation */}
@@ -45,30 +46,89 @@ export default function Navigation({ currentPath }: NavigationProps) {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-gray-900 border-b border-gray-800 z-50">
-          <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <ServicesDropdown currentPath={currentPath} />
-            <Link 
-              href="/about" 
-              className={linkStyle('/about')}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Our Profile
-            </Link>
+      {/* Full Screen Mobile Menu */}
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ 
+          opacity: isMobileMenuOpen ? 1 : 0,
+          height: isMobileMenuOpen ? '100vh' : 0
+        }}
+        transition={{ duration: 0.3 }}
+        className="md:hidden fixed inset-0 bg-[#14213D] z-40"
+      >
+        {isMobileMenuOpen && (
+          <div className="container mx-auto px-4 py-12 h-full flex flex-col">
+            {/* Close button at the top */}
             <button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsCalOpen(true);
-              }}
-              className="text-gray-300 hover:text-white text-base font-normal leading-tight font-montserrat tracking-wider transition-colors text-left"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-6 right-6 text-white p-2"
             >
-              Schedule Meeting
+              <X className="w-8 h-8" />
             </button>
-          </nav>
-        </div>
-      )}
+
+            {/* Menu Items */}
+            <div className="flex flex-col space-y-8 mt-20">
+              {/* Services Links */}
+              <Link 
+                href="/services/capital-formation" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Capital Formation
+              </Link>
+              <Link 
+                href="/services/mergers-acquisitions" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Mergers & Acquisitions
+              </Link>
+              <Link 
+                href="/services/growth-advisory" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Growth Advisory
+              </Link>
+              <Link 
+                href="/services/equity-investment" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Equity Investment
+              </Link>
+
+              {/* Other Links */}
+              <Link 
+                href="/about" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Our Profile
+              </Link>
+
+              {/* Schedule Meeting Button */}
+              <button
+                onClick={() => {
+                  setIsCalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left"
+              >
+                Schedule Meeting
+              </button>
+            </div>
+
+            {/* Bottom Section */}
+            <div className="mt-auto mb-8">
+              <div className="h-[1px] w-full bg-white/20 mb-8"></div>
+              <span className="text-white/60 text-sm">
+                © {new Date().getFullYear()} Vector Summit
+              </span>
+            </div>
+          </div>
+        )}
+      </motion.div>
 
       {/* Calendar Modal */}
       <CalEmbed 

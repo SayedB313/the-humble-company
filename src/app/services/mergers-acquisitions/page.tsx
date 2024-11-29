@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, Briefcase, TrendingUp, ArrowUpRight, FileText, PieChart, Link2 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 import CalEmbed from '../../../components/CalEmbed';
+import Footer from '../../../components/ui/Footer';
 
 export default function MergersAcquisitions() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isCalOpen, setIsCalOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
 
@@ -80,10 +82,27 @@ export default function MergersAcquisitions() {
     }
   ];
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scroll">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[#1A1A1A] shadow-lg' 
+          : 'bg-transparent'
+      }`}>
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
@@ -98,76 +117,119 @@ export default function MergersAcquisitions() {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
           <div className="absolute inset-0">
-            <Image
-              src="/River Near Mountains.jpg"
-              alt="Mergers & Acquisitions"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snow_Covered_Mountain_4K_Video_ipsllb" 
+                type="video/mp4" 
+              />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
           </div>
           
           <div className="container mx-auto px-8 relative z-10">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Column */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
-                  MERGERS &
-                  <span className="block mt-2">
-                    ACQUISITIONS
-                  </span>
-                </h1>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="h-[2px] w-12 bg-white"></div>
+                    <span className="text-white uppercase tracking-wider text-sm font-semibold">Transaction Advisory</span>
+                  </div>
+                  
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
+                    Mergers &
+                    <span className="block mt-2 text-blue-500">Acquisitions</span>
+                  </h1>
+                </div>
                 
-                <div className="h-2 w-24 bg-[#14213D]"></div>
-                
-                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
-                  Senior-led advisory services delivering premium valuations and 
-                  superior transaction outcomes
+                <p className="text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
+                  Senior-led advisory services delivering premium valuations and superior transaction outcomes
                 </p>
 
-                <motion.button 
-                  className={standardCTA}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  onClick={() => setIsCalOpen(true)}
-                >
-                  Schedule a Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                <div className="flex items-center space-x-6">
+                  <motion.button 
+                    className={`${standardCTA} group`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    onClick={() => setIsCalOpen(true)}
+                  >
+                    <span>Schedule a Meeting</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                  
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                    className="flex items-center space-x-4 text-white hover:text-blue-500 transition-colors cursor-pointer"
+                    onClick={() => {
+                      const expertiseSection = document.querySelector('#expertise');
+                      expertiseSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                      <ChevronDown className="w-6 h-6" />
+                    </div>
+                    <span className="text-sm uppercase tracking-wider font-bold">View Expertise</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Right Column - Stats Grid */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:grid grid-cols-2 gap-6"
+              >
+                {[
+                  { 
+                    title: "Buy-Side", 
+                    description: "Strategic acquisition guidance"
+                  },
+                  { 
+                    title: "Sell-Side", 
+                    description: "Premium exit valuations"
+                  },
+                  { 
+                    title: "Due Diligence", 
+                    description: "Comprehensive analysis"
+                  },
+                  { 
+                    title: "Deal Structure", 
+                    description: "Optimal transaction terms"
+                  }
+                ].map((highlight, index) => (
+                  <motion.div
+                    key={highlight.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + (index * 0.1) }}
+                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-colors border border-[#14213D]/20"
+                  >
+                    <div className="text-xl font-semibold text-white mb-2">
+                      {highlight.title}
+                    </div>
+                    <div className="text-white/80 text-sm leading-relaxed">
+                      {highlight.description}
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
-            onClick={() => {
-              const servicesSection = document.querySelector('#services');
-              servicesSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              <ChevronDown className="w-12 h-12" />
-            </motion.div>
-          </motion.div>
         </section>
 
         {/* Services Section */}
@@ -257,7 +319,7 @@ export default function MergersAcquisitions() {
         <section className="relative py-32">
           <div className="absolute inset-0">
             <Image
-              src="/1Snow-Covered Mountain Photo.jpg"
+              src="/River Near Mountains.jpg"
               alt="Mountains"
               fill
               className="object-cover"
@@ -284,7 +346,7 @@ export default function MergersAcquisitions() {
                   className={`${standardCTA} mx-auto`}
                   onClick={() => setIsCalOpen(true)}
                 >
-                  Schedule a Consultation
+                  Schedule a Meeting
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </motion.div>
@@ -293,19 +355,7 @@ export default function MergersAcquisitions() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white text-[#1A1A1A] py-12 border-t border-gray-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-4">
-            <Link href="/" className="text-2xl font-light font-montserrat tracking-wider">
-              Vector Summit
-            </Link>
-            <div className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Vector Summit. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       <CalEmbed 
         isOpen={isCalOpen}

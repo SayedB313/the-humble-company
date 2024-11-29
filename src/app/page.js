@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight, X } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -381,31 +381,80 @@ export default function EnhancedAgencyLandingPage() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ 
             opacity: isMobileMenuOpen ? 1 : 0,
-            height: isMobileMenuOpen ? 'auto' : 0
+            height: isMobileMenuOpen ? '100vh' : 0
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-[#14213D]/95 backdrop-blur-sm"
+          className="md:hidden fixed inset-0 bg-[#14213D] z-40"
         >
           {isMobileMenuOpen && (
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex flex-col space-y-4">
-                <ServicesDropdown />
+            <div className="container mx-auto px-4 py-12 h-full flex flex-col">
+              {/* Close button at the top */}
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-6 right-6 text-white p-2"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              {/* Menu Items */}
+              <div className="flex flex-col space-y-8 mt-20">
+                {/* Services Links */}
+                <Link 
+                  href="/services/capital-formation" 
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Capital Formation
+                </Link>
+                <Link 
+                  href="/services/mergers-acquisitions" 
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Mergers & Acquisitions
+                </Link>
+                <Link 
+                  href="/services/growth-advisory" 
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Growth Advisory
+                </Link>
+                <Link 
+                  href="/services/equity-investment" 
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Equity Investment
+                </Link>
+
+                {/* Other Links */}
                 <Link 
                   href="/about" 
-                  className="text-white hover:text-gray-300 transition-colors font-light py-2"
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Our Profile
                 </Link>
+
+                {/* Schedule Meeting Button */}
                 <button
                   onClick={() => {
                     setIsCalOpen(true);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="text-white hover:text-gray-300 transition-colors font-light text-left py-2"
+                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left"
                 >
                   Schedule Meeting
                 </button>
+              </div>
+
+              {/* Bottom Section */}
+              <div className="mt-auto mb-8">
+                <div className="h-[1px] w-full bg-white/20 mb-8"></div>
+                <span className="text-white/60 text-sm">
+                  © {new Date().getFullYear()} Vector Summit
+                </span>
               </div>
             </div>
           )}
@@ -415,6 +464,23 @@ export default function EnhancedAgencyLandingPage() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="bg-gray-950 min-h-[100vh] flex items-center relative overflow-hidden">
+          {/* Add video background */}
+          <div className="absolute inset-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_osldpl" 
+                type="video/mp4" 
+              />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
+          </div>
+
           <div className="container mx-auto px-8 relative z-10">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -431,52 +497,31 @@ export default function EnhancedAgencyLandingPage() {
                 
                 <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
                 
-                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-16 max-w-4xl">
+                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
                   <span className="block mb-2 font-semibold">Strategic Capital & Growth Partners</span>
-                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold">
+                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
                     Architecting Bespoke Solutions for Exceptional Growth
                   </span>
                 </p>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer"
+                  onClick={() => {
+                    const expertiseSection = document.querySelector('#expertise');
+                    expertiseSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                    <ChevronDown className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm uppercase tracking-wider font-bold">Our Expertise</span>
+                </motion.div>
               </motion.div>
             </div>
           </div>
-
-          {/* Dark overlay for background image */}
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-          
-          {/* Background image */}
-          <Image
-            src="/River Near Mountains.jpg"
-            alt="River Near Mountains"
-            fill
-            className="object-cover"
-            priority
-          />
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
-            onClick={() => {
-              const expertiseSection = document.querySelector('#expertise');
-              expertiseSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              <ChevronDown className="w-12 h-12" />
-            </motion.div>
-          </motion.div>
         </section>
 
         {/* Expertise Section */}
@@ -763,66 +808,66 @@ export default function EnhancedAgencyLandingPage() {
         </section>
 
         {/* About Vector Summit Section */}
-        <section className="relative">
-          <div className="flex flex-col md:flex-row min-h-[800px]">
-            {/* Left Content Side */}
-            <div className="w-full md:w-1/2 bg-white py-24 px-8 md:px-16">
-              <div className="max-w-xl ml-auto">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
-                  About Vector Summit
-                </h2>
-                
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-                
-                <p className="text-xl text-black mb-8 leading-relaxed mt-12">
-                  Born in the digital age, Vector Summit brings a unique blend of tech-savvy strategy and innovative growth partnerships to traditional markets. Our digital-first approach combines emerging technologies with proven business principles to drive exceptional outcomes.
-                </p>
-                
-                <p className="text-xl text-black mb-12 leading-relaxed">
-                  With a focus on strategic capital and investment partnerships, we leverage cutting-edge technology and data-driven insights to identify opportunities and accelerate growth for our partners. Our approach reimagines traditional investment banking for the modern era.
-                </p>
+        <section className="relative min-h-screen">
+          {/* Full-screen background image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/River Near Mountains.jpg"
+              alt="Mountains"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-transparent"></div>
+          </div>
 
-                <div className="space-y-8 mb-12">
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Strategic Approach</h3>
-                    <p className="text-black">Data-driven insights combined with industry expertise to maximize your investment success.</p>
+          {/* Content overlay */}
+          <div className="relative z-10 container mx-auto px-8 py-24 min-h-screen flex items-center">
+            <div className="max-w-3xl">
+              <div className="space-y-12">
+                <div>
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white mb-6">
+                    About Vector Summit
+                  </h2>
+                  <div className="h-[1px] w-full bg-white opacity-20"></div>
+                </div>
+                
+                <div className="space-y-8">
+                  <p className="text-xl text-white/90 leading-relaxed">
+                    Born in the digital age, Vector Summit brings a unique blend of tech-savvy strategy and innovative growth partnerships to traditional markets. Our digital-first approach combines emerging technologies with proven business principles to drive exceptional outcomes.
+                  </p>
+                  
+                  <p className="text-xl text-white/90 leading-relaxed">
+                    With a focus on strategic capital and investment partnerships, we leverage cutting-edge technology and data-driven insights to identify opportunities and accelerate growth for our partners. Our approach reimagines traditional investment banking for the modern era.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8 mt-12">
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                    <h3 className="text-lg font-semibold text-white mb-3">Strategic Approach</h3>
+                    <p className="text-white/80 leading-relaxed">Data-driven insights combined with industry expertise to maximize your investment success.</p>
                   </div>
                   
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Proven Results</h3>
-                    <p className="text-black">Track record of connecting premier firms with qualified, high-value opportunities.</p>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                    <h3 className="text-lg font-semibold text-white mb-3">Proven Results</h3>
+                    <p className="text-white/80 leading-relaxed">Track record of connecting premier firms with qualified, high-value opportunities.</p>
                   </div>
                   
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">Elite Network</h3>
-                    <p className="text-black">Access to 100+ institutional investors and strategic deal flow partners.</p>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                    <h3 className="text-lg font-semibold text-white mb-3">Elite Network</h3>
+                    <p className="text-white/80 leading-relaxed">Access to 100+ institutional investors and strategic deal flow partners.</p>
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setIsCalOpen(true)}
-                  className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors"
-                >
-                  Schedule a Meeting
-                </button>
+                <div className="mt-12">
+                  <button
+                    onClick={() => setIsCalOpen(true)}
+                    className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2"
+                  >
+                    Schedule a Meeting
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-            </div>
-
-            {/* Right Video Side - Updated height */}
-            <div className="w-full md:w-1/2 relative h-[400px] md:h-auto">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source 
-                  src={`https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Mountain_View_UHD_2160_3840_rewwgs`} 
-                  type="video/mp4" 
-                />
-              </video>
-              <div className="absolute inset-0 bg-black opacity-30"></div>
             </div>
           </div>
         </section>
