@@ -275,32 +275,32 @@ export default function EnhancedAgencyLandingPage() {
   const capabilities = [
     {
       title: "Growth Enabler",
-      description: "Unlock opportunities through expertly crafted capital strategies and targeted funding solutions.",
+      description: "Orchestrate revenue acceleration through sophisticated market penetration strategies, elite business intelligence, and precision-engineered sales frameworks.",
       icon: <TrendingUp className="w-12 h-12 text-white" />,
       points: [
-        "Expand operations & R&D",
-        "Strategic liquidity solutions",
-        "Aligned growth structures"
+        "Revenue system mastery",
+        "Market penetration design",
+        "Elite business intelligence"
       ]
     },
     {
       title: "Strategic Partner",
-      description: "Build enduring partnerships and navigate complex decisions to drive value creation.",
+      description: "Execute transformative partnerships through sophisticated market intelligence and deep sector expertise.",
       icon: <Users className="w-12 h-12 text-white" />,
       points: [
-        "Develop joint ventures & alliances",
-        "Access untapped markets",
-        "Navigate industry challenges"
+        "Cross-border transactions",
+        "Market consolidation strategy",
+        "Strategic positioning"
       ]
     },
     {
       title: "Global Relationships",
-      description: "Connect with our extensive network of institutional and private investors worldwide.",
+      description: "Leverage our premier network of institutional investors and strategic partners across key global markets.",
       icon: <Globe className="w-12 h-12 text-white" />,
       points: [
-        "Access global capital markets",
-        "Connect with qualified investors",
-        "Structure balanced deals"
+        "Institutional investor access",
+        "Strategic capital deployment",
+        "Global deal orchestration"
       ]
     },
     {
@@ -561,19 +561,19 @@ export default function EnhancedAgencyLandingPage() {
           </div>
         </section>
 
-        {/* Strategic Solutions Section */}
+        {/* Strategic Execution Section */}
         <section className="bg-gray-50 py-24">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               {/* Section Header */}
               <div className="mb-20 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
-                  Strategic Solutions
+                  Strategic Execution
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Services Grid - Now with all 4 cards */}
+              {/* Services Grid - Now with four cards */}
               <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {/* Capital Formation */}
                 <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
@@ -585,58 +585,10 @@ export default function EnhancedAgencyLandingPage() {
                   </h3>
                   <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    Empowering businesses through strategic capital allocation and expert banking services. 
-                    We invest in your company's future, providing not just funds but also comprehensive 
-                    financial management, enabling growth and long-term success.
+                    Comprehensive capital strategy for PE, VC, and alternative investments. We connect elite fund managers with institutional LPs through sophisticated stakeholder management and strategic capital introductions.
                   </p>
                   <Link 
                     href="/services/capital-formation"
-                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-
-                {/* Equity Investment */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                    <BarChart2 className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                    Equity Investment
-                  </h3>
-                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                  <p className="text-gray-600 leading-relaxed mb-8">
-                    Direct investment and strategic partnerships focused on value creation. 
-                    We provide growth capital and operational expertise to drive exceptional 
-                    outcomes for portfolio companies.
-                  </p>
-                  <Link 
-                    href="/services/equity-investment"
-                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-
-                {/* Growth Advisory */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                    <TrendingUp className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                    Growth Advisory & Equity
-                  </h3>
-                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                  <p className="text-gray-600 leading-relaxed mb-8">
-                    Our applied expertise helps leadership teams execute optimal growth strategies 
-                    via capital raising, M&A, joint ventures, strategic partnerships, and add-on 
-                    transactions.
-                  </p>
-                  <Link 
-                    href="/services/growth-advisory"
                     className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
                   >
                     Learn More
@@ -654,11 +606,52 @@ export default function EnhancedAgencyLandingPage() {
                   </h3>
                   <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    Strategic M&A advisory services leveraging extensive industry relationships 
-                    to guide clients through both buy-side and sell-side transactions.
+                    Senior-led M&A advisory delivering premium valuations through sophisticated transaction strategies. Our expertise spans buy-side targeting, sell-side optimization, and strategic execution with unparalleled market intelligence.
                   </p>
                   <Link 
                     href="/services/mergers-acquisitions"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+
+                {/* Equity Investment (formerly Growth Partnership) */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <TrendingUp className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Equity Investment
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Strategic growth acceleration through deep operational partnership. We invest comprehensive expertise, elite talent, and proven frameworks to transform high-potential companies into market leaders.
+                  </p>
+                  <Link 
+                    href="/services/equity-investment"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+
+                {/* Growth Advisory & Equity */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <BarChart className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Growth Advisory & Equity
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Applied expertise to execute optimal growth strategies through capital raising, M&A, joint ventures, and strategic partnerships. Our elite team drives transformative outcomes via sophisticated market intelligence.
+                  </p>
+                  <Link 
+                    href="/services/growth-advisory"
                     className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
                   >
                     Learn More
@@ -771,7 +764,7 @@ export default function EnhancedAgencyLandingPage() {
 
         {/* About Vector Summit Section */}
         <section className="relative">
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row min-h-[800px]">
             {/* Left Content Side */}
             <div className="w-full md:w-1/2 bg-white py-24 px-8 md:px-16">
               <div className="max-w-xl ml-auto">
@@ -815,17 +808,20 @@ export default function EnhancedAgencyLandingPage() {
               </div>
             </div>
 
-            {/* Right Image Side */}
-            <div className="w-full md:w-1/2 relative min-h-[600px]">
-              <Image
-                src="/1Snow-Covered Mountain Photo.jpg"
-                alt="Snow covered mountain landscape"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                className="object-cover"
-                quality={100}
-              />
+            {/* Right Video Side - Updated height */}
+            <div className="w-full md:w-1/2 relative h-[400px] md:h-auto">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source 
+                  src={`https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Mountain_View_UHD_2160_3840_rewwgs`} 
+                  type="video/mp4" 
+                />
+              </video>
               <div className="absolute inset-0 bg-black opacity-30"></div>
             </div>
           </div>

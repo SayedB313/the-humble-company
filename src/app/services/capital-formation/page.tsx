@@ -4,79 +4,74 @@ import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 import { motion } from "framer-motion";
-import { Check, Menu, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
+import { Check, Menu, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, ArrowRight, ChevronDown, Shield, Briefcase, User, Rocket, ArrowDown, Link2 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 
 export default function CapitalFormation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
-
-  const services = [
-    {
-      icon: <Building className="w-10 h-10 text-white" />,
-      title: "Fund Manager Services",
-      description: "Comprehensive support for PE, VC, Credit, and Hedge Funds",
-      benefits: [
-        "AUM growth acceleration",
-        "LP base diversification",
-        "Risk-adjusted returns"
-      ]
-    },
-    {
-      icon: <Users className="w-10 h-10 text-white" />,
-      title: "Capital Introductions",
-      description: "Access to diverse institutional LP network",
-      benefits: [
-        "Family offices & UHNW",
-        "Sovereign wealth funds",
-        "Pension funds"
-      ]
-    },
-    {
-      icon: <Network className="w-10 h-10 text-white" />,
-      title: "Investor Relations",
-      description: "Strategic stakeholder management and capital strategy",
-      benefits: [
-        "Stakeholder coordination",
-        "Interest alignment",
-        "Growth optimization"
-      ]
-    }
-  ];
 
   const investorTypes = [
     {
       title: "High-Net-Worth",
-      icon: <DollarSign className="w-8 h-8 text-[#14213D]" />,
-      description: "Ultra-high-net-worth individuals and private investors"
+      icon: <DollarSign className="w-8 h-8" />,
+      description: "Ultra-high-net-worth individuals and private investors seeking sophisticated investment opportunities",
+      aum: "$50M+",
+      focus: "Direct Investments"
     },
     {
       title: "Family Offices",
-      icon: <Building className="w-8 h-8 text-[#14213D]" />,
-      description: "Single and multi-family investment offices"
+      icon: <Building className="w-8 h-8" />,
+      description: "Single and multi-family investment offices with long-term capital deployment strategies",
+      aum: "$100M+",
+      focus: "Multi-Generation"
     },
     {
       title: "Endowments",
-      icon: <Target className="w-8 h-8 text-[#14213D]" />,
-      description: "University and institutional endowment funds"
+      icon: <Target className="w-8 h-8" />,
+      description: "University and institutional endowment funds focused on sustainable long-term returns",
+      aum: "$500M+",
+      focus: "Perpetual Capital"
     },
     {
       title: "Sovereign Wealth",
-      icon: <Network className="w-8 h-8 text-[#14213D]" />,
-      description: "Government-owned investment funds"
+      icon: <Network className="w-8 h-8" />,
+      description: "Government-owned investment funds with strategic global allocation mandates",
+      aum: "$1B+",
+      focus: "Strategic Assets"
     },
     {
       title: "Pension Funds",
-      icon: <Users className="w-8 h-8 text-[#14213D]" />,
-      description: "Public and private pension investment funds"
+      icon: <Users className="w-8 h-8" />,
+      description: "Public and private pension investment funds seeking stable, long-term returns",
+      aum: "$250M+",
+      focus: "Risk-Adjusted"
     }
   ];
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scroll">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[#14213D] shadow-lg' 
+          : 'bg-transparent'
+      }`}>
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
@@ -90,116 +85,213 @@ export default function CapitalFormation() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
+          {/* Background Video */}
           <div className="absolute inset-0">
-            <Image
-              src="/River Near Mountains.jpg"
-              alt="Capital Formation"
-              fill
-              className="object-cover"
-              priority
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_osldpl" 
+                type="video/mp4" 
+              />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
           </div>
           
           <div className="container mx-auto px-8 relative z-10">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+              {/* Left side - Main content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
-                  CAPITAL
-                  <span className="block mt-2">
-                    FORMATION
-                  </span>
-                </h1>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="h-[2px] w-12 bg-white"></div>
+                    <span className="text-white uppercase tracking-wider text-sm font-semibold">Investment Solutions</span>
+                  </div>
+                  
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
+                    Capital
+                    <span className="block mt-2 text-yellow-400">Formation</span>
+                  </h1>
+                </div>
                 
-                <div className="h-2 w-24 bg-[#14213D]"></div>
-                
-                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
-                  Connecting Private Equity, Venture Capital, and Alternative Investments 
-                  with institutional Limited Partners
+                <p className="text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
+                  Connecting elite investment funds with institutional capital through strategic introductions and comprehensive investor relations.
                 </p>
 
-                <motion.button 
-                  className={standardCTA}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                >
-                  Schedule a Consultation
-                  <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                <div className="flex items-center space-x-6">
+                  <motion.button 
+                    className={`${standardCTA} group`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <span>Start Discussion</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                  
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                    className="flex items-center space-x-4 text-white hover:text-white transition-colors cursor-pointer"
+                    onClick={() => {
+                      const networkSection = document.querySelector('#investor-network');
+                      networkSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                      <ChevronDown className="w-6 h-6" />
+                    </div>
+                    <span className="text-sm uppercase tracking-wider font-bold">Explore Network</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Right side - Stats/Highlights */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:grid grid-cols-2 gap-6"
+              >
+                {[
+                  { 
+                    title: "Global Network", 
+                    description: "Strategic LP relationships across key markets"
+                  },
+                  { 
+                    title: "Elite Access", 
+                    description: "Direct connections to institutional capital"
+                  },
+                  { 
+                    title: "Expert Team", 
+                    description: "Seasoned investment professionals"
+                  },
+                  { 
+                    title: "Full Support", 
+                    description: "End-to-end capital formation services"
+                  }
+                ].map((highlight, index) => (
+                  <motion.div
+                    key={highlight.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + (index * 0.1) }}
+                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-colors"
+                  >
+                    <div className="text-xl font-semibold text-white mb-2">
+                      {highlight.title}
+                    </div>
+                    <div className="text-white/80 text-sm leading-relaxed">
+                      {highlight.description}
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
-            onClick={() => {
-              const servicesSection = document.querySelector('#services');
-              servicesSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              <ChevronDown className="w-12 h-12" />
-            </motion.div>
-          </motion.div>
         </section>
 
-        {/* Services Section */}
-        <section id="services" className="py-32 bg-white">
+        {/* Institutional Investor Network Section */}
+        <section id="investor-network" className="py-32 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Our Services
+              {/* Section Header */}
+              <div className="text-center mb-32">
+                <div className="inline-flex items-center justify-center space-x-3 mb-6">
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                  <span className="text-[#14213D] uppercase tracking-widest text-sm">Our Network</span>
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                </div>
+                
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#14213D] tracking-wide mb-6">
+                  Connecting Elite
+                  <br />
+                  Fund Managers
                 </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We connect sophisticated investment managers with institutional capital, enabling strategic growth and portfolio expansion.
+                </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-12">
-                {services.map((service, index) => (
+              {/* Fund Managers Section */}
+              <div className="mb-32">
+                <div className="text-center mb-16">
+                  <h3 className="text-2xl font-medium text-[#14213D] mb-4">Fund Managers We Serve</h3>
+                  <div className="h-[2px] w-24 bg-[#14213D] mx-auto"></div>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                  {[
+                    { title: "Private Equity", icon: <Building className="w-6 h-6" /> },
+                    { title: "Venture Capital", icon: <Rocket className="w-6 h-6" /> },
+                    { title: "Private Credit", icon: <DollarSign className="w-6 h-6" /> },
+                    { title: "Hedge Funds", icon: <TrendingUp className="w-6 h-6" /> }
+                  ].map((type, index) => (
+                    <motion.div
+                      key={type.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex flex-col items-center text-center"
+                    >
+                      <div className="w-16 h-16 bg-[#14213D] rounded-2xl flex items-center justify-center mb-4">
+                        {React.cloneElement(type.icon, { className: "text-white" })}
+                      </div>
+                      <span className="text-[#14213D] font-medium">{type.title}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Connection Visual */}
+              <div className="flex justify-center mb-32">
+                <div className="flex flex-col items-center">
+                  <ArrowDown className="w-8 h-8 text-[#14213D] animate-bounce" />
+                  <div className="h-32 w-[2px] bg-gradient-to-b from-[#14213D] to-yellow-400"></div>
+                </div>
+              </div>
+
+              {/* Institutional Investors */}
+              <div className="text-center mb-16">
+                <h3 className="text-2xl font-medium text-[#14213D] mb-4">Connected With Institutional Capital</h3>
+                <div className="h-[2px] w-24 bg-yellow-400 mx-auto"></div>
+              </div>
+
+              {/* Investor Types Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16 max-w-6xl mx-auto">
+                {[
+                  { title: "Family Offices", icon: <Building className="w-7 h-7" /> },
+                  { title: "Endowments", icon: <Target className="w-7 h-7" /> },
+                  { title: "Sovereign Wealth", icon: <Network className="w-7 h-7" /> },
+                  { title: "Pension Funds", icon: <Users className="w-7 h-7" /> },
+                  { title: "Insurance", icon: <Shield className="w-7 h-7" /> },
+                  { title: "Fund of Funds", icon: <Briefcase className="w-7 h-7" /> },
+                  { title: "UHNW", icon: <User className="w-7 h-7" /> },
+                  { title: "Strategic Partners", icon: <Link2 className="w-7 h-7" /> }
+                ].map((type, index) => (
                   <motion.div
-                    key={service.title}
+                    key={type.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    className="group bg-white rounded-2xl p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                    transition={{ delay: index * 0.1 }}
+                    className="flex flex-col items-center text-center group"
                   >
-                    <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                      {service.icon}
+                    <div className="w-16 h-16 bg-[#14213D] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                      {React.cloneElement(type.icon, { className: "text-white" })}
                     </div>
-                    <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                      {service.title}
+                    <h3 className="text-[#14213D] text-lg font-medium">
+                      {type.title}
                     </h3>
-                    <div className="h-[2px] w-12 bg-[#14213D] mb-6 group-hover:w-24 transition-all duration-500"></div>
-                    <p className="text-gray-600 mb-8 text-lg">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-4">
-                      {service.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-center gap-3 text-gray-600">
-                          <ArrowRight className="w-5 h-5 text-[#14213D] flex-shrink-0" />
-                          <span className="text-lg">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </motion.div>
                 ))}
               </div>
@@ -207,36 +299,105 @@ export default function CapitalFormation() {
           </div>
         </section>
 
-        {/* Investor Network Section */}
-        <section className="py-32 bg-gray-50">
-          <div className="container mx-auto px-4">
+        {/* Capital Introductions Process Section */}
+        <section className="py-32 bg-gray-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Investor Network
+              {/* Section Header */}
+              <div className="max-w-3xl mb-20">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="h-[2px] w-12 bg-[#14213D]"></div>
+                  <span className="text-[#14213D]/80 uppercase tracking-wider text-sm">Our Process</span>
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D] mb-8">
+                  Capital
+                  <span className="block mt-2">Introductions</span>
                 </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-                {investorTypes.map((type, index) => (
+              {/* Our Approach Section */}
+              <div className="max-w-3xl mx-auto mb-24">
+                <div className="bg-white rounded-2xl p-10 shadow-lg border border-gray-100">
+                  <div className="flex items-center space-x-6 mb-8">
+                    <div className="bg-[#14213D] rounded-xl p-4">
+                      <TrendingUp className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold font-montserrat text-[#14213D]">
+                      Our Approach
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Our differentiator lies in leveraging modern marketing strategies with extensive experience in corporate finance, enabling swift execution and superior outcomes.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {[
+                      'Modern marketing strategies',
+                      'Swift execution framework',
+                      'Geographic diversification',
+                      'Risk-adjusted optimization'
+                    ].map((item) => (
+                      <div key={item} className="flex items-center space-x-3">
+                        <ArrowRight className="w-5 h-5 text-[#14213D]" />
+                        <span className="text-gray-600">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Process Steps */}
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    icon: <Target className="w-10 h-10 text-white" />,
+                    title: "Strategic Planning",
+                    description: "Develop targeted approach based on investment mandate and LP preferences",
+                    steps: ["Mandate analysis", "Target identification", "Strategy development"]
+                  },
+                  {
+                    icon: <Network className="w-10 h-10 text-white" />,
+                    title: "Network Activation",
+                    description: "Leverage our extensive network of institutional investors and family offices",
+                    steps: ["Network mapping", "Initial outreach", "Interest qualification"]
+                  },
+                  {
+                    icon: <Users className="w-10 h-10 text-white" />,
+                    title: "Relationship Building",
+                    description: "Foster meaningful connections leading to long-term capital partnerships",
+                    steps: ["Meeting coordination", "Due diligence support", "Ongoing facilitation"]
+                  }
+                ].map((process, index) => (
                   <motion.div
-                    key={type.title}
+                    key={process.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                    className="group relative"
                   >
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="group-hover:scale-110 transition-transform duration-500">
-                        {type.icon}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#14213D] to-[#1C2E56] rounded-2xl transform transition-transform group-hover:scale-[1.02] duration-500"></div>
+                    <div className="relative bg-white rounded-2xl p-8 transform transition-transform group-hover:-translate-y-2 duration-500 border border-gray-100">
+                      <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        {process.icon}
                       </div>
-                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
-                        {type.title}
+                      <h3 className="text-xl font-bold font-montserrat text-[#14213D] mb-4">
+                        {process.title}
                       </h3>
-                      <p className="text-sm text-gray-600 mt-2">
-                        {type.description}
+                      <p className="text-gray-600 leading-relaxed mb-6">
+                        {process.description}
                       </p>
+                      <div className="space-y-3">
+                        {process.steps.map((step, i) => (
+                          <div key={i} className="flex items-center space-x-3">
+                            <div className="w-6 h-6 rounded-full bg-[#14213D]/5 flex items-center justify-center">
+                              <span className="text-sm text-[#14213D]">{i + 1}</span>
+                            </div>
+                            <span className="text-gray-600">{step}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 ))}
