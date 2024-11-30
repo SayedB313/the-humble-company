@@ -125,7 +125,7 @@ export default function GrowthAdvisory() {
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
           </div>
           
-          <div className="container mx-auto px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-8 relative z-10">
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
               {/* Left Column */}
               <motion.div
@@ -140,19 +140,19 @@ export default function GrowthAdvisory() {
                     <span className="text-white uppercase tracking-wider text-sm font-semibold">Strategic Growth</span>
                   </div>
                   
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
+                  <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
                     Growth
                     <span className="block mt-2 text-violet-300">Advisory</span>
                   </h1>
                 </div>
                 
-                <p className="text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
                   Accelerating growth through strategic capital raising, M&A, and expansion transactions
                 </p>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-col sm:flex-row items-center gap-6">
                   <motion.button 
-                    className={`${standardCTA} group`}
+                    className={`${standardCTA} w-full sm:w-auto text-center justify-center`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -166,7 +166,7 @@ export default function GrowthAdvisory() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-violet-300 transition-colors cursor-pointer"
+                    className="flex items-center space-x-4 text-white hover:text-violet-300 transition-colors cursor-pointer w-full sm:w-auto justify-center"
                     onClick={() => {
                       const servicesSection = document.querySelector('#services');
                       servicesSection?.scrollIntoView({ behavior: 'smooth' });
