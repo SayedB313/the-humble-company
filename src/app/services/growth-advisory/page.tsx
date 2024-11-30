@@ -152,7 +152,7 @@ export default function GrowthAdvisory() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <motion.button 
-                    className={`${standardCTA} w-full sm:w-auto text-center justify-center`}
+                    className={`${standardCTA} hidden sm:flex text-center justify-center`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}

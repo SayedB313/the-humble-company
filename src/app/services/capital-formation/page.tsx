@@ -132,7 +132,7 @@ export default function CapitalFormation() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-6">
                   <motion.button 
-                    className={`${standardCTA} max-w-[280px] text-center justify-center`}
+                    className={`${standardCTA} hidden sm:flex text-center justify-center`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -146,7 +146,7 @@ export default function CapitalFormation() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-amber-300 transition-colors cursor-pointer max-w-[280px] justify-center"
+                    className="flex items-center space-x-4 text-white hover:text-amber-300 transition-colors cursor-pointer w-full sm:w-auto justify-center"
                     onClick={() => {
                       const servicesSection = document.querySelector('#services');
                       servicesSection?.scrollIntoView({ behavior: 'smooth' });
