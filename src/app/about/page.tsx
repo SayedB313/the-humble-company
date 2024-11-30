@@ -162,61 +162,118 @@ export default function AboutUs() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center">
+          {/* Background Video */}
           <div className="absolute inset-0">
             <video
               autoPlay
               muted
               loop
               playsInline
-              className="object-cover w-full h-full"
+              className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src={`https://res.cloudinary.com/dluf6sg5d/video/upload/v1/ClippedMountain_q3feug`} 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/ClippedMountain_q3feug" 
                 type="video/mp4" 
               />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
           </div>
           
           <div className="container mx-auto px-8 relative z-10">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+              {/* Left side - Main content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
-                  OUR
-                  <span className="block mt-2">
-                    PROFILE
-                  </span>
-                </h1>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="h-[2px] w-12 bg-white"></div>
+                    <span className="text-white uppercase tracking-wider text-sm font-semibold">Our Story</span>
+                  </div>
+                  
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
+                    Our
+                    <span className="block mt-2 text-[#A5B4FC]">Profile</span>
+                  </h1>
+                </div>
                 
-                <div className="h-2 w-24 bg-[#14213D]"></div>
-                
-                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Strategic Capital & Growth Partners</span>
-                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold">
-                    Architecting Bespoke Solutions for Exceptional Growth
-                  </span>
+                <p className="text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
+                  Strategic capital and growth partners architecting bespoke solutions for exceptional growth.
                 </p>
 
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer pl-4 sm:pl-0"
-                  onClick={() => {
-                    const rolesSection = document.querySelector('#roles');
-                    rolesSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                    <ChevronDown className="w-6 h-6" />
-                  </div>
-                  <span className="text-sm uppercase tracking-wider font-bold">Our Role</span>
-                </motion.div>
+                <div className="flex flex-col sm:flex-row items-center gap-6">
+                  <motion.button 
+                    className={`${standardCTA} hidden sm:flex text-center justify-center`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    onClick={() => setIsCalOpen(true)}
+                  >
+                    <span>Schedule a Meeting</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                  
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                    className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
+                    onClick={() => {
+                      const rolesSection = document.querySelector('#roles');
+                      rolesSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                      <ChevronDown className="w-6 h-6" />
+                    </div>
+                    <span className="text-sm uppercase tracking-wider font-bold">Our Role</span>
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Right side - Stats/Highlights */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="hidden md:grid grid-cols-2 gap-6"
+              >
+                {[
+                  { 
+                    title: "Global Reach", 
+                    description: "Operations across key markets"
+                  },
+                  { 
+                    title: "Expert Team", 
+                    description: "Seasoned finance professionals"
+                  },
+                  { 
+                    title: "Focus Areas", 
+                    description: "Growth, M&A, and Capital Formation"
+                  },
+                  { 
+                    title: "Approach", 
+                    description: "Bespoke solutions for each client"
+                  }
+                ].map((highlight, index) => (
+                  <motion.div
+                    key={highlight.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 + (index * 0.1) }}
+                    className="bg-[#14213D]/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-[#14213D]/30 transition-colors"
+                  >
+                    <div className="text-xl font-semibold text-white mb-2">
+                      {highlight.title}
+                    </div>
+                    <div className="text-white/80 text-sm leading-relaxed">
+                      {highlight.description}
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
             </div>
           </div>
