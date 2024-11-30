@@ -920,14 +920,6 @@ export default function EnhancedAgencyLandingPage() {
                       Our Profile
                     </Link>
                   </li>
-                  <li>
-                    <button 
-                      onClick={() => scrollToSection('process')}
-                      className="text-gray-600 hover:text-[#14213D] transition-colors"
-                    >
-                      Our Process
-                    </button>
-                  </li>
                 </ul>
               </div>
 

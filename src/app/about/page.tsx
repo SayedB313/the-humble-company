@@ -6,9 +6,12 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, Globe, Shield, Rocket, Award } from "lucide-react";
 import Navigation from '../../components/ui/Navigation';
+import CalEmbed from '../../components/CalEmbed';
 import { CldVideoPlayer } from 'next-cloudinary';
 
 export default function AboutUs() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isCalOpen, setIsCalOpen] = React.useState(false);
   const standardCTA = "bg-[#14213D] hover:bg-[#1C2E56] text-white px-8 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors flex items-center gap-2";
 
   const roles = [
@@ -125,10 +128,27 @@ export default function AboutUs() {
     }
   ];
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scroll">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-[#14213D] shadow-lg' 
+          : ''
+      }`}>
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
@@ -167,46 +187,39 @@ export default function AboutUs() {
                 className="space-y-8"
               >
                 <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white">
-                  ABOUT
+                  OUR
                   <span className="block mt-2">
-                    VECTOR SUMMIT
+                    PROFILE
                   </span>
                 </h1>
                 
                 <div className="h-2 w-24 bg-[#14213D]"></div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 max-w-4xl">
-                  A dynamic merchant banking entity merging advisory expertise with 
-                  investment capabilities to drive business transformation
+                  <span className="block mb-2 font-semibold">Strategic Capital & Growth Partners</span>
+                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold">
+                    Architecting Bespoke Solutions for Exceptional Growth
+                  </span>
                 </p>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer pl-4 sm:pl-0"
+                  onClick={() => {
+                    const rolesSection = document.querySelector('#roles');
+                    rolesSection?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
+                    <ChevronDown className="w-6 h-6" />
+                  </div>
+                  <span className="text-sm uppercase tracking-wider font-bold">Our Role</span>
+                </motion.div>
               </motion.div>
             </div>
           </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
-            onClick={() => {
-              const rolesSection = document.querySelector('#roles');
-              rolesSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="text-white/80 hover:text-white transition-colors"
-            >
-              <ChevronDown className="w-12 h-12" />
-            </motion.div>
-          </motion.div>
         </section>
 
         {/* Roles Section */}
@@ -381,7 +394,7 @@ export default function AboutUs() {
         <section className="relative py-32">
           <div className="absolute inset-0">
             <Image
-              src="/1Snow-Covered Mountain Photo.jpg"
+              src="/River Near Mountains.jpg"
               alt="Mountains"
               fill
               className="object-cover"
@@ -404,8 +417,11 @@ export default function AboutUs() {
                   Join us in creating transformative growth opportunities and 
                   achieving sustained success in competitive markets.
                 </p>
-                <button className={`${standardCTA} mx-auto`}>
-                  Schedule a Consultation
+                <button 
+                  onClick={() => setIsCalOpen(true)}
+                  className={`${standardCTA} mx-auto`}
+                >
+                  Schedule a Meeting
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </motion.div>
@@ -415,18 +431,85 @@ export default function AboutUs() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white text-[#1A1A1A] py-12 border-t border-gray-100">
+      <footer className="bg-white text-[#1A1A1A] py-16 border-t border-gray-100">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-4">
-            <Link href="/" className="text-2xl font-light font-montserrat tracking-wider">
-              Vector Summit
-            </Link>
-            <div className="text-sm text-gray-500">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            {/* Column 1 - Brand */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Strategic capital and investment partners architecting bespoke solutions for exceptional growth.
+              </p>
+            </div>
+
+            {/* Column 2 - Services */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-semibold font-montserrat">Services</h4>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Mergers & Acquisitions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/capital-formation" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Capital Formation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/growth-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Growth Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/equity-investment" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Equity Investment
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3 - Quick Links */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Our Profile
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4 - Contact */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
+              <Link 
+                href="https://www.linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
+              >
+                Connect on LinkedIn
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Copyright and Bottom Bar */}
+          <div className="mt-16">
+            <div className="text-sm text-gray-500 text-center mb-8">
               © {new Date().getFullYear()} Vector Summit. All rights reserved.
             </div>
+            <div className="border-t border-gray-100"></div>
           </div>
         </div>
       </footer>
+
+      <CalEmbed 
+        isOpen={isCalOpen}
+        onClose={() => setIsCalOpen(false)}
+      />
     </div>
   );
 } 
