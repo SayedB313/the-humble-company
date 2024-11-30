@@ -157,9 +157,9 @@ export default function MergersAcquisitions() {
                   Senior-led advisory services delivering premium valuations and superior transaction outcomes
                 </p>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-col sm:flex-row items-center gap-6">
                   <motion.button 
-                    className={`${standardCTA} group`}
+                    className={`${standardCTA} max-w-[280px] text-center justify-center`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -173,7 +173,7 @@ export default function MergersAcquisitions() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-blue-500 transition-colors cursor-pointer"
+                    className="flex items-center space-x-4 text-white hover:text-blue-500 transition-colors cursor-pointer max-w-[280px] justify-center"
                     onClick={() => {
                       const expertiseSection = document.querySelector('#expertise');
                       expertiseSection?.scrollIntoView({ behavior: 'smooth' });

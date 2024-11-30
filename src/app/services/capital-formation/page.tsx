@@ -130,9 +130,9 @@ export default function CapitalFormation() {
                   Connecting elite investment funds with institutional capital through strategic introductions and comprehensive investor relations.
                 </p>
 
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-col sm:flex-row items-center gap-6">
                   <motion.button 
-                    className={`${standardCTA} group`}
+                    className={`${standardCTA} max-w-[280px] text-center justify-center`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
@@ -146,16 +146,16 @@ export default function CapitalFormation() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-amber-300 transition-colors cursor-pointer"
+                    className="flex items-center space-x-4 text-white hover:text-amber-300 transition-colors cursor-pointer max-w-[280px] justify-center"
                     onClick={() => {
-                      const networkSection = document.querySelector('#investor-network');
-                      networkSection?.scrollIntoView({ behavior: 'smooth' });
+                      const servicesSection = document.querySelector('#services');
+                      servicesSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Explore Network</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Our Services</span>
                   </motion.div>
                 </div>
               </motion.div>
