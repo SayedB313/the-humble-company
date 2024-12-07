@@ -125,7 +125,7 @@ export default function EquityInvestment() {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Clipped2_x7xswg" 
+                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Clipped2_x7xswg" 
                 type="video/mp4" 
               />
             </video>

@@ -98,7 +98,7 @@ export default function CapitalFormation() {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w" 
+                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w" 
                 type="video/mp4" 
               />
             </video>

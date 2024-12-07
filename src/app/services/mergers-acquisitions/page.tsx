@@ -125,7 +125,7 @@ export default function MergersAcquisitions() {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snow_Covered_Mountain_4K_Video_ipsllb" 
+                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snow_Covered_Mountain_4K_Video_ipsllb" 
                 type="video/mp4" 
               />
             </video>

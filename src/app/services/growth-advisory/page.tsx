@@ -118,7 +118,7 @@ export default function GrowthAdvisory() {
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_4K_swe7iv" 
+                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_4K_swe7iv" 
                 type="video/mp4" 
               />
             </video>
