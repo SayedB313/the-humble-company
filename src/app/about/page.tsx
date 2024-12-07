@@ -217,9 +217,8 @@ export default function AboutUs() {
                 </div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Network-Based Advisory & Strategic Growth</span>
-                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
-                    Orchestrating elite expertise networks to solve complex business challenges through aligned partnerships
+                  <span className="block text-base sm:text-lg md:text-xl opacity-80">
+                    Connecting exceptional businesses with curated expertise through value-aligned partnerships
                   </span>
                 </p>
 
