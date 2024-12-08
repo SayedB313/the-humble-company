@@ -153,13 +153,16 @@ export default function MergersAcquisitions() {
               muted
               loop
               playsInline
-              preload="metadata"
-              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
               className="absolute inset-0 w-full h-full object-cover"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
-                type="video/mp4" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto,f_auto,c_scale,w_1920,vc_auto,br_2m/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
+                type="video/mp4"
+              />
+              <source 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto,f_webm,c_scale,w_1920,vc_auto,br_2m/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
+                type="video/webm"
               />
             </video>
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>

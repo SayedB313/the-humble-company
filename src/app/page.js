@@ -464,20 +464,23 @@ const MainComponent = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="bg-gray-950 min-h-[100vh] flex items-center relative overflow-hidden">
-          {/* Add video background */}
+          {/* Video background */}
           <div className="absolute inset-0">
             <video
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
-              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snowy_Mountain_Drone_Footage_osldpl"
               className="absolute inset-0 w-full h-full object-cover"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snowy_Mountain_Drone_Footage_osldpl"
             >
               <source 
-                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Snowy_Mountain_Drone_Footage_osldpl"
-                type="video/mp4" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto,f_auto,c_scale,w_1920,vc_auto,br_2m/v1/Snowy_Mountain_Drone_Footage_osldpl"
+                type="video/mp4"
+              />
+              <source 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto,f_webm,c_scale,w_1920,vc_auto,br_2m/v1/Snowy_Mountain_Drone_Footage_osldpl"
+                type="video/webm"
               />
             </video>
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
