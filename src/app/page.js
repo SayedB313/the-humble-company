@@ -618,8 +618,50 @@ export default function EnhancedAgencyLandingPage() {
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Services Grid - Now with four cards */}
+              {/* Services Grid - Updated order and content */}
               <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {/* Strategic Advisory */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <Target className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Strategic Advisory
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Comprehensive business transformation through market expansion, operational improvement, and digital transformation. Our expertise drives sustainable growth and operational excellence.
+                  </p>
+                  <Link 
+                    href="/services/strategic-advisory"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+
+                {/* Growth Equity */}
+                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                    <TrendingUp className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                    Growth Equity
+                  </h3>
+                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                  <p className="text-gray-600 leading-relaxed mb-8">
+                    Active growth partnership providing hands-on operational expertise, strategic guidance, and technological enablement to accelerate business success and market leadership.
+                  </p>
+                  <Link 
+                    href="/services/growth-equity"
+                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
+                  >
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </div>
+
                 {/* Capital Formation */}
                 <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
                   <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
@@ -630,7 +672,7 @@ export default function EnhancedAgencyLandingPage() {
                   </h3>
                   <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    Comprehensive capital strategy for PE, VC, and alternative investments. We connect elite fund managers with institutional LPs through sophisticated stakeholder management and strategic capital introductions.
+                    Comprehensive capital strategy for PE, VC, and alternative investments. We connect elite fund managers with institutional LPs through sophisticated stakeholder management.
                   </p>
                   <Link 
                     href="/services/capital-formation"
@@ -651,7 +693,7 @@ export default function EnhancedAgencyLandingPage() {
                   </h3>
                   <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
                   <p className="text-gray-600 leading-relaxed mb-8">
-                    Senior-led M&A advisory delivering premium valuations through sophisticated transaction strategies. Our expertise spans buy-side targeting, sell-side optimization, and strategic execution with unparalleled market intelligence.
+                    Senior-led M&A advisory delivering premium valuations through sophisticated transaction strategies. Our expertise spans buy-side targeting, sell-side optimization, and strategic execution.
                   </p>
                   <Link 
                     href="/services/mergers-acquisitions"
@@ -661,59 +703,6 @@ export default function EnhancedAgencyLandingPage() {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </div>
-
-                {/* Equity Investment (formerly Growth Partnership) */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                    <TrendingUp className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                    Equity Investment
-                  </h3>
-                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                  <p className="text-gray-600 leading-relaxed mb-8">
-                    Strategic growth acceleration through deep operational partnership. We invest comprehensive expertise, elite talent, and proven frameworks to transform high-potential companies into market leaders.
-                  </p>
-                  <Link 
-                    href="/services/equity-investment"
-                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-
-                {/* Growth Advisory & Equity */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                    <BarChart className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                    Growth Advisory & Equity
-                  </h3>
-                  <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                  <p className="text-gray-600 leading-relaxed mb-8">
-                    Applied expertise to execute optimal growth strategies through capital raising, M&A, joint ventures, and strategic partnerships. Our elite team drives transformative outcomes via sophisticated market intelligence.
-                  </p>
-                  <Link 
-                    href="/services/growth-advisory"
-                    className="inline-flex items-center text-[#14213D] hover:text-blue-700 transition-colors font-medium"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Add CTA */}
-              <div className="mt-16 text-center">
-                <button
-                  onClick={() => setIsCalOpen(true)}
-                  className="inline-flex items-center px-8 py-4 bg-[#14213D] text-white rounded-lg hover:bg-[#1C2E56] transition-colors font-montserrat"
-                >
-                  Schedule a Meeting
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </button>
               </div>
             </div>
           </div>
@@ -889,8 +878,13 @@ export default function EnhancedAgencyLandingPage() {
                 <h4 className="text-lg font-semibold font-montserrat">Services</h4>
                 <ul className="space-y-4">
                   <li>
-                    <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                      Mergers & Acquisitions
+                    <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Strategic Advisory
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Growth Equity
                     </Link>
                   </li>
                   <li>
@@ -899,13 +893,8 @@ export default function EnhancedAgencyLandingPage() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/growth-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                      Growth Advisory
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services/equity-investment" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                      Equity Investment
+                    <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Mergers & Acquisitions
                     </Link>
                   </li>
                 </ul>
@@ -915,6 +904,11 @@ export default function EnhancedAgencyLandingPage() {
               <div className="space-y-6">
                 <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
                 <ul className="space-y-4">
+                  <li>
+                    <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      Home Page
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
                       Our Profile
@@ -938,12 +932,11 @@ export default function EnhancedAgencyLandingPage() {
               </div>
             </div>
 
-            {/* Copyright and Bottom Bar */}
-            <div className="mt-16">
-              <div className="text-sm text-gray-500 text-center mb-8">
-                © 2024 Vector Summit. All rights reserved.
+            {/* Copyright */}
+            <div className="mt-16 text-center">
+              <div className="text-sm text-gray-500">
+                © {new Date().getFullYear()} Vector Summit. All rights reserved.
               </div>
-              <div className="border-t border-gray-100"></div>
             </div>
           </div>
         </footer>

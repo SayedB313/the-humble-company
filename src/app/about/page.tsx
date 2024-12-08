@@ -933,8 +933,13 @@ export default function AboutUs() {
               <h4 className="text-lg font-semibold font-montserrat">Services</h4>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                    Mergers & Acquisitions
+                  <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Strategic Advisory
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Growth Equity
                   </Link>
                 </li>
                 <li>
@@ -943,13 +948,8 @@ export default function AboutUs() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/growth-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                    Growth Advisory
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/equity-investment" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                    Equity Investment
+                  <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Mergers & Acquisitions
                   </Link>
                 </li>
               </ul>
@@ -959,6 +959,11 @@ export default function AboutUs() {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
               <ul className="space-y-4">
+                <li>
+                  <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                    Home Page
+                  </Link>
+                </li>
                 <li>
                   <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
                     Our Profile
@@ -982,12 +987,11 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Copyright and Bottom Bar */}
-          <div className="mt-16">
-            <div className="text-sm text-gray-500 text-center mb-8">
+          {/* Copyright */}
+          <div className="mt-16 text-center">
+            <div className="text-sm text-gray-500">
               © {new Date().getFullYear()} Vector Summit. All rights reserved.
             </div>
-            <div className="border-t border-gray-100"></div>
           </div>
         </div>
       </footer>

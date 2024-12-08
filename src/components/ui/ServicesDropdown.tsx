@@ -13,24 +13,24 @@ interface ServiceLink {
 
 const services: ServiceLink[] = [
   {
-    title: "Capital Formation",
-    href: "/services/capital-formation",
-    description: "Fund raising and structuring solutions for investment firms"
+    title: "Strategic Advisory",
+    href: "/services/strategic-advisory",
+    description: "Strategic consulting and business transformation"
   },
   {
-    title: "Growth Advisory & Equity",
-    href: "/services/growth-advisory",
-    description: "Strategic growth solutions and capital raising for businesses"
+    title: "Growth Equity",
+    href: "/services/growth-equity",
+    description: "Active growth partnerships and expertise"
+  },
+  {
+    title: "Capital Formation",
+    href: "/services/capital-formation",
+    description: "Fund raising and capital solutions"
   },
   {
     title: "Mergers & Acquisitions",
     href: "/services/mergers-acquisitions",
-    description: "Strategic M&A advisory for business transitions"
-  },
-  {
-    title: "Equity Investment",
-    href: "/services/equity-investment",
-    description: "Direct investment opportunities for growing companies"
+    description: "Strategic M&A and transaction advisory"
   }
 ];
 

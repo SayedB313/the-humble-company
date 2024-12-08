@@ -4,7 +4,23 @@ import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, FileText, PieChart, Briefcase, Link2, ArrowUpRight } from "lucide-react";
+import { 
+  ArrowRight, 
+  ChevronDown, 
+  Target, 
+  Network, 
+  Shield, 
+  RefreshCw, 
+  FileText, 
+  TrendingUp,
+  Users,
+  DollarSign,
+  Laptop,
+  Search,
+  PenTool,
+  List,
+  Play
+} from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 import CalEmbed from '../../../components/CalEmbed';
 import Footer from '../../../components/ui/Footer';
@@ -18,52 +34,103 @@ export default function GrowthAdvisory() {
 
   const services = [
     {
-      icon: <Briefcase className="w-10 h-10 text-white" />,
-      title: "M&A Advisory",
-      description: "Strategic acquisitions and mergers to expand capabilities",
+      icon: <Target className="w-10 h-10 text-white" />,
+      title: "Market Strategy",
+      description: "Comprehensive market expansion and positioning strategies",
       benefits: [
-        "Transaction structuring",
-        "Due diligence support",
-        "Deal execution"
+        "Market opportunity analysis",
+        "Entry strategy development",
+        "Geographic expansion planning",
+        "Competitive positioning"
       ]
     },
     {
-      icon: <Link2 className="w-10 h-10 text-white" />,
-      title: "Joint Ventures",
-      description: "Building partnerships for market growth and synergies",
+      icon: <Network className="w-10 h-10 text-white" />,
+      title: "Business Transformation",
+      description: "End-to-end business model optimization and digital transformation",
       benefits: [
+        "Operating model design",
+        "Digital strategy roadmap",
+        "Process optimization",
+        "Technology enablement"
+      ]
+    },
+    {
+      icon: <TrendingUp className="w-10 h-10 text-white" />,
+      title: "Strategic Planning",
+      description: "Long-term growth roadmap and partnership development",
+      benefits: [
+        "Growth planning",
         "Partnership strategy",
-        "Alliance formation",
-        "Value optimization"
+        "Implementation roadmap",
+        "Performance metrics"
       ]
     },
     {
-      icon: <ArrowUpRight className="w-10 h-10 text-white" />,
-      title: "Growth Equity",
-      description: "Capital raising for strategic expansion initiatives",
+      icon: <Shield className="w-10 h-10 text-white" />,
+      title: "Risk Management",
+      description: "Comprehensive risk assessment and mitigation strategies",
       benefits: [
-        "Equity structuring",
+        "Geopolitical risk analysis",
+        "Regulatory compliance",
+        "Crisis management",
+        "Business continuity"
+      ]
+    },
+    {
+      icon: <Users className="w-10 h-10 text-white" />,
+      title: "Organizational Design",
+      description: "Strategic restructuring and talent optimization",
+      benefits: [
+        "Org structure design",
+        "Change management",
+        "Talent strategy",
+        "Culture transformation"
+      ]
+    },
+    {
+      icon: <DollarSign className="w-10 h-10 text-white" />,
+      title: "Capital Raising",
+      description: "Strategic funding solutions and investor relationships",
+      benefits: [
+        "Funding strategy",
         "Investor matching",
-        "Board expertise"
+        "Deal structuring",
+        "Capital optimization"
       ]
     }
   ];
 
   const strategicDocs = [
     {
-      title: "Pitch Deck",
+      title: "Risk Analysis",
+      icon: <Shield className="w-8 h-8 text-[#14213D]" />,
+      description: "Comprehensive geopolitical and operational risk assessment frameworks"
+    },
+    {
+      title: "Transformation Plans",
+      icon: <RefreshCw className="w-8 h-8 text-[#14213D]" />,
+      description: "Detailed organizational restructuring and change management roadmaps"
+    },
+    {
+      title: "Industry Reports",
       icon: <FileText className="w-8 h-8 text-[#14213D]" />,
-      description: "Engaging presentations of value proposition and market opportunities"
+      description: "In-depth sector analysis and market intelligence reports"
     },
     {
-      title: "Business Plans",
-      icon: <Target className="w-8 h-8 text-[#14213D]" />,
-      description: "Comprehensive strategic vision and market analysis"
+      title: "Digital Strategy",
+      icon: <Laptop className="w-8 h-8 text-[#14213D]" />,
+      description: "Technology transformation and digital enablement blueprints"
     },
     {
-      title: "Pro Forma",
-      icon: <PieChart className="w-8 h-8 text-[#14213D]" />,
-      description: "Detailed financial forecasts and projections"
+      title: "Growth Plans",
+      icon: <TrendingUp className="w-8 h-8 text-[#14213D]" />,
+      description: "Strategic growth and market expansion playbooks"
+    },
+    {
+      title: "Capital Strategy",
+      icon: <DollarSign className="w-8 h-8 text-[#14213D]" />,
+      description: "Comprehensive funding and capital structure analysis"
     }
   ];
 
@@ -73,6 +140,48 @@ export default function GrowthAdvisory() {
     "New product development",
     "Financing short-term gaps",
     "Minority recapitalizations"
+  ];
+
+  const heroHighlights = [
+    { 
+      title: "Market Strategy", 
+      description: "Expansion & positioning"
+    },
+    { 
+      title: "Digital Transform", 
+      description: "Technology enablement"
+    },
+    { 
+      title: "Risk Management", 
+      description: "Geopolitical analysis"
+    },
+    { 
+      title: "Restructuring", 
+      description: "Organizational design"
+    }
+  ];
+
+  const approachSteps = [
+    {
+      title: "Diagnostic Assessment",
+      description: "Comprehensive analysis of current state, market position, and opportunities",
+      icon: <Search className="w-8 h-8 text-[#14213D]" />
+    },
+    {
+      title: "Strategy Development",
+      description: "Tailored solutions and roadmap creation aligned with business objectives",
+      icon: <PenTool className="w-8 h-8 text-[#14213D]" />
+    },
+    {
+      title: "Implementation Planning",
+      description: "Detailed execution framework with clear milestones and deliverables",
+      icon: <List className="w-8 h-8 text-[#14213D]" />
+    },
+    {
+      title: "Execution Support",
+      description: "Hands-on guidance and expertise throughout implementation",
+      icon: <Play className="w-8 h-8 text-[#14213D]" />
+    }
   ];
 
   React.useEffect(() => {
@@ -137,17 +246,19 @@ export default function GrowthAdvisory() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="h-[2px] w-12 bg-white"></div>
-                    <span className="text-white uppercase tracking-wider text-sm font-semibold">Strategic Growth</span>
+                    <span className="text-white uppercase tracking-wider text-sm font-semibold">
+                      Business Transformation
+                    </span>
                   </div>
                   
                   <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
-                    Growth
+                    Strategic
                     <span className="block mt-2 text-violet-300">Advisory</span>
                   </h1>
                 </div>
                 
                 <p className="text-base sm:text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
-                  Accelerating growth through strategic capital raising, M&A, and expansion transactions
+                  Driving business transformation through comprehensive strategy development and execution
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -187,24 +298,7 @@ export default function GrowthAdvisory() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="hidden md:grid grid-cols-2 gap-6"
               >
-                {[
-                  { 
-                    title: "Strategic Growth", 
-                    description: "Customized expansion strategies"
-                  },
-                  { 
-                    title: "M&A Advisory", 
-                    description: "End-to-end transaction support"
-                  },
-                  { 
-                    title: "Capital Raising", 
-                    description: "Access to growth capital"
-                  },
-                  { 
-                    title: "Market Entry", 
-                    description: "New market penetration"
-                  }
-                ].map((highlight, index) => (
+                {heroHighlights.map((highlight, index) => (
                   <motion.div
                     key={highlight.title}
                     initial={{ opacity: 0, y: 20 }}
@@ -257,7 +351,7 @@ export default function GrowthAdvisory() {
             <div className="max-w-7xl mx-auto">
               <div className="mb-20 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Strategic Advisory
+                  Strategic Management
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
@@ -289,6 +383,44 @@ export default function GrowthAdvisory() {
                         </li>
                       ))}
                     </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Approach Section */}
+        <section className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Our Approach
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              <div className="grid md:grid-cols-4 gap-8">
+                {approachSteps.map((step, index) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                  >
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="bg-gray-50 p-4 rounded-full group-hover:scale-110 transition-transform duration-500">
+                        {step.icon}
+                      </div>
+                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600">
+                        {step.description}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -334,45 +466,6 @@ export default function GrowthAdvisory() {
           </div>
         </section>
 
-        {/* Growth Equity Section */}
-        <section className="py-32 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Growth Equity
-                </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
-
-              <div className="grid md:grid-cols-5 gap-6">
-                {equityUses.map((use, index) => (
-                  <motion.div
-                    key={use}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
-                  >
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-lg font-bold font-montserrat text-[#1A1A1A] group-hover:scale-105 transition-transform duration-500">
-                        {use}
-                      </h3>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="mt-16 max-w-3xl mx-auto text-center">
-                <p className="text-lg text-gray-600">
-                  Our network of Private Equity Firms, Family Offices, and Strategic Investors provides more than just capital. 
-                  These investors offer invaluable board-level expertise and insights that can help guide and manage growth.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="relative py-32">
           <div className="absolute inset-0">
@@ -394,11 +487,10 @@ export default function GrowthAdvisory() {
                 className="space-y-8"
               >
                 <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Driving Business Expansion
+                  Transform Your Business
                 </h2>
                 <p className="text-xl text-gray-300">
-                  Our Growth Advisory & Equity services equip your business with the expertise, 
-                  capital, and strategic partnerships necessary for sustained growth.
+                  Our Strategic Advisory services help organizations navigate complex business challenges and capture new opportunities through comprehensive strategy development and execution.
                 </p>
                 <button 
                   className={`${standardCTA} mx-auto`}

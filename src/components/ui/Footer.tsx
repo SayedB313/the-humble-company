@@ -19,8 +19,13 @@ export default function Footer() {
             <h4 className="text-lg font-semibold font-montserrat">Services</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Mergers & Acquisitions
+                <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                  Strategic Advisory
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                  Growth Equity
                 </Link>
               </li>
               <li>
@@ -29,13 +34,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/growth-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Growth Advisory
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/equity-investment" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Equity Investment
+                <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                  Mergers & Acquisitions
                 </Link>
               </li>
             </ul>
@@ -46,6 +46,11 @@ export default function Footer() {
             <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
             <ul className="space-y-4">
               <li>
+                <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                  Home Page
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
                   Our Profile
                 </Link>
@@ -53,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 - Get in Touch */}
+          {/* Column 4 - Contact */}
           <div className="space-y-6">
             <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
             <Link 

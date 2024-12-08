@@ -20,31 +20,31 @@ export default function MergersAcquisitions() {
     {
       icon: <Briefcase className="w-10 h-10 text-white" />,
       title: "Buy-Side Advisory",
-      description: "Strategic acquisition guidance and target identification",
+      description: "Comprehensive acquisition strategy and execution",
       benefits: [
-        "Target assessment",
-        "Due diligence support",
-        "Deal structuring"
+        "Target identification & screening",
+        "Initial approach & negotiation",
+        "Purchase agreement structuring"
       ]
     },
     {
       icon: <Building className="w-10 h-10 text-white" />,
       title: "Sell-Side Advisory",
-      description: "Tailored divestiture strategies for optimal outcomes",
+      description: "Maximizing value through strategic sale processes",
       benefits: [
-        "Valuation optimization",
-        "Market positioning",
-        "Transaction execution"
+        "Business preparation & positioning",
+        "Buyer identification & outreach",
+        "Competitive auction management"
       ]
     },
     {
       icon: <Target className="w-10 h-10 text-white" />,
-      title: "Strategic Execution",
-      description: "Senior-level attention throughout the process",
+      title: "Transaction Support",
+      description: "End-to-end M&A execution services",
       benefits: [
-        "Competitive tactics",
-        "Premium valuations",
-        "Closing certainty"
+        "Due diligence coordination",
+        "Deal structure optimization",
+        "Post-merger integration planning"
       ]
     }
   ];
@@ -52,35 +52,66 @@ export default function MergersAcquisitions() {
   const expertise = [
     {
       icon: <Network className="w-8 h-8 text-[#14213D]" />,
-      title: "Industry Knowledge",
-      description: "Deep sector expertise and market insights"
+      title: "Deal Sourcing",
+      description: "Proprietary deal flow and target identification"
     },
     {
       icon: <Users className="w-8 h-8 text-[#14213D]" />,
-      title: "Senior Leadership",
-      description: "Dedicated senior banker involvement"
+      title: "Valuation",
+      description: "Advanced financial modeling and valuation analysis"
     },
     {
       icon: <Link2 className="w-8 h-8 text-[#14213D]" />,
-      title: "Extensive Network",
-      description: "Access to PE firms and strategic buyers"
+      title: "Due Diligence",
+      description: "Comprehensive financial and operational review"
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-[#14213D]" />,
-      title: "Value Creation",
-      description: "Focus on premium valuations"
+      title: "Deal Structure",
+      description: "Transaction terms and consideration optimization"
     },
     {
       icon: <PieChart className="w-8 h-8 text-[#14213D]" />,
-      title: "Process Excellence",
-      description: "Rigorous execution capabilities"
+      title: "Negotiation",
+      description: "Expert deal negotiation and execution"
     },
     {
       icon: <FileText className="w-8 h-8 text-[#14213D]" />,
-      title: "Custom Solutions",
-      description: "Tailored transaction strategies"
+      title: "Integration",
+      description: "Post-merger integration and synergy realization"
     }
   ];
+
+  const heroHighlights = [
+    { 
+      title: "Buy-Side", 
+      description: "Target identification and acquisition execution"
+    },
+    { 
+      title: "Sell-Side", 
+      description: "Strategic sale process management"
+    },
+    { 
+      title: "Due Diligence", 
+      description: "Comprehensive transaction analysis"
+    },
+    { 
+      title: "Integration", 
+      description: "Post-merger value capture"
+    }
+  ];
+
+  const heroContent = {
+    label: "Transaction Advisory",
+    title: "Mergers &",
+    coloredTitle: "Acquisitions",
+    description: "Expert guidance through complex M&A transactions from strategy through closing and integration"
+  };
+
+  const ctaContent = {
+    title: "Transaction Excellence",
+    description: "Our seasoned M&A professionals deliver successful outcomes through rigorous process management and deep transaction expertise."
+  };
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -194,24 +225,7 @@ export default function MergersAcquisitions() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="hidden md:grid grid-cols-2 gap-6"
               >
-                {[
-                  { 
-                    title: "Buy-Side", 
-                    description: "Strategic acquisition guidance"
-                  },
-                  { 
-                    title: "Sell-Side", 
-                    description: "Premium exit valuations"
-                  },
-                  { 
-                    title: "Due Diligence", 
-                    description: "Comprehensive analysis"
-                  },
-                  { 
-                    title: "Deal Structure", 
-                    description: "Optimal transaction terms"
-                  }
-                ].map((highlight, index) => (
+                {heroHighlights.map((highlight, index) => (
                   <motion.div
                     key={highlight.title}
                     initial={{ opacity: 0, y: 20 }}

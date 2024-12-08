@@ -70,6 +70,20 @@ export default function Navigation({ currentPath }: NavigationProps) {
             <div className="flex flex-col space-y-8 mt-20">
               {/* Services Links */}
               <Link 
+                href="/services/strategic-advisory" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Strategic Advisory
+              </Link>
+              <Link 
+                href="/services/growth-equity" 
+                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Growth Equity
+              </Link>
+              <Link 
                 href="/services/capital-formation" 
                 className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -82,20 +96,6 @@ export default function Navigation({ currentPath }: NavigationProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Mergers & Acquisitions
-              </Link>
-              <Link 
-                href="/services/growth-advisory" 
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Growth Advisory
-              </Link>
-              <Link 
-                href="/services/equity-investment" 
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Equity Investment
               </Link>
 
               {/* Other Links */}

@@ -51,34 +51,56 @@ export default function EquityInvestment() {
 
   const services = [
     {
-      icon: <Building className="w-10 h-10 text-white" />,
-      title: "Direct Investment",
-      description: "Strategic capital allocation and expert financial services",
+      icon: <Users className="w-10 h-10 text-white" />,
+      title: "Operational Excellence",
+      description: "Hands-on operational support and strategic guidance",
       benefits: [
-        "Growth capital",
-        "Buyout support",
-        "Capital restructuring"
-      ]
-    },
-    {
-      icon: <Network className="w-10 h-10 text-white" />,
-      title: "Strategic Partnerships",
-      description: "Long-term partnerships focused on sustainable growth",
-      benefits: [
-        "Management expertise",
-        "Operational support",
-        "Industry networks"
+        "Process optimization",
+        "Team development",
+        "Performance metrics",
+        "Systems implementation"
       ]
     },
     {
       icon: <TrendingUp className="w-10 h-10 text-white" />,
-      title: "Value Creation",
-      description: "Comprehensive approach to building business value",
+      title: "Growth Acceleration",
+      description: "Comprehensive growth and market expansion strategies",
       benefits: [
+        "Sales optimization",
+        "Marketing strategy",
         "Market expansion",
-        "Operational efficiency",
-        "Strategic planning"
+        "Revenue scaling"
       ]
+    },
+    {
+      icon: <Network className="w-10 h-10 text-white" />,
+      title: "Digital Transformation",
+      description: "Technology enablement and automation solutions",
+      benefits: [
+        "Process automation",
+        "Tech stack optimization",
+        "Digital strategy",
+        "Data analytics"
+      ]
+    }
+  ];
+
+  const heroHighlights = [
+    { 
+      title: "Operational Support", 
+      description: "Hands-on execution"
+    },
+    { 
+      title: "Growth Strategy", 
+      description: "Revenue acceleration"
+    },
+    { 
+      title: "Tech Enablement", 
+      description: "Digital transformation"
+    },
+    { 
+      title: "Team Development", 
+      description: "Talent optimization"
     }
   ];
 
@@ -148,13 +170,13 @@ export default function EquityInvestment() {
                   </div>
                   
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-white">
-                    Equity
-                    <span className="block mt-2 text-[#E0C4AC]">Investment</span>
+                    Growth
+                    <span className="block mt-2 text-[#E0C4AC]">Equity</span>
                   </h1>
                 </div>
                 
                 <p className="text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
-                  Strategic capital allocation and expert financial services for sustainable growth
+                  Active growth partners providing hands-on operational expertise and strategic guidance to accelerate business success
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -194,24 +216,7 @@ export default function EquityInvestment() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="hidden md:grid grid-cols-2 gap-6"
               >
-                {[
-                  { 
-                    title: "Direct Investment", 
-                    description: "Strategic capital deployment"
-                  },
-                  { 
-                    title: "Growth Capital", 
-                    description: "Expansion financing"
-                  },
-                  { 
-                    title: "Value Creation", 
-                    description: "Operational expertise"
-                  },
-                  { 
-                    title: "Partnership", 
-                    description: "Long-term alignment"
-                  }
-                ].map((highlight, index) => (
+                {heroHighlights.map((highlight, index) => (
                   <motion.div
                     key={highlight.title}
                     initial={{ opacity: 0, y: 20 }}
@@ -238,7 +243,7 @@ export default function EquityInvestment() {
             <div className="max-w-7xl mx-auto">
               <div className="mb-20 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Investment Approach
+                  Partnership Approach
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
@@ -336,11 +341,11 @@ export default function EquityInvestment() {
                 className="space-y-8"
               >
                 <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Empowering Growth And Success
+                  Accelerate Your Growth
                 </h2>
                 <p className="text-xl text-gray-300">
-                  Through proprietary capital sources and deep expertise, we ensure each partnership 
-                  is equipped for sustainable growth and long-term success.
+                  Our team becomes an extension of yours, providing the expertise, resources, and 
+                  hands-on support needed to drive exceptional growth and operational excellence.
                 </p>
                 <button 
                   className={`${standardCTA} mx-auto`}
