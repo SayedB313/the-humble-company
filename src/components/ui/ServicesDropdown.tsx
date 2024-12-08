@@ -15,22 +15,22 @@ const services: ServiceLink[] = [
   {
     title: "Strategic Advisory",
     href: "/services/strategic-advisory",
-    description: "Strategic consulting and business transformation"
+    description: "Advanced Strategic Management Solutions for Businesses"
   },
   {
     title: "Growth Equity",
     href: "/services/growth-equity",
-    description: "Active growth partnerships and expertise"
+    description: "Direct Investment Opportunities For Growing Companies"
   },
   {
     title: "Capital Formation",
     href: "/services/capital-formation",
-    description: "Fund raising and capital solutions"
+    description: "Fundraising and Capital Solutions for Investment Firms"
   },
   {
     title: "Mergers & Acquisitions",
     href: "/services/mergers-acquisitions",
-    description: "Strategic M&A and transaction advisory"
+    description: "Strategic M&A Advisory for Business Transitions"
   }
 ];
 
