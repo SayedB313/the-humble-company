@@ -4,7 +4,9 @@ import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ 
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-montserrat'
+  variable: '--font-montserrat',
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata = {
@@ -21,20 +23,27 @@ export const metadata = {
     apple: [
       { url: '/apple-touch-icon.png' }
     ]
-  }
+  },
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  themeColor: '#14213D',
+  robots: 'index, follow',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable}`}>
       <head>
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#14213D" />
       </head>
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }

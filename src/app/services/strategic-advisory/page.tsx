@@ -25,7 +25,7 @@ import Navigation from '../../../components/ui/Navigation';
 import CalEmbed from '../../../components/CalEmbed';
 import Footer from '../../../components/ui/Footer';
 
-export default function GrowthAdvisory() {
+const StrategicAdvisoryComponent = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isCalOpen, setIsCalOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -224,10 +224,12 @@ export default function GrowthAdvisory() {
               muted
               loop
               playsInline
+              preload="metadata"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snowy_Mountain_Drone_Footage_4K_swe7iv"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_4K_swe7iv" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Snowy_Mountain_Drone_Footage_4K_swe7iv"
                 type="video/mp4" 
               />
             </video>
@@ -513,4 +515,8 @@ export default function GrowthAdvisory() {
       />
     </div>
   );
+};
+
+export default function Page() {
+  return <StrategicAdvisoryComponent />;
 } 

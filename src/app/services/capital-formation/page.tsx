@@ -95,10 +95,12 @@ export default function CapitalFormation() {
               muted
               loop
               playsInline
+              preload="metadata"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Aerial_Snow-Covered_Mountain_Video_md3o9w"
                 type="video/mp4" 
               />
             </video>

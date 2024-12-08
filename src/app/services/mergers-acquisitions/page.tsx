@@ -153,10 +153,12 @@ export default function MergersAcquisitions() {
               muted
               loop
               playsInline
+              preload="metadata"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snow_Covered_Mountain_4K_Video_ipsllb" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Snow_Covered_Mountain_4K_Video_ipsllb"
                 type="video/mp4" 
               />
             </video>

@@ -1,21 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      }
-    ]
+    loader: 'custom',
+    loaderFile: './image-loader.js',
   },
-  output: 'export',
   trailingSlash: true,
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

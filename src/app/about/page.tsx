@@ -185,10 +185,12 @@ export default function AboutUs() {
               muted
               loop
               playsInline
+              preload="metadata"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/ClippedMountain_q3feug"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/ClippedMountain_q3feug" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/ClippedMountain_q3feug"
                 type="video/mp4" 
               />
             </video>
@@ -884,6 +886,9 @@ export default function AboutUs() {
               alt="Mountains"
               fill
               className="object-cover"
+              priority
+              sizes="100vw"
+              quality={85}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
           </div>

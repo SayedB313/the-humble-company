@@ -12,7 +12,7 @@ import CalEmbed from '../components/CalEmbed'
 import ServicesDropdown from '../components/ui/ServicesDropdown';
 import Navigation from '../components/ui/Navigation';
 
-export default function EnhancedAgencyLandingPage() {
+const MainComponent = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
@@ -471,10 +471,12 @@ export default function EnhancedAgencyLandingPage() {
               muted
               loop
               playsInline
+              preload="metadata"
+              poster="https://res.cloudinary.com/dluf6sg5d/video/upload/so_0/v1/Snowy_Mountain_Drone_Footage_osldpl"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source 
-                src="xhttps://res.cloudinary.com/dluf6sg5d/video/upload/v1/Snowy_Mountain_Drone_Footage_osldpl" 
+                src="https://res.cloudinary.com/dluf6sg5d/video/upload/q_auto:eco,f_auto,c_limit,w_1920,br_auto,vc_auto/v1/Snowy_Mountain_Drone_Footage_osldpl"
                 type="video/mp4" 
               />
             </video>
@@ -803,8 +805,11 @@ export default function EnhancedAgencyLandingPage() {
             <Image
               src="/River Near Mountains.jpg"
               alt="Mountains"
-              fill
+              width={1920}
+              height={1080}
               className="object-cover"
+              priority
+              unoptimized
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-transparent"></div>
           </div>
@@ -970,4 +975,8 @@ export default function EnhancedAgencyLandingPage() {
       </main>
     </div>
   )
+}
+
+export default function Page() {
+  return <MainComponent />;
 }
