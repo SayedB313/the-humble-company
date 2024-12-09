@@ -251,7 +251,7 @@ export default function EquityInvestment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="text-center mb-20"
               >
-                <h2 className="text-4xl md:text-5xl font-light font-montserrat tracking-wider text-[#14213D]">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
                   The Growth Journey
                 </h2>
                 <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-6"></div>
@@ -317,7 +317,7 @@ export default function EquityInvestment() {
                   whileInView={{ opacity: 1, x: 0 }}
                   className="space-y-8"
                 >
-                  <h2 className="text-4xl md:text-5xl font-light font-montserrat tracking-wider text-[#14213D]">
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
                     Creating Lasting
                     <span className="block">Value Together</span>
                   </h2>
@@ -382,7 +382,7 @@ export default function EquityInvestment() {
                       <div className="w-12 h-12 bg-[#14213D]/5 rounded-lg flex items-center justify-center mb-4">
                         {React.cloneElement(focus.icon, { className: "text-[#14213D]" })}
                       </div>
-                      <h3 className="text-lg font-semibold text-[#14213D] mb-2">{focus.title}</h3>
+                      <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">{focus.title}</h3>
                       <p className="text-gray-600">{focus.details}</p>
                     </motion.div>
                   ))}
@@ -396,7 +396,7 @@ export default function EquityInvestment() {
                   whileInView={{ opacity: 1, y: 0 }}
                   className="max-w-3xl mx-auto text-center"
                 >
-                  <h2 className="text-3xl md:text-4xl font-light font-montserrat tracking-wider text-[#14213D]">
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
                     Investment Criteria
                   </h2>
                   <p className="text-gray-500 mt-4 text-lg">
@@ -523,7 +523,7 @@ export default function EquityInvestment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 className="space-y-8"
               >
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wide text-white">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
                   Ready to Scale
                   <br />
                   <span className="text-[#E0C4AC]">Your Business?</span>

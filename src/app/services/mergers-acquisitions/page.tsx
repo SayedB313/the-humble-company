@@ -251,44 +251,67 @@ export default function MergersAcquisitions() {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section id="services" className="py-32 bg-white">
+        {/* Deal Expertise Section */}
+        <section className="py-32 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  M&A Services
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="max-w-3xl"
+              >
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
+                  Deal Origination
                 </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
+                <div className="h-[1px] w-24 bg-[#14213D] mt-6 mb-8"></div>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Leveraging our extensive network to source and structure the right opportunities for our clients.
+                </p>
+              </motion.div>
 
-              <div className="grid md:grid-cols-3 gap-12">
-                {services.map((service, index) => (
+              <div className="mt-24 grid md:grid-cols-2 gap-16">
+                {[
+                  {
+                    title: "Proprietary Deal Flow",
+                    description: "Direct access to off-market opportunities through our established network of industry relationships",
+                    points: [
+                      "Industry-specific targeting",
+                      "Direct owner relationships",
+                      "Exclusive opportunities",
+                      "First-look advantages"
+                    ]
+                  },
+                  {
+                    title: "Deal Qualification",
+                    description: "Rigorous screening process to identify the most compelling opportunities",
+                    points: [
+                      "Strategic fit analysis",
+                      "Growth potential assessment",
+                      "Valuation framework",
+                      "Synergy identification"
+                    ]
+                  }
+                ].map((service, index) => (
                   <motion.div
                     key={service.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.2 }}
-                    className="group bg-white rounded-2xl p-10 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                    className="space-y-6"
                   >
-                    <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                      {service.icon}
-                    </div>
                     <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
                       {service.title}
                     </h3>
-                    <div className="h-[2px] w-12 bg-[#14213D] mb-6 group-hover:w-24 transition-all duration-500"></div>
-                    <p className="text-gray-600 mb-8 text-lg">
+                    <p className="text-gray-600 leading-relaxed">
                       {service.description}
                     </p>
-                    <ul className="space-y-4">
-                      {service.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-center gap-3 text-gray-600">
-                          <ArrowRight className="w-5 h-5 text-[#14213D] flex-shrink-0" />
-                          <span className="text-lg">{benefit}</span>
-                        </li>
+                    <div className="pt-6 space-y-3">
+                      {service.points.map((point, i) => (
+                        <div key={i} className="text-gray-600">
+                          {point}
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -296,36 +319,115 @@ export default function MergersAcquisitions() {
           </div>
         </section>
 
-        {/* Expertise Section */}
+        {/* Sell-Side Excellence Section */}
         <section className="py-32 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Our Expertise
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="space-y-8 max-w-3xl"
+              >
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
+                  Sell-Side Advisory
                 </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
+                <div className="h-[1px] w-24 bg-[#14213D]"></div>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Maximizing value through strategic positioning and competitive process management.
+                </p>
+              </motion.div>
 
-              <div className="grid md:grid-cols-3 gap-8">
-                {expertise.map((item, index) => (
+              <div className="grid md:grid-cols-3 gap-12 mt-20">
+                {[
+                  {
+                    title: "Strategic Positioning",
+                    description: "Crafting compelling investment theses that resonate with targeted buyers"
+                  },
+                  {
+                    title: "Buyer Universe",
+                    description: "Comprehensive mapping of strategic and financial buyers globally"
+                  },
+                  {
+                    title: "Process Management",
+                    description: "Orchestrating competitive dynamics to maximize value and certainty"
+                  }
+                ].map((item, index) => (
                   <motion.div
                     key={item.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                    className="pl-8 border-l-2 border-[#14213D]"
                   >
-                    <div className="flex flex-col items-center text-center space-y-4">
-                      <div className="group-hover:scale-110 transition-transform duration-500">
-                        {item.icon}
-                      </div>
-                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
-                        {item.title}
+                    <h3 className="text-xl font-medium text-[#14213D] mb-4">{item.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-3xl mx-auto text-center mb-24">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
+                  Transaction Process
+                </h2>
+                <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-6 mb-8"></div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-16">
+                {[
+                  {
+                    phase: "Preparation",
+                    steps: [
+                      "Business positioning",
+                      "Financial analysis",
+                      "Market assessment",
+                      "Materials development"
+                    ]
+                  },
+                  {
+                    phase: "Marketing",
+                    steps: [
+                      "Buyer outreach",
+                      "Information sharing",
+                      "Management meetings",
+                      "Offer solicitation"
+                    ]
+                  },
+                  {
+                    phase: "Execution",
+                    steps: [
+                      "Due diligence",
+                      "Documentation",
+                      "Negotiation",
+                      "Closing"
+                    ]
+                  }
+                ].map((phase, index) => (
+                  <motion.div
+                    key={phase.phase}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="relative"
+                  >
+                    <div className="mb-6">
+                      <div className="text-sm text-[#14213D] opacity-50 mb-2">Phase {index + 1}</div>
+                      <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                        {phase.phase}
                       </h3>
-                      <p className="text-gray-600">
-                        {item.description}
-                      </p>
+                    </div>
+                    <div className="space-y-4">
+                      {phase.steps.map((step, i) => (
+                        <div key={i} className="text-gray-600">
+                          {step}
+                        </div>
+                      ))}
                     </div>
                   </motion.div>
                 ))}
@@ -354,7 +456,7 @@ export default function MergersAcquisitions() {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
                   Proven Outcomes & Expertise
                 </h2>
                 <p className="text-xl text-gray-300">
