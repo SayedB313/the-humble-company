@@ -418,7 +418,6 @@ export default function CapitalFormation() {
 
         {/* CTA Section */}
         <section className="relative py-32">
-          {/* Background Image */}
           <div className="absolute inset-0">
             <Image
               src="/River Near Mountains.jpg"
@@ -435,33 +434,26 @@ export default function CapitalFormation() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-12"
+                className="space-y-8"
               >
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wide text-white">
-                  Ready to Scale
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
+                  Accelerate Your
                   <br />
-                  <span className="text-[#14213D]">Your Fund?</span>
+                  <span className="text-amber-300">Capital Journey</span>
                 </h2>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-                  Connect with our team to explore how we can help accelerate your capital formation journey.
+                  Connect with our team to explore how we can help optimize your capital formation strategy and expand your investor network.
                 </p>
-                <div>
-                  <button 
-                    onClick={() => setIsCalOpen(true)}
-                    className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
-                  >
-                    <span>Schedule a Meeting</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
+                <button 
+                  onClick={() => setIsCalOpen(true)}
+                  className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
+                >
+                  <span>Start the Conversation</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
               </motion.div>
             </div>
           </div>
-
-          <CalEmbed 
-            isOpen={isCalOpen}
-            onClose={() => setIsCalOpen(false)}
-          />
         </section>
       </main>
       <Footer />

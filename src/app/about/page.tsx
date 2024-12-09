@@ -18,96 +18,55 @@ export default function AboutUs() {
 
   const values = [
     {
-      icon: <Target className="w-8 h-8 text-[#14213D]" />,
-      title: "Holistic Growth",
-      description: "Integrating financial, operational, and market considerations"
+      icon: <Shield className="w-8 h-8 text-[#14213D]" />,
+      title: "Unwavering Integrity",
+      description: "We operate with absolute transparency and ethical clarity in every engagement. Our reputation is built on trust, confidentiality, and maintaining uncompromising professional standards across all interactions."
     },
     {
-      icon: <Shield className="w-8 h-8 text-[#14213D]" />,
-      title: "Custom Strategies",
-      description: "Tailored solutions for unique business needs"
+      icon: <Target className="w-8 h-8 text-[#14213D]" />,
+      title: "Results-Driven Partnership",
+      description: "We align our incentives directly with your goals through equity partnerships and performance-based structures. Our success is measured solely by the transformative outcomes we achieve together."
+    },
+    {
+      icon: <Network className="w-8 h-8 text-[#14213D]" />,
+      title: "Strategic Precision",
+      description: "We combine deep market intelligence with tactical execution expertise. Every recommendation is backed by rigorous analysis and delivered with clear, actionable implementation pathways."
     },
     {
       icon: <Users className="w-8 h-8 text-[#14213D]" />,
-      title: "Collaborative Execution",
-      description: "Active partnership in implementing initiatives"
+      title: "Elite Expertise",
+      description: "Our selective engagement model ensures direct access to senior professionals. We maintain excellence by choosing partnerships where our specialized expertise can deliver transformative impact."
     },
     {
-      icon: <Building className="w-8 h-8 text-[#14213D]" />,
-      title: "Global Reach",
-      description: "Extensive networks worldwide for funding and partnerships"
+      icon: <Rocket className="w-8 h-8 text-[#14213D]" />,
+      title: "Accelerated Innovation",
+      description: "We leverage cutting-edge methodologies to stay ahead of market dynamics. Our forward-thinking solutions anticipate opportunities and create sustainable competitive advantages."
     },
     {
-      icon: <Award className="w-8 h-8 text-[#14213D]" />,
-      title: "Proven Expertise",
-      description: "Combining legacy experience with modern insights"
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8 text-[#14213D]" />,
-      title: "Risk Mitigation",
-      description: "Carefully structured partnerships and transactions"
+      icon: <Globe className="w-8 h-8 text-[#14213D]" />,
+      title: "Enduring Impact",
+      description: "We focus on building sustainable value that compounds over time. Our strategic initiatives create lasting positive changes in your market position and business trajectory."
     }
   ];
 
   const teamMembers = [
     {
-      image: "/placeholder-profile.jpg",
-      name: "John Smith",
+      image: "/sayed-profile.jpg",
+      name: "Sayed B Wayzi",
       title: "Managing Director",
-      shortDescription: "20+ years of investment banking experience",
-      fullBio: "John Smith brings over two decades of investment banking and private equity experience. Previously held senior positions at Morgan Stanley and KKR. Led transactions worth over $10B across technology, healthcare, and industrial sectors.",
-      expertise: ["M&A Advisory", "Private Equity", "Growth Strategy"],
-      education: "MBA from Harvard Business School",
-      linkedin: "https://linkedin.com/in/johnsmith"
-    },
-    {
-      image: "/placeholder-profile.jpg",
-      name: "Sarah Johnson",
-      title: "Head of M&A",
-      shortDescription: "Former Goldman Sachs executive",
-      fullBio: "Sarah Johnson's 15-year career spans investment banking and strategic advisory. Former Executive Director at Goldman Sachs, specializing in cross-border M&A transactions.",
-      expertise: ["Cross-border M&A", "Deal Structuring", "Financial Advisory"],
-      education: "MBA from Wharton School of Business",
-      linkedin: "https://linkedin.com/in/sarahjohnson"
-    },
-    {
-      image: "/placeholder-profile.jpg",
-      name: "Michael Chen",
-      title: "Director of Strategy",
-      shortDescription: "Tech sector specialist",
-      fullBio: "Michael Chen specializes in technology sector strategy and growth advisory. Former strategy consultant at McKinsey & Company with deep expertise in digital transformation and emerging technologies.",
-      expertise: ["Technology Strategy", "Digital Transformation", "Growth Advisory"],
-      education: "MS in Computer Science from Stanford University",
-      linkedin: "https://linkedin.com/in/michaelchen"
+      shortDescription: "Strategic Growth & Capital Formation Expert",
+      fullBio: "Sayed brings extensive expertise in strategic growth advisory and capital formation. His approach combines sophisticated market intelligence with tactical execution to drive transformative outcomes. Specializes in architecting bespoke solutions for complex business challenges.",
+      expertise: [
+        "Strategic Growth Advisory",
+        "Capital Formation",
+        "Business Transformation"
+      ],
+      education: "Business Administration & Management",
+      linkedin: "https://www.linkedin.com/in/sayedbw/"
     }
   ];
 
-  const advisors = [
-    {
-      image: "/placeholder-profile.jpg",
-      name: "David Williams",
-      title: "Technology Advisor",
-      shortDescription: "Former CTO at Major Tech Co.",
-      expertise: ["AI/ML", "Digital Transformation", "Enterprise Tech"],
-      linkedin: "https://linkedin.com/in/davidwilliams"
-    },
-    {
-      image: "/placeholder-profile.jpg",
-      name: "Emma Thompson",
-      title: "Financial Markets Advisor",
-      shortDescription: "25+ years in Investment Banking",
-      expertise: ["Capital Markets", "Risk Management", "Strategic Finance"],
-      linkedin: "https://linkedin.com/in/emmathompson"
-    },
-    {
-      image: "/placeholder-profile.jpg",
-      name: "Robert Chen",
-      title: "Strategic Advisor",
-      shortDescription: "Serial Entrepreneur & Investor",
-      expertise: ["Venture Capital", "Startups", "Scale-ups"],
-      linkedin: "https://linkedin.com/in/robertchen"
-    }
-  ];
+  const advisors = []; // Empty array but keeping the structure for future additions
 
   const [selectedTeamMember, setSelectedTeamMember] = React.useState(null);
 
@@ -497,51 +456,8 @@ export default function AboutUs() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-8 grid md:grid-cols-3 gap-6">
-                    {advisors.map((advisor, index) => (
-                      <motion.div
-                        key={advisor.name}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-500 border border-gray-100"
-                      >
-                        <div className="flex items-center space-x-4 mb-4">
-                          <div className="relative w-12 h-12 flex-shrink-0 rounded-full overflow-hidden">
-                            <Image
-                              src={advisor.image}
-                              alt={advisor.name}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                          <div>
-                            <h4 className="text-lg font-bold text-[#1A1A1A]">{advisor.name}</h4>
-                            <p className="text-sm text-[#14213D]">{advisor.title}</p>
-                          </div>
-                        </div>
-                        <p className="text-gray-600 text-sm mb-4">{advisor.shortDescription}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {advisor.expertise.map((skill, idx) => (
-                            <span 
-                              key={idx}
-                              className="text-xs px-2 py-1 bg-gray-100 text-[#14213D] rounded-full"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                        <a 
-                          href={advisor.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-[#14213D] hover:text-[#1C2E56] transition-colors mt-4 text-sm"
-                        >
-                          <span>Connect</span>
-                          <ArrowUpRight className="w-4 h-4 ml-1" />
-                        </a>
-                      </motion.div>
-                    ))}
+                  <div className="pt-8 text-center text-gray-600">
+                    Coming Soon
                   </div>
                 </motion.div>
               </div>
@@ -800,82 +716,129 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Partnership & Values Section */}
-        <section className="py-32 bg-white border-t border-gray-100">
-          <div className="container mx-auto px-4">
+        {/* Core Values Section - Innovative Redesign */}
+        <section className="py-32 bg-white relative">
+          {/* Subtle background pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+          
+          <div className="container mx-auto px-4 relative">
             <div className="max-w-7xl mx-auto">
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Our Approach
+              {/* Section Header */}
+              <div className="flex flex-col items-center text-center mb-24">
+                <h2 className="text-6xl md:text-7xl lg:text-8xl font-light font-montserrat tracking-wider text-[#1A1A1A]">
+                  Core Values
                 </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="h-[1px] w-12 bg-[#14213D]"></div>
+                  <span className="text-[#14213D] uppercase tracking-widest text-sm font-medium">Our Foundation</span>
+                  <div className="h-[1px] w-12 bg-[#14213D]"></div>
+                </div>
               </div>
 
-              {/* Partnership Model */}
-              <div className="grid md:grid-cols-3 gap-8 mb-24">
-                {partnershipPrinciples.map((principle, index) => (
-                  <motion.div
-                    key={principle.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
-                  >
-                    <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                      {principle.icon}
+              {/* Main Content */}
+              <div className="relative">
+                {/* Central Line */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#14213D]/20 to-transparent"></div>
+
+                {/* Content Sections */}
+                <div className="space-y-32">
+                  {values.map((value, index) => (
+                    <div key={value.title} className="grid md:grid-cols-2 gap-16 items-center">
+                      {index % 2 === 0 ? (
+                        <>
+                          <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-right pr-16 relative"
+                          >
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-[1px] bg-[#14213D]/20"></div>
+                            <span className="text-sm uppercase tracking-widest text-[#14213D]/60 mb-2 block">0{index + 1}</span>
+                            <h3 className="text-3xl font-light text-[#14213D] mb-4">{value.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                              {value.description}
+                            </p>
+                          </motion.div>
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="pl-16"
+                          >
+                            <div className="relative h-40 bg-[#14213D]/[0.02] rounded-lg p-8 flex items-center group hover:bg-[#14213D]/[0.05] transition-all duration-500">
+                              <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-[#14213D]/0 via-[#14213D]/20 to-[#14213D]/0"></div>
+                              <div className="flex items-center gap-6">
+                                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center">
+                                  {React.cloneElement(value.icon, { className: "w-8 h-8 text-[#14213D]" })}
+                                </div>
+                                <div className="flex-1">
+                                  <div className="h-[2px] w-12 bg-[#14213D]/20 mb-4"></div>
+                                  <p className="text-gray-600 leading-relaxed italic">
+                                    {value.description.split('.')[0] + '.'}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        </>
+                      ) : (
+                        <>
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="pr-16 order-2 md:order-1"
+                          >
+                            <div className="relative h-40 bg-[#14213D]/[0.02] rounded-lg p-8 flex items-center group hover:bg-[#14213D]/[0.05] transition-all duration-500">
+                              <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-[#14213D]/0 via-[#14213D]/20 to-[#14213D]/0"></div>
+                              <div className="flex items-center gap-6">
+                                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center">
+                                  {React.cloneElement(value.icon, { className: "w-8 h-8 text-[#14213D]" })}
+                                </div>
+                                <div className="flex-1">
+                                  <div className="h-[2px] w-12 bg-[#14213D]/20 mb-4"></div>
+                                  <p className="text-gray-600 leading-relaxed italic">
+                                    {value.description.split('.')[0] + '.'}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                          <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="pl-16 relative order-1 md:order-2"
+                          >
+                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-[1px] bg-[#14213D]/20"></div>
+                            <span className="text-sm uppercase tracking-widest text-[#14213D]/60 mb-2 block">0{index + 1}</span>
+                            <h3 className="text-3xl font-light text-[#14213D] mb-4">{value.title}</h3>
+                            <p className="text-gray-600 leading-relaxed">
+                              {value.description}
+                            </p>
+                          </motion.div>
+                        </>
+                      )}
                     </div>
-                    <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                      {principle.title}
-                    </h3>
-                    <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                    <p className="text-gray-600 mb-8">
-                      {principle.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {principle.points.map((point, idx) => (
-                        <li key={idx} className="flex items-center gap-3 text-gray-600">
-                          <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* Divider with Text */}
-              <div className="flex items-center justify-center mb-24">
-                <div className="h-[1px] flex-grow bg-gray-200"></div>
-                <span className="px-8 text-gray-400 text-sm uppercase tracking-wider">Our Values</span>
-                <div className="h-[1px] flex-grow bg-gray-200"></div>
-              </div>
-
-              {/* Core Values Grid */}
-              <div className="grid md:grid-cols-3 gap-8">
-                {values.map((value, index) => (
-                  <motion.div
-                    key={value.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
+                {/* Bottom CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="mt-32 text-center"
+                >
+                  <button
+                    onClick={() => setIsCalOpen(true)}
+                    className="group inline-flex items-center gap-3 text-[#14213D] hover:text-[#1C2E56] transition-colors"
                   >
-                    <div className="flex flex-col items-start space-y-4">
-                      <div className="bg-gray-50 p-4 rounded-xl group-hover:bg-[#14213D]/5 transition-colors">
-                        <div className="group-hover:scale-110 transition-transform duration-500 text-[#14213D]">
-                          {value.icon}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold font-montserrat text-[#1A1A1A]">
-                        {value.title}
-                      </h3>
-                      <div className="h-[2px] w-12 bg-[#14213D]"></div>
-                      <p className="text-gray-600">
-                        {value.description}
-                      </p>
+                    <span className="text-lg font-medium">Start Your Journey</span>
+                    <div className="w-10 h-10 rounded-full border border-current flex items-center justify-center group-hover:bg-[#14213D]/[0.02] transition-colors">
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                     </div>
-                  </motion.div>
-                ))}
+                  </button>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -897,26 +860,27 @@ export default function AboutUs() {
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <h2 className="text-4xl md:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Partner With Us
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
+                  Begin Your
+                  <br />
+                  <span className="text-[#A5B4FC]">Journey</span>
                 </h2>
-                <p className="text-xl text-gray-300">
-                  Join us in creating transformative growth opportunities and 
-                  achieving sustained success in competitive markets.
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                  Let's explore how our expertise and network can help accelerate your growth and create lasting value.
                 </p>
                 <button 
                   onClick={() => setIsCalOpen(true)}
-                  className={`${standardCTA} mx-auto`}
+                  className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
                 >
-                  Schedule a Meeting
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Start the Conversation</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
             </div>

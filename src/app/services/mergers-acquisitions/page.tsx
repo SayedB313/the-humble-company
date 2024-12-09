@@ -449,7 +449,7 @@ export default function MergersAcquisitions() {
           </div>
           
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -457,18 +457,19 @@ export default function MergersAcquisitions() {
                 className="space-y-8"
               >
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Proven Outcomes & Expertise
+                  Transform Your
+                  <br />
+                  <span className="text-blue-500">Transaction</span>
                 </h2>
-                <p className="text-xl text-gray-300">
-                  Our senior bankers leverage deep relationships and industry insights to drive 
-                  successful outcomes in complex M&A transactions.
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                  Let's explore how our M&A expertise can help you achieve superior transaction outcomes and maximize value.
                 </p>
                 <button 
-                  className={`${standardCTA} mx-auto`}
                   onClick={() => setIsCalOpen(true)}
+                  className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
                 >
-                  Schedule a Meeting
-                  <ArrowRight className="w-5 h-5" />
+                  <span>Start the Conversation</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
             </div>
