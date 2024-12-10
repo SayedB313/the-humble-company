@@ -537,9 +537,9 @@ const MainComponent = () => {
                 <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Strategic Capital & Growth Partners</span>
+                  <span className="block mb-2 font-semibold">Strategic Growth Advisors</span>
                   <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
-                    Architecting Bespoke Solutions for Exceptional Growth
+                    Bridging Visionary Leaders with Elite Networks
                   </span>
                 </p>
 
