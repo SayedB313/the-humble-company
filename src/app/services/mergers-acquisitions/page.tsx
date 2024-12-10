@@ -209,16 +209,16 @@ export default function MergersAcquisitions() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-rose-400 transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
+                    className="flex items-center space-x-4 text-white hover:text-blue-500 transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
                     onClick={() => {
-                      const servicesSection = document.querySelector('#services');
-                      servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                      const dealOriginationSection = document.querySelector('#deal-origination');
+                      dealOriginationSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Our Services</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Deal Origination</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -252,7 +252,7 @@ export default function MergersAcquisitions() {
         </section>
 
         {/* Deal Expertise Section */}
-        <section className="py-32 bg-white">
+        <section id="deal-origination" className="py-32 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <motion.div 
@@ -483,6 +483,32 @@ export default function MergersAcquisitions() {
         isOpen={isCalOpen}
         onClose={() => setIsCalOpen(false)}
       />
+
+      {/* Update scroll indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+        onClick={() => {
+          const dealOriginationSection = document.querySelector('#deal-origination');
+          dealOriginationSection?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      >
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="text-white hover:text-blue-500 transition-colors"
+        >
+          <ChevronDown className="w-12 h-12" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 } 

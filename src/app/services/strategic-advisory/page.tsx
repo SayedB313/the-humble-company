@@ -296,14 +296,14 @@ const StrategicAdvisoryComponent = () => {
                     transition={{ delay: 0.7 }}
                     className="flex items-center space-x-4 text-white hover:text-violet-300 transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
                     onClick={() => {
-                      const servicesSection = document.querySelector('#services');
-                      servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                      const strategicApproachSection = document.querySelector('#strategic-approach');
+                      strategicApproachSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Our Services</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Strategic Approach</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -342,8 +342,8 @@ const StrategicAdvisoryComponent = () => {
             transition={{ delay: 1.2 }}
             className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
             onClick={() => {
-              const servicesSection = document.querySelector('#services');
-              servicesSection?.scrollIntoView({ behavior: 'smooth' });
+              const strategicApproachSection = document.querySelector('#strategic-approach');
+              strategicApproachSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <motion.div
@@ -355,7 +355,7 @@ const StrategicAdvisoryComponent = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="text-[#14213D] hover:text-rose-400 transition-colors"
+              className="text-white hover:text-violet-300 transition-colors"
             >
               <ChevronDown className="w-12 h-12" />
             </motion.div>
@@ -372,7 +372,7 @@ const StrategicAdvisoryComponent = () => {
                 className="max-w-3xl mx-auto text-center mb-24"
               >
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
-                  Strategic Advisory
+                  Strategic Approach
                 </h2>
                 <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-6 mb-8"></div>
                 <p className="text-xl text-gray-600 leading-relaxed">

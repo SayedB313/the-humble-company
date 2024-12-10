@@ -645,87 +645,143 @@ const MainComponent = () => {
           </div>
         </section>
 
-        {/* Areas of Focus Section */}
+        {/* Services Section */}
         <section className="py-32 bg-white relative">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               {/* Header */}
               <div className="mb-24 max-w-3xl">
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Areas of Focus
+                  Services
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
               </div>
 
-              {/* Solutions Matrix */}
-              <div className="relative">
+              {/* Services Matrix */}
+              <div className="relative space-y-6">
                 {[
                   {
                     title: "Strategic Advisory",
                     tagline: "Transformative Growth",
                     description: "Market expansion and operational excellence",
-                    link: "/services/strategic-advisory"
+                    link: "/services/strategic-advisory",
+                    icon: <Target className="w-6 h-6" />
                   },
                   {
                     title: "Growth Equity",
                     tagline: "Value Creation",
                     description: "Active partnership and market leadership",
-                    link: "/services/growth-equity"
+                    link: "/services/growth-equity",
+                    icon: <TrendingUp className="w-6 h-6" />
                   },
                   {
                     title: "Capital Formation",
                     tagline: "Strategic Capital",
                     description: "Elite LP network and fund solutions",
-                    link: "/services/capital-formation"
+                    link: "/services/capital-formation",
+                    icon: <Building className="w-6 h-6" />
                   },
                   {
                     title: "M&A Advisory",
                     tagline: "Deal Excellence",
                     description: "Premium valuations and execution",
-                    link: "/services/mergers-acquisitions"
+                    link: "/services/mergers-acquisitions",
+                    icon: <ArrowLeftRight className="w-6 h-6" />
                   }
-                ].map((solution, index) => (
-                  <Link key={solution.title} href={solution.link}>
+                ].map((service, index) => (
+                  <Link key={service.title} href={service.link}>
                     <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       className="group relative"
                     >
-                      <div className="flex items-center h-32 border-t border-[#14213D]/10 hover:bg-[#14213D]/[0.02] transition-all duration-500">
-                        <div className="grid grid-cols-12 gap-4 items-center w-full">
-                          {/* Index Number */}
-                          <div className="col-span-1 pl-4">
-                            <span className="text-sm font-light text-[#14213D]/40">
-                              {(index + 1).toString().padStart(2, '0')}
-                            </span>
+                      <div className="flex items-center min-h-[140px] md:min-h-[140px] border-t border-[#14213D]/10 hover:bg-gradient-to-r hover:from-[#14213D]/[0.02] hover:to-transparent transition-all duration-700">
+                        <div className="w-full py-8">
+                          {/* Mobile Layout */}
+                          <div className="md:hidden space-y-4 px-4">
+                            <div className="flex items-center justify-between">
+                              {/* Icon & Number */}
+                              <div className="relative">
+                                <div className="absolute -top-3 -left-2 text-xs font-light text-[#14213D]/40">
+                                  {(index + 1).toString().padStart(2, '0')}
+                                </div>
+                                <div className="bg-[#14213D]/[0.03] w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-700">
+                                  {React.cloneElement(service.icon, { 
+                                    className: "text-[#14213D] group-hover:text-white transition-colors duration-700" 
+                                  })}
+                                </div>
+                              </div>
+                              
+                              {/* Arrow for mobile */}
+                              <motion.div 
+                                initial={{ x: -10, opacity: 0 }}
+                                whileHover={{ x: 0, opacity: 1 }}
+                                className="w-10 h-10 rounded-full border border-[#14213D]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700"
+                              >
+                                <ArrowRight className="w-4 h-4 text-[#14213D]" />
+                              </motion.div>
+                            </div>
+
+                            <div className="space-y-2">
+                              <h3 className="text-2xl font-medium text-[#14213D] group-hover:translate-x-2 transition-transform duration-500">
+                                {service.title}
+                              </h3>
+                              
+                              <span className="block text-sm text-[#14213D]/60 uppercase tracking-wider font-medium">
+                                {service.tagline}
+                              </span>
+                              
+                              <p className="text-[#14213D]/60 leading-relaxed">
+                                {service.description}
+                              </p>
+                            </div>
                           </div>
 
-                          {/* Title */}
-                          <div className="col-span-3">
-                            <h3 className="text-xl font-medium text-[#14213D] group-hover:translate-x-2 transition-transform duration-500">
-                              {solution.title}
-                            </h3>
-                          </div>
+                          {/* Desktop Layout */}
+                          <div className="hidden md:grid grid-cols-12 gap-4 items-center w-full">
+                            {/* Icon & Number */}
+                            <div className="col-span-1 pl-4 relative">
+                              <div className="absolute -top-3 -left-2 text-xs font-light text-[#14213D]/40">
+                                {(index + 1).toString().padStart(2, '0')}
+                              </div>
+                              <div className="bg-[#14213D]/[0.03] w-12 h-12 rounded-full flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-700">
+                                {React.cloneElement(service.icon, { 
+                                  className: "text-[#14213D] group-hover:text-white transition-colors duration-700" 
+                                })}
+                              </div>
+                            </div>
 
-                          {/* Tagline */}
-                          <div className="col-span-3">
-                            <span className="text-sm text-[#14213D]/60 uppercase tracking-wider">
-                              {solution.tagline}
-                            </span>
-                          </div>
+                            {/* Title */}
+                            <div className="col-span-3">
+                              <h3 className="text-2xl font-medium text-[#14213D] group-hover:translate-x-2 transition-transform duration-500">
+                                {service.title}
+                              </h3>
+                            </div>
 
-                          {/* Description */}
-                          <div className="col-span-4">
-                            <p className="text-[#14213D]/60">
-                              {solution.description}
-                            </p>
-                          </div>
+                            {/* Tagline */}
+                            <div className="col-span-3">
+                              <span className="text-sm text-[#14213D]/60 uppercase tracking-wider font-medium">
+                                {service.tagline}
+                              </span>
+                            </div>
 
-                          {/* Arrow */}
-                          <div className="col-span-1 flex justify-end pr-4">
-                            <div className="w-8 h-8 rounded-full border border-[#14213D]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                              <ArrowRight className="w-4 h-4 text-[#14213D]" />
+                            {/* Description */}
+                            <div className="col-span-4">
+                              <p className="text-[#14213D]/60 leading-relaxed">
+                                {service.description}
+                              </p>
+                            </div>
+
+                            {/* Arrow */}
+                            <div className="col-span-1 flex justify-end pr-4">
+                              <motion.div 
+                                initial={{ x: -10, opacity: 0 }}
+                                whileHover={{ x: 0, opacity: 1 }}
+                                className="w-10 h-10 rounded-full border border-[#14213D]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700"
+                              >
+                                <ArrowRight className="w-4 h-4 text-[#14213D]" />
+                              </motion.div>
                             </div>
                           </div>
                         </div>

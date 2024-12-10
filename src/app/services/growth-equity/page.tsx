@@ -451,9 +451,9 @@ export default function EquityInvestment() {
                     transition={{ delay: 0.3 }}
                     className="mt-16 bg-gray-50 rounded-2xl p-8 md:p-12"
                   >
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                       <div className="space-y-6">
-                        <h3 className="text-xl font-medium text-[#14213D]">
+                        <h3 className="text-xl font-medium text-[#14213D] text-center">
                           Company Profile
                         </h3>
                         {[
@@ -466,7 +466,7 @@ export default function EquityInvestment() {
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 + (i * 0.1) }}
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-3 justify-center"
                           >
                             <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
                             <span className="text-gray-600">{item}</span>
@@ -475,7 +475,7 @@ export default function EquityInvestment() {
                       </div>
 
                       <div className="space-y-6">
-                        <h3 className="text-xl font-medium text-[#14213D]">
+                        <h3 className="text-xl font-medium text-[#14213D] text-center">
                           Growth Potential
                         </h3>
                         {[
@@ -488,7 +488,7 @@ export default function EquityInvestment() {
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.4 + (i * 0.1) }}
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-3 justify-center"
                           >
                             <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
                             <span className="text-gray-600">{item}</span>

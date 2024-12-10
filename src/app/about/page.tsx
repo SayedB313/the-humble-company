@@ -204,14 +204,14 @@ export default function AboutUs() {
                     transition={{ delay: 0.7 }}
                     className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
                     onClick={() => {
-                      const rolesSection = document.querySelector('#roles');
-                      rolesSection?.scrollIntoView({ behavior: 'smooth' });
+                      const networkModelSection = document.querySelector('#network-model');
+                      networkModelSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Our Role</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Network Model</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -261,107 +261,164 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Network Model Section */}
-        <section className="py-32 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-24 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Our Network Model
-                </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20 mb-8"></div>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  We reimagined advisory services through a network-first approach, creating perfect alignments between business challenges and expert solutions.
-                </p>
-              </div>
+        {/* Network Model Section - Reimagined */}
+        <section id="network-model" className="py-32 relative overflow-hidden">
+          {/* Background patterns remain the same */}
+          <div className="absolute inset-0 bg-[#FAFAFA]">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, #14213D 1px, transparent 0)`,
+              backgroundSize: '48px 48px',
+              opacity: 0.03
+            }}></div>
+          </div>
 
-              {/* Core Model Description */}
-              <div className="grid md:grid-cols-2 gap-16 mb-16">
-                <div className="space-y-12">
+          {/* Floating shapes remain the same */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.02]">
+            <div className="absolute inset-0 rotate-45 border border-[#14213D] rounded-3xl transform -translate-y-1/2"></div>
+            <div className="absolute inset-0 -rotate-45 border border-[#14213D] rounded-3xl transform translate-x-1/4"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative">
+            <div className="max-w-7xl mx-auto">
+              {/* Header section remains the same */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="mb-20" // Reduced from mb-32
+              >
+                {/* Dynamic line and header content remain the same */}
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: '100%' }}
+                  transition={{ duration: 1.5, ease: 'easeInOut' }}
+                  className="absolute -top-4 left-0 h-[1px] bg-gradient-to-r from-[#14213D] via-[#14213D]/50 to-transparent"
+                ></motion.div>
+
+                <div className="grid md:grid-cols-2 gap-16 items-center">
                   <div>
-                    <h3 className="text-2xl font-light text-[#1A1A1A] mb-4">The Bridge to Excellence</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Vector Summit acts as a sophisticated bridge between your business challenges and our curated network of industry experts, technical specialists, and strategic operators. We don't just connect – we orchestrate precise solutions through deep understanding and perfect alignment.
-                    </p>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A]">
+                        Network Model
+                      </h2>
+                    </motion.div>
                   </div>
                   
-                  <div>
-                    <h3 className="text-2xl font-light text-[#1A1A1A] mb-4">Aligned Interests</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Our entire network operates on an equity and profit-sharing model. From our team to our partners, everyone has a vested interest in your success. This creates a unique ecosystem where expertise meets commitment, driving exceptional outcomes.
-                    </p>
-                  </div>
-
-                  {/* White Paper Button - Inline with text */}
-                  <button
-                    onClick={() => setIsWhitePaperModalOpen(true)}
-                    className="inline-flex items-center text-[#14213D] hover:text-[#1C2E56] transition-colors group"
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 }}
+                    className="relative"
                   >
-                    <FileText className="w-5 h-5 mr-2" />
-                    <span className="font-medium">Download Our Network Model White Paper</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                    <div className="absolute -left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#14213D]/20 to-transparent"></div>
+                    <p className="text-xl text-gray-600 leading-relaxed">
+                      A revolutionary approach to advisory services, where expertise meets opportunity in perfect harmony.
+                    </p>
+                  </motion.div>
                 </div>
+              </motion.div>
 
-                <div className="space-y-8">
-                  <div className="bg-gray-50 rounded-2xl p-8">
-                    <div className="flex items-center space-x-4 mb-6">
-                      <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center">
-                        <Target className="w-5 h-5 text-[#14213D]" />
+              {/* Modified Content Grid */}
+              <div className="grid md:grid-cols-2 gap-12"> {/* Reduced gap from 20 to 12 */}
+                {/* Left Column - Concept Cards */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-6" // Reduced from space-y-8
+                >
+                  {[
+                    {
+                      number: "01",
+                      title: "Excellence Bridge",
+                      description: "Orchestrating precise solutions through elite expertise",
+                      icon: <Target className="w-6 h-6" />
+                    },
+                    {
+                      number: "02",
+                      title: "Aligned Success",
+                      description: "Partnership model ensuring shared growth trajectory",
+                      icon: <Users className="w-6 h-6" />
+                    }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item.number}
+                      whileHover={{ scale: 1.02 }}
+                      className="group relative bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.07)] transition-all duration-500"
+                    >
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#14213D] to-transparent rounded-tl-2xl rounded-bl-2xl transform origin-left transition-transform group-hover:scale-y-100 scale-y-0"></div>
+                      
+                      <div className="flex items-start gap-4"> {/* Reduced gap from 6 */}
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 rounded-xl bg-[#14213D]/5 flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-500">
+                            {React.cloneElement(item.icon, { 
+                              className: "text-[#14213D] group-hover:text-white transition-colors duration-500" 
+                            })}
+                          </div>
+                        </div>
+                        
+                        <div className="flex-grow">
+                          <div className="text-sm text-[#14213D]/60 mb-1 font-medium tracking-wider">
+                            {item.number}
+                          </div>
+                          <h3 className="text-2xl font-light text-[#1A1A1A] mb-2">
+                            {item.title}
+                          </h3>
+                          <p className="text-gray-600">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-[#1A1A1A]">Precision Matching</h4>
-                        <p className="text-sm text-gray-600">Expert alignment with your specific needs</p>
-                      </div>
-                    </div>
-                    <div className="pl-14">
-                      <div className="h-[1px] w-full bg-[#14213D] opacity-10 mb-6"></div>
-                      <ul className="space-y-3 text-gray-600">
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Deep business analysis</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Strategic network activation</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Tailored solution design</span>
-                        </li>
-                      </ul>
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                {/* Right Column - Value Creation Matrix */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="space-y-6"
+                >
+                  <div className="rounded-2xl p-8 border-2 border-[#14213D] text-[#14213D]">
+                    <h3 className="text-2xl font-light mb-6">Value Creation Matrix</h3>
+                    <div className="space-y-4">
+                      {[
+                        "Strategic Network Activation",
+                        "Performance-Based Alignment",
+                        "Expertise-Driven Solutions"
+                      ].map((item, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.2 * idx }}
+                          className="flex items-center gap-4"
+                        >
+                          <div className="w-2 h-2 rounded-full bg-[#14213D]/30"></div>
+                          <span className="text-[#14213D]/90">{item}</span>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
 
-                  <div className="bg-gray-50 rounded-2xl p-8">
-                    <div className="flex items-center space-x-4 mb-6">
-                      <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center">
-                        <Users className="w-5 h-5 text-[#14213D]" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-[#1A1A1A]">Shared Success</h4>
-                        <p className="text-sm text-gray-600">Performance-based partnership model</p>
-                      </div>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    onClick={() => setIsWhitePaperModalOpen(true)}
+                    className="w-full group bg-white rounded-xl p-6 flex items-center gap-6 border border-gray-100 hover:border-[#14213D] transition-all duration-500"
+                  >
+                    <div className="w-14 h-14 rounded-xl border-2 border-[#14213D] flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-500">
+                      <FileText className="w-6 h-6 text-[#14213D] group-hover:text-white transition-colors duration-500" />
                     </div>
-                    <div className="pl-14">
-                      <div className="h-[1px] w-full bg-[#14213D] opacity-10 mb-6"></div>
-                      <ul className="space-y-3 text-gray-600">
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Equity participation</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Revenue sharing structure</span>
-                        </li>
-                        <li className="flex items-center space-x-2">
-                          <div className="w-1 h-1 rounded-full bg-[#14213D]"></div>
-                          <span>Long-term value alignment</span>
-                        </li>
-                      </ul>
+                    <div className="text-left">
+                      <div className="text-sm text-[#14213D]/60 mb-1">Download</div>
+                      <div className="text-lg font-medium text-[#1A1A1A]">Network Model White Paper</div>
                     </div>
-                  </div>
-                </div>
+                  </motion.button>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -716,7 +773,7 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Core Values Section - Innovative Redesign */}
+        {/* Core Values Section */}
         <section className="py-32 bg-white relative">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
@@ -822,23 +879,6 @@ export default function AboutUs() {
                     </div>
                   ))}
                 </div>
-
-                {/* Bottom CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="mt-32 text-center"
-                >
-                  <button
-                    onClick={() => setIsCalOpen(true)}
-                    className="group inline-flex items-center gap-3 text-[#14213D] hover:text-[#1C2E56] transition-colors"
-                  >
-                    <span className="text-lg font-medium">Start Your Journey</span>
-                    <div className="w-10 h-10 rounded-full border border-current flex items-center justify-center group-hover:bg-[#14213D]/[0.02] transition-colors">
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-                    </div>
-                  </button>
-                </motion.div>
               </div>
             </div>
           </div>
