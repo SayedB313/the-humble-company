@@ -696,8 +696,16 @@ const MainComponent = () => {
                       transition={{ delay: index * 0.1 }}
                       className="group relative"
                     >
-                      <div className="flex items-center min-h-[140px] md:min-h-[140px] border-t border-[#14213D]/10 hover:bg-gradient-to-r hover:from-[#14213D]/[0.02] hover:to-transparent transition-all duration-700">
-                        <div className="w-full py-8">
+                      <div className="flex items-center min-h-[140px] md:min-h-[140px] border-t border-[#14213D]/10 
+                        hover:bg-gradient-to-r hover:from-[#14213D]/[0.05] hover:to-transparent 
+                        transition-all duration-700 relative overflow-hidden">
+                        {/* Add hover indicator line */}
+                        <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14213D] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                        
+                        {/* Add subtle hover background */}
+                        <div className="absolute inset-0 bg-[#14213D]/0 group-hover:bg-[#14213D]/[0.02] transition-colors duration-500"></div>
+
+                        <div className="w-full py-8 relative">
                           {/* Mobile Layout */}
                           <div className="md:hidden space-y-4 px-4">
                             <div className="flex items-center justify-between">
@@ -712,19 +720,10 @@ const MainComponent = () => {
                                   })}
                                 </div>
                               </div>
-                              
-                              {/* Arrow for mobile */}
-                              <motion.div 
-                                initial={{ x: -10, opacity: 0 }}
-                                whileHover={{ x: 0, opacity: 1 }}
-                                className="w-10 h-10 rounded-full border border-[#14213D]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700"
-                              >
-                                <ArrowRight className="w-4 h-4 text-[#14213D]" />
-                              </motion.div>
                             </div>
 
                             <div className="space-y-2">
-                              <h3 className="text-2xl font-medium text-[#14213D] group-hover:translate-x-2 transition-transform duration-500">
+                              <h3 className="text-2xl font-medium text-[#14213D]">
                                 {service.title}
                               </h3>
                               
@@ -735,6 +734,20 @@ const MainComponent = () => {
                               <p className="text-[#14213D]/60 leading-relaxed">
                                 {service.description}
                               </p>
+
+                              {/* Add explicit mobile CTA button */}
+                              <button 
+                                className="mt-4 w-full bg-[#14213D]/[0.03] hover:bg-[#14213D] text-[#14213D] hover:text-white 
+                                  py-3 px-4 rounded-lg flex items-center justify-between
+                                  transition-all duration-500 group border border-[#14213D]/10 hover:border-[#14213D]"
+                                onClick={(e) => {
+                                  e.stopPropagation(); // Prevent accidental clicks while scrolling
+                                  window.location.href = service.link;
+                                }}
+                              >
+                                <span className="text-sm font-medium tracking-wider">Learn More</span>
+                                <ArrowRight className="w-4 h-4" />
+                              </button>
                             </div>
                           </div>
 
@@ -773,18 +786,25 @@ const MainComponent = () => {
                               </p>
                             </div>
 
-                            {/* Arrow */}
+                            {/* Enhanced desktop arrow */}
                             <div className="col-span-1 flex justify-end pr-4">
                               <motion.div 
                                 initial={{ x: -10, opacity: 0 }}
                                 whileHover={{ x: 0, opacity: 1 }}
-                                className="w-10 h-10 rounded-full border border-[#14213D]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-700"
+                                className="w-10 h-10 rounded-full border border-[#14213D] flex items-center justify-center 
+                                  opacity-0 group-hover:opacity-100 transition-all duration-700
+                                  bg-[#14213D] group-hover:bg-[#14213D]"
                               >
-                                <ArrowRight className="w-4 h-4 text-[#14213D]" />
+                                <ArrowRight className="w-4 h-4 text-white" />
                               </motion.div>
                             </div>
                           </div>
                         </div>
+                      </div>
+
+                      {/* Add "Learn More" text */}
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:block">
+                        <span className="text-sm font-medium text-[#14213D] tracking-wider mr-2">Learn More</span>
                       </div>
                     </motion.div>
                   </Link>
