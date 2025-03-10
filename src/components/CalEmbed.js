@@ -2,23 +2,21 @@
 
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { X } from "lucide-react";
 
 export default function CalEmbed({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       (async function () {
-        const cal = await getCalApi({ "namespace": "30min-meeting" });
+        const cal = await getCalApi({"namespace":"vector-summit-advisory"});
         cal("ui", {
-          theme: "light",
-          styles: {
-            branding: {
-              brandColor: "#002147"
-            }
+          "theme":"light",
+          "cssVarsPerTheme":{
+            "light":{"cal-brand":"#14213D"}
           },
-          hideEventTypeDetails: false,
-          layout: "column_view"
+          "hideEventTypeDetails":false,
+          "layout":"month_view"
         });
       })();
 
@@ -64,8 +62,8 @@ export default function CalEmbed({ isOpen, onClose }) {
         
         <div className="w-full h-[80vh] max-h-[700px] min-h-[500px]">
           <Cal 
-            namespace="30min-meeting"
-            calLink="sayedb/30min-meeting"
+            namespace="vector-summit-advisory"
+            calLink="vector-summit/vector-summit-advisory"
             style={{
               width: "100%",
               height: "100%",

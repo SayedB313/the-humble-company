@@ -54,11 +54,10 @@ export default function AboutUs() {
       image: "/sayed-profile.jpg",
       name: "Sayed B Wayzi",
       title: "Managing Director",
-      shortDescription: "Strategic Growth & Capital Formation Expert",
+      shortDescription: "Strategic Growth Expert",
       fullBio: "Sayed brings extensive expertise in strategic growth advisory and capital formation. His approach combines sophisticated market intelligence with tactical execution to drive transformative outcomes. Specializes in architecting bespoke solutions for complex business challenges.",
       expertise: [
         "Strategic Growth Advisory",
-        "Capital Formation",
         "Business Transformation"
       ],
       education: "Business Administration & Management",
@@ -444,11 +443,11 @@ export default function AboutUs() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.2 }}
-                      className="bg-white rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D] cursor-pointer"
+                      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D] cursor-pointer"
                       onClick={() => setSelectedTeamMember(member)}
                     >
-                      <div className="flex flex-col items-center text-center mb-6">
-                        <div className="relative w-32 h-32 mb-6 rounded-full overflow-hidden">
+                      <div className="flex flex-col items-center text-center mb-4">
+                        <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden">
                           <Image
                             src={member.image}
                             alt={member.name}
@@ -456,29 +455,18 @@ export default function AboutUs() {
                             className="object-cover"
                           />
                         </div>
-                        <h4 className="text-2xl font-bold text-[#1A1A1A] mb-2">{member.name}</h4>
-                        <p className="text-[#14213D] font-medium mb-4">{member.title}</p>
-                        <div className="h-[2px] w-12 bg-[#14213D] opacity-20 mb-4"></div>
+                        <h4 className="text-xl font-bold text-[#1A1A1A] mb-1">{member.name}</h4>
+                        <p className="text-[#14213D] font-medium mb-2">{member.title}</p>
+                        <div className="h-[2px] w-12 bg-[#14213D] opacity-20 mb-2"></div>
                       </div>
                       
-                      <p className="text-gray-600 text-base mb-6 text-center">
+                      <p className="text-gray-600 text-sm mb-4 text-center">
                         {member.shortDescription}
                       </p>
                       
-                      <div className="flex flex-wrap gap-2 justify-center mb-6">
-                        {member.expertise.map((skill, idx) => (
-                          <span 
-                            key={idx}
-                            className="text-sm px-3 py-1 bg-gray-50 text-[#14213D] rounded-full"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                      
                       <div className="flex items-center justify-center text-[#14213D] hover:text-[#1C2E56] transition-colors group">
-                        <span className="font-medium">View Full Profile</span>
-                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                        <span className="font-medium text-sm">View Profile</span>
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </motion.div>
                   ))}
@@ -627,11 +615,11 @@ export default function AboutUs() {
 
                         <div className="flex items-start space-x-4">
                           <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center flex-shrink-0">
-                            <DollarSign className="w-5 h-5 text-[#14213D]" />
+                            <TrendingUp className="w-5 h-5 text-[#14213D]" />
                           </div>
                           <div>
-                            <h4 className="text-lg font-semibold text-[#1A1A1A] mb-1">Capital Formation</h4>
-                            <p className="text-gray-600">Successful Series B funding secured</p>
+                            <h4 className="text-lg font-semibold text-[#1A1A1A] mb-1">Strategic Growth</h4>
+                            <p className="text-gray-600">Comprehensive business transformation</p>
                           </div>
                         </div>
                       </div>
@@ -644,10 +632,6 @@ export default function AboutUs() {
                           <div className="text-3xl font-light text-[#14213D] mb-2">300%</div>
                           <div className="text-sm text-gray-600">Revenue Growth</div>
                         </div>
-                        <div className="p-6 bg-gray-50 rounded-xl">
-                          <div className="text-3xl font-light text-[#14213D] mb-2">$50M+</div>
-                          <div className="text-sm text-gray-600">Capital Raised</div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -656,7 +640,7 @@ export default function AboutUs() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="flex gap-2">
-                          {["Market Entry", "Series B", "Growth Strategy"].map((tag, idx) => (
+                          {["Market Entry", "Growth Strategy", "Digital Transformation"].map((tag, idx) => (
                             <span 
                               key={idx}
                               className="text-sm px-3 py-1 bg-gray-50 text-[#14213D] rounded-full"
