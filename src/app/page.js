@@ -537,7 +537,7 @@ const MainComponent = () => {
                 <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Strategic Growth Advisors</span>
+                  <span className="block mb-2 font-semibold">Strategic Network-Based Advisory</span>
                   <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
                     Bridging Visionary Leaders with Elite Networks
                   </span>
@@ -641,6 +641,179 @@ const MainComponent = () => {
               <p className="text-gray-600 text-lg font-light leading-relaxed">
                 Bridging traditional markets with digital innovation. We blend tech-driven strategy with proven principles to forge powerful partnerships. Our approach redefines growth in the modern age.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Capabilities Section */}
+        <section className="bg-white py-24">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="mb-20 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
+                  Core Capabilities
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              {/* Traditional Capabilities - Three Cards Above */}
+              <div className="grid md:grid-cols-3 gap-8 mb-24">
+                {capabilities.slice(0, 3).map((capability, index) => (
+                  <motion.div
+                    key={capability.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300"
+                  >
+                    <div className="flex flex-col h-full">
+                      <div className="mb-6">
+                        <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                          {capability.icon}
+                        </div>
+                        <h3 className="text-2xl sm:text-2xl md:text-2xl font-bold font-montserrat text-[#1A1A1A] mb-3 md:mb-4">
+                          {capability.title}
+                        </h3>
+                        <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
+                      </div>
+                      <p className="text-lg md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
+                        {capability.description}
+                      </p>
+                      <ul className="space-y-3 mt-auto">
+                        {capability.points.map((point, i) => (
+                          <li key={i} className="flex items-center gap-3 text-gray-600">
+                            <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Digital Intelligence - Bottom Piece */}
+              <div className="relative">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-3xl mx-auto text-center"
+                >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="bg-[#14213D] w-20 h-20 rounded-full flex items-center justify-center">
+                      <Cpu className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="mt-8">
+                    <h3 className="text-3xl font-bold font-montserrat text-[#1A1A1A] mb-4">
+                      Digital Intelligence
+                    </h3>
+                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
+                    <p className="text-gray-600 text-xl mb-8 leading-relaxed">
+                      Elevating traditional advisory through sophisticated digital capabilities. Our proprietary technology infrastructure enables deeper insights, precise execution, and transformative outcomes beyond conventional approaches.
+                    </p>
+                    <div className="grid grid-cols-3 gap-6">
+                      {[
+                        "Advanced analytics platform",
+                        "Intelligent market mapping",
+                        "Strategic automation suite"
+                      ].map((point, i) => (
+                        <div key={i} className="text-gray-600">
+                          <div className="bg-gray-50 rounded-lg p-4">
+                            {point}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Approach Section - Refined */}
+        <section className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Header */}
+              <div className="mb-24 max-w-3xl">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+                  Our Approach
+                </h2>
+                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+              </div>
+
+              {/* Content */}
+              <div className="grid md:grid-cols-2 gap-32">
+                {/* Left Column - Core Values */}
+                <div className="space-y-20">
+                  {[
+                    {
+                      title: "Performance-based",
+                      description: "Direct alignment through equity participation",
+                      icon: <Users className="w-6 h-6" />
+                    },
+                    {
+                      title: "Strategic Focus",
+                      description: "Selective engagement approach",
+                      icon: <Target className="w-6 h-6" />
+                    },
+                    {
+                      title: "Shared Success",
+                      description: "Revenue sharing and co-investment model",
+                      icon: <Award className="w-6 h-6" />
+                    }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                      className="group flex items-start gap-8"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-[#14213D]/[0.02] flex items-center justify-center group-hover:bg-[#14213D] transition-all duration-500">
+                        {React.cloneElement(item.icon, { 
+                          className: "text-[#14213D] group-hover:text-white transition-colors duration-500" 
+                        })}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-medium text-[#14213D] mb-2">{item.title}</h3>
+                        <p className="text-[#14213D]/60">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Right Column - Stats */}
+                <div className="relative pl-16 border-l border-[#14213D]/10">
+                  <div className="sticky top-32 space-y-16">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      className="group"
+                    >
+                      <div className="text-7xl font-light text-[#14213D]">75%</div>
+                      <div className="mt-4 text-sm text-[#14213D]/60 uppercase tracking-wider">
+                        Selective Rate
+                      </div>
+                    </motion.div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="group"
+                    >
+                      <div className="text-7xl font-light text-[#14213D]">100%</div>
+                      <div className="mt-4 text-sm text-[#14213D]/60 uppercase tracking-wider">
+                        Success Alignment
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -809,179 +982,6 @@ const MainComponent = () => {
                     </motion.div>
                   </Link>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Approach Section - Refined */}
-        <section className="py-32 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              {/* Header */}
-              <div className="mb-24 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
-                  Our Approach
-                </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
-
-              {/* Content */}
-              <div className="grid md:grid-cols-2 gap-32">
-                {/* Left Column - Core Values */}
-                <div className="space-y-20">
-                  {[
-                    {
-                      title: "Performance-based",
-                      description: "Direct alignment through equity participation",
-                      icon: <Users className="w-6 h-6" />
-                    },
-                    {
-                      title: "Strategic Focus",
-                      description: "Selective engagement approach",
-                      icon: <Target className="w-6 h-6" />
-                    },
-                    {
-                      title: "Shared Success",
-                      description: "Revenue sharing and co-investment model",
-                      icon: <Award className="w-6 h-6" />
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                      className="group flex items-start gap-8"
-                    >
-                      <div className="w-16 h-16 rounded-full bg-[#14213D]/[0.02] flex items-center justify-center group-hover:bg-[#14213D] transition-all duration-500">
-                        {React.cloneElement(item.icon, { 
-                          className: "text-[#14213D] group-hover:text-white transition-colors duration-500" 
-                        })}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-medium text-[#14213D] mb-2">{item.title}</h3>
-                        <p className="text-[#14213D]/60">{item.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Right Column - Stats */}
-                <div className="relative pl-16 border-l border-[#14213D]/10">
-                  <div className="sticky top-32 space-y-16">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      className="group"
-                    >
-                      <div className="text-7xl font-light text-[#14213D]">75%</div>
-                      <div className="mt-4 text-sm text-[#14213D]/60 uppercase tracking-wider">
-                        Selective Rate
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="group"
-                    >
-                      <div className="text-7xl font-light text-[#14213D]">100%</div>
-                      <div className="mt-4 text-sm text-[#14213D]/60 uppercase tracking-wider">
-                        Success Alignment
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Core Capabilities Section */}
-        <section className="bg-white py-24">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              {/* Section Header */}
-              <div className="mb-20 max-w-3xl">
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black mb-6">
-                  Core Capabilities
-                </h2>
-                <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
-
-              {/* Traditional Capabilities - Three Cards Above */}
-              <div className="grid md:grid-cols-3 gap-8 mb-24">
-                {capabilities.slice(0, 3).map((capability, index) => (
-                  <motion.div
-                    key={capability.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex flex-col h-full">
-                      <div className="mb-6">
-                        <div className="bg-[#14213D] w-14 h-14 rounded-full flex items-center justify-center mb-6">
-                          {capability.icon}
-                        </div>
-                        <h3 className="text-2xl sm:text-2xl md:text-2xl font-bold font-montserrat text-[#1A1A1A] mb-3 md:mb-4">
-                          {capability.title}
-                        </h3>
-                        <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                      </div>
-                      <p className="text-lg md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
-                        {capability.description}
-                      </p>
-                      <ul className="space-y-3 mt-auto">
-                        {capability.points.map((point, i) => (
-                          <li key={i} className="flex items-center gap-3 text-gray-600">
-                            <ArrowRight className="w-4 h-4 text-[#14213D] flex-shrink-0" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Digital Intelligence - Bottom Piece */}
-              <div className="relative">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-3xl mx-auto text-center"
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="bg-[#14213D] w-20 h-20 rounded-full flex items-center justify-center">
-                      <Cpu className="w-10 h-10 text-white" />
-                    </div>
-                  </div>
-                  <div className="mt-8">
-                    <h3 className="text-3xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                      Digital Intelligence
-                    </h3>
-                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mb-6"></div>
-                    <p className="text-gray-600 text-xl mb-8 leading-relaxed">
-                      Elevating traditional advisory through sophisticated digital capabilities. Our proprietary technology infrastructure enables deeper insights, precise execution, and transformative outcomes beyond conventional approaches.
-                    </p>
-                    <div className="grid grid-cols-3 gap-6">
-                      {[
-                        "Advanced analytics platform",
-                        "Intelligent market mapping",
-                        "Strategic automation suite"
-                      ].map((point, i) => (
-                        <div key={i} className="text-gray-600">
-                          <div className="bg-gray-50 rounded-lg p-4">
-                            {point}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
               </div>
             </div>
           </div>

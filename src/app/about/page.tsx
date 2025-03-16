@@ -20,32 +20,32 @@ export default function AboutUs() {
     {
       icon: <Shield className="w-8 h-8 text-[#14213D]" />,
       title: "Unwavering Integrity",
-      description: "We operate with absolute transparency and ethical clarity in every engagement. Our reputation is built on trust, confidentiality, and maintaining uncompromising professional standards across all interactions."
+      description: "Transparent and ethical practices in every engagement."
     },
     {
       icon: <Target className="w-8 h-8 text-[#14213D]" />,
       title: "Results-Driven Partnership",
-      description: "We align our incentives directly with your goals through equity partnerships and performance-based structures. Our success is measured solely by the transformative outcomes we achieve together."
+      description: "Success through aligned equity partnerships."
     },
     {
       icon: <Network className="w-8 h-8 text-[#14213D]" />,
       title: "Strategic Precision",
-      description: "We combine deep market intelligence with tactical execution expertise. Every recommendation is backed by rigorous analysis and delivered with clear, actionable implementation pathways."
+      description: "Data-driven solutions with tactical execution."
     },
     {
       icon: <Users className="w-8 h-8 text-[#14213D]" />,
       title: "Elite Expertise",
-      description: "Our selective engagement model ensures direct access to senior professionals. We maintain excellence by choosing partnerships where our specialized expertise can deliver transformative impact."
+      description: "Direct access to senior advisory talent."
     },
     {
       icon: <Rocket className="w-8 h-8 text-[#14213D]" />,
       title: "Accelerated Innovation",
-      description: "We leverage cutting-edge methodologies to stay ahead of market dynamics. Our forward-thinking solutions anticipate opportunities and create sustainable competitive advantages."
+      description: "Cutting-edge methods for market advantage."
     },
     {
       icon: <Globe className="w-8 h-8 text-[#14213D]" />,
       title: "Enduring Impact",
-      description: "We focus on building sustainable value that compounds over time. Our strategic initiatives create lasting positive changes in your market position and business trajectory."
+      description: "Creating sustainable long-term value."
     }
   ];
 
@@ -203,14 +203,14 @@ export default function AboutUs() {
                     transition={{ delay: 0.7 }}
                     className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
                     onClick={() => {
-                      const networkModelSection = document.querySelector('#network-model');
-                      networkModelSection?.scrollIntoView({ behavior: 'smooth' });
+                      const foundationSection = document.querySelector('#our-foundation');
+                      foundationSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Network Model</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Our Foundation</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -260,164 +260,130 @@ export default function AboutUs() {
           </div>
         </section>
 
-        {/* Network Model Section - Reimagined */}
-        <section id="network-model" className="py-32 relative overflow-hidden">
-          {/* Background patterns remain the same */}
-          <div className="absolute inset-0 bg-[#FAFAFA]">
+        {/* Combined Network Model & Core Values Section */}
+        <section id="our-foundation" className="py-24 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
+          {/* Background Elements */}
+          <div className="absolute inset-0">
             <div className="absolute inset-0" style={{
               backgroundImage: `radial-gradient(circle at 2px 2px, #14213D 1px, transparent 0)`,
               backgroundSize: '48px 48px',
-              opacity: 0.03
+              opacity: 0.02
             }}></div>
-          </div>
-
-          {/* Floating shapes remain the same */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.02]">
-            <div className="absolute inset-0 rotate-45 border border-[#14213D] rounded-3xl transform -translate-y-1/2"></div>
-            <div className="absolute inset-0 -rotate-45 border border-[#14213D] rounded-3xl transform translate-x-1/4"></div>
+            <div className="absolute right-0 w-[800px] h-[800px] bg-[#14213D]/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
           </div>
 
           <div className="container mx-auto px-4 relative">
             <div className="max-w-7xl mx-auto">
-              {/* Header section remains the same */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="mb-20" // Reduced from mb-32
-              >
-                {/* Dynamic line and header content remain the same */}
-                <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
-                  transition={{ duration: 1.5, ease: 'easeInOut' }}
-                  className="absolute -top-4 left-0 h-[1px] bg-gradient-to-r from-[#14213D] via-[#14213D]/50 to-transparent"
-                ></motion.div>
-
-                <div className="grid md:grid-cols-2 gap-16 items-center">
-                  <div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                    >
-                      <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A]">
-                        Network Model
-                      </h2>
-                    </motion.div>
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-4">
+                    Our Foundation
+                  </h2>
+                  <div className="flex items-center justify-center gap-4 mb-6">
+                    <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                    <span className="text-[#14213D] uppercase tracking-widest text-sm font-medium">Network Model & Core Values</span>
+                    <div className="h-[1px] w-8 bg-[#14213D]"></div>
                   </div>
-                  
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.7 }}
-                    className="relative"
-                  >
-                    <div className="absolute -left-8 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#14213D]/20 to-transparent"></div>
-                    <p className="text-xl text-gray-600 leading-relaxed">
-                      A revolutionary approach to advisory services, where expertise meets opportunity in perfect harmony.
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Modified Content Grid */}
-              <div className="grid md:grid-cols-2 gap-12"> {/* Reduced gap from 20 to 12 */}
-                {/* Left Column - Concept Cards */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-6" // Reduced from space-y-8
-                >
-                  {[
-                    {
-                      number: "01",
-                      title: "Excellence Bridge",
-                      description: "Orchestrating precise solutions through elite expertise",
-                      icon: <Target className="w-6 h-6" />
-                    },
-                    {
-                      number: "02",
-                      title: "Aligned Success",
-                      description: "Partnership model ensuring shared growth trajectory",
-                      icon: <Users className="w-6 h-6" />
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item.number}
-                      whileHover={{ scale: 1.02 }}
-                      className="group relative bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.07)] transition-all duration-500"
-                    >
-                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#14213D] to-transparent rounded-tl-2xl rounded-bl-2xl transform origin-left transition-transform group-hover:scale-y-100 scale-y-0"></div>
-                      
-                      <div className="flex items-start gap-4"> {/* Reduced gap from 6 */}
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 rounded-xl bg-[#14213D]/5 flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-500">
-                            {React.cloneElement(item.icon, { 
-                              className: "text-[#14213D] group-hover:text-white transition-colors duration-500" 
-                            })}
-                          </div>
-                        </div>
-                        
-                        <div className="flex-grow">
-                          <div className="text-sm text-[#14213D]/60 mb-1 font-medium tracking-wider">
-                            {item.number}
-                          </div>
-                          <h3 className="text-2xl font-light text-[#1A1A1A] mb-2">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-600">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
                 </motion.div>
+              </div>
 
-                {/* Right Column - Value Creation Matrix */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="space-y-6"
-                >
-                  <div className="rounded-2xl p-8 border-2 border-[#14213D] text-[#14213D]">
-                    <h3 className="text-2xl font-light mb-6">Value Creation Matrix</h3>
-                    <div className="space-y-4">
+              {/* Main Content Grid */}
+              <div className="grid lg:grid-cols-12 gap-8">
+                {/* Left Column - Network Model */}
+                <div className="lg:col-span-5">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+                  >
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-10 h-10 rounded-xl bg-[#14213D] flex items-center justify-center">
+                        <Network className="w-5 h-5 text-white" />
+                      </div>
+                      <h3 className="text-xl font-light text-[#1A1A1A]">Network Model</h3>
+                    </div>
+
+                    <div className="space-y-4 mb-6">
                       {[
-                        "Strategic Network Activation",
-                        "Performance-Based Alignment",
-                        "Expertise-Driven Solutions"
+                        {
+                          title: "Strategic Network Activation",
+                          description: "Leveraging elite expertise and connections for transformative outcomes",
+                          icon: <Target className="w-4 h-4" />
+                        },
+                        {
+                          title: "Performance-Based Alignment",
+                          description: "Direct incentive alignment through equity partnerships",
+                          icon: <TrendingUp className="w-4 h-4" />
+                        },
+                        {
+                          title: "Expertise-Driven Solutions",
+                          description: "Customized strategies backed by proven methodologies",
+                          icon: <Users className="w-4 h-4" />
+                        }
                       ].map((item, idx) => (
                         <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 * idx }}
-                          className="flex items-center gap-4"
+                          key={item.title}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.1 }}
+                          className="flex items-start gap-3 group"
                         >
-                          <div className="w-2 h-2 rounded-full bg-[#14213D]/30"></div>
-                          <span className="text-[#14213D]/90">{item}</span>
+                          <div className="w-8 h-8 rounded-lg bg-[#14213D]/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#14213D] transition-colors duration-300">
+                            {React.cloneElement(item.icon, { 
+                              className: "text-[#14213D] group-hover:text-white transition-colors duration-300" 
+                            })}
+                          </div>
+                          <div>
+                            <h4 className="text-base font-semibold text-[#1A1A1A] mb-0.5">{item.title}</h4>
+                            <p className="text-gray-600 text-sm">{item.description}</p>
+                          </div>
                         </motion.div>
                       ))}
                     </div>
-                  </div>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    onClick={() => setIsWhitePaperModalOpen(true)}
-                    className="w-full group bg-white rounded-xl p-6 flex items-center gap-6 border border-gray-100 hover:border-[#14213D] transition-all duration-500"
-                  >
-                    <div className="w-14 h-14 rounded-xl border-2 border-[#14213D] flex items-center justify-center group-hover:bg-[#14213D] transition-colors duration-500">
-                      <FileText className="w-6 h-6 text-[#14213D] group-hover:text-white transition-colors duration-500" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-sm text-[#14213D]/60 mb-1">Download</div>
-                      <div className="text-lg font-medium text-[#1A1A1A]">Network Model White Paper</div>
-                    </div>
-                  </motion.button>
-                </motion.div>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      onClick={() => setIsWhitePaperModalOpen(true)}
+                      className="w-full group bg-[#14213D] rounded-lg p-3 flex items-center justify-center gap-3 text-white hover:bg-[#1C2E56] transition-all duration-300 text-sm"
+                    >
+                      <FileText className="w-4 h-4" />
+                      <span>Download Network Model White Paper</span>
+                    </motion.button>
+                  </motion.div>
+                </div>
+
+                {/* Right Column - Core Values */}
+                <div className="lg:col-span-7">
+                  <div className="grid grid-cols-2 gap-4">
+                    {values.map((value, idx) => (
+                      <motion.div
+                        key={value.title}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="group bg-white rounded-lg p-4 shadow-sm border border-gray-100 hover:border-[#14213D] transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-[#14213D]/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#14213D] transition-colors duration-300">
+                            {React.cloneElement(value.icon, { 
+                              className: "w-5 h-5 text-[#14213D] group-hover:text-white transition-colors duration-300" 
+                            })}
+                          </div>
+                          <div>
+                            <h4 className="text-base font-semibold text-[#1A1A1A] mb-1">{value.title}</h4>
+                            <p className="text-gray-600 text-sm line-clamp-2">{value.description}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -582,286 +548,186 @@ export default function AboutUs() {
                   Our Impact
                 </h2>
                 <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
-              </div>
-
-              {/* Featured Case Studies */}
-              <div className="mb-24">
-                {/* MR&A Case Study */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-[#14213D] transition-all duration-500 shadow-sm hover:shadow-xl">
-                  <div className="grid md:grid-cols-12 gap-12">
-                    {/* Left Column - Main Content */}
-                    <div className="md:col-span-8 space-y-8">
-                      <div>
-                        <div className="flex items-center space-x-4 mb-6">
-                          <div className="h-[2px] w-12 bg-[#14213D] opacity-20"></div>
-                          <span className="text-[#14213D]/60 uppercase tracking-wider text-sm">Featured Success Story</span>
-                        </div>
-                        <h3 className="text-3xl font-light text-[#1A1A1A] mb-4">MR&A Strategic Growth Initiative</h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          Orchestrated comprehensive market expansion strategy resulting in 300% revenue growth and successful Series B funding round.
-                        </p>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="flex items-start space-x-4">
-                          <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center flex-shrink-0">
-                            <Target className="w-5 h-5 text-[#14213D]" />
-                          </div>
-                          <div>
-                            <h4 className="text-lg font-semibold text-[#1A1A1A] mb-1">Market Expansion</h4>
-                            <p className="text-gray-600">Strategic entry into key growth markets</p>
-                          </div>
-                        </div>
-
-                        <div className="flex items-start space-x-4">
-                          <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center flex-shrink-0">
-                            <TrendingUp className="w-5 h-5 text-[#14213D]" />
-                          </div>
-                          <div>
-                            <h4 className="text-lg font-semibold text-[#1A1A1A] mb-1">Strategic Growth</h4>
-                            <p className="text-gray-600">Comprehensive business transformation</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Right Column - Key Metrics */}
-                    <div className="md:col-span-4 flex flex-col justify-center">
-                      <div className="space-y-6">
-                        <div className="p-6 bg-gray-50 rounded-xl">
-                          <div className="text-3xl font-light text-[#14213D] mb-2">300%</div>
-                          <div className="text-sm text-gray-600">Revenue Growth</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-8 border-t border-gray-100">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className="flex gap-2">
-                          {["Market Entry", "Growth Strategy", "Digital Transformation"].map((tag, idx) => (
-                            <span 
-                              key={idx}
-                              className="text-sm px-3 py-1 bg-gray-50 text-[#14213D] rounded-full"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <button className="inline-flex items-center text-[#14213D] hover:text-[#1C2E56] transition-colors group">
-                        <span className="font-medium">Read Full Case Study</span>
-                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Portfolio Companies - Updated styling */}
-              <div className="mb-12">
-                <div className="flex items-center space-x-4">
-                  <div className="h-[2px] w-12 bg-[#14213D] opacity-20"></div>
-                  <span className="text-[#14213D]/60 uppercase tracking-wider text-sm">Companies Under Our Brand</span>
-                </div>
-                <h3 className="text-2xl font-light text-[#1A1A1A] mt-4">
-                  Strategic Ventures & Partnerships
-                </h3>
-                <p className="text-gray-600 mt-4 max-w-2xl">
-                  Select companies where we maintain direct operational involvement, representing our commitment to innovation across key sectors.
+                <p className="text-gray-600 mt-6 text-lg">
+                  Transformative outcomes across diverse industries and markets.
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-24">
-                {[
-                  {
-                    title: "FuturePrimeAI",
-                    description: "Advanced AI solutions for enterprise transformation",
-                    tags: ["AI & Machine Learning", "Enterprise Tech"],
-                    icon: <Cpu className="w-6 h-6 text-[#14213D]" />
-                  },
-                  {
-                    title: "EmailProtocol",
-                    description: "Next-generation email security and optimization",
-                    tags: ["Cybersecurity", "SaaS"],
-                    icon: <Shield className="w-6 h-6 text-[#14213D]" />
-                  },
-                  {
-                    title: "The Humble Company Co.",
-                    description: "Sustainable consumer products and retail innovation",
-                    tags: ["Consumer Goods", "Sustainability"],
-                    icon: <Globe className="w-6 h-6 text-[#14213D]" />
-                  }
-                ].map((company, index) => (
-                  <motion.div
-                    key={company.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D]"
-                  >
-                    <div className="flex flex-col h-full">
-                      <div className="bg-[#14213D]/5 w-12 h-12 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#14213D]/10 transition-colors">
-                        {company.icon}
-                      </div>
-                      <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                        {company.title}
-                      </h3>
-                      <div className="h-[2px] w-12 bg-[#14213D] mb-6"></div>
-                      <p className="text-gray-600 mb-6">
-                        {company.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {company.tags.map((tag, idx) => (
-                          <span 
-                            key={idx}
-                            className="bg-gray-50 text-[#14213D] px-3 py-1 rounded-full text-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-auto flex items-center text-[#14213D] group-hover:text-[#1C2E56] transition-colors">
-                        <span className="text-sm font-medium">Learn More</span>
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </div>
+              {/* Grid of Case Studies */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* MR&A */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">MR&A Strategic Growth Initiative</h3>
+                      <p className="text-sm text-gray-500">Nova Scotia, Canada</p>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Network Metrics */}
-              <div className="grid md:grid-cols-4 gap-8">
-                {[
-                  { metric: "200+", label: "Strategic Partners", sublabel: "Global network reach" },
-                  { metric: "15+", label: "Industry Verticals", sublabel: "Sector expertise" },
-                  { metric: "25+", label: "Global Markets", sublabel: "International presence" },
-                  { metric: "300%", label: "Average Growth", sublabel: "Client success rate" }
-                ].map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D] text-center"
-                  >
-                    <div className="text-3xl font-light text-[#14213D] mb-2">{item.metric}</div>
-                    <div className="h-[2px] w-12 bg-[#14213D] mx-auto mb-4"></div>
-                    <div className="text-[#1A1A1A] font-medium mb-1">{item.label}</div>
-                    <div className="text-gray-600 text-sm">{item.sublabel}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Core Values Section */}
-        <section className="py-32 bg-white relative">
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-          
-          <div className="container mx-auto px-4 relative">
-            <div className="max-w-7xl mx-auto">
-              {/* Section Header */}
-              <div className="flex flex-col items-center text-center mb-24">
-                <h2 className="text-6xl md:text-7xl lg:text-8xl font-light font-montserrat tracking-wider text-[#1A1A1A]">
-                  Core Values
-                </h2>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="h-[1px] w-12 bg-[#14213D]"></div>
-                  <span className="text-[#14213D] uppercase tracking-widest text-sm font-medium">Our Foundation</span>
-                  <div className="h-[1px] w-12 bg-[#14213D]"></div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">300% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Orchestrated comprehensive market expansion strategy resulting in substantial revenue growth and successful Series B funding round.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Market Entry", "Growth Strategy", "Digital Transformation"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Main Content */}
-              <div className="relative">
-                {/* Central Line */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#14213D]/20 to-transparent"></div>
-
-                {/* Content Sections */}
-                <div className="space-y-32">
-                  {values.map((value, index) => (
-                    <div key={value.title} className="grid md:grid-cols-2 gap-16 items-center">
-                      {index % 2 === 0 ? (
-                        <>
-                          <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-right pr-16 relative"
-                          >
-                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-16 h-[1px] bg-[#14213D]/20"></div>
-                            <span className="text-sm uppercase tracking-widest text-[#14213D]/60 mb-2 block">0{index + 1}</span>
-                            <h3 className="text-3xl font-light text-[#14213D] mb-4">{value.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                              {value.description}
-                            </p>
-                          </motion.div>
-                          <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
-                            className="pl-16"
-                          >
-                            <div className="relative h-40 bg-[#14213D]/[0.02] rounded-lg p-8 flex items-center group hover:bg-[#14213D]/[0.05] transition-all duration-500">
-                              <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-[#14213D]/0 via-[#14213D]/20 to-[#14213D]/0"></div>
-                              <div className="flex items-center gap-6">
-                                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center">
-                                  {React.cloneElement(value.icon, { className: "w-8 h-8 text-[#14213D]" })}
-                                </div>
-                                <div className="flex-1">
-                                  <div className="h-[2px] w-12 bg-[#14213D]/20 mb-4"></div>
-                                  <p className="text-gray-600 leading-relaxed italic">
-                                    {value.description.split('.')[0] + '.'}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </motion.div>
-                        </>
-                      ) : (
-                        <>
-                          <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
-                            className="pr-16 order-2 md:order-1"
-                          >
-                            <div className="relative h-40 bg-[#14213D]/[0.02] rounded-lg p-8 flex items-center group hover:bg-[#14213D]/[0.05] transition-all duration-500">
-                              <div className="absolute top-0 left-0 w-[2px] h-full bg-gradient-to-b from-[#14213D]/0 via-[#14213D]/20 to-[#14213D]/0"></div>
-                              <div className="flex items-center gap-6">
-                                <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center">
-                                  {React.cloneElement(value.icon, { className: "w-8 h-8 text-[#14213D]" })}
-                                </div>
-                                <div className="flex-1">
-                                  <div className="h-[2px] w-12 bg-[#14213D]/20 mb-4"></div>
-                                  <p className="text-gray-600 leading-relaxed italic">
-                                    {value.description.split('.')[0] + '.'}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </motion.div>
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="pl-16 relative order-1 md:order-2"
-                          >
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-16 h-[1px] bg-[#14213D]/20"></div>
-                            <span className="text-sm uppercase tracking-widest text-[#14213D]/60 mb-2 block">0{index + 1}</span>
-                            <h3 className="text-3xl font-light text-[#14213D] mb-4">{value.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">
-                              {value.description}
-                            </p>
-                          </motion.div>
-                        </>
-                      )}
+                {/* The Humble Company */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">The Humble Company</h3>
+                      <p className="text-sm text-gray-500">Toronto, Canada</p>
                     </div>
-                  ))}
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">250% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Revolutionized business networking through innovative connection platforms, facilitating strategic partnerships and cross-industry collaborations.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Business Networking", "Partnership Development", "Industry Integration"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* BenchMrkPro */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">BenchMrkPro</h3>
+                      <p className="text-sm text-gray-500">Gananoque, Canada</p>
+                    </div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">180% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Pioneered innovative crypto advisory solutions, providing strategic guidance for digital asset management and blockchain integration.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Crypto Advisory", "Digital Assets", "Blockchain Strategy"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Mobile Capital Inc. */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">Mobile Capital Inc.</h3>
+                      <p className="text-sm text-gray-500">Toronto, Canada</p>
+                    </div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">220% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Established comprehensive mobile device import-export operations across USA, Canada, and UAE markets, optimizing global supply chain networks.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Import/Export", "Mobile Devices", "Global Markets"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* National First Financial */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">National First Financial</h3>
+                      <p className="text-sm text-gray-500">California, USA</p>
+                    </div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">400% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Facilitated global market expansion into emerging economies and third-world countries, establishing sustainable financial infrastructure.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Global Markets", "Emerging Economies", "Infrastructure Development"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sunrise 7KM */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">Sunrise 7KM</h3>
+                      <p className="text-sm text-gray-500">Odessa, Ukraine</p>
+                    </div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">150% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Established robust international import-export operations across China, Ukraine, and Europe through strategic trade partnerships.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Import/Export", "Global Trade", "Supply Chain"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sunray Energy Solutions */}
+                <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#14213D] transition-all duration-300 shadow-sm hover:shadow-lg">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#1A1A1A] mb-2">Sunray Energy Solutions</h3>
+                      <p className="text-sm text-gray-500">California, USA</p>
+                    </div>
+                    <div className="bg-[#14213D]/5 px-4 py-2 rounded-full">
+                      <span className="text-[#14213D] font-semibold">200% Growth</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-6">
+                    Pioneered comprehensive renewable energy solutions across residential and commercial sectors, specializing in solar and battery storage.
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {["Solar & Wind", "Battery Storage", "Clean Energy"].map((tag, idx) => (
+                      <span key={idx} className="px-3 py-1 bg-gray-50 text-[#14213D] rounded-full text-xs">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
