@@ -36,80 +36,69 @@ const StrategicAdvisoryComponent = () => {
   const services = [
     {
       icon: <Target className="w-10 h-10 text-white" />,
-      title: "Market Strategy",
-      description: "Data-driven market expansion and positioning strategies",
+      title: "Market Defense Strategy",
+      description: "Protect and expand market share against aggressive competitors",
       benefits: [
-        "Market opportunity analysis",
-        "Entry strategy development",
-        "Geographic expansion planning",
-        "Competitive positioning"
-      ],
-      capabilities: [
-        "Market analysis",
-        "Industry Expertise",
-        "Competitive positioning"
-      ],
-      color: "amber"
-    },
-    {
-      icon: <Network className="w-10 h-10 text-white" />,
-      title: "Business Transformation",
-      description: "End-to-end transformation of operations and technology to drive sustainable growth",
-      benefits: [
-        "Digital enablement",
-        "Process optimization",
-        "Change management"
-      ],
-      capabilities: [
-        "Digital enablement",
-        "Process optimization",
-        "Change management"
-      ],
-      color: "violet"
-    },
-    {
-      icon: <TrendingUp className="w-10 h-10 text-white" />,
-      title: "Strategic Planning",
-      description: "Long-term growth roadmap and partnership development",
-      benefits: [
-        "Growth planning",
-        "Partnership strategy",
-        "Implementation roadmap",
-        "Performance metrics"
+        "Prevent revenue erosion from competitor advances",
+        "Identify and neutralize competitive threats",
+        "Secure dominant market positioning",
+        "Outmaneuver emerging market disruptors"
       ]
     },
     {
       icon: <Shield className="w-10 h-10 text-white" />,
-      title: "Risk Management",
-      description: "Comprehensive risk assessment and mitigation strategies",
+      title: "Risk & Compliance Shield",
+      description: "Protect your business from devastating regulatory and legal risks",
       benefits: [
-        "Geopolitical risk analysis",
-        "Regulatory compliance",
-        "Crisis management",
-        "Business continuity"
+        "Prevent costly compliance violations",
+        "Protect board and shareholder confidence",
+        "Avoid reputation-damaging incidents",
+        "Secure against operational vulnerabilities"
+      ]
+    },
+    {
+      icon: <TrendingUp className="w-10 h-10 text-white" />,
+      title: "Growth Acceleration",
+      description: "Deliver exceptional returns that silence skeptical investors",
+      benefits: [
+        "Exceed growth expectations",
+        "Strengthen investor confidence",
+        "Accelerate market capture",
+        "Maximize valuation metrics"
+      ]
+    },
+    {
+      icon: <Network className="w-10 h-10 text-white" />,
+      title: "Digital Dominance",
+      description: "Don't let digital disruptors steal your market position",
+      benefits: [
+        "Prevent digital disruption threats",
+        "Modernize before competitors",
+        "Protect against tech obsolescence",
+        "Secure digital market leadership"
       ]
     },
     {
       icon: <Users className="w-10 h-10 text-white" />,
-      title: "Organizational Design",
-      description: "Strategic restructuring and talent optimization",
+      title: "Talent & Culture Shield",
+      description: "Prevent talent exodus and protect your operational backbone",
       benefits: [
-        "Org structure design",
-        "Change management",
-        "Talent strategy",
-        "Culture transformation"
+        "Retain crucial executive talent",
+        "Prevent competitive poaching",
+        "Maintain operational stability",
+        "Protect institutional knowledge"
       ]
     },
     {
-      icon: <DollarSign className="w-8 h-8" />,
-      title: "Capital Raising",
-      description: "Strategic capital solutions and funding opportunities for growth",
-      capabilities: [
-        "Growth financing",
-        "Strategic investors",
-        "Transaction advisory"
-      ],
-      color: "emerald"
+      icon: <DollarSign className="w-10 h-10 text-white" />,
+      title: "Capital Protection",
+      description: "Secure your financial position and investor confidence",
+      benefits: [
+        "Protect against funding disruptions",
+        "Maintain strong investor relations",
+        "Prevent valuation erosion",
+        "Secure strategic capital access"
+      ]
     }
   ];
 
@@ -157,19 +146,19 @@ const StrategicAdvisoryComponent = () => {
   const heroHighlights = [
     { 
       title: "Market Strategy", 
-      description: "Expansion & positioning"
+      description: "Navigate complex market dynamics"
     },
     { 
-      title: "Digital Transform", 
-      description: "Technology enablement"
+      title: "Digital Evolution", 
+      description: "Future-proof your operations"
     },
     { 
       title: "Risk Management", 
-      description: "Geopolitical analysis"
+      description: "Protect strategic interests"
     },
     { 
-      title: "Restructuring", 
-      description: "Organizational design"
+      title: "Business Architecture", 
+      description: "Optimize organizational structure"
     }
   ];
 
@@ -264,7 +253,7 @@ const StrategicAdvisoryComponent = () => {
                   <div className="flex items-center space-x-4">
                     <div className="h-[2px] w-12 bg-white"></div>
                     <span className="text-white uppercase tracking-wider text-sm font-semibold">
-                      Business Transformation
+                      Strategic Excellence
                     </span>
                   </div>
                   
@@ -275,7 +264,7 @@ const StrategicAdvisoryComponent = () => {
                 </div>
                 
                 <p className="text-base sm:text-lg md:text-xl font-medium text-gray-300 max-w-xl leading-relaxed">
-                  Driving business transformation through comprehensive strategy development and execution
+                  Securing your market position through precise strategy and elite expertise
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -294,16 +283,16 @@ const StrategicAdvisoryComponent = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
-                    className="flex items-center space-x-4 text-white hover:text-violet-300 transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
+                    className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer w-full sm:w-auto pl-4 sm:pl-0 justify-start sm:justify-center"
                     onClick={() => {
-                      const strategicApproachSection = document.querySelector('#strategic-approach');
-                      strategicApproachSection?.scrollIntoView({ behavior: 'smooth' });
+                      const servicesSection = document.querySelector('#comprehensive-services');
+                      servicesSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                       <ChevronDown className="w-6 h-6" />
                     </div>
-                    <span className="text-sm uppercase tracking-wider font-bold">Strategic Approach</span>
+                    <span className="text-sm uppercase tracking-wider font-bold">Our Services</span>
                   </motion.div>
                 </div>
               </motion.div>
@@ -342,8 +331,8 @@ const StrategicAdvisoryComponent = () => {
             transition={{ delay: 1.2 }}
             className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
             onClick={() => {
-              const strategicApproachSection = document.querySelector('#strategic-approach');
-              strategicApproachSection?.scrollIntoView({ behavior: 'smooth' });
+              const servicesSection = document.querySelector('#comprehensive-services');
+              servicesSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             <motion.div
@@ -362,51 +351,179 @@ const StrategicAdvisoryComponent = () => {
           </motion.div>
         </section>
 
+        {/* Comprehensive Services Section */}
+        <section id="comprehensive-services" className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]"></div>
+          <div className="container mx-auto px-4 relative">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-16">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-4">
+                    Advisory Network
+                  </h2>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                    <span className="text-[#14213D] uppercase tracking-widest text-sm font-medium">Elite Expertise</span>
+                    <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                  </div>
+                  <p className="text-gray-600 text-lg max-w-3xl">
+                    Access world-class industry veterans who've navigated complex market challenges at the highest levels.
+                  </p>
+                </motion.div>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service, idx) => (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg border border-gray-100 hover:border-[#14213D] transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-lg bg-[#14213D] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        {React.cloneElement(service.icon, { 
+                          className: "w-6 h-6 text-white" 
+                        })}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-semibold text-[#1A1A1A]">{service.title}</h3>
+                        <p className="text-gray-500 text-sm mt-1">{service.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {service.benefits?.map((benefit, index) => (
+                        <div key={index} className="flex items-center gap-3 text-sm text-gray-600">
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#14213D] group-hover:scale-150 transition-transform"></div>
+                          <span>{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Strategic Process Steps - More Compact Design */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  {
+                    step: "01",
+                    title: "Understand",
+                    description: "Deep analysis of your business challenges and objectives",
+                    icon: <Search className="w-6 h-6" />
+                  },
+                  {
+                    step: "02",
+                    title: "Connect",
+                    description: "Match your needs with precise strategic solutions",
+                    icon: <Network className="w-6 h-6" />
+                  },
+                  {
+                    step: "03",
+                    title: "Transform",
+                    description: "Guide implementation and drive measurable results",
+                    icon: <RefreshCw className="w-6 h-6" />
+                  }
+                ].map((process, index) => (
+                  <motion.div
+                    key={process.step}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="relative group"
+                  >
+                    <div className="bg-white rounded-xl border border-[#14213D]/10 hover:border-[#14213D]/30 transition-all duration-300 h-full p-6">
+                      <div className="flex items-center gap-4 mb-4">
+                        {/* Icon Container */}
+                        <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center">
+                          {React.cloneElement(process.icon, { 
+                            className: "text-[#14213D]" 
+                          })}
+                        </div>
+                        {/* Step Number */}
+                        <div className="text-violet-400 text-sm font-medium">
+                          {process.step}
+                        </div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-semibold text-[#1A1A1A]">
+                          {process.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                          {process.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Strategic Approach Section */}
-        <section id="strategic-approach" className="py-32 bg-white relative">
+        <section id="strategic-approach" className="py-24 bg-white relative">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="max-w-3xl mx-auto text-center mb-24"
+                className="max-w-3xl mx-auto text-center mb-16"
               >
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
-                  Strategic Approach
+                  Immediate Action Plan
                 </h2>
                 <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-6 mb-8"></div>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  We bridge the gap between business challenges and strategic solutions, connecting your needs with precise expertise.
+                  Preemptive measures to fortify your position before competitors make their move.
                 </p>
               </motion.div>
 
               {/* Strategic Elements */}
-              <div className="grid md:grid-cols-2 gap-16 items-center mb-24">
+              <div className="grid md:grid-cols-2 gap-16 items-center">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   className="space-y-12"
                 >
                   <div>
-                    <h3 className="text-2xl font-light text-[#14213D] mb-4">Your Challenges</h3>
+                    <h3 className="text-2xl font-light text-[#14213D] mb-4">Imminent Threats</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Every business faces unique challenges requiring specific expertise and strategic guidance. We understand these complexities and transform them into opportunities.
+                      Time-sensitive challenges requiring immediate executive attention to prevent catastrophic outcomes.
                     </p>
                   </div>
 
                   <div className="space-y-6">
                     {[
                       {
-                        title: "Market Positioning",
-                        description: "Finding your competitive edge"
+                        title: "Revenue Collapse",
+                        description: "Emerging players capturing core revenue streams within 90 days"
                       },
                       {
-                        title: "Growth Barriers",
-                        description: "Overcoming expansion challenges"
+                        title: "Investor Exodus",
+                        description: "Key stakeholders preparing exit strategies due to missed projections"
                       },
                       {
-                        title: "Operational Efficiency",
-                        description: "Optimizing business processes"
+                        title: "Compliance Penalties",
+                        description: "Impending regulatory changes threatening seven-figure fines"
+                      },
+                      {
+                        title: "Innovation Gap",
+                        description: "Market leaders launching superior solutions next quarter"
                       }
                     ].map((challenge, index) => (
                       <motion.div
@@ -432,25 +549,29 @@ const StrategicAdvisoryComponent = () => {
                   className="space-y-12"
                 >
                   <div>
-                    <h3 className="text-2xl font-light text-[#14213D] mb-4">Our Solutions</h3>
+                    <h3 className="text-2xl font-light text-[#14213D] mb-4">Rapid Response</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      Through our extensive network and expertise, we craft tailored solutions that align perfectly with your strategic objectives.
+                      Swift, decisive actions that neutralize threats and seize control of your market narrative.
                     </p>
                   </div>
 
                   <div className="space-y-6">
                     {[
                       {
-                        title: "Strategic Planning",
-                        description: "Data-driven market strategies"
+                        title: "First-Strike Advantage",
+                        description: "Outmaneuver competitors before they fully mobilize"
                       },
                       {
-                        title: "Network Access",
-                        description: "Industry expertise connection"
+                        title: "Stakeholder Alignment",
+                        description: "Rally board support behind your executive vision"
                       },
                       {
-                        title: "Implementation Support",
-                        description: "Hands-on execution guidance"
+                        title: "Compliance Fortress",
+                        description: "Build ironclad safeguards against regulatory action"
+                      },
+                      {
+                        title: "Innovation Acceleration",
+                        description: "Fast-track development of market-leading capabilities"
                       }
                     ].map((solution, index) => (
                       <motion.div
@@ -469,181 +590,6 @@ const StrategicAdvisoryComponent = () => {
                     ))}
                   </div>
                 </motion.div>
-              </div>
-
-              {/* Process Flow */}
-              <div className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-3 gap-8">
-                  {[
-                    {
-                      step: "01",
-                      title: "Understand",
-                      description: "Deep analysis of your business challenges and objectives",
-                      icon: <Search className="w-6 h-6" />
-                    },
-                    {
-                      step: "02",
-                      title: "Connect",
-                      description: "Match your needs with precise strategic solutions",
-                      icon: <Network className="w-6 h-6" />
-                    },
-                    {
-                      step: "03",
-                      title: "Transform",
-                      description: "Guide implementation and drive measurable results",
-                      icon: <RefreshCw className="w-6 h-6" />
-                    }
-                  ].map((process, index) => (
-                    <motion.div
-                      key={process.step}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                      className="relative group"
-                    >
-                      <div className="bg-white p-8 rounded-xl border border-gray-100 hover:border-violet-200 transition-colors duration-300">
-                        <div className="text-sm text-violet-400 mb-4">{process.step}</div>
-                        <div className="w-12 h-12 bg-gray-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-violet-50 transition-colors">
-                          {React.cloneElement(process.icon, { className: "text-[#14213D] group-hover:text-violet-400 transition-colors" })}
-                        </div>
-                        <h3 className="text-xl font-medium text-[#14213D] mb-3">{process.title}</h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {process.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Strategic Services Section */}
-        <section className="py-32 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="text-center mb-24"
-              >
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#14213D]">
-                  Comprehensive Services
-                </h2>
-                <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-6 mb-8"></div>
-                <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                  Strategic solutions tailored to your specific needs, delivered through our expert network
-                </p>
-              </motion.div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: <TrendingUp className="w-8 h-8" />,
-                    title: "Business Transformation",
-                    description: "End-to-end transformation of operations and technology to drive sustainable growth",
-                    capabilities: [
-                      "Digital enablement",
-                      "Process optimization",
-                      "Change management"
-                    ],
-                    color: "violet"
-                  },
-                  {
-                    icon: <DollarSign className="w-8 h-8" />,
-                    title: "Capital Raising",
-                    description: "Strategic capital solutions and funding opportunities for growth",
-                    capabilities: [
-                      "Growth financing",
-                      "Strategic investors",
-                      "Transaction advisory"
-                    ],
-                    color: "emerald"
-                  },
-                  {
-                    icon: <Network className="w-8 h-8" />,
-                    title: "Strategic Partnerships",
-                    description: "Connecting you with key industry players and opportunities",
-                    capabilities: [
-                      "Network access",
-                      "Alliance building",
-                      "Joint ventures"
-                    ],
-                    color: "emerald"
-                  },
-                  {
-                    icon: <Target className="w-8 h-8" />,
-                    title: "Market Strategy",
-                    description: "Data-driven market expansion and positioning strategies",
-                    capabilities: [
-                      "Market analysis",
-                      "Industry Expertise",
-                      "Competitive positioning"
-                    ],
-                    color: "amber"
-                  },
-                  {
-                    icon: <Users className="w-8 h-8" />,
-                    title: "Organizational Design",
-                    description: "Optimizing structure and talent for maximum performance",
-                    capabilities: [
-                      "Talent strategy",
-                      "Structure optimization",
-                      "Firm Restructuring"
-                    ],
-                    color: "rose"
-                  },
-                  {
-                    icon: <Shield className="w-8 h-8" />,
-                    title: "Risk Management",
-                    description: "Comprehensive risk assessment and mitigation strategies",
-                    capabilities: [
-                      "Geopolitical Risk Strategy",
-                      "Compliance strategy",
-                      "Crisis management"
-                    ],
-                    color: "indigo"
-                  }
-                ].map((service, index) => (
-                  <motion.div
-                    key={service.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500"
-                  >
-                    {/* Decorative Background Element */}
-                    <div className={`absolute top-0 right-0 w-32 h-32 bg-${service.color}-50 rounded-bl-full rounded-tr-2xl opacity-20 transition-all duration-500 group-hover:w-full group-hover:h-full group-hover:rounded-2xl group-hover:opacity-30`}></div>
-
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className={`w-12 h-12 rounded-xl bg-${service.color}-50 flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                          {React.cloneElement(service.icon, { className: `text-${service.color}-500` })}
-                        </div>
-                        <h3 className="text-2xl font-bold font-montserrat text-[#1A1A1A] mb-4">
-                          {service.title}
-                        </h3>
-                      </div>
-
-                      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                        {service.description}
-                      </p>
-
-                      <div className="space-y-3">
-                        {service.capabilities.map((capability, idx) => (
-                          <div 
-                            key={idx}
-                            className="text-sm text-gray-600"
-                          >
-                            {capability}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
               </div>
             </div>
           </div>

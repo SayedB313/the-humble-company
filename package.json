@@ -23,7 +23,8 @@
     "tailwind-scrollbar": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "22.10.1",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.10",
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
