@@ -9,12 +9,8 @@ export default function CalEmbed({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
       (async function () {
-        const cal = await getCalApi({"namespace":"vector-summit-advisory"});
+        const cal = await getCalApi({"namespace":"vsa"});
         cal("ui", {
-          "theme":"light",
-          "cssVarsPerTheme":{
-            "light":{"cal-brand":"#14213D"}
-          },
           "hideEventTypeDetails":false,
           "layout":"month_view"
         });
@@ -62,8 +58,8 @@ export default function CalEmbed({ isOpen, onClose }) {
         
         <div className="w-full h-[80vh] max-h-[700px] min-h-[500px]">
           <Cal 
-            namespace="vector-summit-advisory"
-            calLink="vector-summit/vector-summit-advisory"
+            namespace="vsa"
+            calLink="vector-summit/vsa"
             style={{
               width: "100%",
               height: "100%",
@@ -72,7 +68,7 @@ export default function CalEmbed({ isOpen, onClose }) {
             }}
             config={{
               layout: "month_view",
-              theme: "light"
+              theme: "auto"
             }}
           />
         </div>
