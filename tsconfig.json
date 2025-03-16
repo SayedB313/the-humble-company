@@ -21,7 +21,17 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "framer-motion"
+    ],
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",

@@ -3,11 +3,17 @@
 import React from 'react';
 import Link from "next/link";
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, Globe, Shield, Rocket, Award, FileText, Download, X, Cpu } from "lucide-react";
 import Navigation from '../../components/ui/Navigation';
 import CalEmbed from '../../components/CalEmbed';
 import { CldVideoPlayer } from 'next-cloudinary';
+
+const motionVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+}
 
 export default function AboutUs() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -298,7 +304,7 @@ export default function AboutUs() {
                 <div className="lg:col-span-5">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                     className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
                   >
@@ -307,7 +313,7 @@ export default function AboutUs() {
                         <Network className="w-5 h-5 text-white" />
                       </div>
                       <h3 className="text-xl font-light text-[#1A1A1A]">Network Model</h3>
-                    </div>
+                    </div>,
 
                     <div className="space-y-4 mb-6">
                       {[
@@ -345,7 +351,7 @@ export default function AboutUs() {
                           </div>
                         </motion.div>
                       ))}
-                    </div>
+                    </div>,
 
                     <motion.button
                       whileHover={{ scale: 1.02 }}

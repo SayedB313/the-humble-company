@@ -1,5 +1,6 @@
 import './globals.css'
-import { Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google'
+import { Metadata } from 'next'
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -9,7 +10,7 @@ const montserrat = Montserrat({
   preload: true,
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Vector Summit | Strategic Growth & Investment Advisory',
   description: 'Elite strategic advisory firm specializing in growth capital, strategic partnerships, and value creation. Enabling businesses to scale through tailored financial solutions and strategic guidance.',
   keywords: 'strategic advisory, growth capital, equity raising, strategic partnerships, joint ventures, minority recapitalization, market expansion, business transformation, investment advisory',
@@ -34,7 +35,11 @@ export const viewport = {
   themeColor: '#14213D',
 }
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${montserrat.variable}`}>
       <head>

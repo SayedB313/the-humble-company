@@ -12,6 +12,21 @@ import CalEmbed from '../components/CalEmbed'
 import ServicesDropdown from '../components/ui/ServicesDropdown';
 import Navigation from '../components/ui/Navigation';
 
+// Add this at the top of the file, after the imports
+declare global {
+  interface Window {
+    Calendly?: {
+      initBadgeWidget: (config: {
+        url: string;
+        text: string;
+        color: string;
+        textColor: string;
+        branding: undefined;
+      }) => void;
+    };
+  }
+}
+
 const MainComponent = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -59,7 +74,7 @@ const MainComponent = () => {
 
   useEffect(() => {
     // This will ensure Calendly is initialized after the component mounts
-    if (window.Calendly) {
+    if (typeof window !== 'undefined' && window.Calendly) {
       window.Calendly.initBadgeWidget({
         url: 'https://calendly.com/vectorasylum/strategy',
         text: 'Book Strategy Session',
