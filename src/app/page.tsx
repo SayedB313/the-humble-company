@@ -564,14 +564,14 @@ const MainComponent = () => {
                   transition={{ delay: 0.7 }}
                   className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer"
                   onClick={() => {
-                    const expertiseSection = document.querySelector('#expertise');
-                    expertiseSection?.scrollIntoView({ behavior: 'smooth' });
+                    const connectingDotsSection = document.querySelector('#connecting-dots');
+                    connectingDotsSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                     <ChevronDown className="w-6 h-6" />
                   </div>
-                  <span className="text-sm uppercase tracking-wider font-bold">Our Expertise</span>
+                  <span className="text-sm uppercase tracking-wider font-bold">Connecting Critical Dots</span>
                 </motion.div>
               </motion.div>
             </div>
@@ -579,7 +579,7 @@ const MainComponent = () => {
         </section>
 
         {/* Introduction Section */}
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section id="connecting-dots" className="py-24 bg-white relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               {/* Background Elements */}
@@ -961,6 +961,137 @@ const MainComponent = () => {
                         </div>
                       </div>
                     </div>
+                  </motion.div>
+                </div>
+              </div>
+            </section>
+
+            {/* Connecting Arrow */}
+            <div className="relative h-32 flex items-center justify-center">
+              <div className="w-[2px] h-full bg-gradient-to-b from-[#14213D]/20 to-[#14213D]/5"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 rotate-45 w-6 h-6 
+                border-r-2 border-b-2 border-[#14213D]/20"></div>
+            </div>
+
+            {/* Services Section */}
+            <section className="py-16 bg-white relative overflow-hidden">
+              <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto">
+                  {/* Section Header */}
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-12"
+                  >
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-black mb-6">
+                      Our Services
+                    </h2>
+                    <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-8"></div>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-8">
+                      Strategic solutions for market leadership
+                    </p>
+                  </motion.div>
+
+                  {/* Services Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                      {
+                        title: "Strategic Advisory",
+                        description: "Expert guidance to navigate complex market challenges and seize opportunities.",
+                        icon: <Target className="w-5 h-5 text-[#14213D]" />,
+                        link: "/services/strategic-advisory"
+                      },
+                      {
+                        title: "Growth Equity",
+                        description: "Strategic capital and expertise to accelerate your market expansion.",
+                        icon: <TrendingUp className="w-5 h-5 text-[#14213D]" />,
+                        link: "/services/growth-equity"
+                      },
+                      {
+                        title: "Capital Formation",
+                        description: "Access to strategic capital sources and sophisticated deal structuring.",
+                        icon: <DollarSign className="w-5 h-5 text-[#14213D]" />,
+                        link: "/services/capital-formation"
+                      },
+                      {
+                        title: "Mergers & Acquisitions",
+                        description: "Strategic transaction advisory to strengthen your market position.",
+                        icon: <ArrowLeftRight className="w-5 h-5 text-[#14213D]" />,
+                        link: "/services/mergers-acquisitions"
+                      }
+                    ].map((service, index) => (
+                      <motion.div
+                        key={service.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.8 }}
+                        className="group"
+                      >
+                        <Link href={service.link}>
+                          <div className="flex items-center gap-4 p-6 border border-[#14213D]/20 rounded-lg hover:border-[#14213D] hover:bg-[#14213D]/[0.02] transition-all duration-500">
+                            {/* Icon */}
+                            <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#14213D]/10">
+                              {service.icon}
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-grow">
+                              <div className="flex items-center justify-between">
+                                <h3 className="text-lg font-light text-[#14213D] group-hover:translate-x-1 transition-transform duration-500">
+                                  {service.title}
+                                </h3>
+                                <ArrowRight className="w-4 h-4 text-[#14213D]/40 group-hover:text-[#14213D] group-hover:translate-x-1 transition-all duration-500" />
+                              </div>
+                              <p className="text-sm text-gray-600 mt-1">
+                                {service.description}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Begin Your Journey Section */}
+            <section className="relative py-32 w-[100vw] -ml-[50vw] left-[50%] bg-[#14213D]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/River Near Mountains.jpg"
+                  alt="Mountains"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="max-w-4xl mx-auto text-center px-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="space-y-8"
+                  >
+                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
+                      Seize Market
+                      <br />
+                      <span className="text-[#4A90E2]">Leadership Now</span>
+                    </h2>
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                      While others react to market shifts, strategic leaders are already positioning for the next wave. Your window of opportunity is open.
+                    </p>
+                    <button 
+                      onClick={() => setIsCalOpen(true)}
+                      className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
+                    >
+                      <span>Schedule Meeting</span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
                   </motion.div>
                 </div>
               </div>
