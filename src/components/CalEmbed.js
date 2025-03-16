@@ -12,7 +12,17 @@ export default function CalEmbed({ isOpen, onClose }) {
         const cal = await getCalApi({"namespace":"vsa"});
         cal("ui", {
           "hideEventTypeDetails":false,
-          "layout":"month_view"
+          "layout":"month_view",
+          "styles": {
+            "body": {
+              "background": "white"
+            },
+            "branding": {
+              "marginBottom": "0"
+            },
+            "margin": "0",
+            "padding": "0"
+          }
         });
       })();
 
@@ -39,8 +49,7 @@ export default function CalEmbed({ isOpen, onClose }) {
         alignItems: 'center',
         justifyContent: 'center',
         height: '100vh',
-        paddingTop: '5vh',
-        paddingBottom: '5vh'
+        padding: '2vh'
       }}
     >
       <motion.div 
@@ -48,6 +57,10 @@ export default function CalEmbed({ isOpen, onClose }) {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
         className="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl mx-4"
+        style={{
+          height: '96vh',
+          maxHeight: '900px'
+        }}
       >
         <button
           onClick={onClose}
@@ -56,19 +69,20 @@ export default function CalEmbed({ isOpen, onClose }) {
           <X className="w-6 h-6 text-gray-600" />
         </button>
         
-        <div className="w-full h-[80vh] max-h-[700px] min-h-[500px]">
+        <div className="w-full h-full">
           <Cal 
             namespace="vsa"
             calLink="vector-summit/vsa"
             style={{
               width: "100%",
               height: "100%",
-              overflow: "scroll",
+              overflow: "hidden",
               borderRadius: "0.75rem"
             }}
             config={{
               layout: "month_view",
-              theme: "auto"
+              theme: "auto",
+              hideEventTypeDetails: false
             }}
           />
         </div>
