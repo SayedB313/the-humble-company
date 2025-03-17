@@ -767,7 +767,7 @@ const MainComponent = () => {
                     </h2>
                     <div className="h-[2px] w-24 bg-[#14213D] mx-auto mt-8"></div>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-8">
-                      Orchestrating strategic networks and connections that transform market potential into realized value.
+                      Orchestrating elite networks and connections that transform market potential into realized value.
                     </p>
                   </motion.div>
 
@@ -787,7 +787,7 @@ const MainComponent = () => {
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-4">Network Nexus</h3>
                         <p className="text-white/80">
-                          Connecting elite networks, strategic insights, and capital to orchestrate transformative outcomes
+                          Connecting elite networks, market insights, and capital to orchestrate transformative outcomes
                         </p>
                       </div>
                     </div>
@@ -798,11 +798,11 @@ const MainComponent = () => {
                     {[
                       {
                         icon: <Globe className="w-8 h-8 text-white" />,
-                        title: "Strategic Networks",
-                        description: "Access and leverage our elite network of industry leaders, investors, and strategic partners.",
+                        title: "Global Networks",
+                        description: "Access and leverage our elite network of industry leaders, investors, and key partners.",
                         points: [
-                          "Global relationship access",
-                          "Strategic introductions",
+                          "Worldwide relationship access",
+                          "Executive introductions",
                           "Network orchestration"
                         ],
                         accent: "from-blue-500/20 to-transparent"
@@ -810,21 +810,21 @@ const MainComponent = () => {
                       {
                         icon: <ArrowLeftRight className="w-8 h-8 text-white" />,
                         title: "Capital Synergy",
-                        description: "Connect with the right capital partners and strategic resources to fuel your growth.",
+                        description: "Connect with the right capital partners and resources to fuel your growth.",
                         points: [
-                          "Capital formation",
-                          "Strategic partnerships",
+                          "Investment alignment",
+                          "Partnership creation",
                           "Growth acceleration"
                         ],
                         accent: "from-purple-500/20 to-transparent"
                       },
                       {
                         icon: <Target className="w-8 h-8 text-white" />,
-                        title: "Market Architecture",
-                        description: "Design and execute sophisticated strategies that connect opportunities to outcomes.",
+                        title: "Market Innovation",
+                        description: "Design and execute sophisticated solutions that connect opportunities to outcomes.",
                         points: [
                           "Opportunity mapping",
-                          "Strategic positioning",
+                          "Market positioning",
                           "Value creation"
                         ],
                         accent: "from-emerald-500/20 to-transparent"
@@ -895,20 +895,13 @@ const MainComponent = () => {
                   >
                     <div className="bg-gradient-to-r from-[#14213D] to-[#1C2E56] rounded-2xl overflow-hidden">
                       <div className="relative p-12 md:p-16">
-                        {/* Background Elements */}
-                        <div className="absolute inset-0">
-                          <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-10"></div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-emerald-500/10"></div>
-                        </div>
-
-                        {/* Content */}
                         <div className="relative z-10 max-w-4xl mx-auto text-center">
                           <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Strategic Discovery
+                            Critical Insights
                           </h3>
                           <div className="h-[2px] w-24 bg-white/20 mx-auto mb-8"></div>
                           <p className="text-white/90 text-xl mb-12 leading-relaxed">
-                            The answers are in your market, your data, and your experience. We ask the critical questions that surface hidden insights and connect crucial dots - before your stakeholders ask them.
+                            The answers lie in your market, your data, and your experience. We surface hidden insights and connect crucial dots - before your stakeholders ask the questions.
                           </p>
 
                           {/* Integration Points */}
@@ -916,15 +909,15 @@ const MainComponent = () => {
                             {[
                               {
                                 title: "Pattern Recognition",
-                                description: "We see the signals in your noise. Our targeted questions reveal market patterns you can't afford to miss."
+                                description: "We identify signals others miss. Our targeted analysis reveals market patterns that drive decisive action."
                               },
                               {
-                                title: "Strategic Validation",
-                                description: "Pressure-test your thinking through expert questioning that exposes blind spots before they become board issues."
+                                title: "Decision Excellence",
+                                description: "Pressure-test your thinking through expert analysis that exposes blind spots before they become board issues."
                               },
                               {
-                                title: "Decision Architecture",
-                                description: "Guide your team to stronger decisions by asking the questions that matter - before millions are at stake."
+                                title: "Execution Framework",
+                                description: "Guide your team to stronger decisions by focusing on the questions that matter - before millions are at stake."
                               }
                             ].map((point, i) => (
                               <motion.div
@@ -949,14 +942,6 @@ const MainComponent = () => {
                                 </div>
                               </motion.div>
                             ))}
-                          </div>
-
-                          {/* Added CTA Section */}
-                          <div className="mt-16">
-                            <div className="inline-flex items-center gap-2 text-white/90 text-lg border-b border-white/20 pb-2">
-                              <span>The right questions unlock million-dollar insights.</span>
-                              <span className="text-white/60">Let's find yours.</span>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -1038,7 +1023,7 @@ const MainComponent = () => {
                             {/* Content */}
                             <div className="flex-grow">
                               <div className="flex items-center justify-between">
-                                <h3 className="text-lg font-light text-[#14213D] group-hover:translate-x-1 transition-transform duration-500">
+                                <h3 className="text-lg font-bold text-[#14213D] group-hover:translate-x-1 transition-transform duration-500">
                                   {service.title}
                                 </h3>
                                 <ArrowRight className="w-4 h-4 text-[#14213D]/40 group-hover:text-[#14213D] group-hover:translate-x-1 transition-all duration-500" />
@@ -1115,22 +1100,22 @@ const MainComponent = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Strategic Advisory
+                          <span className="font-normal">Strategic Advisory</span>
                         </Link>
                       </li>
                       <li>
                         <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Growth Equity
+                          <span className="font-normal">Growth Equity</span>
                         </Link>
                       </li>
                       <li>
                         <Link href="/services/capital-formation" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Capital Formation
+                          <span className="font-normal">Capital Formation</span>
                         </Link>
                       </li>
                       <li>
                         <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Mergers & Acquisitions
+                          <span className="font-normal">Mergers & Acquisitions</span>
                         </Link>
                       </li>
                     </ul>
@@ -1142,12 +1127,12 @@ const MainComponent = () => {
                     <ul className="space-y-4">
                       <li>
                         <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Home Page
+                          <span className="font-normal">Home Page</span>
                         </Link>
                       </li>
                       <li>
                         <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          Our Profile
+                          <span className="font-normal">Our Profile</span>
                         </Link>
                       </li>
                     </ul>
@@ -1162,7 +1147,7 @@ const MainComponent = () => {
                       rel="noopener noreferrer" 
                       className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
                     >
-                      Connect on LinkedIn
+                      <span className="font-normal">Connect on LinkedIn</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Link>
                   </div>
@@ -1170,7 +1155,7 @@ const MainComponent = () => {
 
                 {/* Copyright */}
                 <div className="mt-16 text-center">
-                  <div className="text-sm text-gray-500">
+                  <div className="text-sm text-gray-500 font-light">
                     © {new Date().getFullYear()} Vector Summit. All rights reserved.
                   </div>
                 </div>
