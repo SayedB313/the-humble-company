@@ -4,39 +4,23 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight, X, Award, Shield, AlertTriangle } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight, X, Award, Shield, AlertTriangle, ArrowDown } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
-import CalEmbed from '../components/CalEmbed'
+import CalButton from '../components/ui/CalButton'
 import ServicesDropdown from '../components/ui/ServicesDropdown';
 import Navigation from '../components/ui/Navigation';
 
-// Add this at the top of the file, after the imports
-declare global {
-  interface Window {
-    Calendly?: {
-      initBadgeWidget: (config: {
-        url: string;
-        text: string;
-        color: string;
-        textColor: string;
-        branding: undefined;
-      }) => void;
-    };
-  }
-}
-
 const MainComponent = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [showVideo, setShowVideo] = useState(false);
-  const [isCalOpen, setIsCalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentCard, setCurrentCard] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [currentHeaderIndex, setCurrentHeaderIndex] = useState(0);
+  const [showSellerForm, setShowSellerForm] = useState(false);
 
   const headers = [
     { main: "Strategic Growth", sub: "Capital Formation" },
@@ -50,10 +34,6 @@ const MainComponent = () => {
   const challenges = [
     // ... remove this entire array
   ];
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   const rotatingPhrases = [
     "You Close Investment Deals",
@@ -73,17 +53,6 @@ const MainComponent = () => {
   }, []);
 
   useEffect(() => {
-    // This will ensure Calendly is initialized after the component mounts
-    if (typeof window !== 'undefined' && window.Calendly) {
-      window.Calendly.initBadgeWidget({
-        url: 'https://calendly.com/vectorasylum/strategy',
-        text: 'Book Strategy Session',
-        color: '#0069ff',
-        textColor: '#ffffff',
-        branding: undefined
-      });
-    }
-
     // Header rotation interval
     const headerInterval = setInterval(() => {
       setCurrentHeaderIndex((prevIndex) => (prevIndex + 1) % headers.length);
@@ -274,18 +243,6 @@ const MainComponent = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Add this useEffect to close mobile menu on resize
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   // Add this constant at the top with other constants
   const capabilities = [
     {
@@ -402,112 +359,9 @@ const MainComponent = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <ServicesDropdown />
-            <Link href="/about" className="text-white hover:text-gray-300 transition-colors font-light">
-              Our Profile
-            </Link>
-            <button
-              onClick={() => setIsCalOpen(true)}
-              className="text-white hover:text-gray-300 transition-colors font-light"
-            >
-              Schedule Meeting
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white p-2"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+          {/* Navigation Component */}
+          <Navigation currentPath="/" />
         </div>
-
-        {/* Mobile Menu Dropdown */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ 
-            opacity: isMobileMenuOpen ? 1 : 0,
-            height: isMobileMenuOpen ? '100vh' : 0
-          }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden fixed inset-0 bg-[#14213D] z-40"
-        >
-          {isMobileMenuOpen && (
-            <div className="container mx-auto px-4 py-12 h-full flex flex-col">
-              {/* Close button at the top */}
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="absolute top-6 right-6 text-white p-2"
-              >
-                <X className="w-8 h-8" />
-              </button>
-
-              {/* Menu Items */}
-              <div className="flex flex-col space-y-8 mt-20">
-                {/* Services Links - Updated order */}
-                <Link 
-                  href="/services/strategic-advisory" 
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Strategic Advisory
-                </Link>
-                <Link 
-                  href="/services/growth-equity" 
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Growth Equity
-                </Link>
-                <Link 
-                  href="/services/capital-formation" 
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Capital Formation
-                </Link>
-                <Link 
-                  href="/services/mergers-acquisitions" 
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Mergers & Acquisitions
-                </Link>
-
-                {/* Other Links */}
-                <Link 
-                  href="/about" 
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Our Profile
-                </Link>
-
-                {/* Schedule Meeting Button */}
-                <button
-                  onClick={() => {
-                    setIsCalOpen(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left"
-                >
-                  Schedule Meeting
-                </button>
-              </div>
-
-              {/* Bottom Section */}
-              <div className="mt-auto mb-8">
-                <div className="h-[1px] w-full bg-white/20 mb-8"></div>
-                <span className="text-white/60 text-sm">
-                  © {new Date().getFullYear()} Vector Summit
-                </span>
-              </div>
-            </div>
-          )}
-        </motion.div>
       </nav>
 
       <main className="flex-grow">
@@ -552,9 +406,9 @@ const MainComponent = () => {
                 <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Strategic Network-Based Advisory</span>
+                  <span className="block mb-2 font-semibold">Off Market Deal Flow</span>
                   <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
-                    Bridging Visionary Leaders with Elite Networks
+                    Exclusive opportunities. Boutique advisory. Advanced matching.
                   </span>
                 </p>
 
@@ -564,170 +418,65 @@ const MainComponent = () => {
                   transition={{ delay: 0.7 }}
                   className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer"
                   onClick={() => {
-                    const connectingDotsSection = document.querySelector('#connecting-dots');
-                    connectingDotsSection?.scrollIntoView({ behavior: 'smooth' });
+                    const nextSection = document.querySelector('section:nth-of-type(2)');
+                    nextSection?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
                   <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
                     <ChevronDown className="w-6 h-6" />
                   </div>
-                  <span className="text-sm uppercase tracking-wider font-bold">Connecting Critical Dots</span>
+                  <span className="text-sm uppercase tracking-wider font-bold">Learn More</span>
                 </motion.div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Introduction Section */}
-        <section id="connecting-dots" className="py-24 bg-white relative overflow-hidden">
+        {/* WHAT WE DO SECTION */}
+        <section className="py-24 bg-white border-b border-gray-100">
           <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-              {/* Background Elements */}
-              <div className="absolute inset-0">
-                <div className="absolute right-0 top-40 w-[800px] h-[800px] bg-[#14213D]/[0.02] rounded-full blur-3xl"></div>
-                <div className="absolute left-0 bottom-0 w-[600px] h-[600px] bg-[#14213D]/[0.02] rounded-full blur-2xl"></div>
-                <div className="hidden md:block absolute left-1/3 top-1/4 w-[2px] h-[400px] bg-gradient-to-b from-[#14213D]/20 to-transparent"></div>
-              </div>
-              
-              {/* Section Header */}
-              <div className="text-center mb-20 relative">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-black">
-                  Connecting Critical Dots
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-light font-montserrat tracking-wider text-[#14213D] mb-6">
+                  What We Do
                 </h2>
-                <div className="h-[2px] w-24 bg-[#14213D] mx-auto mt-8 mb-8"></div>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  "The value isn't in the dots themselves—it's in seeing the connections others miss."
+                  We connect qualified buyers with business owners ready to sell through our advanced matching platform and proprietary network.
                 </p>
               </div>
-              
-              {/* Main Content */}
-              <div className="grid md:grid-cols-2 gap-20 relative">
-                {/* Left Column - Connecting Dots for Companies */}
-                <div className="space-y-8">
-                  <div className="mb-10">
-                    <h3 className="text-2xl md:text-3xl font-light font-montserrat tracking-wide text-[#14213D] mb-4">
-                      For Organizations
-                    </h3>
-                    <p className="text-lg text-gray-600">
-                      We reveal the strategic map that others can't see, connecting your business to the capital, networks, and opportunities that drive transformative growth.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-8">
-                    {[
-                      {
-                        title: "Capital Formation",
-                        description: "Connecting funds and companies to the right capital sources through our elite network",
-                        icon: "💰" // Or use TrendingUp icon
-                      },
-                      {
-                        title: "Strategic Partnerships",
-                        description: "Orchestrating high-value connections that unlock new markets and capabilities",
-                        icon: "🤝" // Or use Users icon
-                      },
-                      {
-                        title: "Growth Architecture",
-                        description: "Designing bespoke pathways to scale through strategic acquisitions and market positioning",
-                        icon: "📈" // Or use Target icon
-                      }
-                    ].map((service, index) => (
-                      <div key={service.title} className="flex gap-5 group">
-                        <div className="mt-1 flex-shrink-0">
-                          <div className="w-12 h-12 rounded-full border border-[#14213D]/20 flex items-center justify-center 
-                            group-hover:bg-[#14213D] group-hover:border-[#14213D] transition-all duration-500">
-                            <span className="text-[#14213D] group-hover:text-white transition-colors duration-500 text-xl">
-                              {service.icon}
-                            </span>
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-medium text-[#14213D] mb-2 group-hover:translate-x-1 transition-transform duration-300">
-                            {service.title}
-                          </h4>
-                          <p className="text-gray-600">
-                            {service.description}
-                          </p>
-                        </div>
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-semibold text-[#14213D] mb-4">Advanced Matching Process</h3>
+                  <p className="text-gray-600 mb-6">
+                    Using AI-powered systems and proprietary technology, we identify and connect the right opportunities based on your specific criteria.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                      <div>
+                        <span className="font-semibold text-[#14213D]">For Buyers:</span>
+                        <span className="text-gray-600"> Get matched with businesses that meet your EBITDA, industry, and operational criteria</span>
                       </div>
-                    ))}
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                      <div>
+                        <span className="font-semibold text-[#14213D]">For Sellers:</span>
+                        <span className="text-gray-600"> Connect with qualified, motivated buyers at no cost</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                      <div>
+                        <span className="font-semibold text-[#14213D]">Off-Market Access:</span>
+                        <span className="text-gray-600"> Exclusive opportunities not available through traditional channels</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                {/* Right Column - Connecting Dots for Executives */}
-                <div className="space-y-8">
-                  <div className="mb-10">
-                    <h3 className="text-2xl md:text-3xl font-light font-montserrat tracking-wide text-[#14213D] mb-4">
-                      For Executives
-                    </h3>
-                    <p className="text-lg text-gray-600">
-                      We illuminate the path forward through personalized strategic guidance, helping you see connections and opportunities others miss.
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-8">
-                    {[
-                      {
-                        title: "Strategic Intelligence",
-                        description: "One-on-one guidance that connects market signals to boardroom decisions",
-                        icon: "🧠" // Or use Brain icon
-                      },
-                      {
-                        title: "Decision Architecture",
-                        description: "Structured frameworks that transform complex challenges into clear action paths",
-                        icon: "🧩" // Or use Network icon
-                      },
-                      {
-                        title: "Opportunity Mapping",
-                        description: "Revealing hidden connections between your experience, market needs, and strategic possibilities",
-                        icon: "🗺️" // Or use Map icon
-                      }
-                    ].map((service, index) => (
-                      <div key={service.title} className="flex gap-5 group">
-                        <div className="mt-1 flex-shrink-0">
-                          <div className="w-12 h-12 rounded-full border border-[#14213D]/20 flex items-center justify-center 
-                            group-hover:bg-[#14213D] group-hover:border-[#14213D] transition-all duration-500">
-                            <span className="text-[#14213D] group-hover:text-white transition-colors duration-500 text-xl">
-                              {service.icon}
-                            </span>
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-medium text-[#14213D] mb-2 group-hover:translate-x-1 transition-transform duration-300">
-                            {service.title}
-                          </h4>
-                          <p className="text-gray-600">
-                            {service.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Connection Visual */}
-              <div className="mt-20 relative">
-                <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#14213D]/30 to-transparent"></div>
-                
-                {/* Connecting Elements - Triangle Formation */}
-                <div className="relative h-60 overflow-visible">
-                  {/* Left Arrow */}
-                  <div className="absolute left-1/3 w-[2px] h-[200%] bg-gradient-to-b from-[#14213D]/30 to-[#14213D]/5 
-                    transform origin-top -rotate-12">
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 rotate-45 w-8 h-8 
-                      border-r-[3px] border-b-[3px] border-[#14213D]/40"></div>
-                  </div>
-                  
-                  {/* Right Arrow */}
-                  <div className="absolute right-1/3 w-[2px] h-[200%] bg-gradient-to-b from-[#14213D]/30 to-[#14213D]/5 
-                    transform origin-top rotate-12">
-                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 rotate-45 w-8 h-8 
-                      border-r-[3px] border-b-[3px] border-[#14213D]/40"></div>
-                  </div>
-                  
-                  {/* Single Decorative Dot at Top Center */}
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="w-3 h-3 rounded-full bg-[#14213D]/20"></div>
+                <div className="flex items-center justify-center">
+                  <div className="w-64 h-64 rounded-full bg-[#14213D]/5 flex items-center justify-center">
+                    <Network className="w-32 h-32 text-[#14213D]/30" />
                   </div>
                 </div>
               </div>
@@ -735,461 +484,373 @@ const MainComponent = () => {
           </div>
         </section>
 
-        {/* Expertise Section */}
-        <section id="expertise" className="bg-white py-24">
-          <div className="container mx-auto max-w-7xl px-4">
-            {/* Strategic Synergy Hub Section */}
-            <section className="bg-white py-12 relative overflow-hidden">
-              {/* Dynamic Background */}
-              <div className="absolute inset-0">
-                <div className="absolute w-full h-full">
-                  <div className="absolute w-[1200px] h-[1200px] rounded-full border border-[#14213D]/5 
-                    left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                  <div className="absolute w-[900px] h-[900px] rounded-full border border-[#14213D]/10 
-                    left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                  <div className="absolute w-[600px] h-[600px] rounded-full border border-[#14213D]/15 
-                    left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+        {/* DEAL FLOW NETWORK DIAGRAM SECTION */}
+        <section className="py-32 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-32">
+                <div className="inline-flex items-center justify-center space-x-3 mb-6">
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                  <span className="text-[#14213D] uppercase tracking-widest text-sm">Our Network</span>
+                  <div className="h-[1px] w-8 bg-[#14213D]"></div>
+                </div>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#14213D] tracking-wide mb-6">
+                  Connecting Private Equity
+                  <br />
+                  Buyers & Sellers
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We connect leading private equity buyers with business owners and sellers, enabling seamless, confidential transactions.
+                </p>
+              </div>
+
+              {/* Buyers Section */}
+              <div className="mb-32">
+                <div className="text-center mb-16">
+                  <h3 className="text-2xl font-medium text-[#14213D] mb-4">Buyers</h3>
+                  <div className="h-[2px] w-24 bg-[#14213D] mx-auto"></div>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                  {[
+                    { title: "Private Equity", icon: <Building className="w-6 h-6" /> },
+                    { title: "Family Offices", icon: <Users className="w-6 h-6" /> },
+                    { title: "Institutional Investors", icon: <DollarSign className="w-6 h-6" /> },
+                    { title: "Strategic Buyers", icon: <Network className="w-6 h-6" /> }
+                  ].map((type, index) => (
+                    <motion.div
+                      key={type.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex flex-col items-center text-center"
+                    >
+                      <div className="w-16 h-16 bg-[#14213D] rounded-2xl flex items-center justify-center mb-4">
+                        {React.cloneElement(type.icon, { className: "text-white" })}
+                      </div>
+                      <span className="text-[#14213D] font-medium">{type.title}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
 
-              <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-7xl mx-auto">
-                  {/* Section Header */}
-                  <motion.div 
+              {/* Connection Visual */}
+              <div className="flex justify-center mb-32">
+                <div className="flex flex-col items-center">
+                  <ArrowDown className="w-8 h-8 text-[#14213D] animate-bounce" />
+                  <div className="h-32 w-[2px] bg-gradient-to-b from-[#14213D] to-blue-400"></div>
+                </div>
+              </div>
+
+              {/* Sellers Section */}
+              <div className="text-center mb-16">
+                <h3 className="text-2xl font-medium text-[#14213D] mb-4">Business Owners & Sellers</h3>
+                <div className="h-[2px] w-24 bg-blue-400 mx-auto"></div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16 max-w-6xl mx-auto">
+                {[
+                  { title: "Founder-Owned Businesses", icon: <Users className="w-7 h-7" /> },
+                  { title: "Family Businesses", icon: <Building className="w-7 h-7" /> },
+                  { title: "Corporate Divestitures", icon: <ArrowLeftRight className="w-7 h-7" /> },
+                  { title: "Management Teams", icon: <TrendingUp className="w-7 h-7" /> }
+                ].map((type, index) => (
+                  <motion.div
+                    key={type.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-14"
+                    transition={{ delay: index * 0.1 }}
+                    className="flex flex-col items-center text-center group"
                   >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-black mb-6">
-                      Strategic
-                      <span className="block mt-2">Architecture</span>
-                    </h2>
-                    <div className="h-[2px] w-24 bg-[#14213D] mx-auto mt-8"></div>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-8">
-                      Orchestrating elite networks and connections that transform market potential into realized value.
-                    </p>
-                  </motion.div>
-
-                  {/* Center Hub */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="relative mx-auto mb-12 max-w-lg"
-                  >
-                    <div className="bg-[#14213D] rounded-full p-12 text-center relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-emerald-500/20 opacity-0 
-                        group-hover:opacity-100 transition-opacity duration-700"></div>
-                      <div className="relative z-10">
-                        <div className="w-24 h-24 rounded-full bg-white/10 mx-auto mb-6 flex items-center justify-center">
-                          <Network className="w-12 h-12 text-white" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-4">Network Nexus</h3>
-                        <p className="text-white/80">
-                          Connecting elite networks, market insights, and capital to orchestrate transformative outcomes
-                        </p>
-                      </div>
+                    <div className="w-16 h-16 bg-[#14213D] rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                      {React.cloneElement(type.icon, { className: "text-white" })}
                     </div>
+                    <h3 className="text-[#14213D] text-lg font-medium">
+                      {type.title}
+                    </h3>
                   </motion.div>
-
-                  {/* Orbital Capabilities */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                    {[
-                      {
-                        icon: <Globe className="w-8 h-8 text-white" />,
-                        title: "Global Networks",
-                        description: "Access and leverage our elite network of industry leaders, investors, and key partners.",
-                        points: [
-                          "Worldwide relationship access",
-                          "Executive introductions",
-                          "Network orchestration"
-                        ],
-                        accent: "from-blue-500/20 to-transparent"
-                      },
-                      {
-                        icon: <ArrowLeftRight className="w-8 h-8 text-white" />,
-                        title: "Capital Synergy",
-                        description: "Connect with the right capital partners and resources to fuel your growth.",
-                        points: [
-                          "Investment alignment",
-                          "Partnership creation",
-                          "Growth acceleration"
-                        ],
-                        accent: "from-purple-500/20 to-transparent"
-                      },
-                      {
-                        icon: <Target className="w-8 h-8 text-white" />,
-                        title: "Market Innovation",
-                        description: "Design and execute sophisticated solutions that connect opportunities to outcomes.",
-                        points: [
-                          "Opportunity mapping",
-                          "Market positioning",
-                          "Value creation"
-                        ],
-                        accent: "from-emerald-500/20 to-transparent"
-                      }
-                    ].map((capability, index) => (
-                      <motion.div
-                        key={capability.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2, duration: 0.8 }}
-                        className="relative group h-full"
-                      >
-                        <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-700 
-                          border border-[#14213D]/5 hover:border-[#14213D]/20 relative overflow-hidden h-full flex flex-col">
-                          {/* Content */}
-                          <div className="relative z-10 flex flex-col h-full">
-                            {/* Icon */}
-                            <div className="relative mb-6">
-                              <div className="bg-[#14213D] w-16 h-16 rounded-full flex items-center justify-center 
-                                group-hover:scale-110 transition-transform duration-700">
-                                {capability.icon}
-                              </div>
-                            </div>
-
-                            {/* Title & Description */}
-                            <h3 className="text-2xl font-bold text-[#14213D] mb-4 
-                              group-hover:translate-x-2 transition-transform duration-500">
-                              {capability.title}
-                            </h3>
-                            <div className="h-[2px] w-12 bg-[#14213D] mb-4 transform origin-left 
-                              group-hover:w-24 transition-all duration-700"></div>
-                            <p className="text-gray-600 mb-6 flex-grow">
-                              {capability.description}
-                            </p>
-
-                            {/* Points */}
-                            <ul className="space-y-3 mt-auto">
-                              {capability.points.map((point, i) => (
-                                <motion.li
-                                  key={i}
-                                  initial={{ opacity: 0, x: -10 }}
-                                  whileInView={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: 0.5 + (i * 0.1) }}
-                                  className="flex items-center gap-3"
-                                >
-                                  <div className="w-8 h-8 rounded-full border-2 border-[#14213D]/10 flex items-center justify-center
-                                    group-hover:border-[#14213D] group-hover:bg-[#14213D] transition-all duration-500 flex-shrink-0">
-                                    <ArrowRight className="w-4 h-4 text-[#14213D] group-hover:text-white transition-colors duration-500" />
-                                  </div>
-                                  <span className="text-gray-600 group-hover:translate-x-1 transition-transform duration-500">
-                                    {point}
-                                  </span>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Bottom Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 1 }}
-                    className="mt-12 relative"
-                  >
-                    <div className="bg-gradient-to-r from-[#14213D] to-[#1C2E56] rounded-2xl overflow-hidden">
-                      <div className="relative p-12 md:p-16">
-                        <div className="relative z-10 max-w-4xl mx-auto text-center">
-                          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Critical Insights
-                          </h3>
-                          <div className="h-[2px] w-24 bg-white/20 mx-auto mb-8"></div>
-                          <p className="text-white/90 text-xl mb-12 leading-relaxed">
-                            The answers lie in your market, your data, and your experience. We surface hidden insights and connect crucial dots - before your stakeholders ask the questions.
-                          </p>
-
-                          {/* Integration Points */}
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {[
-                              {
-                                title: "Pattern Recognition",
-                                description: "We identify signals others miss. Our targeted analysis reveals market patterns that drive decisive action."
-                              },
-                              {
-                                title: "Decision Excellence",
-                                description: "Pressure-test your thinking through expert analysis that exposes blind spots before they become board issues."
-                              },
-                              {
-                                title: "Execution Framework",
-                                description: "Guide your team to stronger decisions by focusing on the questions that matter - before millions are at stake."
-                              }
-                            ].map((point, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.6 + (i * 0.1) }}
-                                className="group"
-                              >
-                                <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 
-                                  border border-white/10 hover:border-white/20 
-                                  hover:bg-white/10 transition-all duration-500">
-                                  <div className="flex flex-col items-center gap-4 text-center">
-                                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                                      <Shield className="w-5 h-5 text-white" />
-                                    </div>
-                                    <div>
-                                      <span className="text-white text-lg block mb-2">{point.title}</span>
-                                      <span className="text-white/70 text-sm">{point.description}</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
+                ))}
               </div>
-            </section>
-
-            {/* Connecting Arrow */}
-            <div className="relative h-32 flex items-center justify-center">
-              <div className="w-[2px] h-full bg-gradient-to-b from-[#14213D]/20 to-[#14213D]/5"></div>
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 rotate-45 w-6 h-6 
-                border-r-2 border-b-2 border-[#14213D]/20"></div>
             </div>
+          </div>
+        </section>
 
-            {/* Services Section */}
-            <section className="py-16 bg-white relative overflow-hidden">
-              <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto">
-                  {/* Section Header */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-12"
-                  >
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light font-montserrat tracking-wider text-black mb-6">
-                      Our Services
-                    </h2>
-                    <div className="h-[1px] w-24 bg-[#14213D] mx-auto mt-8"></div>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-8">
-                      Strategic solutions for market leadership
-                    </p>
-                  </motion.div>
-
-                  {/* Services Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                      {
-                        title: "Strategic Advisory",
-                        description: "Expert guidance to navigate complex market challenges and seize opportunities.",
-                        icon: <Target className="w-5 h-5 text-[#14213D]" />,
-                        link: "/services/strategic-advisory"
-                      },
-                      {
-                        title: "Growth Equity",
-                        description: "Strategic capital and expertise to accelerate your market expansion.",
-                        icon: <TrendingUp className="w-5 h-5 text-[#14213D]" />,
-                        link: "/services/growth-equity"
-                      },
-                      {
-                        title: "Capital Formation",
-                        description: "Access to strategic capital sources and sophisticated deal structuring.",
-                        icon: <DollarSign className="w-5 h-5 text-[#14213D]" />,
-                        link: "/services/capital-formation"
-                      },
-                      {
-                        title: "Mergers & Acquisitions",
-                        description: "Strategic transaction advisory to strengthen your market position.",
-                        icon: <ArrowLeftRight className="w-5 h-5 text-[#14213D]" />,
-                        link: "/services/mergers-acquisitions"
-                      }
-                    ].map((service, index) => (
-                      <motion.div
-                        key={service.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1, duration: 0.8 }}
-                        className="group"
-                      >
-                        <Link href={service.link}>
-                          <div className="flex items-center gap-4 p-6 border border-[#14213D]/20 rounded-lg hover:border-[#14213D] hover:bg-[#14213D]/[0.02] transition-all duration-500">
-                            {/* Icon */}
-                            <div className="w-10 h-10 rounded-full bg-[#14213D]/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#14213D]/10">
-                              {service.icon}
-                            </div>
-
-                            {/* Content */}
-                            <div className="flex-grow">
-                              <div className="flex items-center justify-between">
-                                <h3 className="text-lg font-bold text-[#14213D] group-hover:translate-x-1 transition-transform duration-500">
-                                  {service.title}
-                                </h3>
-                                <ArrowRight className="w-4 h-4 text-[#14213D]/40 group-hover:text-[#14213D] group-hover:translate-x-1 transition-all duration-500" />
-                              </div>
-                              <p className="text-sm text-gray-600 mt-1">
-                                {service.description}
-                              </p>
-                            </div>
-                          </div>
-                        </Link>
-                      </motion.div>
-                    ))}
+        {/* HOW MATCHING WORKS SECTION */}
+        <section className="py-24 bg-gray-50 border-b border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-light font-montserrat tracking-wider text-[#14213D] mb-4">
+                How Our Matching Works
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                A streamlined 3-step process to connect the right buyers and sellers.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Target className="w-8 h-8 text-[#14213D]" />,
+                  title: "Define Criteria",
+                  desc: "Buyers specify their investment parameters: EBITDA range, industry focus, business characteristics."
+                },
+                {
+                  icon: <Network className="w-8 h-8 text-[#14213D]" />,
+                  title: "Find Matches",
+                  desc: "Our AI and proprietary systems identify businesses that meet your criteria from our extensive network."
+                },
+                {
+                  icon: <ArrowLeftRight className="w-8 h-8 text-[#14213D]" />,
+                  title: "Make Connections",
+                  desc: "We facilitate introductions and provide communication support to ensure smooth initial interactions."
+                }
+              ].map((step, i) => (
+                <div key={i} className="bg-white rounded-xl p-8 shadow-sm border border-[#14213D]/10 flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-[#14213D]/10 flex items-center justify-center mb-6">
+                    {step.icon}
                   </div>
+                  <div className="text-lg font-semibold text-[#14213D] mb-3">{step.title}</div>
+                  <div className="text-gray-600 text-sm leading-relaxed">{step.desc}</div>
                 </div>
-              </div>
-            </section>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Begin Your Journey Section */}
-            <section className="relative py-32 w-[100vw] -ml-[50vw] left-[50%] bg-[#14213D]">
-              <div className="absolute inset-0">
-                <Image
-                  src="/River Near Mountains.jpg"
-                  alt="Mountains"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+        {/* OUR TECHNOLOGY ADVANTAGE SECTION */}
+        <section className="py-24 bg-white border-b border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-light font-montserrat tracking-wider text-[#14213D] mb-4">
+                  Our Technology Advantage
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Advanced systems and proprietary technology that deliver faster, more accurate matches.
+                </p>
               </div>
-              
-              <div className="relative z-10">
-                <div className="max-w-4xl mx-auto text-center px-4">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {[
+                  {
+                    icon: <Cpu className="w-8 h-8 text-[#14213D]" />,
+                    title: "AI-Powered Matching",
+                    desc: "Machine learning algorithms that improve match quality over time."
+                  },
+                  {
+                    icon: <Globe className="w-8 h-8 text-[#14213D]" />,
+                    title: "Web Scraping Technology",
+                    desc: "Automated systems that continuously identify new opportunities."
+                  },
+                  {
+                    icon: <Shield className="w-8 h-8 text-[#14213D]" />,
+                    title: "Proprietary Database",
+                    desc: "Exclusive access to off-market businesses and qualified buyers."
+                  },
+                  {
+                    icon: <Zap className="w-8 h-8 text-[#14213D]" />,
+                    title: "Rapid Execution",
+                    desc: "Technology-enabled speed that secures deals before competition."
+                  }
+                ].map((advantage, i) => (
                   <motion.div
+                    key={i}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-8"
+                    transition={{ delay: i * 0.1 }}
+                    className="text-center group"
                   >
-                    <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
-                      Seize Market
-                      <br />
-                      <span className="text-[#4A90E2]">Leadership Now</span>
-                    </h2>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-                      While others react to market shifts, strategic leaders are already positioning for the next wave. Your window of opportunity is open.
-                    </p>
-                    <button 
-                      onClick={() => setIsCalOpen(true)}
-                      className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group"
-                    >
-                      <span>Schedule Meeting</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <div className="w-16 h-16 rounded-xl bg-[#14213D]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#14213D]/20 transition-colors">
+                      {advantage.icon}
+                    </div>
+                    <h3 className="text-lg font-semibold text-[#14213D] mb-2">{advantage.title}</h3>
+                    <p className="text-gray-600 text-sm">{advantage.desc}</p>
                   </motion.div>
-                </div>
+                ))}
               </div>
-            </section>
+            </div>
+          </div>
+        </section>
 
-            {/* Footer */}
-            <footer className="bg-white text-[#1A1A1A] py-16 border-t border-gray-100">
-              <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-                  {/* Column 1 - Brand */}
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Strategic capital and investment partners architecting bespoke solutions for exceptional growth.
-                    </p>
-                  </div>
-
-                  {/* Column 2 - Services */}
-                  <div className="space-y-6">
-                    <h4 className="text-lg font-semibold font-montserrat">Services</h4>
-                    <ul className="space-y-4">
-                      <li>
-                        <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Strategic Advisory</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Growth Equity</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services/capital-formation" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Capital Formation</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Mergers & Acquisitions</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Column 3 - Quick Links */}
-                  <div className="space-y-6">
-                    <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
-                    <ul className="space-y-4">
-                      <li>
-                        <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Home Page</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                          <span className="font-normal">Our Profile</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* Column 4 - Contact */}
-                  <div className="space-y-6">
-                    <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
-                    <Link 
-                      href="https://www.linkedin.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
-                    >
-                      <span className="font-normal">Connect on LinkedIn</span>
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Copyright */}
-                <div className="mt-16 text-center">
-                  <div className="text-sm text-gray-500 font-light">
-                    © {new Date().getFullYear()} Vector Summit. All rights reserved.
-                  </div>
-                </div>
+        {/* BENEFITS SECTION - Updated */}
+        <section className="py-24 bg-gray-50 border-b border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
+              {/* For Buyers */}
+              <div>
+                <h3 className="text-2xl font-bold text-[#14213D] mb-6">Why Buyers Choose Us</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Access to exclusive, off-market opportunities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Pre-qualified matches based on your criteria</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Faster deal flow through advanced technology</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Communication support throughout introduction process</span>
+                  </li>
+                </ul>
               </div>
-            </footer>
-
-            {showVideo && (
-              <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-                <div className="bg-white p-4 rounded-lg w-full max-w-4xl">
-                  <div className="relative" style={{ paddingBottom: '75%' }}> {/* Changed from 16:9 to 4:3 ratio */}
-                    <iframe
-                      src="https://www.loom.com/embed/70adfb2aae414173a2d1e3fece1e8a9b?sid=a51bf21b-d963-47f2-86c3-69af48c87430"
-                      frameBorder="0"
-                      allow="autoplay; encrypted-media"
-                      allowFullScreen
-                      className="absolute inset-0 w-full h-full"
-                    ></iframe>
-                  </div>
-                  <button
-                    onClick={() => setShowVideo(false)}
-                    className="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto"
-                  >
-                    Close Video
-                  </button>
-                </div>
+              {/* For Sellers */}
+              <div>
+                <h3 className="text-2xl font-bold text-[#14213D] mb-6">Why Sellers Trust Us</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>No cost to sellers - completely free service</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Access to qualified, motivated buyers</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Confidential matching process</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
+                    <span>Ongoing communication support</span>
+                  </li>
+                </ul>
               </div>
-            )}
+            </div>
+          </div>
+        </section>
 
-            <CalEmbed 
-              isOpen={isCalOpen}
-              onClose={() => setIsCalOpen(false)}
+        {/* CTA SECTION */}
+        <section className="relative py-32 w-[100vw] -ml-[50vw] left-[50%] bg-[#14213D]">
+          <div className="absolute inset-0">
+            <Image
+              src="/River Near Mountains.jpg"
+              alt="Mountains"
+              fill
+              className="object-cover"
+              priority
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
+          </div>
+          <div className="relative z-10">
+            <div className="max-w-4xl mx-auto text-center px-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-8"
+              >
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
+                  Ready for Exclusive Deal Flow?
+                </h2>
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                  Schedule a confidential call to access our latest opportunities and see how we can help you achieve your investment goals.
+                </p>
+                <CalButton className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group">
+                  <span>Schedule Meeting</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </CalButton>
+              </motion.div>
+            </div>
           </div>
         </section>
+
+        {/* SELLER MODAL FORM */}
+        {showSellerForm && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+            <div className="bg-white rounded-xl p-8 max-w-lg w-full relative">
+              <button
+                className="absolute top-4 right-4 text-gray-400 hover:text-[#14213D]"
+                onClick={() => setShowSellerForm(false)}
+              >
+                &times;
+              </button>
+              <h3 className="text-2xl font-bold text-[#14213D] mb-4">Submit Your Business</h3>
+              <p className="text-gray-600 mb-6">Share your details and our team will reach out for a confidential discussion.</p>
+              <form className="space-y-4">
+                <input type="text" placeholder="Your Name" className="w-full border border-gray-200 rounded-lg px-4 py-3" />
+                <input type="email" placeholder="Your Email" className="w-full border border-gray-200 rounded-lg px-4 py-3" />
+                <input type="text" placeholder="Company Name" className="w-full border border-gray-200 rounded-lg px-4 py-3" />
+                <input type="text" placeholder="Industry" className="w-full border border-gray-200 rounded-lg px-4 py-3" />
+                <textarea placeholder="Tell us about your business" className="w-full border border-gray-200 rounded-lg px-4 py-3" rows={3}></textarea>
+                <button type="submit" className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-6 py-3 rounded-lg font-montserrat tracking-wider text-lg transition-colors w-full">Submit</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* FOOTER */}
+        <footer className="bg-white text-[#1A1A1A] py-16 border-t border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+              {/* Column 1 - Brand */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Private equity deal flow and investment partners architecting bespoke solutions for exceptional growth.
+                </p>
+              </div>
+              {/* Column 3 - Quick Links */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <Link href="/" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      <span className="font-normal">Home Page</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about" className="text-gray-600 hover:text-[#14213D] transition-colors">
+                      <span className="font-normal">Our Profile</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              {/* Column 4 - Contact */}
+              <div className="space-y-6">
+                <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
+                <Link
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
+                >
+                  <span className="font-normal">Connect on LinkedIn</span>
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            {/* Copyright */}
+            <div className="mt-16 text-center">
+              <div className="text-sm text-gray-500 font-light">
+                © {new Date().getFullYear()} Vector Summit. All rights reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        {showVideo && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div className="bg-white p-4 rounded-lg w-full max-w-4xl">
+              <div className="relative" style={{ paddingBottom: '75%' }}> {/* Changed from 16:9 to 4:3 ratio */}
+                <iframe
+                  src="https://www.loom.com/embed/70adfb2aae414173a2d1e3fece1e8a9b?sid=a51bf21b-d963-47f2-86c3-69af48c87430"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
+              </div>
+              <button
+                onClick={() => setShowVideo(false)}
+                className="mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors w-full sm:w-auto"
+              >
+                Close Video
+              </button>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   )

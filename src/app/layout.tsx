@@ -52,6 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#14213D" />
+        <script type="text/javascript" src="https://embed.cal.com/embed.js" async></script>
       </head>
       <body className="antialiased">{children}</body>
     </html>

@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import ServicesDropdown from './ServicesDropdown';
-import CalEmbed from '../CalEmbed';
 import { motion } from 'framer-motion';
+import CalButton from './CalButton';
 
 interface NavigationProps {
   currentPath: string;
@@ -34,16 +34,13 @@ export default function Navigation({ currentPath }: NavigationProps) {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center space-x-8">
-        <ServicesDropdown currentPath={currentPath} />
+        {/* <ServicesDropdown currentPath={currentPath} /> */}
         <Link href="/about" className={linkStyle('/about')}>
           Our Profile
         </Link>
-        <button
-          onClick={() => setIsCalOpen(true)}
-          className="text-gray-300 hover:text-white text-base font-normal leading-tight font-montserrat tracking-wider transition-colors"
-        >
+        <CalButton className="text-white hover:text-gray-300 transition-colors font-light">
           Schedule Meeting
-        </button>
+        </CalButton>
       </nav>
 
       {/* Full Screen Mobile Menu */}
@@ -108,15 +105,9 @@ export default function Navigation({ currentPath }: NavigationProps) {
               </Link>
 
               {/* Schedule Meeting Button */}
-              <button
-                onClick={() => {
-                  setIsCalOpen(true);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left"
-              >
+              <CalButton className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left">
                 Schedule Meeting
-              </button>
+              </CalButton>
             </div>
 
             {/* Bottom Section */}
@@ -129,12 +120,6 @@ export default function Navigation({ currentPath }: NavigationProps) {
           </div>
         )}
       </motion.div>
-
-      {/* Calendar Modal */}
-      <CalEmbed 
-        isOpen={isCalOpen}
-        onClose={() => setIsCalOpen(false)}
-      />
     </>
   );
 } 

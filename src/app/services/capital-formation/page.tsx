@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { Check, Menu, Building, Target, Network, Users, DollarSign, TrendingUp, ArrowUpRight, ArrowRight, ChevronDown, Shield, Briefcase, User, Rocket, ArrowDown, Link2 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
 import Footer from '../../../components/ui/Footer';
-import CalEmbed from '../../../components/CalEmbed';
 
 export default function CapitalFormation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, Briefcase, TrendingUp, ArrowUpRight, FileText, PieChart, Link2 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
-import CalEmbed from '../../../components/CalEmbed';
 import Footer from '../../../components/ui/Footer';
 
 export default function MergersAcquisitions() {
@@ -478,11 +477,6 @@ export default function MergersAcquisitions() {
       </main>
 
       <Footer />
-
-      <CalEmbed 
-        isOpen={isCalOpen}
-        onClose={() => setIsCalOpen(false)}
-      />
 
       {/* Update scroll indicator */}
       <motion.div 

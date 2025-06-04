@@ -14,33 +14,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Column 2 - Services */}
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold font-montserrat">Services</h4>
-            <ul className="space-y-4">
-              <li>
-                <Link href="/services/strategic-advisory" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Strategic Advisory
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/growth-equity" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Growth Equity
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/capital-formation" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Capital Formation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/mergers-acquisitions" className="text-gray-600 hover:text-[#14213D] transition-colors">
-                  Mergers & Acquisitions
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Column 3 - Quick Links */}
           <div className="space-y-6">
             <h4 className="text-lg font-semibold font-montserrat">Quick Links</h4>

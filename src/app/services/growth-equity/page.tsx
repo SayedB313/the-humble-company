@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Building, Target, Network, Users, DollarSign, TrendingUp, FileText, PieChart, Briefcase, ArrowUpRight, CheckCircle2, Lightbulb, Shield, BarChart2, Rocket } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
-import CalEmbed from '../../../components/CalEmbed';
 import Footer from '../../../components/ui/Footer';
 
 export default function EquityInvestment() {
@@ -545,11 +544,6 @@ export default function EquityInvestment() {
       </main>
 
       <Footer />
-
-      <CalEmbed 
-        isOpen={isCalOpen}
-        onClose={() => setIsCalOpen(false)}
-      />
     </div>
   );
 } 

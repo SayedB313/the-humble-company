@@ -23,7 +23,6 @@ import {
   Building
 } from "lucide-react";
 import Navigation from '../../../components/ui/Navigation';
-import CalEmbed from '../../../components/CalEmbed';
 import Footer from '../../../components/ui/Footer';
 
 const StrategicAdvisoryComponent = () => {
@@ -636,11 +635,6 @@ const StrategicAdvisoryComponent = () => {
 
         <Footer />
       </main>
-
-      <CalEmbed 
-        isOpen={isCalOpen}
-        onClose={() => setIsCalOpen(false)}
-      />
     </div>
   );
 };
