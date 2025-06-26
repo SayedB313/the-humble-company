@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/card"
-import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight, X, Award, Shield, AlertTriangle, ArrowDown } from "lucide-react"
+import { Mail, ArrowRight, Check, Star, Users, BarChart, Zap, Clock, TrendingUp, ChevronLeft, ChevronRight, Calendar, UserX, PieChart, DollarSign, Menu, Lightbulb, Phone, Cog, ChevronDown, Target, Wand2, PhoneCall, Play, Plus, Book, Building, Network, BarChart2, ArrowLeftRight, Globe, Cpu, ArrowUpRight, X, Award, Shield, AlertTriangle, ArrowDown, Megaphone, Briefcase, Landmark, Heart } from "lucide-react"
 import Image from 'next/image'
 import Link from "next/link"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
@@ -355,7 +355,7 @@ const MainComponent = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
-              Vector Summit
+              The Humble Company
             </span>
           </Link>
 
@@ -390,95 +390,61 @@ const MainComponent = () => {
           </div>
 
           <div className="container mx-auto px-8 relative z-10">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center pt-32 md:pt-40">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-5xl md:text-8xl lg:text-9xl font-light font-montserrat tracking-wider text-white mb-8">
-                  VECTOR
-                  <span className="block mt-2">
-                    SUMMIT
-                  </span>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-montserrat tracking-wider text-white mb-8">
+                  Empowering Government Relations Firms to Win Elite Clients
                 </h1>
-                
-                <div className="h-3 w-36 bg-[#14213D] mb-12"></div>
-                
-                <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
-                  <span className="block mb-2 font-semibold">Off Market Deal Flow</span>
-                  <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold mb-8">
-                    Exclusive opportunities. Boutique advisory. Advanced matching.
-                  </span>
+                <p className="text-lg md:text-2xl text-gray-200 mb-8">
+                  Advisors. Growth Partners. Your edge in the world of government relations.
                 </p>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.7 }}
-                  className="flex items-center space-x-4 text-white hover:text-[#14213D] transition-colors cursor-pointer"
-                  onClick={() => {
-                    const nextSection = document.querySelector('section:nth-of-type(2)');
-                    nextSection?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                    <ChevronDown className="w-6 h-6" />
-                  </div>
-                  <span className="text-sm uppercase tracking-wider font-bold">Learn More</span>
-                </motion.div>
+                <div className="h-1 w-24 bg-[#14213D] mx-auto mb-10"></div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* WHAT WE DO SECTION */}
-        <section className="py-24 bg-white border-b border-gray-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-light font-montserrat tracking-wider text-[#14213D] mb-6">
-                  What We Do
-                </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  We connect qualified buyers with business owners ready to sell through our advanced matching platform and proprietary network.
-                </p>
+        {/* PAIN POINTS SECTION (Elegant, Compact) */}
+        <section className="bg-white max-w-3xl mx-auto rounded-xl shadow-sm py-12 px-4 md:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#14213D] text-center mb-8">The Real Challenges Facing GR Firms</h2>
+          <div className="flex flex-col divide-y divide-gray-100">
+            <div className="flex items-center gap-4 py-4 px-2 hover:shadow-md transition-shadow rounded-lg">
+              <span className="w-8 h-8 text-[#14213D]/60 flex-shrink-0 flex items-center justify-center"><Target className="w-8 h-8" /></span>
+              <div>
+                <div className="font-semibold text-[#14213D] text-base md:text-lg">Dependence on referrals</div>
+                <div className="text-gray-700 text-sm md:text-base">creates inconsistent pipelines and limits access to high-value clients.</div>
               </div>
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-[#14213D] mb-4">Advanced Matching Process</h3>
-                  <p className="text-gray-600 mb-6">
-                    Using AI-powered systems and proprietary technology, we identify and connect the right opportunities based on your specific criteria.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                      <div>
-                        <span className="font-semibold text-[#14213D]">For Buyers:</span>
-                        <span className="text-gray-600"> Get matched with businesses that meet your EBITDA, industry, and operational criteria</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                      <div>
-                        <span className="font-semibold text-[#14213D]">For Sellers:</span>
-                        <span className="text-gray-600"> Connect with qualified, motivated buyers at no cost</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                      <div>
-                        <span className="font-semibold text-[#14213D]">Off-Market Access:</span>
-                        <span className="text-gray-600"> Exclusive opportunities not available through traditional channels</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center justify-center">
-                  <div className="w-64 h-64 rounded-full bg-[#14213D]/5 flex items-center justify-center">
-                    <Network className="w-32 h-32 text-[#14213D]/30" />
-                  </div>
-                </div>
+            </div>
+            <div className="flex items-center gap-4 py-4 px-2 hover:shadow-md transition-shadow rounded-lg">
+              <span className="w-8 h-8 text-[#14213D]/60 flex-shrink-0 flex items-center justify-center"><Star className="w-8 h-8" /></span>
+              <div>
+                <div className="font-semibold text-[#14213D] text-base md:text-lg">Standing out in crowded RFPs</div>
+                <div className="text-gray-700 text-sm md:text-base">where every firm claims to offer the same value.</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 py-4 px-2 hover:shadow-md transition-shadow rounded-lg">
+              <span className="w-8 h-8 text-[#14213D]/60 flex-shrink-0 flex items-center justify-center"><Shield className="w-8 h-8" /></span>
+              <div>
+                <div className="font-semibold text-[#14213D] text-base md:text-lg">Protecting reputation</div>
+                <div className="text-gray-700 text-sm md:text-base">in a world where one misstep can cost millions in lost trust.</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 py-4 px-2 hover:shadow-md transition-shadow rounded-lg">
+              <span className="w-8 h-8 text-[#14213D]/60 flex-shrink-0 flex items-center justify-center"><AlertTriangle className="w-8 h-8" /></span>
+              <div>
+                <div className="font-semibold text-[#14213D] text-base md:text-lg">Driving new business</div>
+                <div className="text-gray-700 text-sm md:text-base">in a market where access to key decision-makers is increasingly restricted.</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 py-4 px-2 hover:shadow-md transition-shadow rounded-lg">
+              <span className="w-8 h-8 text-[#14213D]/60 flex-shrink-0 flex items-center justify-center"><Users className="w-8 h-8" /></span>
+              <div>
+                <div className="font-semibold text-[#14213D] text-base md:text-lg">Building lasting relationships</div>
+                <div className="text-gray-700 text-sm md:text-base">with public sector and corporate leaders who are inundated with pitches.</div>
               </div>
             </div>
           </div>
@@ -496,27 +462,25 @@ const MainComponent = () => {
                   <div className="h-[1px] w-8 bg-[#14213D]"></div>
                 </div>
                 <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#14213D] tracking-wide mb-6">
-                  Connecting Private Equity
-                  <br />
-                  Buyers & Sellers
+                  Connecting GR Firms
                 </h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  We connect leading private equity buyers with business owners and sellers, enabling seamless, confidential transactions.
+                  We connect leading GR firms with major corporate, public sector, and association clients, enabling seamless, confidential transactions.
                 </p>
               </div>
 
-              {/* Buyers Section */}
+              {/* Who We Help Section */}
               <div className="mb-32">
                 <div className="text-center mb-16">
-                  <h3 className="text-2xl font-medium text-[#14213D] mb-4">Buyers</h3>
+                  <h3 className="text-2xl font-medium text-[#14213D] mb-4">Who We Help</h3>
                   <div className="h-[2px] w-24 bg-[#14213D] mx-auto"></div>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                   {[
-                    { title: "Private Equity", icon: <Building className="w-6 h-6" /> },
-                    { title: "Family Offices", icon: <Users className="w-6 h-6" /> },
-                    { title: "Institutional Investors", icon: <DollarSign className="w-6 h-6" /> },
-                    { title: "Strategic Buyers", icon: <Network className="w-6 h-6" /> }
+                    { title: "Government Relations Firms", icon: <Building className="w-6 h-6" /> },
+                    { title: "Advocacy Groups", icon: <Users className="w-6 h-6" /> },
+                    { title: "Public Relations Agencies", icon: <Megaphone className="w-6 h-6" /> },
+                    { title: "Lobbying Firms", icon: <Briefcase className="w-6 h-6" /> }
                   ].map((type, index) => (
                     <motion.div
                       key={type.title}
@@ -542,17 +506,17 @@ const MainComponent = () => {
                 </div>
               </div>
 
-              {/* Sellers Section */}
+              {/* Who We Connect You With Section */}
               <div className="text-center mb-16">
-                <h3 className="text-2xl font-medium text-[#14213D] mb-4">Business Owners & Sellers</h3>
+                <h3 className="text-2xl font-medium text-[#14213D] mb-4">Who We Connect You With</h3>
                 <div className="h-[2px] w-24 bg-blue-400 mx-auto"></div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16 max-w-6xl mx-auto">
                 {[
-                  { title: "Founder-Owned Businesses", icon: <Users className="w-7 h-7" /> },
-                  { title: "Family Businesses", icon: <Building className="w-7 h-7" /> },
-                  { title: "Corporate Divestitures", icon: <ArrowLeftRight className="w-7 h-7" /> },
-                  { title: "Management Teams", icon: <TrendingUp className="w-7 h-7" /> }
+                  { title: "Associations & Trade Groups", icon: <Network className="w-7 h-7" /> },
+                  { title: "Fortune 500 Companies", icon: <Globe className="w-7 h-7" /> },
+                  { title: "Public Sector Organizations", icon: <Landmark className="w-7 h-7" /> },
+                  { title: "Nonprofits & Foundations", icon: <Heart className="w-7 h-7" /> }
                 ].map((type, index) => (
                   <motion.div
                     key={type.title}
@@ -582,7 +546,7 @@ const MainComponent = () => {
                 How Our Matching Works
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                A streamlined 3-step process to connect the right buyers and sellers.
+                A streamlined 3-step process to connect the right GR firms and clients.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -590,17 +554,17 @@ const MainComponent = () => {
                 {
                   icon: <Target className="w-8 h-8 text-[#14213D]" />,
                   title: "Define Criteria",
-                  desc: "Buyers specify their investment parameters: EBITDA range, industry focus, business characteristics."
+                  desc: "GR firms outline their ideal client profile—sector, geography, influence needs, and advocacy goals."
                 },
                 {
                   icon: <Network className="w-8 h-8 text-[#14213D]" />,
                   title: "Find Matches",
-                  desc: "Our AI and proprietary systems identify businesses that meet your criteria from our extensive network."
+                  desc: "We leverage proprietary data and industry insight to identify organizations and associations that align with your strengths."
                 },
                 {
                   icon: <ArrowLeftRight className="w-8 h-8 text-[#14213D]" />,
                   title: "Make Connections",
-                  desc: "We facilitate introductions and provide communication support to ensure smooth initial interactions."
+                  desc: "We facilitate warm introductions and strategic conversations with decision-makers who matter most."
                 }
               ].map((step, i) => (
                 <div key={i} className="bg-white rounded-xl p-8 shadow-sm border border-[#14213D]/10 flex flex-col items-center text-center">
@@ -615,144 +579,84 @@ const MainComponent = () => {
           </div>
         </section>
 
-        {/* OUR TECHNOLOGY ADVANTAGE SECTION */}
-        <section className="py-24 bg-white border-b border-gray-100">
+        {/* Our Technology Advantage Section */}
+        <section className="py-24">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-light font-montserrat tracking-wider text-[#14213D] mb-4">
-                  Our Technology Advantage
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Advanced systems and proprietary technology that deliver faster, more accurate matches.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    icon: <Cpu className="w-8 h-8 text-[#14213D]" />,
-                    title: "AI-Powered Matching",
-                    desc: "Machine learning algorithms that improve match quality over time."
-                  },
-                  {
-                    icon: <Globe className="w-8 h-8 text-[#14213D]" />,
-                    title: "Web Scraping Technology",
-                    desc: "Automated systems that continuously identify new opportunities."
-                  },
-                  {
-                    icon: <Shield className="w-8 h-8 text-[#14213D]" />,
-                    title: "Proprietary Database",
-                    desc: "Exclusive access to off-market businesses and qualified buyers."
-                  },
-                  {
-                    icon: <Zap className="w-8 h-8 text-[#14213D]" />,
-                    title: "Rapid Execution",
-                    desc: "Technology-enabled speed that secures deals before competition."
-                  }
-                ].map((advantage, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="text-center group"
-                  >
-                    <div className="w-16 h-16 rounded-xl bg-[#14213D]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#14213D]/20 transition-colors">
-                      {advantage.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-[#14213D] mb-2">{advantage.title}</h3>
-                    <p className="text-gray-600 text-sm">{advantage.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#14213D] text-center mb-4">Our Technology Advantage</h2>
+            <p className="text-lg text-gray-500 text-center mb-16 max-w-2xl mx-auto">Advanced systems and proprietary technology that deliver faster, more accurate matches for government relations firms.</p>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
+              {[
+                {
+                  icon: <Cpu className="w-8 h-8 text-[#14213D]" />,
+                  title: "AI-Powered Matching",
+                  desc: "Advanced algorithms that pair GR firms with organizations seeking advocacy, influence, or public affairs expertise."
+                },
+                {
+                  icon: <Globe className="w-8 h-8 text-[#14213D]" />,
+                  title: "Intelligent Opportunity Discovery",
+                  desc: "Automated systems that surface new legislative, regulatory, and partnership opportunities as they emerge."
+                },
+                {
+                  icon: <Shield className="w-8 h-8 text-[#14213D]" />,
+                  title: "Proprietary GR Network",
+                  desc: "Exclusive access to a curated database of associations, corporations, and public sector leaders."
+                },
+                {
+                  icon: <Zap className="w-8 h-8 text-[#14213D]" />,
+                  title: "Swift, Secure Introductions",
+                  desc: "Technology-enabled speed and discretion to connect you with decision-makers before your competitors."
+                }
+              ].map((advantage, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-center group"
+                >
+                  <div className="w-16 h-16 rounded-xl bg-[#14213D]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#14213D]/20 transition-colors">
+                    {advantage.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-[#14213D] mb-2">{advantage.title}</h3>
+                  <p className="text-gray-600 text-sm">{advantage.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* BENEFITS SECTION - Updated */}
-        <section className="py-24 bg-gray-50 border-b border-gray-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
-              {/* For Buyers */}
-              <div>
-                <h3 className="text-2xl font-bold text-[#14213D] mb-6">Why Buyers Choose Us</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Access to exclusive, off-market opportunities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Pre-qualified matches based on your criteria</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Faster deal flow through advanced technology</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Communication support throughout introduction process</span>
-                  </li>
-                </ul>
-              </div>
-              {/* For Sellers */}
-              <div>
-                <h3 className="text-2xl font-bold text-[#14213D] mb-6">Why Sellers Trust Us</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>No cost to sellers - completely free service</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Access to qualified, motivated buyers</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Confidential matching process</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-[#14213D] mt-1" />
-                    <span>Ongoing communication support</span>
-                  </li>
-                </ul>
-              </div>
+        {/* WHY GR FIRMS CHOOSE US SECTION (Redesigned) */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto max-w-2xl px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#14213D] mb-4">Why GR Firms Choose Us</h2>
+            <div className="text-lg md:text-xl text-[#14213D] font-semibold mb-4">
+              The Only Full-Service Growth Partner Agency Exclusively for Government Relations Firms
             </div>
+            <p className="text-gray-600 text-base md:text-lg mb-10">
+              We handle every aspect of business development so you can focus on advocacy and client service. Our team specializes in GTM strategy, lead generation, outbound, sales development, and technology implementation—exclusively for GR firms.
+            </p>
+            <ul className="space-y-6 text-left inline-block mx-auto">
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />End-to-end business development, tailored for GR</li>
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />GTM strategy and execution</li>
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />Lead generation and outbound campaigns</li>
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />Sales development and pipeline management</li>
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />Technology implementation for growth</li>
+              <li className="flex items-start gap-3"><ArrowRight className="w-6 h-6 mt-1 text-[#14213D]" />Deep industry expertise—GR is all we do</li>
+            </ul>
           </div>
         </section>
 
         {/* CTA SECTION */}
-        <section className="relative py-32 w-[100vw] -ml-[50vw] left-[50%] bg-[#14213D]">
-          <div className="absolute inset-0">
-            <Image
-              src="/River Near Mountains.jpg"
-              alt="Mountains"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40"></div>
-          </div>
-          <div className="relative z-10">
-            <div className="max-w-4xl mx-auto text-center px-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-8"
-              >
-                <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
-                  Ready for Exclusive Deal Flow?
-                </h2>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-                  Schedule a confidential call to access our latest opportunities and see how we can help you achieve your investment goals.
-                </p>
-                <CalButton className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group">
-                  <span>Schedule Meeting</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </CalButton>
-              </motion.div>
-            </div>
+        <section className="py-24 bg-[#14213D]">
+          <div className="container mx-auto max-w-2xl px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Accelerate Your GR Firm's Growth?</h2>
+            <p className="text-lg md:text-xl text-gray-200 mb-10">
+              Schedule a confidential call to discover exclusive opportunities and see how The Humble Company can drive your business development success.
+            </p>
+            <CalButton className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group">
+              <span>Schedule Meeting</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </CalButton>
           </div>
         </section>
 
@@ -786,9 +690,9 @@ const MainComponent = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
               {/* Column 1 - Brand */}
               <div className="space-y-6">
-                <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
+                <h3 className="text-2xl font-light font-montserrat tracking-wider">The Humble Company</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Private equity deal flow and investment partners architecting bespoke solutions for exceptional growth.
+                  Government relations deal flow and investment partners architecting bespoke solutions for exceptional growth.
                 </p>
               </div>
               {/* Column 3 - Quick Links */}
@@ -824,7 +728,7 @@ const MainComponent = () => {
             {/* Copyright */}
             <div className="mt-16 text-center">
               <div className="text-sm text-gray-500 font-light">
-                © {new Date().getFullYear()} Vector Summit. All rights reserved.
+                © {new Date().getFullYear()} The Humble Company. All rights reserved.
               </div>
             </div>
           </div>
