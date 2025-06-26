@@ -65,37 +65,15 @@ export default function Navigation({ currentPath }: NavigationProps) {
 
             {/* Menu Items */}
             <div className="flex flex-col space-y-8 mt-20">
-              {/* Services Links */}
+              {/* Home Link */}
               <Link 
-                href="/services/strategic-advisory" 
+                href="/" 
                 className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Strategic Advisory
+                Home
               </Link>
-              <Link 
-                href="/services/growth-equity" 
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Growth Equity
-              </Link>
-              <Link 
-                href="/services/capital-formation" 
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Capital Formation
-              </Link>
-              <Link 
-                href="/services/mergers-acquisitions" 
-                className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Mergers & Acquisitions
-              </Link>
-
-              {/* Other Links */}
+              {/* Our Profile Link */}
               <Link 
                 href="/about" 
                 className="text-2xl text-white hover:text-gray-300 transition-colors font-light"
@@ -103,7 +81,6 @@ export default function Navigation({ currentPath }: NavigationProps) {
               >
                 Our Profile
               </Link>
-
               {/* Schedule Meeting Button */}
               <CalButton className="text-2xl text-white hover:text-gray-300 transition-colors font-light text-left">
                 Schedule Meeting

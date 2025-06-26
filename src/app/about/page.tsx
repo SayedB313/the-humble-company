@@ -60,7 +60,7 @@ export default function AboutUs() {
       image: "/sayed-profile.jpg",
       name: "Sayed B Wayzi",
       title: "Managing Partner",
-      shortDescription: "Strategic Advisor To Decision Makers",
+      shortDescription: "Growth Architect",
       fullBio: "Sayed brings extensive expertise in strategic growth advisory and capital formation. His approach combines sophisticated market intelligence with tactical execution to drive transformative outcomes. Specializes in architecting bespoke solutions for complex business challenges.",
       expertise: [
         "Strategic Growth Advisory",
@@ -145,7 +145,7 @@ export default function AboutUs() {
         <div className="container mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <span className="text-3xl sm:text-3xl md:text-2xl font-light font-montserrat tracking-wider text-white">
-              Vector Summit
+              The Humble Company
             </span>
           </Link>
           <Navigation currentPath="/about" />
@@ -200,7 +200,7 @@ export default function AboutUs() {
                 
                 <p className="text-lg sm:text-xl md:text-2xl font-light font-montserrat tracking-wider text-gray-300 mb-8 max-w-4xl">
                   <span className="block text-base sm:text-lg md:text-xl opacity-80 font-semibold text-white">
-                    Revealing opportunity by connecting the right people, data, and vision.
+                    Empowering GR firms to win clients and drive results.
                   </span>
                 </p>
 
@@ -233,19 +233,19 @@ export default function AboutUs() {
                 {[
                   { 
                     title: "Connectors", 
-                    description: "A team renowned for strategic vision and analytical depth" 
+                    description: "Direct access to key decision-makers." 
                   },
                   { 
                     title: "Strategic Vision", 
-                    description: "Value-aligned partnerships for growth" 
+                    description: "Stand out and secure mandates." 
                   },
                   { 
                     title: "Expertise", 
-                    description: "Deep sector and transaction experience" 
+                    description: "Advocacy and public affairs specialists." 
                   },
                   { 
                     title: "Integrity", 
-                    description: "Transparent, ethical, and results-driven" 
+                    description: "Trusted by leading GR agencies." 
                   }
                 ].map((highlight, index) => (
                   <motion.div
@@ -271,24 +271,24 @@ export default function AboutUs() {
         {/* Leadership & Advisory Section */}
         <section className="py-32 bg-white border-t border-gray-100 scroll-mt-86" id="leadership-team">
           <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-5xl mx-auto flex flex-col items-center">
               {/* Leadership Team */}
-              <div className="mb-20">
-                <div className="mb-16 max-w-3xl">
-                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6">
+              <div className="mb-20 w-full flex flex-col items-center">
+                <div className="mb-16 max-w-3xl w-full flex flex-col items-center">
+                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-[#1A1A1A] mb-6 text-center">
                     Leadership Team
                   </h2>
-                  <div className="h-[1px] w-full bg-[#14213D] opacity-20"></div>
+                  <div className="h-[1px] w-full max-w-xl bg-[#14213D] opacity-20 mx-auto"></div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="flex flex-col md:flex-row md:justify-center md:items-stretch md:space-x-8 space-y-8 md:space-y-0 w-full">
                   {teamMembers.map((member, index) => (
                     <motion.div
                       key={member.name}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.2 }}
-                      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D] cursor-pointer"
+                      className="flex-1 bg-white rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-[#14213D] cursor-pointer flex flex-col items-center h-full"
                       onClick={() => setSelectedTeamMember(member)}
                     >
                       <div className="flex flex-col items-center text-center mb-4">
@@ -304,11 +304,9 @@ export default function AboutUs() {
                         <p className="text-[#14213D] font-medium mb-2">{member.title}</p>
                         <div className="h-[2px] w-12 bg-[#14213D] opacity-20 mb-2"></div>
                       </div>
-                      
                       <p className="text-gray-600 text-sm mb-4 text-center">
-                        {member.shortDescription}
+                        {member.name === 'Sayed B Wayzi' ? 'Growth Architect' : member.shortDescription}
                       </p>
-                      
                       <div className="flex items-center justify-center text-[#14213D] hover:text-[#1C2E56] transition-colors group">
                         <span className="font-medium text-sm">View Profile</span>
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -317,6 +315,14 @@ export default function AboutUs() {
                   ))}
                 </div>
               </div>
+
+              {/* Case Studies Section */}
+              <section className="mt-24 text-center max-w-2xl mx-auto">
+                <h3 className="text-2xl md:text-3xl font-semibold text-[#14213D] mb-4">Discover Our Impact</h3>
+                <p className="text-gray-700 text-base md:text-lg mb-8">
+                  Due to the confidential nature of our work and the trust our clients place in us, we do not publicly share detailed case studies. If you'd like to learn more about our results and approach, please schedule a confidential call or get in touch. We're happy to share relevant examples and insights tailored to your interests.
+                </p>
+              </section>
 
               {/* Advisors Section */}
               {false && (
@@ -442,13 +448,13 @@ export default function AboutUs() {
               className="space-y-8"
             >
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-light font-montserrat tracking-wider text-white">
-                Ready for Exclusive Deal Flow?
+                Ready to Grow Your GR Firm?
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-                Schedule a confidential call to access our latest opportunities and see how we can help you achieve your investment goals.
+                Discover exclusive opportunities and proven strategies for high-value client acquisition.
               </p>
               <CalButton className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group">
-                <span>Schedule Meeting</span>
+                <span>Schedule a Confidential Call</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </CalButton>
             </motion.div>
@@ -462,9 +468,9 @@ export default function AboutUs() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             {/* Column 1 - Brand */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-light font-montserrat tracking-wider">Vector Summit</h3>
+              <h3 className="text-2xl font-light font-montserrat tracking-wider">The Humble Company</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Strategic capital and investment partners architecting bespoke solutions for exceptional growth.
+                Empowering government relations firms with bespoke growth solutions and unmatched deal flow.
               </p>
             </div>
 
@@ -489,7 +495,7 @@ export default function AboutUs() {
             <div className="space-y-6">
               <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
               <Link 
-                href="https://www.linkedin.com" 
+                href="https://www.linkedin.com/company/the-humble-company/posts/?feedView=all" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
@@ -503,7 +509,7 @@ export default function AboutUs() {
           {/* Copyright */}
           <div className="mt-16 text-center">
             <div className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Vector Summit. All rights reserved.
+              © {new Date().getFullYear()} The Humble Company. All rights reserved.
             </div>
           </div>
         </div>

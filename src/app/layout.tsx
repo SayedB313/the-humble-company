@@ -11,8 +11,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Vector Summit | Strategic Growth & Investment Advisory',
-  description: 'Elite strategic advisory firm specializing in growth capital, strategic partnerships, and value creation. Enabling businesses to scale through tailored financial solutions and strategic guidance.',
+  title: 'The Humble Company | Government Relations Growth & Client Acquisition',
+  description: 'The Humble Company empowers government relations (GR) firms to accelerate growth, win high-value clients, and stand out in a competitive landscape. Full-service business development and exclusive opportunity matching for GR agencies.',
   keywords: 'strategic advisory, growth capital, equity raising, strategic partnerships, joint ventures, minority recapitalization, market expansion, business transformation, investment advisory',
   manifest: '/manifest.json',
   icons: {

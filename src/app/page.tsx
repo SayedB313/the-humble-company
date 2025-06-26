@@ -649,12 +649,12 @@ const MainComponent = () => {
         {/* CTA SECTION */}
         <section className="py-24 bg-[#14213D]">
           <div className="container mx-auto max-w-2xl px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Accelerate Your GR Firm's Growth?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Grow Your GR Firm?</h2>
             <p className="text-lg md:text-xl text-gray-200 mb-10">
-              Schedule a confidential call to discover exclusive opportunities and see how The Humble Company can drive your business development success.
+              Discover exclusive opportunities and proven strategies for high-value client acquisition.
             </p>
             <CalButton className="bg-[#14213D] hover:bg-[#1C2E56] text-white px-10 py-4 rounded-lg font-montserrat tracking-wider text-lg transition-colors inline-flex items-center gap-2 group">
-              <span>Schedule Meeting</span>
+              <span>Schedule a Confidential Call</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </CalButton>
           </div>
@@ -715,7 +715,7 @@ const MainComponent = () => {
               <div className="space-y-6">
                 <h4 className="text-lg font-semibold font-montserrat">Get in Touch</h4>
                 <Link
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/company/the-humble-company/posts/?feedView=all"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-[#14213D] transition-colors inline-flex items-center"
